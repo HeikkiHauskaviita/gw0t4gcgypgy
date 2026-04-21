@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="julkaistu" content="2026-04-21">
+<meta name="robots" content="noindex, nofollow">
+<title>Perheen viikkoruokalista</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0612;
+    --bg-2: #140a22;
+    --surface: #1a102a;
+    --surface-2: #22143a;
+    --ink: #ede4cc;
+    --ink-dim: #b8a885;
+    --muted: #7a6a4a;
+    --gold: #d4a94a;
+    --gold-bright: #f0c76a;
+    --gold-dim: #8a6f30;
+    --blood: #8b1e2b;
+    --blood-soft: rgba(139, 30, 43, 0.15);
+    --purple: #4a2b6e;
+    --purple-soft: rgba(74, 43, 110, 0.22);
+    --border: rgba(212, 169, 74, 0.22);
+    --border-strong: rgba(212, 169, 74, 0.5);
+    --shadow: 0 2px 10px rgba(0,0,0,0.6), 0 0 30px rgba(74, 43, 110, 0.18);
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background:
+      radial-gradient(ellipse at 18% -10%, rgba(74, 43, 110, 0.4), transparent 55%),
+      radial-gradient(ellipse at 82% 110%, rgba(139, 30, 43, 0.28), transparent 55%),
+      radial-gradient(ellipse at 50% 50%, rgba(26, 16, 42, 0.4), transparent 70%),
+      var(--bg);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', 'Garamond', 'Palatino Linotype', Palatino, Georgia, serif;
+    font-size: 17px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+  header {
+    background: linear-gradient(180deg, rgba(26,16,42,0.97), rgba(10,6,18,0.93));
+    border-bottom: 1px solid var(--border-strong);
+    padding: 24px 28px 20px;
+    position: sticky; top: 0; z-index: 10;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.55), inset 0 -1px 0 rgba(212,169,74,0.1);
+  }
+  header h1 {
+    margin: 0 0 18px 0;
+    font-family: 'Cinzel', 'Trajan Pro', Georgia, serif;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--gold);
+    text-shadow: 0 0 22px rgba(212, 169, 74, 0.35), 0 0 2px rgba(0,0,0,0.6);
+  }
+  header h1 .sigil {
+    color: var(--gold-dim);
+    margin: 0 18px;
+    font-size: 22px;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: normal;
+  }
+  .controls {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    align-items: center; justify-content: center;
+  }
+  .controls .spacer { flex: 1; }
+  .tab, .btn {
+    appearance: none;
+    border: 1px solid var(--border-strong);
+    background: transparent;
+    color: var(--ink-dim);
+    padding: 9px 20px;
+    border-radius: 1px;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  }
+  .tab:hover, .btn:hover {
+    color: var(--gold-bright);
+    border-color: var(--gold);
+    box-shadow: 0 0 14px rgba(212, 169, 74, 0.35);
+  }
+  .tab.active {
+    background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+    color: #1a0f00;
+    border-color: var(--gold);
+    font-weight: 600;
+    box-shadow: 0 0 18px rgba(212, 169, 74, 0.45);
+  }
+  .btn.ghost { border-color: transparent; color: var(--muted); }
+  .btn.ghost:hover {
+    color: #c78a90;
+    border-color: var(--blood);
+    box-shadow: 0 0 10px rgba(139, 30, 43, 0.4);
+  }
+
+  main { padding: 32px 28px 80px; max-width: 1200px; margin: 0 auto; }
+  section { display: none; }
+  section.active { display: block; }
+  section h2 {
+    margin: 0 0 10px 0;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    font-weight: 500;
+    text-align: center;
+  }
+  section h2::before, section h2::after {
+    content: "✦";
+    color: var(--gold-dim);
+    margin: 0 14px;
+    font-size: 9px;
+    vertical-align: middle;
+  }
+  .status {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px; color: var(--muted);
+    margin-left: auto;
+    min-width: 160px; text-align: right;
+  }
+
+  table.schedule {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: linear-gradient(180deg, var(--surface), var(--bg-2));
+    border: 1px solid var(--border-strong);
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: var(--shadow), inset 0 0 0 1px rgba(212, 169, 74, 0.06);
+    margin-top: 20px;
+  }
+  table.schedule th, table.schedule td {
+    padding: 14px 16px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    font-size: 14px;
+  }
+  table.schedule thead th {
+    background: linear-gradient(180deg, rgba(74,43,110,0.45), rgba(34,20,58,0.35));
+    text-align: center;
+    font-family: 'Cinzel', Georgia, serif;
+    font-weight: 600;
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 18px 12px;
+  }
+  table.schedule thead th .glyph {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 6px;
+    color: var(--gold-bright);
+    font-weight: normal;
+    text-shadow: 0 0 10px rgba(212, 169, 74, 0.4);
+  }
+  table.schedule tbody th {
+    width: 150px;
+    background: rgba(0,0,0,0.3);
+    text-align: center;
+    font-family: 'Cinzel', Georgia, serif;
+    font-weight: 500;
+    color: var(--gold-dim);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  table.schedule tbody th .glyph {
+    display: block;
+    font-size: 22px;
+    margin-bottom: 6px;
+    color: var(--gold);
+    text-shadow: 0 0 12px rgba(212, 169, 74, 0.35);
+  }
+  table.schedule tr:last-child th,
+  table.schedule tr:last-child td { border-bottom: none; }
+  table.schedule th:last-child,
+  table.schedule td:last-child { border-right: none; }
+
+  tr.lunch td { background: rgba(212, 169, 74, 0.03); }
+  tr.dinner td { background: var(--blood-soft); }
+  tr.snack td { background: rgba(212, 169, 74, 0.06); }
+  tr.evening td { background: var(--purple-soft); }
+
+  .cell {
+    outline: none;
+    min-height: 72px;
+    border-radius: 1px;
+    padding: 8px 10px;
+    margin: -8px -10px;
+    cursor: text;
+    white-space: pre-wrap;
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 15px;
+    transition: box-shadow 0.2s, background 0.2s;
+  }
+  .cell:hover { background: rgba(212, 169, 74, 0.04); }
+  .cell:focus {
+    background: rgba(0,0,0,0.35);
+    box-shadow: 0 0 0 1px var(--gold), 0 0 14px rgba(212, 169, 74, 0.25);
+  }
+  .cell strong {
+    display: block;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--gold-bright);
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+  .cell span.detail {
+    font-size: 14px;
+    color: var(--ink-dim);
+    font-style: italic;
+    line-height: 1.45;
+  }
+
+  /* Päivälliset-näkymä (koonti) */
+  .dinner-weeks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 18px;
+  }
+  .dinner-week {
+    background: linear-gradient(180deg, var(--surface), var(--bg-2));
+    border: 1px solid var(--border);
+    padding: 18px 20px 22px;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  .dinner-week::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.7;
+  }
+  .dinner-week h3 {
+    margin: 0 0 14px 0;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 13px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-weight: 600;
+    text-align: center;
+  }
+  .dinner-list { list-style: none; padding: 0; margin: 0; }
+  .dinner-list li {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 10px;
+    padding: 11px 0;
+    border-bottom: 1px dashed var(--border);
+    align-items: baseline;
+  }
+  .dinner-list li:last-child { border-bottom: none; }
+  .dinner-list .day {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    padding-top: 2px;
+  }
+  .dinner-list .dish strong {
+    display: block;
+    font-size: 17px;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+    margin-bottom: 2px;
+  }
+  .dinner-list .dish .detail {
+    font-size: 13px;
+    color: var(--ink-dim);
+    font-style: italic;
+    line-height: 1.4;
+  }
+  .dinner-list li.today { background: rgba(212, 169, 74, 0.06); border-left: 3px solid var(--gold); padding-left: 9px; }
+  p.meta {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    font-style: italic;
+    margin-top: 28px;
+    letter-spacing: 0.04em;
+  }
+
+  /* Shopping list */
+  .shopping-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+  }
+  .shop-card {
+    background: linear-gradient(180deg, var(--surface), var(--bg-2));
+    border: 1px solid var(--border);
+    border-radius: 0;
+    padding: 20px 22px;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  .shop-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.7;
+  }
+  .shop-card h3 {
+    margin: 0 0 12px 0;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 12px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    text-align: center;
+  }
+  .shop-list { list-style: none; padding: 0; margin: 0; }
+  .shop-list li {
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border);
+    display: flex; align-items: center; gap: 10px;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .shop-list li:last-child { border-bottom: none; }
+  .shop-list input[type="checkbox"] {
+    width: 15px; height: 15px; flex-shrink: 0;
+    accent-color: var(--gold);
+    cursor: pointer;
+  }
+  .shop-list .item {
+    flex: 1;
+    outline: none;
+    padding: 2px 4px;
+    border-radius: 1px;
+  }
+  .shop-list .item:focus { background: rgba(212, 169, 74, 0.08); }
+  .shop-list li.checked .item {
+    text-decoration: line-through;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .add-row { display: flex; gap: 6px; margin-top: 12px; }
+  .add-row input {
+    flex: 1; padding: 7px 10px; font-size: 14px;
+    background: rgba(0,0,0,0.35);
+    color: var(--ink);
+    border: 1px solid var(--border-strong);
+    border-radius: 1px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+  .add-row input::placeholder { color: var(--muted); font-style: italic; }
+  .add-row input:focus {
+    outline: none; border-color: var(--gold);
+    box-shadow: 0 0 10px rgba(212, 169, 74, 0.25);
+  }
+  .add-row button {
+    padding: 7px 14px;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border: 1px solid var(--gold);
+    background: transparent; color: var(--gold);
+    border-radius: 1px; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .add-row button:hover { background: var(--gold); color: var(--bg); }
+
+  .hint {
+    font-size: 13px; color: var(--muted);
+    font-style: italic;
+    margin: 8px 0 18px 0;
+    text-align: center;
+  }
+
+  .subtabs {
+    display: flex; gap: 4px; margin: 16px auto 18px;
+    background: rgba(0,0,0,0.4);
+    padding: 4px;
+    border: 1px solid var(--border);
+    border-radius: 1px;
+    width: fit-content;
+  }
+  .subtab {
+    appearance: none; border: none; background: transparent;
+    padding: 7px 16px;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    border-radius: 1px;
+    cursor: pointer;
+    color: var(--muted);
+    transition: all 0.2s;
+  }
+  .subtab:hover { color: var(--gold-bright); }
+  .subtab.active {
+    background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+    color: #1a0f00;
+    font-weight: 600;
+  }
+  .week-header {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 10px; color: var(--gold-dim);
+    text-transform: uppercase; letter-spacing: 0.22em;
+    font-weight: 500; margin: 0 0 8px 0;
+    text-align: center;
+  }
+
+  .epigraph {
+    text-align: center;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink-dim);
+    max-width: 640px;
+    margin: 4px auto 24px;
+    line-height: 1.6;
+    padding: 0 20px;
+  }
+  .epigraph .text::before {
+    content: "“";
+    color: var(--gold);
+    font-size: 22px;
+    font-style: normal;
+    margin-right: 2px;
+    vertical-align: -4px;
+  }
+  .epigraph .text::after {
+    content: "”";
+    color: var(--gold);
+    font-size: 22px;
+    font-style: normal;
+    margin-left: 2px;
+    vertical-align: -4px;
+  }
+  .epigraph .attribution {
+    display: block;
+    margin-top: 8px;
+    font-size: 10px;
+    color: var(--gold-dim);
+    font-style: normal;
+    letter-spacing: 0.2em;
+    font-family: 'Cinzel', Georgia, serif;
+    text-transform: uppercase;
+  }
+  .epigraph .attribution::before { content: "— "; }
+
+  .notes-wrap {
+    background:
+      repeating-linear-gradient(
+        transparent, transparent 31px,
+        rgba(138, 111, 48, 0.18) 31px, rgba(138, 111, 48, 0.18) 32px
+      ),
+      linear-gradient(180deg, #f3e7c4, #e8d7a6);
+    border: 1px solid #8a6f30;
+    border-radius: 0;
+    padding: 30px 34px 24px;
+    box-shadow:
+      var(--shadow),
+      inset 0 0 60px rgba(139, 111, 48, 0.22),
+      inset 0 0 0 4px rgba(212, 169, 74, 0.2);
+    max-width: 820px;
+    margin: 20px auto 0;
+    position: relative;
+  }
+  .notes-wrap::before {
+    content: "☥";
+    position: absolute; top: 6px; left: 50%;
+    transform: translateX(-50%);
+    color: #6d4a1a; font-size: 18px;
+  }
+  .notes-wrap textarea {
+    width: 100%;
+    min-height: 380px;
+    border: none;
+    background: transparent;
+    padding: 12px 0 0;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 17px;
+    line-height: 2;
+    color: #2d1a08;
+    resize: vertical;
+    outline: none;
+  }
+  .notes-wrap textarea::placeholder {
+    color: #7a5820;
+    font-style: italic;
+  }
+
+  @media (max-width: 720px) {
+    header { padding: 14px 16px 12px; }
+    header h1 {
+      font-size: 17px;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    header h1 .sigil { margin: 0 8px; font-size: 13px; }
+    .controls { gap: 6px; }
+    .tab, .btn {
+      padding: 7px 11px;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+    }
+    .status { display: none; }
+    main { padding: 20px 14px 60px; }
+    section h2 { font-size: 12px; }
+    section h2::before, section h2::after { margin: 0 8px; }
+
+    /* Stack schedule into meal-type cards with day labels */
+    table.schedule {
+      display: block;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      margin-top: 10px;
+    }
+    table.schedule thead { display: none; }
+    table.schedule tbody { display: block; }
+    table.schedule tr {
+      display: block;
+      margin-bottom: 16px;
+      background: linear-gradient(180deg, var(--surface), var(--bg-2));
+      border: 1px solid var(--border-strong);
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    table.schedule tr::before {
+      content: "";
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0.6;
+    }
+    table.schedule th, table.schedule td {
+      display: block;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      width: auto;
+      padding: 12px 16px;
+    }
+    table.schedule tbody th {
+      width: auto;
+      background: transparent;
+      text-align: center;
+      padding: 14px 12px 10px;
+      font-size: 11px;
+    }
+    table.schedule tbody th .glyph {
+      display: inline-block;
+      font-size: 18px;
+      margin: 0 8px 0 0;
+      vertical-align: middle;
+    }
+    table.schedule tbody td {
+      position: relative;
+      padding: 12px 16px 14px 120px;
+      min-height: 64px;
+    }
+    table.schedule tbody td::before {
+      position: absolute;
+      left: 14px; top: 14px;
+      width: 100px;
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+    table.schedule tbody tr td:nth-child(2)::before { content: "☽  Maanantai"; }
+    table.schedule tbody tr td:nth-child(3)::before { content: "♂  Tiistai"; }
+    table.schedule tbody tr td:nth-child(4)::before { content: "☿  Keskiviikko"; }
+    table.schedule tbody tr td:nth-child(5)::before { content: "♃  Torstai"; }
+    table.schedule tbody tr td:nth-child(6)::before { content: "♀  Perjantai"; }
+    table.schedule tbody tr td:nth-child(7)::before { content: "♄  Lauantai"; }
+    table.schedule tbody tr td:nth-child(8)::before { content: "☉  Sunnuntai"; }
+    table.schedule tbody tr td:last-child { border-bottom: none; }
+    .cell { min-height: auto; margin: 0; padding: 2px 0; }
+    .cell strong { font-size: 12px; }
+    .cell span.detail { font-size: 14px; }
+
+    .shopping-grid { gap: 14px; grid-template-columns: 1fr; }
+    .shop-card { padding: 18px 16px; }
+    .notes-wrap { padding: 24px 20px 20px; }
+    .notes-wrap textarea { font-size: 16px; line-height: 1.9; }
+    .subtabs { width: 100%; justify-content: center; }
+    .subtab { padding: 7px 12px; font-size: 9px; }
+  }
+
+  @media print {
+    html, body { background: #fff !important; color: #111 !important; }
+    header { position: static; border-bottom: 2px solid #000; box-shadow: none; background: #fff; }
+    header h1 { color: #000; text-shadow: none; }
+    .controls, .btn, .tab, .add-row, .hint, .subtabs, .status { display: none !important; }
+    section { display: block !important; page-break-after: always; }
+    section:last-child { page-break-after: auto; }
+    table.schedule, .shop-card, .notes-wrap {
+      background: #fff !important;
+      color: #111 !important;
+      box-shadow: none;
+      border-color: #000;
+    }
+    .cell, .cell strong, .cell span.detail,
+    .shop-list li, .shop-list .item,
+    section h2, .shop-card h3,
+    table.schedule thead th, table.schedule tbody th,
+    table.schedule thead th .glyph, table.schedule tbody th .glyph { color: #111 !important; text-shadow: none !important; }
+    tr.lunch td, tr.dinner td, tr.snack td, tr.evening td { background: #fafafa !important; }
+    .notes-wrap textarea { color: #111 !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1><span class="sigil">⛧</span>Perheen viikkoruokalista<span class="sigil">⛧</span></h1>
+  <div class="controls">
+    <button class="tab active" data-target="dinners">Päivälliset</button>
+    <button class="tab" data-target="week1">Viikko 1</button>
+    <button class="tab" data-target="week2">Viikko 2</button>
+    <button class="tab" data-target="shopping">Ostoslista</button>
+    <button class="tab" data-target="notes">Muistiinpanot</button>
+    <span class="spacer"></span>
+    <span class="status" id="status">Tallennetaan automaattisesti</span>
+    <button class="btn" onclick="window.print()">Tulosta</button>
+    <button class="btn ghost" onclick="resetAll()">Palauta oletukset</button>
+  </div>
+</header>
+
+<main>
+
+<!-- ========== PÄIVÄLLISET (mobiilinäkymä) ========== -->
+<section id="dinners" class="active">
+  <h2>Päivälliset — kahden viikon koonti</h2>
+  <div class="epigraph"></div>
+  <p class="hint">Nopea katselunäkymä. Muokkaa reseptejä Viikko 1 / Viikko 2 -välilehdillä.</p>
+  <div class="dinner-weeks" id="dinnerView">
+    <!-- JS täyttää -->
+  </div>
+  <p class="meta" id="paivitetty">Päivitetty: —</p>
+</section>
+
+<!-- ========== VIIKKO 1 ========== -->
+<section id="week1">
+  <h2>Viikko 1 — lounas (vkl), päivällinen, välipala, iltapala</h2>
+  <div class="epigraph"></div>
+  <p class="hint">Klikkaa mitä tahansa ruutua muokataksesi. Muutokset tallentuvat selaimen muistiin. Viikonlopun lounailla syödään viikolta yli jääneet ruoat; päivällisillä valmistetaan uutta.</p>
+  <table class="schedule">
+    <thead>
+      <tr>
+        <th></th>
+        <th><span class="glyph">☽</span>Maanantai</th>
+        <th><span class="glyph">♂</span>Tiistai</th>
+        <th><span class="glyph">☿</span>Keskiviikko</th>
+        <th><span class="glyph">♃</span>Torstai</th>
+        <th><span class="glyph">♀</span>Perjantai</th>
+        <th><span class="glyph">♄</span>Lauantai</th>
+        <th><span class="glyph">☉</span>Sunnuntai</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="lunch">
+        <th><span class="glyph">☼</span>Lounas</th>
+        <td><div class="cell" data-k="w1-l-ma"></div></td>
+        <td><div class="cell" data-k="w1-l-ti"></div></td>
+        <td><div class="cell" data-k="w1-l-ke"></div></td>
+        <td><div class="cell" data-k="w1-l-to"></div></td>
+        <td><div class="cell" data-k="w1-l-pe"></div></td>
+        <td><div class="cell" data-k="w1-l-la"><strong>Viikon ylijäämät</strong><span class="detail">Lämmitetään viikolta ylijäänyttä.</span></div></td>
+        <td><div class="cell" data-k="w1-l-su"><strong>Viikon ylijäämät</strong><span class="detail">Lämmitetään viikolta ylijäänyttä.</span></div></td>
+      </tr>
+      <tr class="dinner">
+        <th><span class="glyph">⛧</span>Päivällinen</th>
+        <td><div class="cell" data-k="w1-d-ma"><strong>Tomaattipasta</strong><span class="detail">Siirretty la 25.4. — ma 20.4. ennen ruokalistan alkua.</span></div></td>
+        <td><div class="cell" data-k="w1-d-ti"><strong>Peruna-munakas</strong><span class="detail">Siirretty su 26.4. — ti 21.4. ennen ruokalistan alkua.</span></div></td>
+        <td><div class="cell" data-k="w1-d-ke"><strong>Punalinssikeitto</strong><span class="detail">porkkana, sipuli, tomaattimurska, punaiset linssit. Soseutettuna lapsille. Juustoleipä.</span></div></td>
+        <td><div class="cell" data-k="w1-d-to"><strong>Pinaattilätyt</strong><span class="detail">+ puolukkahillo ja kermaviili.</span></div></td>
+        <td><div class="cell" data-k="w1-d-pe"><strong>Kotipizza</strong><span class="detail">valmis pohja tai tortilla, juusto, maissi, paprika, oliivit.</span></div></td>
+        <td><div class="cell" data-k="w1-d-la"><strong>Tomaattipasta</strong><span class="detail">+ raastesalaatti (porkkana, kurkku). Juustoraastetta päälle. (Siirretty ma:lta.)</span></div></td>
+        <td><div class="cell" data-k="w1-d-su"><strong>Peruna-munakas</strong><span class="detail">keitetyt perunat, sipuli, 8 munaa, juustoraaste. Ruisleipä, tuorekurkku. (Siirretty ti:ltä.)</span></div></td>
+      </tr>
+      <tr class="snack">
+        <th><span class="glyph">☉</span>Välipala</th>
+        <td><div class="cell" data-k="w1-s-ma"><strong>Omena ja juustoleipä</strong></div></td>
+        <td><div class="cell" data-k="w1-s-ti"><strong>Jogurtti + marjat + granola</strong></div></td>
+        <td><div class="cell" data-k="w1-s-ke"><strong>Banaani + maapähkinävoileipä</strong></div></td>
+        <td><div class="cell" data-k="w1-s-to"><strong>Porkkanatikut + hummus</strong></div></td>
+        <td><div class="cell" data-k="w1-s-pe"><strong>Popcornit + vesimeloni</strong></div></td>
+        <td><div class="cell" data-k="w1-s-la"><strong>Vohvelit + marjat</strong></div></td>
+        <td><div class="cell" data-k="w1-s-su"><strong>Hedelmät + jogurtti</strong></div></td>
+      </tr>
+      <tr class="evening">
+        <th><span class="glyph">☾</span>Iltapala</th>
+        <td><div class="cell" data-k="w1-e-ma"><strong>Kaurapuuro + marjat</strong></div></td>
+        <td><div class="cell" data-k="w1-e-ti"><strong>Juustoleipä + maito</strong></div></td>
+        <td><div class="cell" data-k="w1-e-ke"><strong>Rahka + mysli</strong></div></td>
+        <td><div class="cell" data-k="w1-e-to"><strong>Piimä + näkkileipä</strong></div></td>
+        <td><div class="cell" data-k="w1-e-pe"><strong>Kaakao + voileipä</strong></div></td>
+        <td><div class="cell" data-k="w1-e-la"><strong>Kaakao + voileipä</strong></div></td>
+        <td><div class="cell" data-k="w1-e-su"><strong>Kaurapuuro + marjat</strong></div></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ========== VIIKKO 2 ========== -->
+<section id="week2">
+  <h2>Viikko 2 — lounas (vkl), päivällinen, välipala, iltapala</h2>
+  <div class="epigraph"></div>
+  <p class="hint">Klikkaa mitä tahansa ruutua muokataksesi. Viikonlopun lounailla syödään viikolta yli jääneet ruoat; päivällisillä valmistetaan uutta.</p>
+  <table class="schedule">
+    <thead>
+      <tr>
+        <th></th>
+        <th><span class="glyph">☽</span>Maanantai</th>
+        <th><span class="glyph">♂</span>Tiistai</th>
+        <th><span class="glyph">☿</span>Keskiviikko</th>
+        <th><span class="glyph">♃</span>Torstai</th>
+        <th><span class="glyph">♀</span>Perjantai</th>
+        <th><span class="glyph">♄</span>Lauantai</th>
+        <th><span class="glyph">☉</span>Sunnuntai</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="lunch">
+        <th><span class="glyph">☼</span>Lounas</th>
+        <td><div class="cell" data-k="w2-l-ma"></div></td>
+        <td><div class="cell" data-k="w2-l-ti"></div></td>
+        <td><div class="cell" data-k="w2-l-ke"></div></td>
+        <td><div class="cell" data-k="w2-l-to"></div></td>
+        <td><div class="cell" data-k="w2-l-pe"></div></td>
+        <td><div class="cell" data-k="w2-l-la"><strong>Viikon ylijäämät</strong><span class="detail">Lämmitetään viikolta ylijäänyttä.</span></div></td>
+        <td><div class="cell" data-k="w2-l-su"><strong>Viikon ylijäämät</strong><span class="detail">Lämmitetään viikolta ylijäänyttä.</span></div></td>
+      </tr>
+      <tr class="dinner">
+        <th><span class="glyph">⛧</span>Päivällinen</th>
+        <td><div class="cell" data-k="w2-d-ma"><strong>Mieto kasviscurry</strong><span class="detail">kookosmaito, porkkana, peruna, kikherneet, mieto currytahna. Riisi kyljessä.</span></div></td>
+        <td><div class="cell" data-k="w2-d-ti"><strong>Perunat + munakastike</strong><span class="detail">keitetyt perunat, munakastike (munat, maito, voisuurus). Viherherneitä.</span></div></td>
+        <td><div class="cell" data-k="w2-d-ke"><strong>Halloumi + kuskus</strong><span class="detail">paistettu halloumi, kuskus, tomaatti-kurkkusalaatti.</span></div></td>
+        <td><div class="cell" data-k="w2-d-to"><strong>Pinaattikeitto + keitetty muna</strong><span class="detail">ruisleipä.</span></div></td>
+        <td><div class="cell" data-k="w2-d-pe"><strong>Kasvis-kvesadillat</strong><span class="detail">tortilla, papumuhennos, juusto, maissi. Paistetaan pannulla. Raastesalaatti.</span></div></td>
+        <td><div class="cell" data-k="w2-d-la"><strong>Uunijuurekset + feta</strong><span class="detail">peruna, porkkana, bataatti, sipuli paloina uuniin 200 °C n. 30 min; fetakuutiot päälle viim. 5 min. Salaatti kylkeen.</span></div></td>
+        <td><div class="cell" data-k="w2-d-su"><strong>Kasvislasagne</strong><span class="detail">tomaattikastike (sipuli, valkosipuli, Coop Eko tomaattimurska), pinaatti, béchamel (voi, vehnäjauho, maito), lasagnelevyt, juustoraaste päälle. Uunissa 200 °C 30 min.</span></div></td>
+      </tr>
+      <tr class="snack">
+        <th><span class="glyph">☉</span>Välipala</th>
+        <td><div class="cell" data-k="w2-s-ma"><strong>Appelsiini + näkkileipä</strong></div></td>
+        <td><div class="cell" data-k="w2-s-ti"><strong>Smoothie (banaani, marjat, jogurtti)</strong></div></td>
+        <td><div class="cell" data-k="w2-s-ke"><strong>Kurkkutikut + juustopala</strong></div></td>
+        <td><div class="cell" data-k="w2-s-to"><strong>Myslipatukka + omena</strong></div></td>
+        <td><div class="cell" data-k="w2-s-pe"><strong>Rahka + hunaja</strong></div></td>
+        <td><div class="cell" data-k="w2-s-la"><strong>Vohvelit + marjat</strong></div></td>
+        <td><div class="cell" data-k="w2-s-su"><strong>Hedelmät + jogurtti</strong></div></td>
+      </tr>
+      <tr class="evening">
+        <th><span class="glyph">☾</span>Iltapala</th>
+        <td><div class="cell" data-k="w2-e-ma"><strong>Ruispuuro + marjat</strong></div></td>
+        <td><div class="cell" data-k="w2-e-ti"><strong>Voileipä + maito</strong></div></td>
+        <td><div class="cell" data-k="w2-e-ke"><strong>Jogurtti + banaani</strong></div></td>
+        <td><div class="cell" data-k="w2-e-to"><strong>Kaurapuuro + kaneli</strong></div></td>
+        <td><div class="cell" data-k="w2-e-pe"><strong>Juustonäkkileipä + piimä</strong></div></td>
+        <td><div class="cell" data-k="w2-e-la"><strong>Kaakao + voileipä</strong></div></td>
+        <td><div class="cell" data-k="w2-e-su"><strong>Kaurapuuro + marjat</strong></div></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ========== MUISTIINPANOT ========== -->
+<section id="notes">
+  <h2>Muistiinpanot ja muokkausehdotukset</h2>
+  <div class="epigraph"></div>
+  <p class="hint">Kirjaa tähän esim. viikon poikkeukset, ideat, ostoksia, ruokatoiveet tai vaihtoehdot. Tallentuu automaattisesti.</p>
+  <div class="notes-wrap">
+    <textarea id="notesArea" placeholder="Esim.
+- Torstai-iltana lasten harrastus → päivällinen aikaisemmin, ota pinaattilätyt pakasteesta.
+- Vaihda viikko 2 perjantaina kvesadillat pizzaksi.
+- Lisää ostoslistaan appelsiineja jos niitä oli tarjouksessa.
+- 18-vuotiaalle voi ostaa extrana broileria grillattavaksi kasviscurryyn.
+"></textarea>
+  </div>
+</section>
+
+<!-- ========== OSTOSLISTA ========== -->
+<section id="shopping">
+  <h2>Ostoslista</h2>
+  <div class="epigraph"></div>
+  <div class="subtabs" id="shopWeekTabs">
+    <button class="subtab active" data-week="w1">Viikko 1</button>
+    <button class="subtab" data-week="w2">Viikko 2</button>
+    <button class="subtab" data-week="both">Molemmat yhdessä</button>
+  </div>
+  <p class="hint">Rastita ostetut. Klikkaa tekstiä muokataksesi. Lisää rivejä alareunasta. Lisäykset tallentuvat valitun viikon listaan.</p>
+
+  <div class="shopping-grid" id="shoppingGrid">
+    <!-- renderöidään JS:llä -->
+  </div>
+</section>
+
+</main>
+
+<script>
+const STORAGE_KEY = "perheen-ruokalista-v2";
+
+const CATEGORIES = [
+  ["kasvikset", "Kasvikset ja hedelmät"],
+  ["kuivatuotteet", "Kuivatuotteet ja säilykkeet"],
+  ["maito", "Maitotuotteet ja munat"],
+  ["leipa", "Leipä ja viljat"],
+  ["muut", "Muut"]
+];
+
+const DEFAULT_SHOPPING = {
+  w1: {
+    kasvikset: [
+      "Sipuli 3 kpl", "Valkosipuli 1 kpl", "Porkkanaa 1 kg",
+      "Kurkkua 2 kpl", "Tomaattia 3 kpl", "Paprika 1 kpl",
+      "Perunaa 1 kg", "Pakastepinaattia 1 pss (400 g)",
+      "Banaani 4 kpl", "Omena 4 kpl",
+      "Pakastemarjoja 1 pss", "Vesimeloni 1 kpl (pieni)"
+    ],
+    kuivatuotteet: [
+      "Pasta 500 g (spagetti tai penne)",
+      "Punaiset linssit 400 g",
+      "Tomaattimurska 2 prk", "Tomaattipyreetuubi",
+      "Kasvisliemikuutio", "Oregano, basilika",
+      "Pizzapohjat tai tortilloita 1 pss",
+      "Maissi säilyke 1 prk", "Mustia oliiveja 1 prk",
+      "Popcornmaissi 1 pss", "Maapähkinävoi 1 prk",
+      "Hummus 1 prk", "Granolaa 1 pss"
+    ],
+    maito: [
+      "Munia 1 kenno (15 kpl)",
+      "Juustoraaste 2 pss", "Mozzarella 1 pkt",
+      "Ruokakerma 1 prk", "Kermaviili 1 prk",
+      "Maustamaton jogurtti 500 g", "Rahka 250 g",
+      "Maitoa 2 l", "Piimää 1 l", "Voita 1 pkt"
+    ],
+    leipa: [
+      "Ruisleipä 1 pkt", "Näkkileipää 1 pkt",
+      "Vehnäjauhoja", "Kaurahiutaleita 500 g",
+      "Mysli 1 pkt"
+    ],
+    muut: [
+      "Puolukkahilloa 1 prk", "Kaakaojauhetta"
+    ]
+  },
+  w2: {
+    kasvikset: [
+      "Sipuli 2 kpl", "Valkosipuli 1 kpl", "Porkkanaa 1 kg",
+      "Kurkkua 2 kpl", "Tomaattia 3 kpl",
+      "Perunaa 1 kg", "Pakastepinaattia 1 pss (400 g)",
+      "Appelsiini 4 kpl", "Banaani 3 kpl", "Omena 3 kpl",
+      "Pakastemarjoja 1 pss"
+    ],
+    kuivatuotteet: [
+      "Kikherneet 2 prk", "Mustapapuja tai kidneypapuja 2 prk",
+      "Tomaattimurska 1 prk",
+      "Kookosmaito 1 prk", "Mieto currytahna tai -jauhe",
+      "Kuskus 500 g", "Basmati- tai jasminriisi 1 kg",
+      "Tortilloita 1 pss", "Maissi säilyke 1 prk",
+      "Kasvisliemikuutio", "Hunaja 1 prk",
+      "Myslipatukoita 1 pkt"
+    ],
+    maito: [
+      "Munia 1 kenno (15 kpl)",
+      "Juustoraaste 1 pss", "Halloumi 1 pkt",
+      "Palajuusto 1 kpl", "Ruokakerma 1 prk",
+      "Maustamaton jogurtti 500 g", "Rahka 250 g",
+      "Maitoa 2 l", "Piimää 1 l", "Voita 1 pkt"
+    ],
+    leipa: [
+      "Ruisleipä 1 pkt", "Näkkileipää 1 pkt",
+      "Kaurahiutaleita 500 g", "Ruishiutaleita 500 g"
+    ],
+    muut: [
+      "Kaneli"
+    ]
+  }
+};
+
+const DEFAULT_CELLS = {};
+document.querySelectorAll(".cell").forEach(el => {
+  DEFAULT_CELLS[el.dataset.k] = el.innerHTML;
+});
+
+// ---------- state ----------
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch { return {}; }
+}
+function saveState(state) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  showStatus("Tallennettu");
+}
+let state = loadState();
+if (!state.cells) state.cells = {};
+if (!state.notes) state.notes = "";
+if (!state.shopping || !state.shopping.w1 || !state.shopping.w2) {
+  state.shopping = { w1: {}, w2: {} };
+  for (const wk of ["w1", "w2"]) {
+    for (const [cat] of CATEGORIES) {
+      state.shopping[wk][cat] = (DEFAULT_SHOPPING[wk][cat] || [])
+        .map(text => ({ text, checked: false }));
+    }
+  }
+}
+let activeShopWeek = "w1";
+
+// ---------- status ----------
+let statusTimer;
+function showStatus(msg) {
+  const el = document.getElementById("status");
+  el.textContent = msg;
+  clearTimeout(statusTimer);
+  statusTimer = setTimeout(() => {
+    el.textContent = "Tallennetaan automaattisesti";
+  }, 1800);
+}
+
+// ---------- cells ----------
+document.querySelectorAll(".cell").forEach(el => {
+  el.setAttribute("contenteditable", "true");
+  const key = el.dataset.k;
+  if (state.cells[key]) el.innerHTML = state.cells[key];
+  el.addEventListener("blur", () => {
+    state.cells[key] = el.innerHTML;
+    saveState(state);
+  });
+});
+
+// ---------- notes ----------
+const notesArea = document.getElementById("notesArea");
+if (notesArea) {
+  notesArea.value = state.notes || "";
+  let notesTimer;
+  notesArea.addEventListener("input", () => {
+    clearTimeout(notesTimer);
+    notesTimer = setTimeout(() => {
+      state.notes = notesArea.value;
+      saveState(state);
+    }, 400);
+  });
+}
+
+// ---------- epigraphs ----------
+const QUOTES = [
+  {
+    text: "Do what thou wilt shall be the whole of the Law.",
+    author: "Aleister Crowley",
+    source: "Liber AL vel Legis, 1904"
+  },
+  {
+    text: "Love is the law, love under will.",
+    author: "Aleister Crowley",
+    source: "Liber AL vel Legis, 1904"
+  },
+  {
+    text: "Every man and every woman is a star.",
+    author: "Aleister Crowley",
+    source: "Liber AL vel Legis, 1904"
+  },
+  {
+    text: "All acts of love and pleasure are my rituals.",
+    author: "Doreen Valiente",
+    source: "Charge of the Goddess"
+  },
+  {
+    text: "Magic is the art of causing changes in consciousness to occur in accordance with will.",
+    author: "Dion Fortune",
+    source: ""
+  },
+  {
+    text: "We must eradicate from the soul all fear and terror of what comes toward us out of the future.",
+    author: "Rudolf Steiner",
+    source: ""
+  },
+  {
+    text: "There is no religion higher than truth.",
+    author: "Helena Blavatsky",
+    source: ""
+  }
+];
+
+(function placeEpigraphs() {
+  const els = document.querySelectorAll(".epigraph");
+  if (!els.length) return;
+  const shuffled = [...QUOTES].sort(() => Math.random() - 0.5);
+  els.forEach((el, i) => {
+    const q = shuffled[i % shuffled.length];
+    const attr = q.source ? `${q.author}, ${q.source}` : q.author;
+    el.innerHTML =
+      `<span class="text">${q.text}</span>` +
+      `<span class="attribution">${attr}</span>`;
+  });
+})();
+
+// ---------- tabs ----------
+document.querySelectorAll(".tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    const target = tab.dataset.target;
+    document.querySelectorAll(".tab").forEach(t => t.classList.toggle("active", t === tab));
+    document.querySelectorAll("main > section").forEach(s => {
+      s.classList.toggle("active", s.id === target);
+    });
+    if (target === "dinners") renderDinners();
+  });
+});
+
+// ---------- dinners view (päivälliskoonti) ----------
+const DAYS = [
+  { key: "ma", label: "Ma" },
+  { key: "ti", label: "Ti" },
+  { key: "ke", label: "Ke" },
+  { key: "to", label: "To" },
+  { key: "pe", label: "Pe" },
+  { key: "la", label: "La" },
+  { key: "su", label: "Su" },
+];
+
+function renderDinners() {
+  const container = document.getElementById("dinnerView");
+  if (!container) return;
+  container.innerHTML = "";
+
+  // Näytä molemmat viikot
+  ["w1", "w2"].forEach((wk, wi) => {
+    const week = document.createElement("div");
+    week.className = "dinner-week";
+    const h3 = document.createElement("h3");
+    h3.textContent = wi === 0 ? "Viikko 1" : "Viikko 2";
+    week.append(h3);
+
+    const ul = document.createElement("ul");
+    ul.className = "dinner-list";
+
+    DAYS.forEach(d => {
+      const sourceCell = document.querySelector(`[data-k="${wk}-d-${d.key}"]`);
+      const li = document.createElement("li");
+      const day = document.createElement("span");
+      day.className = "day";
+      day.textContent = d.label;
+      const dish = document.createElement("span");
+      dish.className = "dish";
+      // Kopioi sisältö lähdesolusta
+      if (sourceCell) dish.innerHTML = sourceCell.innerHTML || "<span class='detail' style='color:var(--muted)'>—</span>";
+      li.append(day, dish);
+      ul.append(li);
+    });
+    week.append(ul);
+    container.append(week);
+  });
+
+  // Päivitysaikaleima (julkaisuhetkellä asetettu)
+  const meta = document.getElementById("paivitetty");
+  if (meta) {
+    const published = document.querySelector('meta[name="julkaistu"]')?.content;
+    if (published) {
+      meta.textContent = `Sisältö päivitetty ${published} · päivälliset haetaan Viikko 1 / Viikko 2 -välilehdiltä`;
+    } else {
+      meta.textContent = `Päivälliset haetaan Viikko 1 / Viikko 2 -välilehdiltä`;
+    }
+  }
+}
+
+// Täytä päivälliset-näkymä käynnistyessä
+renderDinners();
+
+// ---------- shopping ----------
+function buildShopCard(wk, cat, title, showWeekHeader) {
+  const card = document.createElement("div");
+  card.className = "shop-card";
+  card.dataset.cat = cat;
+  card.dataset.week = wk;
+
+  const h3 = document.createElement("h3");
+  h3.textContent = title;
+  card.append(h3);
+
+  if (showWeekHeader) {
+    const wh = document.createElement("p");
+    wh.className = "week-header";
+    wh.textContent = wk === "w1" ? "Viikko 1" : "Viikko 2";
+    card.append(wh);
+  }
+
+  const ul = document.createElement("ul");
+  ul.className = "shop-list";
+  (state.shopping[wk][cat] || []).forEach((item, idx) => {
+    const li = document.createElement("li");
+    if (item.checked) li.classList.add("checked");
+
+    const cb = document.createElement("input");
+    cb.type = "checkbox";
+    cb.checked = item.checked;
+    cb.addEventListener("change", () => {
+      state.shopping[wk][cat][idx].checked = cb.checked;
+      saveState(state);
+      renderShopping();
+    });
+
+    const span = document.createElement("span");
+    span.className = "item";
+    span.contentEditable = "true";
+    span.textContent = item.text;
+    span.addEventListener("blur", () => {
+      const val = span.textContent.trim();
+      if (!val) state.shopping[wk][cat].splice(idx, 1);
+      else state.shopping[wk][cat][idx].text = val;
+      saveState(state);
+      renderShopping();
+    });
+
+    const del = document.createElement("button");
+    del.className = "btn ghost";
+    del.style.padding = "2px 8px";
+    del.textContent = "×";
+    del.title = "Poista";
+    del.addEventListener("click", () => {
+      state.shopping[wk][cat].splice(idx, 1);
+      saveState(state);
+      renderShopping();
+    });
+
+    li.append(cb, span, del);
+    ul.append(li);
+  });
+  card.append(ul);
+
+  // add-row
+  const addRow = document.createElement("div");
+  addRow.className = "add-row";
+  const input = document.createElement("input");
+  input.type = "text";
+  input.placeholder = "Lisää tuote…";
+  const addBtn = document.createElement("button");
+  addBtn.textContent = "Lisää";
+  const addItem = () => {
+    const val = input.value.trim();
+    if (!val) return;
+    if (!state.shopping[wk][cat]) state.shopping[wk][cat] = [];
+    state.shopping[wk][cat].push({ text: val, checked: false });
+    input.value = "";
+    saveState(state);
+    renderShopping();
+  };
+  addBtn.addEventListener("click", addItem);
+  input.addEventListener("keydown", e => {
+    if (e.key === "Enter") { e.preventDefault(); addItem(); }
+  });
+  addRow.append(input, addBtn);
+  card.append(addRow);
+
+  return card;
+}
+
+function renderShopping() {
+  const grid = document.getElementById("shoppingGrid");
+  grid.innerHTML = "";
+  const weeks = activeShopWeek === "both" ? ["w1", "w2"] : [activeShopWeek];
+  const showHeader = activeShopWeek === "both";
+  for (const [cat, title] of CATEGORIES) {
+    for (const wk of weeks) {
+      grid.append(buildShopCard(wk, cat, title, showHeader));
+    }
+  }
+}
+
+document.querySelectorAll("#shopWeekTabs .subtab").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("#shopWeekTabs .subtab")
+      .forEach(t => t.classList.toggle("active", t === btn));
+    activeShopWeek = btn.dataset.week;
+    renderShopping();
+  });
+});
+
+renderShopping();
+
+// ---------- reset ----------
+function resetAll() {
+  if (!confirm("Palauta kaikki ruokalistat ja ostoslista oletuksiin? Omat muokkaukset katoavat.")) return;
+  localStorage.removeItem(STORAGE_KEY);
+  location.reload();
+}
+</script>
+</body>
+</html>
