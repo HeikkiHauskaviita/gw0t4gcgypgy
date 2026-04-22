@@ -537,6 +537,32 @@
     text-decoration: line-through;
     opacity: 0.55;
   }
+  .shop-list .skaupat-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    padding: 2px 7px;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    color: var(--gold-dim);
+    background: rgba(10, 6, 18, 0.35);
+    border: 1px solid var(--border);
+    border-radius: 1px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: color 0.2s, border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  }
+  .shop-list .skaupat-link:hover,
+  .shop-list .skaupat-link:focus-visible {
+    color: var(--gold-bright);
+    border-color: var(--gold);
+    background: rgba(212, 169, 74, 0.12);
+    box-shadow: 0 0 6px rgba(212, 169, 74, 0.32);
+    outline: none;
+  }
   .shop-actions {
     display: flex; gap: 12px; align-items: center;
     justify-content: center;
@@ -2112,6 +2138,8 @@ function collectIngredientsForWeek(wk) {
       checked: false,
       auto: true,
       source: [...b.sources],
+      nimi: b.nimi,
+      merkki: b.merkki || "",
     });
   });
   Object.values(perCat).forEach(arr => arr.sort((a, b) => a.text.localeCompare(b.text, "fi")));
@@ -2134,6 +2162,17 @@ function regenerateShoppingForWeek(wk) {
 }
 
 // ---------- shopping ----------
+function skaupatUrl(item) {
+  let q = "";
+  if (item && item.auto && item.nimi) {
+    q = item.nimi;
+    if (item.merkki) q += " " + item.merkki;
+  } else {
+    q = (item && item.text ? item.text : "").replace(/\s+\d[\d.,]*\s*\S+$/, "");
+  }
+  return "https://www.s-kaupat.fi/hakutulokset?haku=" + encodeURIComponent(q.trim());
+}
+
 function buildShopCard(wk, cat, title, showWeekHeader) {
   const card = document.createElement("div");
   card.className = "shop-card";
@@ -2195,7 +2234,16 @@ function buildShopCard(wk, cat, title, showWeekHeader) {
       renderShopping();
     });
 
-    li.append(cb, span, del);
+    const ska = document.createElement("a");
+    ska.className = "skaupat-link";
+    ska.textContent = "S";
+    const skaLabel = item.auto && item.nimi ? item.nimi : item.text;
+    ska.title = "Etsi S-kaupoista: " + skaLabel;
+    ska.href = skaupatUrl(item);
+    ska.target = "_blank";
+    ska.rel = "noopener noreferrer";
+
+    li.append(cb, span, ska, del);
     if (item.auto && item.source && item.source.length) {
       const src = document.createElement("span");
       src.className = "source";
