@@ -511,6 +511,28 @@
     color: var(--muted);
     font-style: italic;
   }
+  .shop-list li.shop-auto {
+    border-left: 2px solid rgba(212, 169, 74, 0.42);
+    padding-left: 8px;
+  }
+  .shop-list li.shop-auto .item::before {
+    content: "✦ ";
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+  .shop-actions {
+    display: flex; gap: 12px; align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 0 12px 0;
+  }
+  .shop-actions-hint {
+    color: var(--muted);
+    font-size: 12px;
+    font-style: italic;
+    max-width: 440px;
+  }
   .add-row { display: flex; gap: 6px; margin-top: 12px; }
   .add-row input {
     flex: 1; padding: 7px 10px; font-size: 14px;
@@ -1404,7 +1426,11 @@
     <button class="subtab" data-week="w2">Viikko 2</button>
     <button class="subtab" data-week="both">Molemmat yhdessä</button>
   </div>
-  <p class="hint">Rastita ostetut. Klikkaa tekstiä muokataksesi. Lisää rivejä alareunasta. Lisäykset tallentuvat valitun viikon listaan.</p>
+  <div class="shop-actions">
+    <button class="btn" id="regenShopBtn" type="button">✦ Päivitä reseptien mukaan</button>
+    <span class="shop-actions-hint">Kokoa ainekset viikon päivällisistä. Kaappitavarat jäävät pois. Käsin lisätyt rivit säilyvät.</span>
+  </div>
+  <p class="hint">Rastita ostetut. ✦ = reseptistä (päivittyy uudelleen napista yllä). Klikkaa tekstiä muokataksesi. Lisäykset tallentuvat valitun viikon listaan.</p>
 
   <div class="shopping-grid" id="shoppingGrid">
     <!-- renderöidään JS:llä -->
@@ -1833,6 +1859,206 @@ function renderDinners() {
 // Täytä päivälliset-näkymä käynnistyessä
 renderDinners();
 
+// ---------- reseptidata + lookup ----------
+const RECIPES_BY_NAME = (() => {
+  try {
+    const el = document.getElementById("recipes-data");
+    const data = JSON.parse(el.textContent);
+    const map = {};
+    (data.reseptit || []).forEach(r => {
+      if (r && r.nimi) map[r.nimi.trim().toLowerCase()] = r;
+    });
+    return map;
+  } catch { return {}; }
+})();
+
+function normRecipeName(s) {
+  return (s || "").trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+function findRecipe(nimi) {
+  const key = normRecipeName(nimi);
+  if (!key) return null;
+  if (RECIPES_BY_NAME[key]) return RECIPES_BY_NAME[key];
+  for (const k in RECIPES_BY_NAME) {
+    if (k === key) return RECIPES_BY_NAME[k];
+    if (key.length > 6 && (k.startsWith(key) || key.startsWith(k))) return RECIPES_BY_NAME[k];
+  }
+  return null;
+}
+
+function recipeNameById(id) {
+  for (const k in RECIPES_BY_NAME) {
+    const r = RECIPES_BY_NAME[k];
+    if (r && r.id === id) return r.nimi;
+  }
+  return id;
+}
+
+// ---------- ainesten luokittelu (kauppaosastot) ----------
+// Perusnimi (normalisoitu) -> kategoria. Tuntemattomat menevät "muut":iin.
+const INGREDIENT_CATEGORIES = {
+  // kasvikset & hedelmät (ml. pakastevihannekset)
+  "sipuli": "kasvikset",
+  "valkosipulinkynsi": "kasvikset",
+  "valkosipuli": "kasvikset",
+  "porkkana": "kasvikset",
+  "perunat": "kasvikset",
+  "peruna": "kasvikset",
+  "tomaatti": "kasvikset",
+  "tuorekurkku": "kasvikset",
+  "kurkku": "kasvikset",
+  "paprika": "kasvikset",
+  "sitruuna": "kasvikset",
+  "bataatti": "kasvikset",
+  "salaatinlehdet": "kasvikset",
+  "pakastepinaatti": "kasvikset",
+  "pakasteherneet": "kasvikset",
+  "pakastemaissi": "kasvikset",
+  // kuivatuotteet, säilykkeet, pasta/riisi, mausteet kasto, tuubit
+  "spagetti": "kuivatuotteet",
+  "makaroni": "kuivatuotteet",
+  "lasagnelevyt": "kuivatuotteet",
+  "risottoriisi": "kuivatuotteet",
+  "riisi": "kuivatuotteet",
+  "kuskus": "kuivatuotteet",
+  "tomaattimurska": "kuivatuotteet",
+  "mustat oliivit": "kuivatuotteet",
+  "punaiset linssit": "kuivatuotteet",
+  "kikherneet": "kuivatuotteet",
+  "kookosmaito": "kuivatuotteet",
+  "papumuhennos": "kuivatuotteet",
+  "mieto currytahna": "kuivatuotteet",
+  "currytahna": "kuivatuotteet",
+  "vehnäjauho": "kuivatuotteet",
+  "pizzapohja": "kuivatuotteet",
+  "tortilla": "kuivatuotteet",
+  // maito, muna, juusto
+  "kananmuna": "maito",
+  "täysmaito": "maito",
+  "maito": "maito",
+  "voi": "maito",
+  "juustoraaste": "maito",
+  "juustoviipale": "maito",
+  "kermaviili": "maito",
+  "kuohukerma": "maito",
+  "halloumi": "maito",
+  "feta": "maito",
+  "salaattijuusto": "maito",
+  // leipä ja viljat
+  "ruisleipä": "leipa",
+  // muut (pakaste-valmisteet, purkit, hillot, ketsupit)
+  "kasvisnakit": "muut",
+  "kasvispyörykät": "muut",
+  "kasvispohjainen jauhis": "muut",
+  "soijarouhe": "muut",
+  "puolukkahillo": "muut",
+};
+
+function normIngName(nimi) {
+  return String(nimi || "")
+    .toLowerCase()
+    .replace(/\(.*?\)/g, " ")         // poista sulkeet sisältöineen
+    .replace(/,.*$/, "")               // poista pilkun jälkeinen (",kuivattu")
+    .replace(/\s*\/.*$/, "")           // poista " / vaihtoehto"
+    .replace(/\s+tai\s+.*$/, "")       // poista " tai vaihtoehto"
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function ingredientCategory(nimi) {
+  const k = normIngName(nimi);
+  return INGREDIENT_CATEGORIES[k] || "muut";
+}
+
+function formatMaara(n) {
+  if (Number.isInteger(n)) return String(n);
+  return (Math.round(n * 10) / 10).toString().replace(".", ",");
+}
+
+function formatShopLine(b) {
+  let text = b.nimi;
+  if (b.maara > 0) {
+    text += ` ${formatMaara(b.maara)}`;
+    if (b.yksikko) text += ` ${b.yksikko}`;
+  } else if (b.yksikko) {
+    text += ` ${b.yksikko}`;
+  }
+  if (b.merkki) text += ` — ${b.merkki}`;
+  return text;
+}
+
+// ---------- ostoslistan koostaja ----------
+function collectIngredientsForWeek(wk) {
+  const DAYS = ["ma", "ti", "ke", "to", "pe", "la", "su"];
+  const buckets = new Map(); // (normNimi|yksikko|merkki) -> {nimi,yksikko,merkki,maara,sources}
+
+  DAYS.forEach(dayKey => {
+    const cellKey = `${wk}-d-${dayKey}`;
+    const skip = state.skips && state.skips[cellKey];
+    if (skip && skip.type) return; // ohita ei-keitetty / ulkona
+    const cell = document.querySelector(`[data-k="${cellKey}"]`);
+    if (!cell) return;
+    const strong = cell.querySelector("strong");
+    if (!strong) return;
+    const recipe = findRecipe(strong.textContent);
+    if (!recipe) return;
+
+    const add = (ing) => {
+      if (!ing || !ing.nimi) return;
+      if (ing.kaappitavara) return;
+      const normNimi = normIngName(ing.nimi);
+      const yksikko = (ing.yksikko || "").toString().trim();
+      const merkki = (ing.merkki || "").toString().trim();
+      const key = `${normNimi}|${yksikko.toLowerCase()}|${merkki.toLowerCase()}`;
+      if (!buckets.has(key)) {
+        buckets.set(key, {
+          nimi: ing.nimi,
+          yksikko,
+          merkki,
+          maara: 0,
+          sources: new Set(),
+        });
+      }
+      const b = buckets.get(key);
+      b.sources.add(recipe.id);
+      if (typeof ing.maara === "number") b.maara += ing.maara;
+    };
+
+    (recipe.ainekset || []).forEach(add);
+    (recipe.lisukkeet || []).forEach(add);
+  });
+
+  const perCat = {};
+  for (const [cat] of CATEGORIES) perCat[cat] = [];
+  buckets.forEach(b => {
+    const cat = ingredientCategory(b.nimi);
+    perCat[cat].push({
+      text: formatShopLine(b),
+      checked: false,
+      auto: true,
+      source: [...b.sources],
+    });
+  });
+  Object.values(perCat).forEach(arr => arr.sort((a, b) => a.text.localeCompare(b.text, "fi")));
+  return perCat;
+}
+
+function regenerateShoppingForWeek(wk) {
+  const newAutoByCat = collectIngredientsForWeek(wk);
+  for (const [cat] of CATEGORIES) {
+    const current = state.shopping[wk][cat] || [];
+    const manual = current.filter(it => !it.auto);
+    const oldAutoByText = new Map();
+    current.filter(it => it.auto).forEach(it => oldAutoByText.set(it.text, it));
+    const newAutos = (newAutoByCat[cat] || []).map(it => {
+      const old = oldAutoByText.get(it.text);
+      return old ? { ...it, checked: old.checked } : it;
+    });
+    state.shopping[wk][cat] = [...newAutos, ...manual];
+  }
+}
+
 // ---------- shopping ----------
 function buildShopCard(wk, cat, title, showWeekHeader) {
   const card = document.createElement("div");
@@ -1856,6 +2082,12 @@ function buildShopCard(wk, cat, title, showWeekHeader) {
   (state.shopping[wk][cat] || []).forEach((item, idx) => {
     const li = document.createElement("li");
     if (item.checked) li.classList.add("checked");
+    if (item.auto) {
+      li.classList.add("shop-auto");
+      if (item.source && item.source.length) {
+        li.title = "Lähde: " + item.source.map(recipeNameById).join(", ");
+      }
+    }
 
     const cb = document.createElement("input");
     cb.type = "checkbox";
@@ -1942,35 +2174,22 @@ document.querySelectorAll("#shopWeekTabs .subtab").forEach(btn => {
   });
 });
 
+const regenBtn = document.getElementById("regenShopBtn");
+if (regenBtn) {
+  regenBtn.addEventListener("click", () => {
+    const weeks = activeShopWeek === "both" ? ["w1", "w2"] : [activeShopWeek];
+    const label = activeShopWeek === "both" ? "molemmat viikot" : (activeShopWeek === "w1" ? "viikko 1" : "viikko 2");
+    if (!confirm(`Päivitetään ✦-rivit (${label}) viikon päivällisten mukaan. Käsin lisätyt säilyvät. Jatketaanko?`)) return;
+    weeks.forEach(regenerateShoppingForWeek);
+    saveState(state);
+    renderShopping();
+    showStatus("Ostoslista päivitetty reseptien mukaan");
+  });
+}
+
 renderShopping();
 
 // ---------- reseptimodal ----------
-const RECIPES_BY_NAME = (() => {
-  try {
-    const el = document.getElementById("recipes-data");
-    const data = JSON.parse(el.textContent);
-    const map = {};
-    (data.reseptit || []).forEach(r => {
-      if (r && r.nimi) map[r.nimi.trim().toLowerCase()] = r;
-    });
-    return map;
-  } catch { return {}; }
-})();
-
-function normRecipeName(s) {
-  return (s || "").trim().toLowerCase().replace(/\s+/g, " ");
-}
-
-function findRecipe(nimi) {
-  const key = normRecipeName(nimi);
-  if (!key) return null;
-  if (RECIPES_BY_NAME[key]) return RECIPES_BY_NAME[key];
-  for (const k in RECIPES_BY_NAME) {
-    if (k === key) return RECIPES_BY_NAME[k];
-    if (key.length > 6 && (k.startsWith(key) || key.startsWith(k))) return RECIPES_BY_NAME[k];
-  }
-  return null;
-}
 
 function escapeHtml(s) {
   return String(s == null ? "" : s).replace(/[&<>"']/g,
