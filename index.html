@@ -126,6 +126,85 @@
   }
 
   main { padding: 32px 28px 80px; max-width: 1200px; margin: 0 auto; }
+
+  /* ========== Tänään / Huomenna -lohko ========== */
+  .today-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 0 0 26px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+  }
+  .today-entry {
+    position: relative;
+    background: linear-gradient(180deg, rgba(74,43,110,0.28), rgba(26,16,42,0.55));
+    border: 1px solid var(--border);
+    padding: 14px 18px 16px 18px;
+    box-shadow: var(--shadow);
+  }
+  .today-entry::before {
+    content: "";
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    opacity: 0.6;
+  }
+  .today-entry.now {
+    border-color: var(--gold);
+    box-shadow: 0 0 22px rgba(212,169,74,0.22), var(--shadow);
+  }
+  .today-entry.now::before {
+    background: linear-gradient(90deg, transparent, var(--gold-bright), transparent);
+    opacity: 0.9;
+  }
+  .today-entry .label {
+    display: block;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 6px;
+  }
+  .today-entry.now .label { color: var(--gold); }
+  .today-entry .dish {
+    display: block;
+    font-size: 19px;
+    color: var(--ink);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  .today-entry .detail {
+    display: block;
+    font-size: 13.5px;
+    color: var(--ink-dim);
+    font-style: italic;
+    line-height: 1.4;
+    margin-top: 3px;
+  }
+  .today-entry .recipe-btn-top {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: rgba(10, 6, 18, 0.55);
+    border: 1px solid var(--border);
+    color: var(--gold-dim);
+    padding: 1px 8px 2px;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  }
+  .today-entry .recipe-btn-top:hover {
+    color: var(--gold-bright);
+    border-color: var(--gold);
+    background: rgba(26, 16, 42, 0.95);
+    box-shadow: 0 0 10px rgba(212, 169, 74, 0.4);
+  }
+  .today-entry.skipped .dish strong { text-decoration: line-through; color: var(--muted); font-style: italic; }
+  .today-entry.empty .dish { color: var(--muted); font-style: italic; font-size: 15px; }
   section { display: none; }
   section.active { display: block; }
   section h2 {
@@ -229,6 +308,39 @@
   tr.snack td { background: rgba(212, 169, 74, 0.06); }
   tr.evening td { background: var(--purple-soft); }
 
+  /* ========== Today / past / skip -merkinnät ========== */
+  table.schedule thead th.is-today {
+    background: linear-gradient(180deg, rgba(212,169,74,0.32), rgba(212,169,74,0.10));
+    box-shadow: inset 0 -2px 0 var(--gold);
+  }
+  table.schedule thead th.is-today .date {
+    color: var(--gold-bright);
+    font-weight: 600;
+    font-style: normal;
+  }
+  table.schedule thead th.is-today .glyph { text-shadow: 0 0 16px rgba(212,169,74,0.7); }
+  table.schedule tbody td.is-today {
+    background: rgba(212, 169, 74, 0.10);
+    box-shadow: inset 0 0 0 1px rgba(212, 169, 74, 0.42);
+  }
+  table.schedule tbody tr.dinner td.is-today { background: rgba(212, 169, 74, 0.17); }
+  table.schedule thead th.is-past { opacity: 0.42; }
+  table.schedule tbody td.is-past { opacity: 0.48; }
+  table.schedule tbody td.is-past .cell strong { color: var(--gold-dim); }
+  table.schedule tbody td.skipped .cell strong { text-decoration: line-through; color: var(--muted); font-style: italic; }
+  table.schedule tbody td.skipped::before {
+    content: attr(data-skip-label);
+    position: absolute; top: 6px; left: 8px;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #d37280;
+    background: rgba(10, 6, 18, 0.85);
+    padding: 1px 7px 2px;
+    border: 1px solid var(--blood);
+    z-index: 2;
+  }
+  table.schedule tbody tr.dinner td { position: relative; }
+
   .cell {
     outline: none;
     min-height: 72px;
@@ -327,7 +439,10 @@
     font-style: italic;
     line-height: 1.4;
   }
-  .dinner-list li.today { background: rgba(212, 169, 74, 0.06); border-left: 3px solid var(--gold); padding-left: 9px; }
+  .dinner-list li.today { background: rgba(212, 169, 74, 0.08); border-left: 3px solid var(--gold); padding-left: 9px; }
+  .dinner-list li.today .day { color: var(--gold-bright); font-weight: 600; }
+  .dinner-list li.past { opacity: 0.5; }
+  .dinner-list li.skipped .dish strong { text-decoration: line-through; color: var(--muted); }
   p.meta {
     text-align: center;
     color: var(--muted);
@@ -654,6 +769,117 @@
     .notes-wrap textarea { font-size: 16px; line-height: 1.9; }
     .subtabs { width: 100%; justify-content: center; }
     .subtab { padding: 7px 12px; font-size: 9px; }
+
+    /* Tänään/Huomenna-lohko yhteen sarakkeeseen */
+    .today-block { grid-template-columns: 1fr; gap: 10px; margin-bottom: 18px; padding-bottom: 16px; }
+    .today-entry { padding: 12px 14px 14px; }
+    .today-entry .dish { font-size: 17px; }
+    .today-entry .detail { font-size: 12.5px; }
+
+    /* Piilota pöytä, näytä päiväkortit */
+    table.schedule { display: none; }
+    .day-cards { display: block; }
+    .day-card {
+      background: linear-gradient(180deg, var(--surface), var(--bg-2));
+      border: 1px solid var(--border-strong);
+      margin-bottom: 14px;
+      padding: 12px 14px 10px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    .day-card::before {
+      content: "";
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0.55;
+    }
+    .day-card.is-today { border-color: var(--gold); box-shadow: 0 0 18px rgba(212,169,74,0.22), var(--shadow); }
+    .day-card.is-today::before { opacity: 0.9; background: linear-gradient(90deg, transparent, var(--gold-bright), transparent); }
+    .day-card.is-past { opacity: 0.55; }
+    .day-card .hdr {
+      display: flex; align-items: center; gap: 10px;
+      padding-bottom: 8px;
+      margin-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 12px; letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+    .day-card.is-today .hdr { color: var(--gold-bright); }
+    .day-card .hdr .glyph { font-size: 17px; color: var(--gold); }
+    .day-card .hdr .date {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--ink-dim);
+      text-transform: none;
+      letter-spacing: 0.05em;
+      margin-left: auto;
+      font-weight: 400;
+    }
+    .day-card .meal {
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--border);
+      display: grid;
+      grid-template-columns: 64px 1fr auto;
+      gap: 8px;
+      align-items: baseline;
+      position: relative;
+    }
+    .day-card .meal:last-child { border-bottom: none; }
+    .day-card .meal .type {
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 9px; letter-spacing: 0.16em;
+      color: var(--gold-dim); text-transform: uppercase;
+      padding-top: 2px;
+    }
+    .day-card .meal .content { font-size: 14px; color: var(--ink); }
+    .day-card .meal .content strong {
+      display: block;
+      color: var(--gold-bright);
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 12.5px;
+      letter-spacing: 0.06em;
+      margin-bottom: 2px;
+    }
+    .day-card .meal .content .detail {
+      font-size: 13px;
+      color: var(--ink-dim);
+      font-style: italic;
+      line-height: 1.4;
+    }
+    .day-card .meal.skipped .content strong { text-decoration: line-through; color: var(--muted); font-style: italic; }
+    .day-card .meal .skip-tag {
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 8px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #d37280;
+      display: inline-block;
+      padding: 2px 6px;
+      border: 1px solid var(--blood);
+      background: rgba(10,6,18,0.5);
+      margin-top: 4px;
+    }
+    .day-card .meal .mobile-recipe-btn,
+    .day-card .meal .mobile-skip-btn {
+      appearance: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--gold-dim);
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 9px; letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .day-card .meal .mobile-skip-btn { padding: 3px 9px; font-size: 11px; letter-spacing: 0; }
+    .day-card .meal .mobile-actions {
+      display: flex; flex-direction: column; gap: 4px;
+    }
   }
 
   /* ========== Recipe modal ========== */
@@ -685,6 +911,120 @@
     font-size: 11px;
     color: var(--gold);
   }
+
+  /* ========== Skip-menu (⋯) päivällisruuduissa ========== */
+  .skip-btn {
+    position: absolute;
+    bottom: 6px; right: 6px;
+    background: rgba(10, 6, 18, 0.55);
+    border: 1px solid var(--border);
+    color: var(--gold-dim);
+    padding: 0 7px 2px;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0;
+    cursor: pointer;
+    z-index: 2;
+    transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  .skip-btn:hover, .skip-btn:focus-visible {
+    color: var(--gold-bright);
+    border-color: var(--gold);
+    box-shadow: 0 0 8px rgba(212, 169, 74, 0.35);
+    outline: none;
+  }
+  .skip-popover {
+    position: absolute;
+    bottom: 32px; right: 6px;
+    background: linear-gradient(180deg, var(--surface), var(--bg-2));
+    border: 1px solid var(--border-strong);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.65);
+    padding: 6px 0;
+    z-index: 20;
+    min-width: 160px;
+    display: none;
+  }
+  .skip-popover.open { display: block; }
+  .skip-popover button {
+    display: block;
+    width: 100%;
+    appearance: none;
+    background: transparent;
+    border: none;
+    color: var(--ink-dim);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 14px;
+    text-align: left;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .skip-popover button:hover { background: rgba(212, 169, 74, 0.08); color: var(--gold-bright); }
+  .skip-popover button.active { color: var(--gold); font-weight: 600; }
+  .skip-popover .sep { height: 1px; background: var(--border); margin: 4px 0; }
+
+  /* ========== Palautenapit reseptimodaalissa ========== */
+  .feedback-row {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .feedback-row .feedback-label { color: var(--gold-dim); }
+  .fb-btn {
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    color: var(--ink-dim);
+    padding: 5px 14px;
+    font-family: inherit; font-size: inherit; letter-spacing: inherit;
+    text-transform: inherit;
+    cursor: pointer; transition: all .2s;
+  }
+  .fb-btn:hover { color: var(--gold-bright); border-color: var(--gold); }
+  .fb-btn.active[data-arvio="hitti"] {
+    background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+    color: #1a0f00; border-color: var(--gold);
+    box-shadow: 0 0 12px rgba(212, 169, 74, 0.35);
+  }
+  .fb-btn.active[data-arvio="flop"] {
+    background: var(--blood); color: var(--ink); border-color: var(--blood);
+  }
+  .fb-clear {
+    margin-left: 6px;
+    color: var(--muted);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 12px;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    background: transparent; border: none;
+    cursor: pointer;
+    padding: 4px 6px;
+  }
+  .fb-clear:hover { color: var(--ink-dim); }
+  .fb-history {
+    margin-top: 10px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: none;
+    letter-spacing: 0.01em;
+  }
+
+  /* ========== Mobiilin päiväkorttilistaus ========== */
+  .day-cards { display: none; }
 
   .modal-backdrop {
     position: fixed; inset: 0;
@@ -891,11 +1231,15 @@
     <span class="spacer"></span>
     <span class="status" id="status">Tallennetaan automaattisesti</span>
     <button class="btn" onclick="window.print()">Tulosta</button>
+    <button class="btn" onclick="viePalautteet()" title="Lataa hitti/flop- ja poikkeusmerkinnät JSON-tiedostona">Vie palaute</button>
     <button class="btn ghost" onclick="resetAll()">Palauta oletukset</button>
   </div>
 </header>
 
 <main>
+
+<!-- ========== Tänään / Huomenna -lohko (näkyy kaikissa näkymissä) ========== -->
+<div class="today-block" id="todayBlock"></div>
 
 <!-- ========== PÄIVÄLLISET (mobiilinäkymä) ========== -->
 <section id="dinners" class="active">
@@ -969,6 +1313,7 @@
       </tr>
     </tbody>
   </table>
+  <div class="day-cards" id="dayCards-week1"></div>
 </section>
 
 <!-- ========== VIIKKO 2 ========== -->
@@ -1032,6 +1377,7 @@
       </tr>
     </tbody>
   </table>
+  <div class="day-cards" id="dayCards-week2"></div>
 </section>
 
 <!-- ========== MUISTIINPANOT ========== -->
@@ -1192,6 +1538,19 @@ const WEEK2 = viikkoinfo(1);
 
 function lyhytPvm(d) { return `${d.getDate()}.${d.getMonth() + 1}.`; }
 
+// ---------- "Tänään" vertailuun (vuorokauden tarkkuus) ----------
+const TODAY_START = new Date();
+TODAY_START.setHours(0, 0, 0, 0);
+const TODAY_MS = TODAY_START.getTime();
+
+function dayStatus(d) {
+  const t = new Date(d); t.setHours(0, 0, 0, 0);
+  const diff = t.getTime() - TODAY_MS;
+  if (diff === 0) return "today";
+  if (diff < 0) return "past";
+  return "future";
+}
+
 function paivitaViikkoOtsikot(sectionId, info) {
   const sec = document.getElementById(sectionId);
   if (!sec) return;
@@ -1203,9 +1562,12 @@ function paivitaViikkoOtsikot(sectionId, info) {
       if (!th) continue;
       const d = info.days[i];
       th.innerHTML = `<span class="glyph">${DAY_GLYPHS[i]}</span>${DAY_FULL[i]}<span class="date">${lyhytPvm(d)}</span>`;
+      const st = dayStatus(d);
+      th.classList.toggle("is-today", st === "today");
+      th.classList.toggle("is-past", st === "past");
     }
   }
-  // Merkitse jokaisen tbody-rivin tds data-day-labelilla mobiilia varten
+  // Merkitse jokaisen tbody-rivin tds data-day-labelilla mobiilia varten + today/past
   sec.querySelectorAll("table.schedule tbody tr").forEach(tr => {
     const tds = tr.querySelectorAll("td");
     for (let i = 0; i < 7; i++) {
@@ -1213,6 +1575,10 @@ function paivitaViikkoOtsikot(sectionId, info) {
       if (!td) continue;
       const d = info.days[i];
       td.dataset.dayLabel = `${DAY_GLYPHS[i]}  ${DAY_FULL[i]} ${lyhytPvm(d)}`;
+      td.dataset.dayIso = isoDate(d);
+      const st = dayStatus(d);
+      td.classList.toggle("is-today", st === "today");
+      td.classList.toggle("is-past", st === "past");
     }
   });
   // Section-otsikko
@@ -1221,6 +1587,13 @@ function paivitaViikkoOtsikot(sectionId, info) {
     const range = `${lyhytPvm(info.days[0])} – ${lyhytPvm(info.days[6])}`;
     h2.textContent = `Viikko ${info.weekNumber} · ${range} — lounas (vkl), päivällinen, välipala, iltapala`;
   }
+}
+
+function isoDate(d) {
+  const yy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  return `${yy}-${mm}-${dd}`;
 }
 
 paivitaViikkoOtsikot("week1", WEEK1);
@@ -1257,7 +1630,16 @@ if (!state.shopping || !state.shopping.w1 || !state.shopping.w2) {
     }
   }
 }
+// Reseptikohtainen palaute: { "<recipe-id>": { arvio: "hitti"|"flop", pvm: "YYYY-MM-DD" }[] }
+if (!state.feedback) state.feedback = {};
+// Päiväkohtaiset poikkeukset: { "<cell-key>": { type: "ei-keitetty"|"ulkona", label: "Ulkona" } }
+if (!state.skips) state.skips = {};
 let activeShopWeek = "w1";
+
+const SKIP_LABELS = {
+  "ei-keitetty": "Ei keitetty",
+  "ulkona": "Ulkona"
+};
 
 // ---------- status ----------
 let statusTimer;
@@ -1406,6 +1788,11 @@ function renderDinners() {
     DAYS.forEach((d, di) => {
       const sourceCell = document.querySelector(`[data-k="${wk}-d-${d.key}"]`);
       const li = document.createElement("li");
+      const st = dayStatus(info.days[di]);
+      if (st === "today") li.classList.add("today");
+      if (st === "past") li.classList.add("past");
+      const skipKey = `${wk}-d-${d.key}`;
+      if (state.skips[skipKey]) li.classList.add("skipped");
       const day = document.createElement("span");
       day.className = "day";
       day.textContent = `${d.label} ${lyhytPvm(info.days[di])}`;
@@ -1413,6 +1800,17 @@ function renderDinners() {
       dish.className = "dish";
       // Kopioi sisältö lähdesolusta
       if (sourceCell) dish.innerHTML = sourceCell.innerHTML || "<span class='detail' style='color:var(--muted)'>—</span>";
+      if (state.skips[skipKey]) {
+        const tag = document.createElement("span");
+        tag.className = "detail";
+        tag.style.color = "#d37280";
+        tag.style.fontFamily = "'Cinzel', Georgia, serif";
+        tag.style.fontSize = "10px";
+        tag.style.letterSpacing = "0.16em";
+        tag.style.textTransform = "uppercase";
+        tag.textContent = " · " + state.skips[skipKey].label;
+        dish.append(tag);
+      }
       li.append(day, dish);
       ul.append(li);
     });
@@ -1611,13 +2009,59 @@ function renderRecipe(r) {
   const steps = Array.isArray(r.ohje) ? r.ohje : String(r.ohje || "").split(/\n+/).filter(Boolean);
   out.push(`<ol class="steps">${steps.map(s => `<li>${escapeHtml(s)}</li>`).join("")}</ol>`);
   if (r.huom) out.push(`<p class="note">${escapeHtml(r.huom)}</p>`);
+
+  // Palauteosio
+  const history = (state.feedback[r.id] || []).slice().reverse();
+  const latest = history[0];
+  out.push(`<div class="feedback-row" data-recipe-id="${escapeHtml(r.id)}">
+    <span class="feedback-label">Miltä maistui?</span>
+    <button class="fb-btn${latest && latest.arvio === "hitti" ? " active" : ""}" data-arvio="hitti">Hitti</button>
+    <button class="fb-btn${latest && latest.arvio === "flop" ? " active" : ""}" data-arvio="flop">Flop</button>
+    ${latest ? `<button class="fb-clear" title="Poista viimeisin palaute">poista</button>` : ""}
+  </div>`);
+  if (history.length) {
+    const list = history.slice(0, 5).map(h => {
+      const tag = h.arvio === "hitti" ? "✦" : "✗";
+      return `${tag} ${escapeHtml(h.pvm)}`;
+    }).join(" · ");
+    out.push(`<p class="fb-history">${list}${history.length > 5 ? ` · +${history.length - 5}` : ""}</p>`);
+  }
   return out.join("");
+}
+
+function wireFeedbackButtons(recipe) {
+  const box = document.getElementById("recipeModalBox");
+  if (!box) return;
+  box.querySelectorAll(".fb-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const arvio = btn.dataset.arvio;
+      if (!state.feedback[recipe.id]) state.feedback[recipe.id] = [];
+      state.feedback[recipe.id].push({ arvio, pvm: isoDate(new Date()) });
+      saveState(state);
+      // Re-render modal to show updated state
+      document.getElementById("recipeModalBox").innerHTML = renderRecipe(recipe);
+      wireFeedbackButtons(recipe);
+    });
+  });
+  const clear = box.querySelector(".fb-clear");
+  if (clear) {
+    clear.addEventListener("click", () => {
+      if (state.feedback[recipe.id] && state.feedback[recipe.id].length) {
+        state.feedback[recipe.id].pop();
+        if (!state.feedback[recipe.id].length) delete state.feedback[recipe.id];
+        saveState(state);
+        document.getElementById("recipeModalBox").innerHTML = renderRecipe(recipe);
+        wireFeedbackButtons(recipe);
+      }
+    });
+  }
 }
 
 function openRecipeModal(recipe) {
   const box = document.getElementById("recipeModalBox");
   const modal = document.getElementById("recipeModal");
   box.innerHTML = renderRecipe(recipe);
+  wireFeedbackButtons(recipe);
   modal.classList.add("open");
   document.body.style.overflow = "hidden";
   box.focus();
@@ -1633,32 +2077,277 @@ function wireDinnerRecipes() {
     const cell = td.querySelector(".cell");
     if (!cell) return;
     const strong = cell.querySelector("strong");
+    // Poista vanhat painikkeet (skip + recipe)
+    td.querySelectorAll(".recipe-btn, .skip-btn, .skip-popover").forEach(b => b.remove());
     if (!strong) return;
     const recipe = findRecipe(strong.textContent);
-    // Poista vanha painike (jos nimi muuttui)
-    td.querySelectorAll(".recipe-btn").forEach(b => b.remove());
-    if (!recipe) return;
-    const btn = document.createElement("button");
-    btn.className = "recipe-btn";
-    btn.type = "button";
-    btn.innerHTML = `<span class="glyph">✦</span>Resepti`;
-    btn.title = `Avaa resepti: ${recipe.nimi}`;
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      openRecipeModal(recipe);
+    if (recipe) {
+      const btn = document.createElement("button");
+      btn.className = "recipe-btn";
+      btn.type = "button";
+      btn.innerHTML = `<span class="glyph">✦</span>Resepti`;
+      btn.title = `Avaa resepti: ${recipe.nimi}`;
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openRecipeModal(recipe);
+      });
+      td.appendChild(btn);
+    }
+    // Skip-nappi ja popover jokaiseen päivällisruutuun jolla on sisältöä
+    const skipBtn = document.createElement("button");
+    skipBtn.className = "skip-btn";
+    skipBtn.type = "button";
+    skipBtn.title = "Merkitse poikkeus";
+    skipBtn.innerHTML = "⋯";
+    const pop = document.createElement("div");
+    pop.className = "skip-popover";
+    const cellKey = cell.dataset.k;
+    const current = state.skips[cellKey];
+    pop.innerHTML = `
+      <button data-type="" ${!current ? 'class="active"' : ""}>Keitin normaalisti</button>
+      <div class="sep"></div>
+      <button data-type="ei-keitetty" ${current && current.type === "ei-keitetty" ? 'class="active"' : ""}>Ei keitetty</button>
+      <button data-type="ulkona" ${current && current.type === "ulkona" ? 'class="active"' : ""}>Ulkona / tilattu</button>
+    `;
+    skipBtn.addEventListener("click", (e) => {
+      e.preventDefault(); e.stopPropagation();
+      document.querySelectorAll(".skip-popover.open").forEach(p => { if (p !== pop) p.classList.remove("open"); });
+      pop.classList.toggle("open");
     });
-    td.appendChild(btn);
+    pop.querySelectorAll("button").forEach(b => {
+      b.addEventListener("click", (e) => {
+        e.preventDefault(); e.stopPropagation();
+        const t = b.dataset.type;
+        if (!t) delete state.skips[cellKey];
+        else state.skips[cellKey] = { type: t, label: SKIP_LABELS[t] };
+        saveState(state);
+        pop.classList.remove("open");
+        applySkipsToCells();
+        renderTodayBlock();
+        renderDayCards();
+      });
+    });
+    td.appendChild(skipBtn);
+    td.appendChild(pop);
+  });
+  applySkipsToCells();
+}
+
+function applySkipsToCells() {
+  document.querySelectorAll("tr.dinner td").forEach(td => {
+    const cell = td.querySelector(".cell");
+    if (!cell) return;
+    const cellKey = cell.dataset.k;
+    const s = state.skips[cellKey];
+    if (s) {
+      td.classList.add("skipped");
+      td.dataset.skipLabel = s.label || SKIP_LABELS[s.type] || "Poikkeus";
+    } else {
+      td.classList.remove("skipped");
+      delete td.dataset.skipLabel;
+    }
   });
 }
 
+// Sulje skip-popover klikkaamalla muualle
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".skip-popover") && !e.target.closest(".skip-btn")) {
+    document.querySelectorAll(".skip-popover.open").forEach(p => p.classList.remove("open"));
+  }
+});
+
 wireDinnerRecipes();
 
-// Päivitä painikkeet, kun solua on muokattu
+// ---------- Tänään / Huomenna -lohko ----------
+function cellForDate(date) {
+  // Etsii minkä viikon (w1/w2) ja päivän key vastaa annettua päivämäärää
+  for (const info of [WEEK1, WEEK2]) {
+    for (let i = 0; i < 7; i++) {
+      const d = info.days[i];
+      if (d.getFullYear() === date.getFullYear() &&
+          d.getMonth() === date.getMonth() &&
+          d.getDate() === date.getDate()) {
+        const wk = info === WEEK1 ? "w1" : "w2";
+        const dayKey = ["ma","ti","ke","to","pe","la","su"][i];
+        return { wk, dayKey, info, dayIndex: i };
+      }
+    }
+  }
+  return null;
+}
+
+function dinnerContentFor(wk, dayKey) {
+  const cell = document.querySelector(`[data-k="${wk}-d-${dayKey}"]`);
+  if (!cell) return { html: "", plain: "" };
+  return {
+    html: cell.innerHTML,
+    plain: (cell.querySelector("strong") || {}).textContent || ""
+  };
+}
+
+function renderTodayBlock() {
+  const el = document.getElementById("todayBlock");
+  if (!el) return;
+  const today = new Date(TODAY_START);
+  const tomorrow = new Date(TODAY_START); tomorrow.setDate(tomorrow.getDate() + 1);
+
+  const cells = [
+    { label: "Tänään", date: today, now: true },
+    { label: "Huomenna", date: tomorrow, now: false }
+  ];
+
+  el.innerHTML = "";
+  cells.forEach(c => {
+    const loc = cellForDate(c.date);
+    const entry = document.createElement("div");
+    entry.className = "today-entry" + (c.now ? " now" : "");
+    const skipKey = loc ? `${loc.wk}-d-${loc.dayKey}` : null;
+    const skip = skipKey ? state.skips[skipKey] : null;
+    let dishHtml = "";
+    let recipe = null;
+    if (loc) {
+      const d = dinnerContentFor(loc.wk, loc.dayKey);
+      if (d.plain.trim()) {
+        dishHtml = d.html;
+        recipe = findRecipe(d.plain);
+      } else {
+        entry.classList.add("empty");
+        dishHtml = "<span class='dish'>— ei merkintää —</span>";
+      }
+    } else {
+      entry.classList.add("empty");
+      dishHtml = "<span class='dish'>— ruokalistalla ei tätä päivää —</span>";
+    }
+    if (skip) entry.classList.add("skipped");
+
+    const dayLabel = loc
+      ? `${c.label} · ${DAY_SHORT[loc.dayIndex]} ${lyhytPvm(c.date)}${skip ? " · " + skip.label : ""}`
+      : `${c.label} · ${lyhytPvm(c.date)}`;
+
+    entry.innerHTML = `
+      <span class="label">${dayLabel}</span>
+      <span class="dish">${dishHtml}</span>
+    `;
+    if (recipe && !skip) {
+      const btn = document.createElement("button");
+      btn.className = "recipe-btn-top";
+      btn.type = "button";
+      btn.innerHTML = `<span class="glyph">✦</span> Resepti`;
+      btn.addEventListener("click", () => openRecipeModal(recipe));
+      entry.appendChild(btn);
+    }
+    el.appendChild(entry);
+  });
+}
+
+renderTodayBlock();
+
+// ---------- Päiväkortit (mobiili) ----------
+const MEAL_ROWS = [
+  { key: "l", label: "Lounas" },
+  { key: "d", label: "Päivällinen" },
+  { key: "s", label: "Välipala" },
+  { key: "e", label: "Iltapala" }
+];
+
+function renderDayCards() {
+  [["week1", WEEK1, "w1"], ["week2", WEEK2, "w2"]].forEach(([secId, info, wk]) => {
+    const container = document.getElementById(`dayCards-${secId}`);
+    if (!container) return;
+    container.innerHTML = "";
+    for (let i = 0; i < 7; i++) {
+      const d = info.days[i];
+      const st = dayStatus(d);
+      const card = document.createElement("div");
+      card.className = "day-card";
+      if (st === "today") card.classList.add("is-today");
+      if (st === "past") card.classList.add("is-past");
+
+      const hdr = document.createElement("div");
+      hdr.className = "hdr";
+      hdr.innerHTML = `<span class="glyph">${DAY_GLYPHS[i]}</span>${DAY_FULL[i]}<span class="date">${lyhytPvm(d)}</span>`;
+      card.appendChild(hdr);
+
+      const dayShort = ["ma","ti","ke","to","pe","la","su"][i];
+      MEAL_ROWS.forEach(m => {
+        const cell = document.querySelector(`[data-k="${wk}-${m.key}-${dayShort}"]`);
+        const content = cell ? cell.innerHTML.trim() : "";
+        const meal = document.createElement("div");
+        meal.className = "meal" + (m.key === "d" ? " dinner" : "");
+        const skipKey = m.key === "d" ? `${wk}-d-${dayShort}` : null;
+        const skip = skipKey ? state.skips[skipKey] : null;
+        if (skip) meal.classList.add("skipped");
+
+        let contentHtml = content || `<span class="detail" style="color:var(--muted)">—</span>`;
+        let recipe = null;
+        if (m.key === "d" && cell) {
+          const strong = cell.querySelector("strong");
+          if (strong) recipe = findRecipe(strong.textContent);
+        }
+
+        meal.innerHTML = `
+          <span class="type">${m.label}</span>
+          <div class="content">${contentHtml}${skip ? `<span class="skip-tag">${escapeHtml(skip.label)}</span>` : ""}</div>
+        `;
+
+        if (m.key === "d") {
+          const actions = document.createElement("div");
+          actions.className = "mobile-actions";
+          if (recipe) {
+            const rb = document.createElement("button");
+            rb.type = "button";
+            rb.className = "mobile-recipe-btn";
+            rb.textContent = "Resepti";
+            rb.addEventListener("click", () => openRecipeModal(recipe));
+            actions.appendChild(rb);
+          }
+          const sb = document.createElement("button");
+          sb.type = "button";
+          sb.className = "mobile-skip-btn";
+          sb.textContent = skip ? "●" : "⋯";
+          sb.title = skip ? "Peru poikkeusmerkintä" : "Merkitse poikkeus";
+          sb.addEventListener("click", () => {
+            // Kiertojärjestys: ei mitään → ulkona → ei-keitetty → takaisin pois
+            if (!skip) {
+              state.skips[skipKey] = { type: "ulkona", label: SKIP_LABELS.ulkona };
+            } else if (skip.type === "ulkona") {
+              state.skips[skipKey] = { type: "ei-keitetty", label: SKIP_LABELS["ei-keitetty"] };
+            } else {
+              delete state.skips[skipKey];
+            }
+            saveState(state);
+            applySkipsToCells();
+            renderTodayBlock();
+            renderDayCards();
+          });
+          actions.appendChild(sb);
+          meal.appendChild(actions);
+        }
+        card.appendChild(meal);
+      });
+      container.appendChild(card);
+    }
+  });
+}
+
+renderDayCards();
+
+// Päivitä painikkeet ja johdannaiset näkymät kun päivällissolua muokataan
 document.querySelectorAll("tr.dinner .cell").forEach(el => {
   el.addEventListener("blur", () => {
-    // Pieni viive: saveState on juuri kirjoittanut, anna DOM:in rauhoittua
-    setTimeout(wireDinnerRecipes, 10);
+    setTimeout(() => {
+      wireDinnerRecipes();
+      renderTodayBlock();
+      renderDayCards();
+    }, 10);
+  });
+});
+
+// Päivitä päiväkortit myös muiden ateriasolujen muokkauksen jälkeen
+document.querySelectorAll("tr.lunch .cell, tr.snack .cell, tr.evening .cell").forEach(el => {
+  el.addEventListener("blur", () => {
+    setTimeout(renderDayCards, 10);
   });
 });
 
@@ -1672,9 +2361,54 @@ document.getElementById("recipeModal").addEventListener("click", (e) => {
 
 // ---------- reset ----------
 function resetAll() {
-  if (!confirm("Palauta kaikki ruokalistat ja ostoslista oletuksiin? Omat muokkaukset katoavat.")) return;
+  if (!confirm("Palauta kaikki ruokalistat, ostoslista, palautteet ja poikkeukset oletuksiin? Omat muokkaukset katoavat.")) return;
   localStorage.removeItem(STORAGE_KEY);
   location.reload();
+}
+
+// ---------- palauteiden vienti ----------
+function viePalautteet() {
+  // Rikasta skip-tietoja päivämäärällä ja reseptinimellä
+  const skipsRich = [];
+  Object.entries(state.skips || {}).forEach(([cellKey, s]) => {
+    // cellKey muotoa "w1-d-to"
+    const m = cellKey.match(/^(w[12])-d-(ma|ti|ke|to|pe|la|su)$/);
+    if (!m) return;
+    const wk = m[1], dayKey = m[2];
+    const info = wk === "w1" ? WEEK1 : WEEK2;
+    const idx = ["ma","ti","ke","to","pe","la","su"].indexOf(dayKey);
+    const date = info.days[idx];
+    const cell = document.querySelector(`[data-k="${cellKey}"]`);
+    const nimi = cell && cell.querySelector("strong") ? cell.querySelector("strong").textContent.trim() : "";
+    const recipe = nimi ? findRecipe(nimi) : null;
+    skipsRich.push({
+      cell_key: cellKey,
+      pvm: isoDate(date),
+      suunniteltu: nimi,
+      resepti_id: recipe ? recipe.id : null,
+      poikkeus: s.type,
+      selite: s.label
+    });
+  });
+  const exportData = {
+    vietu: new Date().toISOString(),
+    feedback: state.feedback || {},
+    skips: skipsRich
+  };
+  const fbCount = Object.keys(exportData.feedback).length;
+  const skipCount = skipsRich.length;
+  if (fbCount === 0 && skipCount === 0) {
+    alert("Ei palautteita tai poikkeusmerkintöjä vietäväksi.");
+    return;
+  }
+  const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `palaute-${isoDate(new Date())}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showStatus(`Vietu: ${fbCount} resepti${fbCount === 1 ? "" : "ä"}, ${skipCount} poikkeusta`);
 }
 </script>
 </body>
