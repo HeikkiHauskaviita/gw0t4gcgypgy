@@ -934,6 +934,54 @@
     color: var(--gold);
   }
 
+  /* ========== Annoskoko-badge päivällisruuduissa ========== */
+  .portion-badge {
+    position: absolute;
+    top: 6px; right: 6px;
+    background: rgba(10, 6, 18, 0.55);
+    border: 1px solid var(--border);
+    color: var(--gold-dim);
+    padding: 2px 6px 2px 7px;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    cursor: pointer;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.2s, border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  }
+  .portion-badge:hover, .portion-badge:focus-within {
+    color: var(--gold-bright);
+    border-color: var(--gold);
+    box-shadow: 0 0 8px rgba(212, 169, 74, 0.35);
+  }
+  .portion-badge .glyph { font-size: 11px; line-height: 1; }
+  .portion-badge input {
+    width: 26px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: inherit;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11px;
+    text-align: center;
+    padding: 0;
+    -moz-appearance: textfield;
+  }
+  .portion-badge input::-webkit-outer-spin-button,
+  .portion-badge input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .portion-badge.adjusted {
+    color: var(--gold-bright);
+    border-color: var(--gold);
+    background: rgba(212, 169, 74, 0.14);
+  }
+
   /* ========== Skip-menu (⋯) päivällisruuduissa ========== */
   .skip-btn {
     position: absolute;
@@ -1660,6 +1708,14 @@ if (!state.shopping || !state.shopping.w1 || !state.shopping.w2) {
 if (!state.feedback) state.feedback = {};
 // Päiväkohtaiset poikkeukset: { "<cell-key>": { type: "ei-keitetty"|"ulkona", label: "Ulkona" } }
 if (!state.skips) state.skips = {};
+// Päiväkohtainen annoskoko päivällisille: { "<cell-key>": 5 }. Puuttuva = 5 (perheen koko).
+if (!state.portions) state.portions = {};
+const DEFAULT_PORTIONS = 5;
+function getPortionSize(cellKey) {
+  const v = state.portions && state.portions[cellKey];
+  if (typeof v === "number" && v > 0) return v;
+  return DEFAULT_PORTIONS;
+}
 let activeShopWeek = "w1";
 
 const SKIP_LABELS = {
@@ -2003,6 +2059,8 @@ function collectIngredientsForWeek(wk) {
     if (!strong) return;
     const recipe = findRecipe(strong.textContent);
     if (!recipe) return;
+    const baseSize = Number(recipe.annoskoko) || DEFAULT_PORTIONS;
+    const scale = getPortionSize(cellKey) / baseSize;
 
     const add = (ing) => {
       if (!ing || !ing.nimi) return;
@@ -2022,7 +2080,7 @@ function collectIngredientsForWeek(wk) {
       }
       const b = buckets.get(key);
       b.sources.add(recipe.id);
-      if (typeof ing.maara === "number") b.maara += ing.maara;
+      if (typeof ing.maara === "number") b.maara += ing.maara * scale;
     };
 
     (recipe.ainekset || []).forEach(add);
@@ -2296,9 +2354,40 @@ function wireDinnerRecipes() {
     const cell = td.querySelector(".cell");
     if (!cell) return;
     const strong = cell.querySelector("strong");
-    // Poista vanhat painikkeet (skip + recipe)
-    td.querySelectorAll(".recipe-btn, .skip-btn, .skip-popover").forEach(b => b.remove());
+    // Poista vanhat painikkeet (recipe + skip + portion)
+    td.querySelectorAll(".recipe-btn, .skip-btn, .skip-popover, .portion-badge").forEach(b => b.remove());
     if (!strong) return;
+    const cellKeyForPortion = cell.dataset.k;
+    // Annoskoko-badge (aina näkyvissä jos päivällisellä on ruoka)
+    const portionBadge = document.createElement("label");
+    portionBadge.className = "portion-badge";
+    portionBadge.title = "Annoskoko: monelleko henkilölle keitetään";
+    const pg = document.createElement("span");
+    pg.className = "glyph"; pg.textContent = "♀"; // diskretti glyffi; voidaan vaihtaa
+    const pInput = document.createElement("input");
+    pInput.type = "number"; pInput.min = "1"; pInput.max = "12";
+    pInput.value = String(getPortionSize(cellKeyForPortion));
+    pInput.setAttribute("aria-label", "Annoskoko henkilöinä");
+    if (parseInt(pInput.value, 10) !== DEFAULT_PORTIONS) portionBadge.classList.add("adjusted");
+    const commitPortion = () => {
+      let v = parseInt(pInput.value, 10);
+      if (isNaN(v) || v < 1) v = DEFAULT_PORTIONS;
+      if (v > 12) v = 12;
+      pInput.value = String(v);
+      if (v === DEFAULT_PORTIONS) { delete state.portions[cellKeyForPortion]; portionBadge.classList.remove("adjusted"); }
+      else { state.portions[cellKeyForPortion] = v; portionBadge.classList.add("adjusted"); }
+      saveState(state);
+      renderTodayBlock && renderTodayBlock();
+      renderDayCards && renderDayCards();
+      showStatus(`Annoskoko ${v} hlö tallennettu`);
+    };
+    pInput.addEventListener("change", commitPortion);
+    pInput.addEventListener("blur", commitPortion);
+    pInput.addEventListener("click", e => e.stopPropagation());
+    portionBadge.appendChild(pg);
+    portionBadge.appendChild(pInput);
+    td.appendChild(portionBadge);
+
     const recipe = findRecipe(strong.textContent);
     if (recipe) {
       const btn = document.createElement("button");
@@ -2580,7 +2669,7 @@ document.getElementById("recipeModal").addEventListener("click", (e) => {
 
 // ---------- reset ----------
 function resetAll() {
-  if (!confirm("Palauta kaikki ruokalistat, ostoslista, palautteet ja poikkeukset oletuksiin? Omat muokkaukset katoavat.")) return;
+  if (!confirm("Palauta kaikki ruokalistat, ostoslista, palautteet, poikkeukset ja annoskoot oletuksiin? Omat muokkaukset katoavat.")) return;
   localStorage.removeItem(STORAGE_KEY);
   location.reload();
 }
