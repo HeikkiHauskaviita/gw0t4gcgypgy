@@ -836,9 +836,10 @@
 
     /* Tänään/Huomenna-lohko yhteen sarakkeeseen */
     .today-block { grid-template-columns: 1fr; gap: 10px; margin-bottom: 18px; padding-bottom: 16px; }
-    .today-entry { padding: 12px 14px 14px; }
+    .today-entry { padding: 12px 90px 14px 14px; }  /* oikeaan reunaan tilaa resepti-napille */
     .today-entry .dish { font-size: 17px; }
     .today-entry .detail { font-size: 12.5px; }
+    .today-entry .recipe-btn-top { top: 8px; right: 8px; font-size: 8.5px; padding: 2px 7px; }
 
     /* Piilota pöytä, näytä päiväkortit */
     table.schedule { display: none; }
@@ -884,22 +885,23 @@
       font-weight: 400;
     }
     .day-card .meal {
-      padding: 8px 0;
+      padding: 10px 0 9px;
       border-bottom: 1px dashed var(--border);
-      display: grid;
-      grid-template-columns: 64px 1fr auto;
-      gap: 8px;
-      align-items: baseline;
       position: relative;
     }
     .day-card .meal:last-child { border-bottom: none; }
     .day-card .meal .type {
+      display: block;
       font-family: 'Cinzel', Georgia, serif;
       font-size: 9px; letter-spacing: 0.16em;
       color: var(--gold-dim); text-transform: uppercase;
-      padding-top: 2px;
+      margin-bottom: 4px;
     }
-    .day-card .meal .content { font-size: 14px; color: var(--ink); }
+    .day-card .meal .content {
+      font-size: 14px; color: var(--ink);
+      min-height: 22px;
+    }
+    .day-card .meal.dinner .content { padding-right: 76px; }  /* tilaa resepti/poikkeus-napille */
     .day-card .meal .content strong {
       display: block;
       color: var(--gold-bright);
@@ -942,7 +944,11 @@
     }
     .day-card .meal .mobile-skip-btn { padding: 3px 9px; font-size: 11px; letter-spacing: 0; }
     .day-card .meal .mobile-actions {
+      position: absolute;
+      top: 26px;  /* alle .type-labelin */
+      right: 0;
       display: flex; flex-direction: column; gap: 4px;
+      align-items: flex-end;
     }
   }
 
@@ -2649,6 +2655,7 @@ function renderDayCards() {
 
       const dayShort = ["ma","ti","ke","to","pe","la","su"][i];
       MEAL_ROWS.forEach(m => {
+        try {
         const cell = document.querySelector(`[data-k="${wk}-${m.key}-${dayShort}"]`);
         const content = cell ? cell.innerHTML.trim() : "";
         const meal = document.createElement("div");
@@ -2703,6 +2710,9 @@ function renderDayCards() {
           meal.appendChild(actions);
         }
         card.appendChild(meal);
+        } catch (err) {
+          console.warn("Päiväkortin ateria "+m.key+" epäonnistui:", err);
+        }
       });
       container.appendChild(card);
     }
