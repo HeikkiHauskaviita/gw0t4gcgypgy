@@ -1599,7 +1599,13 @@ function renderRecipe(r) {
   }).join("");
   out.push(`<ul class="ingredients">${ingredients}</ul>`);
   if (Array.isArray(r.lisukkeet) && r.lisukkeet.length) {
-    out.push(`<h3>Lisukkeet</h3><ul class="ingredients">${r.lisukkeet.map(l => `<li>${escapeHtml(l)}</li>`).join("")}</ul>`);
+    const lisukkeet = r.lisukkeet.map(l => {
+      if (typeof l === "string") return `<li>${escapeHtml(l)}</li>`;
+      const qty = (l.maara != null && l.yksikko) ? `${l.maara} ${l.yksikko}` : (l.maara != null ? String(l.maara) : "");
+      const extras = [l.kaytto, l.merkki, l.huom].filter(Boolean).map(escapeHtml).join(" · ");
+      return `<li><span class="qty">${escapeHtml(qty)}</span>${escapeHtml(l.nimi || "")}${extras ? `<span class="brand">${extras}</span>` : ""}</li>`;
+    }).join("");
+    out.push(`<h3>Lisukkeet</h3><ul class="ingredients">${lisukkeet}</ul>`);
   }
   out.push(`<h3>Valmistus</h3>`);
   const steps = Array.isArray(r.ohje) ? r.ohje : String(r.ohje || "").split(/\n+/).filter(Boolean);
