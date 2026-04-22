@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="julkaistu" content="2026-04-21">
+<meta name="julkaistu" content="2026-04-22">
 <meta name="robots" content="noindex, nofollow">
 <title>Perheen viikkoruokalista</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,6 +68,24 @@
     display: inline-block;
     vertical-align: middle;
     font-weight: normal;
+    animation: sigilPulse 4.5s ease-in-out infinite;
+  }
+  header h1 .sigil:last-child { animation-delay: 2.2s; }
+  @keyframes sigilPulse {
+    0%, 100% { text-shadow: 0 0 6px rgba(212, 169, 74, 0.25); color: var(--gold-dim); }
+    50% { text-shadow: 0 0 22px rgba(212, 169, 74, 0.75), 0 0 4px rgba(240, 199, 106, 0.5); color: var(--gold); }
+  }
+  header::after {
+    content: "✦ · ⸎ · ✦";
+    display: block;
+    text-align: center;
+    color: var(--gold-dim);
+    letter-spacing: 0.8em;
+    font-size: 9px;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    opacity: 0.55;
   }
   .controls {
     display: flex; flex-wrap: wrap; gap: 8px;
@@ -144,7 +162,7 @@
     border-radius: 0;
     overflow: hidden;
     box-shadow: var(--shadow), inset 0 0 0 1px rgba(212, 169, 74, 0.06);
-    margin-top: 20px;
+    margin-top: 0;
   }
   table.schedule th, table.schedule td {
     padding: 14px 16px;
@@ -171,6 +189,17 @@
     color: var(--gold-bright);
     font-weight: normal;
     text-shadow: 0 0 10px rgba(212, 169, 74, 0.4);
+  }
+  table.schedule thead th .date {
+    display: block;
+    margin-top: 4px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--gold-dim);
+    font-weight: 400;
+    font-style: italic;
+    text-transform: none;
   }
   table.schedule tbody th {
     width: 150px;
@@ -270,7 +299,7 @@
   .dinner-list { list-style: none; padding: 0; margin: 0; }
   .dinner-list li {
     display: grid;
-    grid-template-columns: 44px 1fr;
+    grid-template-columns: 74px 1fr;
     gap: 10px;
     padding: 11px 0;
     border-bottom: 1px dashed var(--border);
@@ -438,12 +467,30 @@
     text-align: center;
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-style: italic;
-    font-size: 16px;
+    font-size: 16.5px;
     color: var(--ink-dim);
     max-width: 640px;
-    margin: 4px auto 24px;
-    line-height: 1.6;
-    padding: 0 20px;
+    margin: 10px auto 26px;
+    line-height: 1.65;
+    padding: 16px 28px 18px;
+    position: relative;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .epigraph::before, .epigraph::after {
+    content: "⸎";
+    position: absolute;
+    color: var(--gold-dim);
+    font-size: 14px;
+    background: var(--bg);
+    padding: 0 10px;
+    line-height: 1;
+  }
+  .epigraph::before {
+    top: -7px; left: 50%; transform: translateX(-50%);
+  }
+  .epigraph::after {
+    bottom: -8px; left: 50%; transform: translateX(-50%);
   }
   .epigraph .text::before {
     content: "“";
@@ -523,6 +570,7 @@
       margin-bottom: 12px;
     }
     header h1 .sigil { margin: 0 8px; font-size: 13px; }
+    header::after { letter-spacing: 0.4em; font-size: 8px; margin-top: 8px; padding-top: 7px; }
     .controls { gap: 6px; }
     .tab, .btn {
       padding: 7px 11px;
@@ -594,13 +642,7 @@
       text-transform: uppercase;
       color: var(--gold-dim);
     }
-    table.schedule tbody tr td:nth-child(2)::before { content: "☽  Maanantai"; }
-    table.schedule tbody tr td:nth-child(3)::before { content: "♂  Tiistai"; }
-    table.schedule tbody tr td:nth-child(4)::before { content: "☿  Keskiviikko"; }
-    table.schedule tbody tr td:nth-child(5)::before { content: "♃  Torstai"; }
-    table.schedule tbody tr td:nth-child(6)::before { content: "♀  Perjantai"; }
-    table.schedule tbody tr td:nth-child(7)::before { content: "♄  Lauantai"; }
-    table.schedule tbody tr td:nth-child(8)::before { content: "☉  Sunnuntai"; }
+    table.schedule tbody tr td::before { content: attr(data-day-label); }
     table.schedule tbody tr td:last-child { border-bottom: none; }
     .cell { min-height: auto; margin: 0; padding: 2px 0; }
     .cell strong { font-size: 12px; }
@@ -612,6 +654,205 @@
     .notes-wrap textarea { font-size: 16px; line-height: 1.9; }
     .subtabs { width: 100%; justify-content: center; }
     .subtab { padding: 7px 12px; font-size: 9px; }
+  }
+
+  /* ========== Recipe modal ========== */
+  tr.dinner td { position: relative; }
+  .recipe-btn {
+    position: absolute;
+    top: 6px; right: 6px;
+    background: rgba(10, 6, 18, 0.55);
+    border: 1px solid var(--border);
+    color: var(--gold-dim);
+    padding: 1px 8px 2px;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    z-index: 2;
+    transition: color 0.2s, border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  }
+  .recipe-btn:hover, .recipe-btn:focus-visible {
+    color: var(--gold-bright);
+    border-color: var(--gold);
+    background: rgba(26, 16, 42, 0.95);
+    box-shadow: 0 0 10px rgba(212, 169, 74, 0.45);
+    outline: none;
+  }
+  .recipe-btn .glyph {
+    margin-right: 5px;
+    font-size: 11px;
+    color: var(--gold);
+  }
+
+  .modal-backdrop {
+    position: fixed; inset: 0;
+    background: rgba(4, 2, 10, 0.82);
+    backdrop-filter: blur(3px);
+    z-index: 100;
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 32px 16px;
+    animation: fade 0.18s ease-out;
+  }
+  .modal-backdrop.open { display: flex; }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+  .modal {
+    background: linear-gradient(180deg, var(--surface), var(--bg-2));
+    border: 1px solid var(--border-strong);
+    box-shadow:
+      0 10px 60px rgba(0,0,0,0.85),
+      0 0 80px rgba(74, 43, 110, 0.35),
+      inset 0 0 0 1px rgba(212, 169, 74, 0.08);
+    max-width: 720px;
+    width: 100%;
+    padding: 28px 36px 32px;
+    position: relative;
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.55;
+    animation: rise 0.24s cubic-bezier(.2,.8,.2,1);
+  }
+  @keyframes rise { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+  .modal::before {
+    content: "";
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.7;
+  }
+  .modal-close {
+    position: absolute; top: 10px; right: 12px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--gold-dim);
+    font-size: 20px;
+    line-height: 1;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-family: 'Cinzel', Georgia, serif;
+  }
+  .modal-close:hover { color: var(--gold-bright); border-color: var(--border); }
+
+  .modal h2.title {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    text-align: center;
+    margin: 4px 0 4px;
+    text-shadow: 0 0 20px rgba(212, 169, 74, 0.3);
+  }
+  .modal h2.title::before, .modal h2.title::after {
+    content: "✦";
+    color: var(--gold-dim);
+    margin: 0 14px;
+    font-size: 10px;
+    vertical-align: middle;
+  }
+  .modal .meta {
+    text-align: center;
+    margin: 0 0 18px;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+  .modal .meta span { margin: 0 8px; }
+  .modal .meta .sep { color: var(--muted); }
+  .modal .tags {
+    text-align: center;
+    margin: 0 0 20px;
+  }
+  .modal .tag {
+    display: inline-block;
+    border: 1px solid var(--border);
+    color: var(--ink-dim);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 12px;
+    font-style: italic;
+    padding: 2px 10px;
+    margin: 2px 3px;
+    border-radius: 1px;
+  }
+  .modal h3 {
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-weight: 600;
+    margin: 22px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .modal h3::before { content: "✦ "; color: var(--gold-dim); font-size: 9px; }
+  .modal ul.ingredients {
+    list-style: none; padding: 0; margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 24px;
+  }
+  .modal ul.ingredients li {
+    padding: 3px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 15px;
+  }
+  .modal ul.ingredients li .qty {
+    color: var(--gold-dim);
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    margin-right: 6px;
+  }
+  .modal ul.ingredients li .brand {
+    display: block;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--muted);
+    margin-left: 0;
+  }
+  .modal ol.steps {
+    padding-left: 20px;
+    margin: 8px 0 0;
+  }
+  .modal ol.steps li {
+    padding: 6px 0 8px;
+    margin-bottom: 4px;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  .modal .note {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: var(--blood-soft);
+    border-left: 2px solid var(--blood);
+    font-style: italic;
+    color: var(--ink-dim);
+    font-size: 14px;
+  }
+  .modal .note::before {
+    content: "⛧ ";
+    color: var(--blood);
+    font-style: normal;
+    margin-right: 4px;
+  }
+
+  @media (max-width: 720px) {
+    .modal { padding: 22px 20px 26px; font-size: 15px; }
+    .modal h2.title { font-size: 16px; letter-spacing: 0.1em; }
+    .modal h2.title::before, .modal h2.title::after { margin: 0 8px; }
+    .modal ul.ingredients { grid-template-columns: 1fr; gap: 0; }
+    .modal-backdrop { padding: 14px 8px; }
+    .recipe-btn { font-size: 9px; padding: 1px 7px; }
   }
 
   @media print {
@@ -826,6 +1067,14 @@
 
 </main>
 
+<!-- ========== Reseptimodal ========== -->
+<div class="modal-backdrop" id="recipeModal" role="dialog" aria-modal="true" aria-labelledby="recipeModalTitle">
+  <div class="modal" id="recipeModalBox" tabindex="-1"></div>
+</div>
+
+<!-- ========== Reseptidata (julkaise.py injektoi reseptit.json:sta) ========== -->
+<script type="application/json" id="recipes-data">{"schema_versio":"1.0","oletus_annoskoko":5,"perhe":{"aikuiset":2,"lapset":3,"lasten_iat":[18,6,4],"erityisruokavaliot":["6v kasvissyöjä (munat ok)"]},"yksikot_selitys":{"kpl":"kappale","g":"gramma","kg":"kilogramma","dl":"desilitra","l":"litra","rkl":"ruokalusikka","tl":"teelusikka","pkt":"pakkaus","tlk":"tölkki","prk":"purkki"},"reseptit":[{"id":"tomaattipasta","nimi":"Tomaattipasta","kategoria":"päivällinen","annoskoko":5,"tagit":["kasvis","klassikko","lapset-ok","nopea"],"max_minuutit":20,"vaikeustaso":"helppo","ainekset":[{"nimi":"Spagetti","maara":500,"yksikko":"g","merkki":"Rummo"},{"nimi":"Tomaattimurska","maara":2,"yksikko":"tlk","merkki":"Coop Eko luomu","huom":"400 g tlk"},{"nimi":"Sipuli","maara":1,"yksikko":"kpl"},{"nimi":"Valkosipulinkynsi","maara":2,"yksikko":"kpl"},{"nimi":"Oliiviöljy","maara":2,"yksikko":"rkl","kaappitavara":true},{"nimi":"Basilika, kuivattu","maara":1,"yksikko":"tl","kaappitavara":true},{"nimi":"Suola","maara":null,"yksikko":null,"kaappitavara":true},{"nimi":"Juustoraaste","maara":100,"yksikko":"g"}],"lisukkeet":[{"nimi":"Porkkana","maara":2,"yksikko":"kpl","kaytto":"raastesalaatti"},{"nimi":"Kurkku","maara":0.5,"yksikko":"kpl","kaytto":"raastesalaatti"}],"ohje":["Keitä spagetti pakkauksen ohjeen mukaan suolalla maustetussa vedessä.","Pilko sipuli ja valkosipuli. Paista oliiviöljyssä pehmeäksi.","Lisää tomaattimurska ja basilika. Anna kiehua hiljalleen 10 min, mausta suolalla.","Raasta porkkana ja kurkku salaattilautaselle.","Tarjoile pasta kastikkeen ja juustoraasteen kera."],"huom":"Lapset tykkäävät isosta juustokasasta päälle."},{"id":"peruna-munakas","nimi":"Peruna-munakas","kategoria":"päivällinen","annoskoko":5,"tagit":["kasvis","munat","klassikko","lapset-ok"],"max_minuutit":30,"vaikeustaso":"helppo","ainekset":[{"nimi":"Perunat","maara":1,"yksikko":"kg"},{"nimi":"Sipuli","maara":1,"yksikko":"kpl"},{"nimi":"Kananmuna","maara":8,"yksikko":"kpl"},{"nimi":"Täysmaito","maara":1,"yksikko":"dl"},{"nimi":"Voi","maara":20,"yksikko":"g"},{"nimi":"Juustoraaste","maara":50,"yksikko":"g"},{"nimi":"Suola, mustapippuri","maara":null,"yksikko":null,"kaappitavara":true}],"lisukkeet":[{"nimi":"Ruisleipä","maara":0.5,"yksikko":"pkt"},{"nimi":"Tuorekurkku","maara":0.5,"yksikko":"kpl"}],"ohje":["Keitä perunat kuorineen kypsiksi. Kuori ja paloittele.","Pilko sipuli, paista voissa pehmeäksi uunivuoassa tai pannulla.","Lisää perunat sekaan.","Riko munat kulhoon, vatkaa maidon kanssa, mausta suolalla ja pippurilla.","Kaada munaseos perunoiden päälle. Ripottele juustoraaste päälle.","Paista 200 °C uunissa 15 min tai kunnes muna on hyytynyt."],"huom":null},{"id":"punalinssikeitto","nimi":"Punalinssikeitto","kategoria":"päivällinen","annoskoko":5,"tagit":["kasvis","vegaani","lapset-ok","soseutettava"],"max_minuutit":25,"vaikeustaso":"helppo","ainekset":[{"nimi":"Punaiset linssit","maara":3,"yksikko":"dl"},{"nimi":"Porkkana","maara":3,"yksikko":"kpl"},{"nimi":"Sipuli","maara":1,"yksikko":"kpl"},{"nimi":"Tomaattimurska","maara":1,"yksikko":"tlk","merkki":"Coop Eko luomu"},{"nimi":"Kasvisliemikuutio","maara":1,"yksikko":"kpl","kaappitavara":true},{"nimi":"Vesi","maara":1,"yksikko":"l","kaappitavara":true},{"nimi":"Juustokumina, jauhettu","maara":1,"yksikko":"tl","kaappitavara":true},{"nimi":"Oliiviöljy","maara":1,"yksikko":"rkl","kaappitavara":true}],"lisukkeet":[{"nimi":"Ruisleipä","maara":0.5,"yksikko":"pkt"},{"nimi":"Juustoviipale","maara":1,"yksikko":"pkt"}],"ohje":["Pilko sipuli ja porkkanat, paista kattilassa öljyssä muutama minuutti.","Lisää linssit, tomaattimurska, vesi ja liemikuutio.","Keitä 15–20 min kunnes linssit hajoavat.","Mausta juustokuminalla ja suolalla.","Soseuta osa tai kokonaan sauvasekoittimella — lapsille sileämpi rakenne.","Tarjoile juustoleivän kera."],"huom":"Soseutettuna pikkulapset syövät paremmin."},{"id":"pinaattilatyt","nimi":"Pinaattilätyt","kategoria":"päivällinen","annoskoko":5,"tagit":["kasvis","munat","lapset-ok","lempiruoka"],"max_minuutit":25,"vaikeustaso":"helppo","ainekset":[{"nimi":"Pakastepinaatti","maara":250,"yksikko":"g"},{"nimi":"Vehnäjauho","maara":3,"yksikko":"dl"},{"nimi":"Täysmaito","maara":5,"yksikko":"dl"},{"nimi":"Kananmuna","maara":3,"yksikko":"kpl"},{"nimi":"Voi","maara":30,"yksikko":"g","kaytto":"paistamiseen"},{"nimi":"Suola","maara":1,"yksikko":"tl","kaappitavara":true}],"lisukkeet":[{"nimi":"Puolukkahillo","maara":1,"yksikko":"prk"},{"nimi":"Kermaviili","maara":1,"yksikko":"prk"}],"ohje":["Sulata pinaatti ja purista ylimääräinen neste pois.","Sekoita vehnäjauho, maito, munat ja suola sileäksi taikinaksi.","Lisää pinaatti. Anna turvota 10 min.","Paista pieniä lättyjä voissa molemmin puolin kullanruskeiksi.","Tarjoile puolukkahillon ja kermaviilin kera."],"huom":"Lättyjä tehtäessä voi tuplata määrän ja pakastaa loput."},{"id":"kotipizza","nimi":"Kotipizza","kategoria":"päivällinen","annoskoko":5,"tagit":["kasvis","lapset-ok","pe-ruoka"],"max_minuutit":25,"vaikeustaso":"helppo","ainekset":[{"nimi":"Pizzapohja tai tortilla","maara":2,"yksikko":"pkt"},{"nimi":"Tomaattimurska","maara":1,"yksikko":"tlk","merkki":"Coop Eko luomu","kaytto":"pizzakastike"},{"nimi":"Juustoraaste","maara":200,"yksikko":"g","merkki":"Coop emmental"},{"nimi":"Pakastemaissi","maara":200,"yksikko":"g"},{"nimi":"Paprika","maara":1,"yksikko":"kpl"},{"nimi":"Mustat oliivit (viipaloidut)","maara":1,"yksikko":"tlk"},{"nimi":"Oregano, kuivattu","maara":1,"yksikko":"tl","kaappitavara":true}],"lisukkeet":[],"ohje":["Levitä tomaattimurska pohjan päälle, mausta oreganolla.","Lisää juustoraaste, maissi, paprikasuikaleet ja oliivit.","Paista 225 °C uunissa 10–12 min kunnes juusto on kultainen."],"huom":"Toinen pizza voi olla vain juusto (4-vuotiaan mielenrauhaksi)."},{"id":"mieto-kasviscurry","nimi":"Mieto kasviscurry","kategoria":"päivällinen","annoskoko":5,"tagit":["kasvis","vegaani","lapset-ok","mieto"],"max_minuutit":30,"vaikeustaso":"helppo","ainekset":[{"nimi":"Kookosmaito","maara":1,"yksikko":"tlk","huom":"400 ml"},{"nimi":"Porkkana","maara":3,"yksikko":"kpl"},{"nimi":"Perunat","maara":500,"yksikko":"g"},{"nimi":"Kikherneet","maara":2,"yksikko":"tlk"},{"nimi":"Mieto currytahna","maara":2,"yksikko":"rkl"},{"nimi":"Sipuli","maara":1,"yksikko":"kpl"},{"nimi":"Riisi","maara":4,"yksikko":"dl","kaytto":"lisukkeeksi"},{"nimi":"Oliiviöljy","maara":1,"yksikko":"rkl","kaappitavara":true}],"lisukkeet":[],"ohje":["Laita riisi kiehumaan (4 dl riisi + 8 dl vettä + suola, 12 min).","Pilko sipuli, porkkanat ja perunat kuutioiksi.","Paista sipuli öljyssä, lisää currytahna ja paista minuutti.","Lisää porkkana, peruna, huuhdotut kikherneet ja kookosmaito.","Hauduta 15 min kunnes perunat ovat kypsiä.","Tarjoile riisin päällä."],"huom":"Mieto currytahna = ei tulista. Testaa ennen kuin lisäät."},{"id":"perunat-munakastike","nimi":"Perunat + munakastike","kategoria":"päivällinen","annoskoko":5,"tagit":["kasvis","munat","klassikko","lapset-ok"],"max_minuutit":30,"vaikeustaso":"helppo","ainekset":[{"nimi":"Perunat","maara":1,"yksikko":"kg"},{"nimi":"Kananmuna","maara":6,"yksikko":"kpl"},{"nimi":"Täysmaito","maara":4,"yksikko":"dl"},{"nimi":"Voi","maara":30,"yksikko":"g"},{"nimi":"Vehnäjauho","maara":2,"yksikko":"rkl"},{"nimi":"Pakasteherneet","maara":300,"yksikko":"g"},{"nimi":"Suola, valkopippuri","maara":null,"yksikko":null,"kaappitavara":true}],"lisukkeet":[],"ohje":["Keitä perunat kuorineen.","Keitä munat kovaksi (10 min kiehuvassa vedessä). Pilko.","Tee voisuurus: sulata voi kattilassa, sekoita jauho joukkoon, lisää maito pikkuhiljaa sekoittaen.","Keitä kastike kuplivaksi. Mausta suolalla ja valkopippurilla.","Sekoita munat kastikkeeseen.","Kuumenna herneet erikseen.","Tarjoile perunoiden, munakastikkeen ja herneiden kera."],"huom":null},{"id":"halloumi-kuskus","nimi":"Halloumi + kuskus","kategoria":"päivällinen","annoskoko":5,"tagit":["kasvis","nopea"],"max_minuutit":20,"vaikeustaso":"helppo","ainekset":[{"nimi":"Halloumi","maara":2,"yksikko":"pkt"},{"nimi":"Kuskus","maara":3,"yksikko":"dl"},{"nimi":"Tomaatti","maara":3,"yksikko":"kpl"},{"nimi":"Kurkku","maara":0.5,"yksikko":"kpl"},{"nimi":"Oliiviöljy","maara":2,"yksikko":"rkl","kaappitavara":true},{"nimi":"Sitruuna","maara":1,"yksikko":"kpl"}],"lisukkeet":[],"ohje":["Kiehauta 4,5 dl vettä, lisää kuskus ja kansi päälle. Anna turvota 5 min.","Viipaloi halloumi ja paista pannulla molemmin puolin kultaiseksi.","Kuutio tomaatit ja kurkut, sekoita öljyn ja sitruunamehun kanssa salaatiksi.","Tarjoile kuskus, halloumi ja salaatti lautasilla."],"huom":null},{"id":"pinaattikeitto","nimi":"Pinaattikeitto + keitetty muna","kategoria":"päivällinen","annoskoko":5,"tagit":["kasvis","munat","klassikko","soseutettava"],"max_minuutit":25,"vaikeustaso":"helppo","ainekset":[{"nimi":"Pakastepinaatti","maara":500,"yksikko":"g"},{"nimi":"Sipuli","maara":1,"yksikko":"kpl"},{"nimi":"Perunat","maara":300,"yksikko":"g"},{"nimi":"Kasvisliemikuutio","maara":1,"yksikko":"kpl","kaappitavara":true},{"nimi":"Vesi","maara":1,"yksikko":"l","kaappitavara":true},{"nimi":"Kuohukerma","maara":2,"yksikko":"dl"},{"nimi":"Kananmuna","maara":5,"yksikko":"kpl"},{"nimi":"Muskottipähkinä","maara":null,"yksikko":null,"kaappitavara":true}],"lisukkeet":[{"nimi":"Ruisleipä","maara":0.5,"yksikko":"pkt"}],"ohje":["Laita munat kovaksi keitto-kattilaan (10 min).","Pilko peruna kuutioiksi. Keitä kasvisliemessä 10 min.","Lisää pinaatti ja sipuli. Keitä 5 min.","Soseuta sauvasekoittimella.","Lisää kerma, kuumenna. Mausta muskottipähkinällä.","Tarjoile keitto, puolikas kova muna kulhon päällä, ruisleipää."],"huom":null},{"id":"kasvis-kvesadillat","nimi":"Kasvis-kvesadillat","kategoria":"päivällinen","annoskoko":5,"tagit":["kasvis","lapset-ok","nopea"],"max_minuutit":20,"vaikeustaso":"helppo","ainekset":[{"nimi":"Tortilla","maara":10,"yksikko":"kpl"},{"nimi":"Papumuhennos","maara":2,"yksikko":"tlk"},{"nimi":"Juustoraaste","maara":200,"yksikko":"g"},{"nimi":"Pakastemaissi","maara":200,"yksikko":"g"},{"nimi":"Porkkana","maara":2,"yksikko":"kpl","kaytto":"raastesalaatti"},{"nimi":"Kurkku","maara":0.5,"yksikko":"kpl","kaytto":"raastesalaatti"}],"lisukkeet":[],"ohje":["Levitä puolikkaalle tortillalle papumuhennosta, maissia ja juustoraastetta.","Taittele ja paista pannulla molemmin puolin kunnes juusto sulaa.","Raasta porkkana ja kurkku salaatiksi.","Leikkaa paistettu tortilla paloiksi ennen tarjoilua."],"huom":null},{"id":"uunijuurekset-feta","nimi":"Uunijuurekset + feta","kategoria":"päivällinen","annoskoko":5,"tagit":["kasvis","uuni","viikonloppu"],"max_minuutit":45,"vaikeustaso":"helppo","ainekset":[{"nimi":"Perunat","maara":600,"yksikko":"g"},{"nimi":"Porkkana","maara":4,"yksikko":"kpl"},{"nimi":"Bataatti","maara":500,"yksikko":"g"},{"nimi":"Sipuli","maara":2,"yksikko":"kpl"},{"nimi":"Oliiviöljy","maara":3,"yksikko":"rkl","kaappitavara":true},{"nimi":"Rosmariini tai timjami, kuivattu","maara":1,"yksikko":"tl","kaappitavara":true},{"nimi":"Suola, mustapippuri","maara":null,"yksikko":null,"kaappitavara":true},{"nimi":"Feta / salaattijuusto","maara":200,"yksikko":"g","merkki":"Xtra salaattijuustopala"}],"lisukkeet":[{"nimi":"Salaatinlehdet","maara":1,"yksikko":"pkt"},{"nimi":"Tomaatti","maara":2,"yksikko":"kpl"}],"ohje":["Pese ja paloittele peruna, porkkana ja bataatti tasakokoisiksi paloiksi.","Lohko sipuli.","Sekoita juurekset öljyyn ja mausteisiin uunipellillä.","Paista 200 °C uunissa 30 min.","Ripottele fetakuutiot päälle viimeisten 5 min ajaksi.","Tarjoile salaatin kera."],"huom":null},{"id":"uunimakaroni","nimi":"Kasvisuunimakaroni","kategoria":"päivällinen","annoskoko":5,"tagit":["kasvis","munat","klassikko","lapset-ok","uuni"],"max_minuutit":50,"vaikeustaso":"helppo","ainekset":[{"nimi":"Makaroni","maara":500,"yksikko":"g","merkki":"Rummo"},{"nimi":"Kananmuna","maara":4,"yksikko":"kpl"},{"nimi":"Täysmaito","maara":5,"yksikko":"dl"},{"nimi":"Sipuli","maara":1,"yksikko":"kpl"},{"nimi":"Juustoraaste","maara":150,"yksikko":"g"},{"nimi":"Kasvispohjainen jauhis tai soijarouhe","maara":250,"yksikko":"g"},{"nimi":"Voi","maara":20,"yksikko":"g"},{"nimi":"Suola, mustapippuri","maara":null,"yksikko":null,"kaappitavara":true}],"lisukkeet":[{"nimi":"Ketsuppi","maara":1,"yksikko":"pullo","kaappitavara":true}],"ohje":["Keitä makaroni melkein kypsäksi (al dente).","Paista sipuli voissa pehmeäksi, lisää soijarouhe tai kasvijauhis. Mausta.","Sekoita makaroni ja jauhis uunivuokaan.","Vatkaa munat, maito ja suola. Kaada seos vuokaan.","Ripottele juustoraaste päälle.","Paista 200 °C uunissa 25 min kunnes pinta on kullanruskea."],"huom":"Klassikko — lapset syövät ilman muuta."},{"id":"kasvispyorykat","nimi":"Kasvispyörykät + perunamuusi","kategoria":"päivällinen","annoskoko":5,"tagit":["kasvis","lapset-ok","klassikko"],"max_minuutit":30,"vaikeustaso":"helppo","ainekset":[{"nimi":"Kasvispyörykät (pakaste)","maara":1,"yksikko":"pkt","huom":"n. 500 g"},{"nimi":"Perunat","maara":1,"yksikko":"kg"},{"nimi":"Täysmaito","maara":2,"yksikko":"dl"},{"nimi":"Voi","maara":30,"yksikko":"g"},{"nimi":"Pakasteherneet","maara":200,"yksikko":"g"},{"nimi":"Suola, mustapippuri","maara":null,"yksikko":null,"kaappitavara":true}],"lisukkeet":[{"nimi":"Puolukkahillo","maara":1,"yksikko":"prk"}],"ohje":["Keitä perunat kuorittuina suolalla maustetussa vedessä.","Paista kasvispyörykät pakkauksen ohjeen mukaan uunissa tai pannulla.","Muusaa perunat, lisää maito ja voi. Mausta.","Höyrytä pakasteherneet.","Tarjoile puolukkahillon kera."],"huom":null},{"id":"parmesanrisotto","nimi":"Parmesanrisotto","kategoria":"päivällinen","annoskoko":5,"tagit":["kasvis","klassikko","kermainen"],"max_minuutit":35,"vaikeustaso":"keskitaso","ainekset":[{"nimi":"Risottoriisi (arborio tai carnaroli)","maara":4,"yksikko":"dl"},{"nimi":"Kasvisliemikuutio","maara":2,"yksikko":"kpl","kaappitavara":true},{"nimi":"Sipuli","maara":1,"yksikko":"kpl"},{"nimi":"Valkosipulinkynsi","maara":2,"yksikko":"kpl"},{"nimi":"Voi","maara":50,"yksikko":"g"},{"nimi":"Juustoraaste (parmesan tai emmental)","maara":100,"yksikko":"g"},{"nimi":"Pakasteherneet","maara":200,"yksikko":"g"},{"nimi":"Oliiviöljy","maara":1,"yksikko":"rkl","kaappitavara":true}],"lisukkeet":[],"ohje":["Kiehauta 1 l vettä + liemikuutiot kattilassa ja pidä lämpimänä.","Paista silputtu sipuli ja valkosipuli öljyssä pehmeäksi.","Lisää risottoriisi, paista hetki sekoittaen.","Lisää kauhallinen kuumaa lientä kerrallaan, sekoita kunnes imeytynyt. Jatka 18–20 min.","Lisää viimeksi herneet, voi ja juustoraaste. Sekoita tasaiseksi.","Mausta suolalla. Tarjoile heti."],"huom":"Risotto vaatii jatkuvaa sekoittamista — älä jätä yksin."},{"id":"kikhernepata","nimi":"Kikhernepata tomaattikastikkeessa","kategoria":"päivällinen","annoskoko":5,"tagit":["kasvis","vegaani","lapset-ok","mieto"],"max_minuutit":25,"vaikeustaso":"helppo","ainekset":[{"nimi":"Kikherneet","maara":2,"yksikko":"tlk"},{"nimi":"Tomaattimurska","maara":1,"yksikko":"tlk","merkki":"Coop Eko luomu"},{"nimi":"Sipuli","maara":1,"yksikko":"kpl"},{"nimi":"Valkosipulinkynsi","maara":2,"yksikko":"kpl"},{"nimi":"Porkkana","maara":2,"yksikko":"kpl"},{"nimi":"Paprika","maara":1,"yksikko":"kpl"},{"nimi":"Juustokumina, jauhettu","maara":1,"yksikko":"tl","kaappitavara":true},{"nimi":"Paprikajauhe","maara":1,"yksikko":"tl","kaappitavara":true},{"nimi":"Oliiviöljy","maara":1,"yksikko":"rkl","kaappitavara":true},{"nimi":"Riisi tai kuskus","maara":4,"yksikko":"dl","kaytto":"lisukkeeksi"}],"lisukkeet":[],"ohje":["Laita riisi kiehumaan.","Paista pilkottu sipuli, valkosipuli, porkkanat ja paprika öljyssä 5 min.","Lisää mausteet ja paista minuutti.","Lisää tomaattimurska ja huuhdotut kikherneet. Hauduta 10–12 min.","Tarjoile riisin kera."],"huom":"Mausteet laitetaan kohtalaisesti — ei tulista."},{"id":"kasvisnakkikeitto","nimi":"Kasvisnakkikeitto","kategoria":"päivällinen","annoskoko":5,"tagit":["kasvis","lapset-ok","nopea","lempiruoka"],"max_minuutit":20,"vaikeustaso":"helppo","ainekset":[{"nimi":"Kasvisnakit","maara":1,"yksikko":"pkt","huom":"n. 400 g"},{"nimi":"Perunat","maara":600,"yksikko":"g"},{"nimi":"Porkkana","maara":3,"yksikko":"kpl"},{"nimi":"Sipuli","maara":1,"yksikko":"kpl"},{"nimi":"Kasvisliemikuutio","maara":1,"yksikko":"kpl","kaappitavara":true},{"nimi":"Vesi","maara":1.5,"yksikko":"l","kaappitavara":true},{"nimi":"Laakerinlehti","maara":2,"yksikko":"kpl","kaappitavara":true}],"lisukkeet":[{"nimi":"Ruisleipä","maara":0.5,"yksikko":"pkt"}],"ohje":["Kuutio perunat, porkkanat ja sipuli.","Keitä vesi, liemikuutio ja laakerinlehti. Lisää juurekset.","Keitä 10–12 min kunnes perunat ovat kypsiä.","Viipaloi nakit, lisää keittoon viimeksi (kuumenna 3 min).","Tarjoile ruisleivän kera."],"huom":"Lasten klassikko. Nakit löytyvät kaupan kasvistuoteosastolta."},{"id":"espanjalainen-tortilla","nimi":"Espanjalainen tortilla (paksu munakas)","kategoria":"päivällinen","annoskoko":5,"tagit":["kasvis","munat","klassikko"],"max_minuutit":30,"vaikeustaso":"helppo","ainekset":[{"nimi":"Perunat","maara":800,"yksikko":"g"},{"nimi":"Sipuli","maara":2,"yksikko":"kpl"},{"nimi":"Kananmuna","maara":8,"yksikko":"kpl"},{"nimi":"Oliiviöljy","maara":3,"yksikko":"rkl","kaappitavara":true},{"nimi":"Suola, mustapippuri","maara":null,"yksikko":null,"kaappitavara":true}],"lisukkeet":[{"nimi":"Salaatinlehdet","maara":1,"yksikko":"pkt"},{"nimi":"Tomaatti","maara":2,"yksikko":"kpl"}],"ohje":["Viipaloi perunat ohueksi ja sipuli.","Paista perunat ja sipuli öljyssä pannulla hitaasti kypsiksi (15 min), sekoita välillä.","Vatkaa munat kulhoon, mausta.","Kaada munat pannulle perunoiden päälle. Paista hiljaisella lämmöllä 7 min.","Käännä lautasen avulla ja paista toinen puoli 3 min.","Tarjoile salaatin kera — sopii kylmänä tai lämpimänä."],"huom":"Myös loput maistuvat seuraavana päivänä."},{"id":"kasvislasagne","nimi":"Kasvislasagne","kategoria":"päivällinen","annoskoko":5,"tagit":["kasvis","uuni","viikonloppu"],"max_minuutit":60,"vaikeustaso":"keskitaso","ainekset":[{"nimi":"Lasagnelevyt","maara":1,"yksikko":"pkt","huom":"500 g"},{"nimi":"Tomaattimurska","maara":2,"yksikko":"tlk","merkki":"Coop Eko luomu"},{"nimi":"Sipuli","maara":1,"yksikko":"kpl"},{"nimi":"Valkosipulinkynsi","maara":2,"yksikko":"kpl"},{"nimi":"Pakastepinaatti","maara":400,"yksikko":"g"},{"nimi":"Voi","maara":50,"yksikko":"g"},{"nimi":"Vehnäjauho","maara":4,"yksikko":"rkl"},{"nimi":"Täysmaito","maara":6,"yksikko":"dl"},{"nimi":"Juustoraaste","maara":200,"yksikko":"g","merkki":"Coop mozzarella"},{"nimi":"Muskottipähkinä","maara":null,"yksikko":null,"kaappitavara":true},{"nimi":"Oliiviöljy","maara":2,"yksikko":"rkl","kaappitavara":true},{"nimi":"Oregano, kuivattu","maara":1,"yksikko":"tl","kaappitavara":true}],"lisukkeet":[],"ohje":["Tomaattikastike: paista silputtu sipuli ja valkosipuli öljyssä. Lisää tomaattimurska ja oregano. Anna kiehua 10 min.","Sulata pinaatti ja purista neste pois. Sekoita tomaattikastikkeeseen.","Béchamel: sulata voi kattilassa, sekoita jauho joukkoon. Lisää maito vähitellen sekoittaen. Keitä paksuksi. Mausta suolalla ja muskottipähkinällä.","Kerrosta vuokaan: tomaatti-pinaattikastike, lasagnelevyt, béchamel — toista 2–3 kerrosta.","Ripottele juustoraaste päälle.","Paista 200 °C uunissa 30 min kunnes pinta on kullanruskea."],"huom":"Isompi annoskoko — jää viikonloppuun tai maanantain lounaaksi."}]}</script>
+
 <script>
 const STORAGE_KEY = "perheen-ruokalista-v2";
 
@@ -911,6 +1160,80 @@ document.querySelectorAll(".cell").forEach(el => {
   DEFAULT_CELLS[el.dataset.k] = el.innerHTML;
 });
 
+// ---------- dynaamiset päivämäärät ja viikkonumerot ----------
+const DAY_FULL = ["Maanantai","Tiistai","Keskiviikko","Torstai","Perjantai","Lauantai","Sunnuntai"];
+const DAY_SHORT = ["Ma","Ti","Ke","To","Pe","La","Su"];
+const DAY_GLYPHS = ["☽","♂","☿","♃","♀","♄","☉"];
+
+function isoWeek(date) {
+  const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  const dayNum = d.getUTCDay() || 7;
+  d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+}
+
+function viikkoinfo(offset) {
+  const today = new Date();
+  const dow = today.getDay(); // 0=Su, 1=Ma, ..., 6=La
+  const offsetToMon = dow === 0 ? -6 : 1 - dow;
+  const monday = new Date(today.getFullYear(), today.getMonth(), today.getDate() + offsetToMon + offset * 7);
+  const days = [];
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(monday);
+    d.setDate(monday.getDate() + i);
+    days.push(d);
+  }
+  return { monday, days, weekNumber: isoWeek(monday) };
+}
+
+const WEEK1 = viikkoinfo(0);
+const WEEK2 = viikkoinfo(1);
+
+function lyhytPvm(d) { return `${d.getDate()}.${d.getMonth() + 1}.`; }
+
+function paivitaViikkoOtsikot(sectionId, info) {
+  const sec = document.getElementById(sectionId);
+  if (!sec) return;
+  const thead = sec.querySelector("table.schedule thead tr");
+  if (thead) {
+    const ths = thead.querySelectorAll("th");
+    for (let i = 0; i < 7; i++) {
+      const th = ths[i + 1];
+      if (!th) continue;
+      const d = info.days[i];
+      th.innerHTML = `<span class="glyph">${DAY_GLYPHS[i]}</span>${DAY_FULL[i]}<span class="date">${lyhytPvm(d)}</span>`;
+    }
+  }
+  // Merkitse jokaisen tbody-rivin tds data-day-labelilla mobiilia varten
+  sec.querySelectorAll("table.schedule tbody tr").forEach(tr => {
+    const tds = tr.querySelectorAll("td");
+    for (let i = 0; i < 7; i++) {
+      const td = tds[i];
+      if (!td) continue;
+      const d = info.days[i];
+      td.dataset.dayLabel = `${DAY_GLYPHS[i]}  ${DAY_FULL[i]} ${lyhytPvm(d)}`;
+    }
+  });
+  // Section-otsikko
+  const h2 = sec.querySelector("h2");
+  if (h2) {
+    const range = `${lyhytPvm(info.days[0])} – ${lyhytPvm(info.days[6])}`;
+    h2.textContent = `Viikko ${info.weekNumber} · ${range} — lounas (vkl), päivällinen, välipala, iltapala`;
+  }
+}
+
+paivitaViikkoOtsikot("week1", WEEK1);
+paivitaViikkoOtsikot("week2", WEEK2);
+
+// Päivitä välilehti-nappien tekstit
+(function paivitaTabit() {
+  const t1 = document.querySelector('.tab[data-target="week1"]');
+  const t2 = document.querySelector('.tab[data-target="week2"]');
+  if (t1) t1.textContent = `Viikko ${WEEK1.weekNumber}`;
+  if (t2) t2.textContent = `Viikko ${WEEK2.weekNumber}`;
+})();
+
 // ---------- state ----------
 function loadState() {
   try {
@@ -974,41 +1297,57 @@ if (notesArea) {
 
 // ---------- epigraphs ----------
 const QUOTES = [
-  {
-    text: "Do what thou wilt shall be the whole of the Law.",
-    author: "Aleister Crowley",
-    source: "Liber AL vel Legis, 1904"
-  },
-  {
-    text: "Love is the law, love under will.",
-    author: "Aleister Crowley",
-    source: "Liber AL vel Legis, 1904"
-  },
-  {
-    text: "Every man and every woman is a star.",
-    author: "Aleister Crowley",
-    source: "Liber AL vel Legis, 1904"
-  },
-  {
-    text: "All acts of love and pleasure are my rituals.",
-    author: "Doreen Valiente",
-    source: "Charge of the Goddess"
-  },
-  {
-    text: "Magic is the art of causing changes in consciousness to occur in accordance with will.",
-    author: "Dion Fortune",
-    source: ""
-  },
-  {
-    text: "We must eradicate from the soul all fear and terror of what comes toward us out of the future.",
-    author: "Rudolf Steiner",
-    source: ""
-  },
-  {
-    text: "There is no religion higher than truth.",
-    author: "Helena Blavatsky",
-    source: ""
-  }
+  // Thelema — Crowley
+  { text: "Do what thou wilt shall be the whole of the Law.",
+    author: "Aleister Crowley", source: "Liber AL vel Legis, 1904" },
+  { text: "Love is the law, love under will.",
+    author: "Aleister Crowley", source: "Liber AL vel Legis, 1904" },
+  { text: "Every man and every woman is a star.",
+    author: "Aleister Crowley", source: "Liber AL vel Legis, 1904" },
+  { text: "There is no law beyond Do what thou wilt.",
+    author: "Aleister Crowley", source: "Liber AL vel Legis, 1904" },
+  { text: "The method of science, the aim of religion.",
+    author: "Aleister Crowley", source: "The Equinox, 1909" },
+  { text: "Every intentional act is a magical act.",
+    author: "Aleister Crowley", source: "Magick in Theory and Practice, 1929" },
+
+  // Occulte française — Lévi
+  { text: "To know, to will, to dare, to keep silent.",
+    author: "Éliphas Lévi", source: "Dogme et Rituel de la Haute Magie, 1856" },
+  { text: "Magic is the traditional science of the secrets of nature.",
+    author: "Éliphas Lévi", source: "Histoire de la Magie, 1860" },
+
+  // Hermeticism — Corpus Hermeticum / Tabula Smaragdina
+  { text: "As above, so below; as within, so without.",
+    author: "Hermes Trismegistus", source: "Tabula Smaragdina" },
+  { text: "True, without falsehood, certain and most true.",
+    author: "Hermes Trismegistus", source: "Tabula Smaragdina" },
+
+  // Alkemia — anonyymit maksiimit
+  { text: "Solve et coagula.",
+    author: "Alkemian maksiimi", source: "" },
+  { text: "Visita interiora terrae, rectificando invenies occultum lapidem.",
+    author: "V.I.T.R.I.O.L.", source: "alkemian kaava" },
+  { text: "Ora, lege, lege, lege, relege, labora et invenies.",
+    author: "Mutus Liber", source: "1677" },
+
+  // Wicca — Valiente
+  { text: "All acts of love and pleasure are my rituals.",
+    author: "Doreen Valiente", source: "Charge of the Goddess" },
+
+  // Western mystery tradition — Fortune, Steiner, Blavatsky, Paracelsus
+  { text: "Magic is the art of causing changes in consciousness to occur in accordance with will.",
+    author: "Dion Fortune", source: "" },
+  { text: "The occultist deals with laws that are less well known, but they are not on that account supernatural.",
+    author: "Dion Fortune", source: "The Mystical Qabalah, 1935" },
+  { text: "We must eradicate from the soul all fear and terror of what comes toward us out of the future.",
+    author: "Rudolf Steiner", source: "" },
+  { text: "There is no religion higher than truth.",
+    author: "Helena Blavatsky", source: "Theosophical Society, motto" },
+  { text: "The universe is worked and guided from within outwards.",
+    author: "Helena Blavatsky", source: "The Secret Doctrine, 1888" },
+  { text: "Magic has power to experience things inaccessible to human reason.",
+    author: "Paracelsus", source: "" }
 ];
 
 (function placeEpigraphs() {
@@ -1054,21 +1393,22 @@ function renderDinners() {
 
   // Näytä molemmat viikot
   ["w1", "w2"].forEach((wk, wi) => {
+    const info = wi === 0 ? WEEK1 : WEEK2;
     const week = document.createElement("div");
     week.className = "dinner-week";
     const h3 = document.createElement("h3");
-    h3.textContent = wi === 0 ? "Viikko 1" : "Viikko 2";
+    h3.textContent = `Viikko ${info.weekNumber} · ${lyhytPvm(info.days[0])} – ${lyhytPvm(info.days[6])}`;
     week.append(h3);
 
     const ul = document.createElement("ul");
     ul.className = "dinner-list";
 
-    DAYS.forEach(d => {
+    DAYS.forEach((d, di) => {
       const sourceCell = document.querySelector(`[data-k="${wk}-d-${d.key}"]`);
       const li = document.createElement("li");
       const day = document.createElement("span");
       day.className = "day";
-      day.textContent = d.label;
+      day.textContent = `${d.label} ${lyhytPvm(info.days[di])}`;
       const dish = document.createElement("span");
       dish.className = "dish";
       // Kopioi sisältö lähdesolusta
@@ -1205,6 +1545,124 @@ document.querySelectorAll("#shopWeekTabs .subtab").forEach(btn => {
 });
 
 renderShopping();
+
+// ---------- reseptimodal ----------
+const RECIPES_BY_NAME = (() => {
+  try {
+    const el = document.getElementById("recipes-data");
+    const data = JSON.parse(el.textContent);
+    const map = {};
+    (data.reseptit || []).forEach(r => {
+      if (r && r.nimi) map[r.nimi.trim().toLowerCase()] = r;
+    });
+    return map;
+  } catch { return {}; }
+})();
+
+function normRecipeName(s) {
+  return (s || "").trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+function findRecipe(nimi) {
+  const key = normRecipeName(nimi);
+  if (!key) return null;
+  if (RECIPES_BY_NAME[key]) return RECIPES_BY_NAME[key];
+  for (const k in RECIPES_BY_NAME) {
+    if (k === key) return RECIPES_BY_NAME[k];
+    if (key.length > 6 && (k.startsWith(key) || key.startsWith(k))) return RECIPES_BY_NAME[k];
+  }
+  return null;
+}
+
+function escapeHtml(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g,
+    c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[c]));
+}
+
+function renderRecipe(r) {
+  const out = [];
+  out.push(`<button class="modal-close" type="button" aria-label="Sulje" onclick="closeRecipeModal()">×</button>`);
+  out.push(`<h2 class="title" id="recipeModalTitle">${escapeHtml(r.nimi)}</h2>`);
+  const meta = [];
+  if (r.max_minuutit) meta.push(`${r.max_minuutit} min`);
+  if (r.vaikeustaso) meta.push(r.vaikeustaso);
+  if (r.annoskoko) meta.push(`${r.annoskoko} annosta`);
+  out.push(`<p class="meta">${meta.map(x => `<span>${escapeHtml(x)}</span>`).join('<span class="sep">·</span>')}</p>`);
+  if (Array.isArray(r.tagit) && r.tagit.length) {
+    out.push(`<div class="tags">${r.tagit.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>`);
+  }
+  out.push(`<h3>Ainekset</h3>`);
+  const ingredients = (r.ainekset || []).map(a => {
+    const qty = (a.maara != null && a.yksikko) ? `${a.maara} ${a.yksikko}` : (a.maara != null ? String(a.maara) : "");
+    const brandHuom = [a.merkki, a.huom].filter(Boolean).map(escapeHtml).join(" · ");
+    return `<li><span class="qty">${escapeHtml(qty)}</span>${escapeHtml(a.nimi)}${brandHuom ? `<span class="brand">${brandHuom}</span>` : ""}</li>`;
+  }).join("");
+  out.push(`<ul class="ingredients">${ingredients}</ul>`);
+  if (Array.isArray(r.lisukkeet) && r.lisukkeet.length) {
+    out.push(`<h3>Lisukkeet</h3><ul class="ingredients">${r.lisukkeet.map(l => `<li>${escapeHtml(l)}</li>`).join("")}</ul>`);
+  }
+  out.push(`<h3>Valmistus</h3>`);
+  const steps = Array.isArray(r.ohje) ? r.ohje : String(r.ohje || "").split(/\n+/).filter(Boolean);
+  out.push(`<ol class="steps">${steps.map(s => `<li>${escapeHtml(s)}</li>`).join("")}</ol>`);
+  if (r.huom) out.push(`<p class="note">${escapeHtml(r.huom)}</p>`);
+  return out.join("");
+}
+
+function openRecipeModal(recipe) {
+  const box = document.getElementById("recipeModalBox");
+  const modal = document.getElementById("recipeModal");
+  box.innerHTML = renderRecipe(recipe);
+  modal.classList.add("open");
+  document.body.style.overflow = "hidden";
+  box.focus();
+}
+
+function closeRecipeModal() {
+  document.getElementById("recipeModal").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+function wireDinnerRecipes() {
+  document.querySelectorAll("tr.dinner td").forEach(td => {
+    const cell = td.querySelector(".cell");
+    if (!cell) return;
+    const strong = cell.querySelector("strong");
+    if (!strong) return;
+    const recipe = findRecipe(strong.textContent);
+    // Poista vanha painike (jos nimi muuttui)
+    td.querySelectorAll(".recipe-btn").forEach(b => b.remove());
+    if (!recipe) return;
+    const btn = document.createElement("button");
+    btn.className = "recipe-btn";
+    btn.type = "button";
+    btn.innerHTML = `<span class="glyph">✦</span>Resepti`;
+    btn.title = `Avaa resepti: ${recipe.nimi}`;
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openRecipeModal(recipe);
+    });
+    td.appendChild(btn);
+  });
+}
+
+wireDinnerRecipes();
+
+// Päivitä painikkeet, kun solua on muokattu
+document.querySelectorAll("tr.dinner .cell").forEach(el => {
+  el.addEventListener("blur", () => {
+    // Pieni viive: saveState on juuri kirjoittanut, anna DOM:in rauhoittua
+    setTimeout(wireDinnerRecipes, 10);
+  });
+});
+
+// Sulje ESC:llä ja taustaa klikkaamalla
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeRecipeModal();
+});
+document.getElementById("recipeModal").addEventListener("click", (e) => {
+  if (e.target.id === "recipeModal") closeRecipeModal();
+});
 
 // ---------- reset ----------
 function resetAll() {
