@@ -514,12 +514,28 @@
   .shop-list li.shop-auto {
     border-left: 2px solid rgba(212, 169, 74, 0.42);
     padding-left: 8px;
+    flex-wrap: wrap;
   }
   .shop-list li.shop-auto .item::before {
     content: "✦ ";
     color: var(--gold);
     font-weight: 600;
     letter-spacing: 0;
+  }
+  .shop-list li.shop-auto .source {
+    flex-basis: 100%;
+    margin: -2px 0 2px 33px;
+    color: var(--gold-dim);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 12px;
+    font-style: italic;
+    letter-spacing: 0.02em;
+    line-height: 1.35;
+    opacity: 0.85;
+  }
+  .shop-list li.shop-auto.checked .source {
+    text-decoration: line-through;
+    opacity: 0.55;
   }
   .shop-actions {
     display: flex; gap: 12px; align-items: center;
@@ -2180,6 +2196,12 @@ function buildShopCard(wk, cat, title, showWeekHeader) {
     });
 
     li.append(cb, span, del);
+    if (item.auto && item.source && item.source.length) {
+      const src = document.createElement("span");
+      src.className = "source";
+      src.textContent = item.source.map(recipeNameById).join(" · ");
+      li.append(src);
+    }
     ul.append(li);
   });
   card.append(ul);
