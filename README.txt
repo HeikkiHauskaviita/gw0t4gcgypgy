@@ -98,4 +98,4 @@ Vinkkejä
 * Jos haluat salasanasuojauksen: ilmainen GitHub Pages vaatii public-repon.
   Netlify ja Cloudflare Pages tukevat salasanasuojausta ilmaisversiossa.
 
-Viimeisin julkaisu: 2026-04-22
+Viimeisin julkaisu: 2026-04-25
