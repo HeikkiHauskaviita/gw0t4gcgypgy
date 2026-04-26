@@ -1480,7 +1480,8 @@
         {
           "nimi": "Vesi",
           "maara": 8,
-          "yksikko": "dl"
+          "yksikko": "dl",
+          "kaappitavara": true
         },
         {
           "nimi": "Täysmaito",
@@ -1558,7 +1559,8 @@
         {
           "nimi": "Voileipä (leipä + voi + juusto)",
           "maara": 5,
-          "yksikko": "kpl"
+          "yksikko": "kpl",
+          "kaappitavara": true
         }
       ],
       "ohje": [
