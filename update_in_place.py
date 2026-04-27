@@ -9,7 +9,7 @@ Päivitykset:
 - Reseptit recipes-data-lohkoon
 - Päiväkodin valikko (Aromi-API) → daycare-menu-lohko
 - Tampereen tapahtumat (Bubster-API) → events-data-lohko (tapahtumat.html:ssä)
-- Vk 3 -päivällisten ehdotukset (ehdotusalgoritmi)
+- Kaikkien 3 viikon päivällisten ehdotukset (ehdotusalgoritmi, ei toistoja)
 """
 import sys
 from datetime import date
@@ -41,12 +41,13 @@ def main():
         if valikko:
             html = J.injektoi_paivakoti(html, valikko)
             print(f"✓ Päiväkodin valikko: {len(valikko['paivat'])} päivää")
-        # Vk 3 -ehdotukset
+        # Kaikkien kolmen viikon päivällisehdotukset (rotaation korjaava päivitys)
         # Päivitä julkaise.py:n RESEPTIT_PATH viittaamaan tähän kansioon
         J.RESEPTIT_PATH = RESEPTIT_PATH
-        html, vk3 = J.injektoi_viikon3_paivalliset(html)
-        if vk3:
-            print(f"✓ Vk 3 ehdotukset: {', '.join(vk3)}")
+        html, vk_nimet = J.injektoi_viikkojen_paivalliset(html, ("w1", "w2", "w3"))
+        for vk, nimet in vk_nimet.items():
+            if nimet:
+                print(f"✓ {vk} ehdotukset: {', '.join(nimet)}")
         if html != alkuperäinen:
             INDEX_PATH.write_text(html, encoding="utf-8")
             muutoksia = True
