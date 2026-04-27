@@ -433,72 +433,89 @@ def _kerää_näkyvät_reseptinimet(html: str) -> set[str]:
     return nimet
 
 
-def injektoi_viikon3_paivalliset(html: str) -> tuple[str, list[str]]:
-    """Generoi vk 3 päivälliset ehdotusalgoritmilla ja injektoi HTML:n DEFAULT-soluihin.
+def injektoi_viikkojen_paivalliset(
+    html: str, viikot: tuple[str, ...] = ("w1", "w2", "w3")
+) -> tuple[str, dict[str, list[str]]]:
+    """Generoi useamman viikon päivälliset ja injektoi HTML:n DEFAULT-soluihin.
 
-    Käyttää ehdota_viikko.py:n logiikkaa: priorisoi reseptejä joita ei ole keitetty
-    pitkään aikaan, suodattaa arki/viikonloppu, välttää viikkojen 1-2 päivällisiä.
+    Korjaa rotaatiobugin: kun julkaise.py ajetaan, kaikki näkyvät viikot
+    päivitetään, jotta DEFAULT_CELLS edustaa aina nykyhetken 3-viikon ikkunaa
+    (ennen tätä vain vk 3 päivittyi → vk 1 ja vk 2 jäivät edellisten ajojen
+    arvoilla, jolloin viikon vaihtuessa "tämä viikko" -välilehti näytti
+    edellisen viikon reseptit).
 
-    Palauttaa (uusi_html, valitut_nimet).
+    Käyttää ehdota_viikko.py:n logiikkaa: priorisoi reseptejä joita ei ole
+    keitetty pitkään aikaan, ei toistoja 15 arkipäivällisen joukossa.
+    Käyttäjän localStorage (state.meals[YYYY-MM-DD]) voittaa renderöinnissä,
+    eli käsin asetetut päivät säilyvät.
+
+    Palauttaa (uusi_html, {viikko: [nimet]}).
     """
     try:
-        # Tuodaan funktiot lokaalisti, ei pakollinen riippuvuus jos puuttuu
         from ehdota_viikko import suodata, valitse, lataa
     except Exception as e:
-        print(f"⚠ Vk 3 -ehdotuksia ei voitu generoida: {e}")
-        return html, []
+        print(f"⚠ Viikkoehdotuksia ei voitu generoida: {e}")
+        return html, {}
 
     try:
         data = lataa()
         reseptit = data.get("reseptit", [])
     except Exception as e:
         print(f"⚠ Reseptien lataus epäonnistui: {e}")
-        return html, []
+        return html, {}
 
-    # Vain päivällisreseptit
     paivalliset = [r for r in reseptit if r.get("kategoria") == "päivällinen"]
-
-    # Vältettävät: vk 1 + vk 2 päivälliset (jo näkyvissä)
-    näkyvät = _kerää_näkyvät_reseptinimet(html)
-    vältä_idt = set()
-    for r in paivalliset:
-        if r.get("nimi") in näkyvät:
-            vältä_idt.add(r.get("id"))
-
-    # Ehdotetaan vain ma-pe (5 arkipäivällistä). La-su jää tyhjäksi —
-    # ne voivat olla ylijäämä-päiviä tai käyttäjä lisää itse erikoisruoan.
     arki_pool = suodata(paivalliset, viikonloppu=False)
-    arki_valinta = valitse(arki_pool, 5, vältä_ideja=list(vältä_idt))
+
+    # Valitaan kerralla 5 × N viikkoa eri reseptiä, ei toistoja saman ikkunan sisällä.
+    yhteensa_arki = 5 * len(viikot)
+    valinta = valitse(arki_pool, yhteensa_arki)
 
     paivat = ["ma", "ti", "ke", "to", "pe", "la", "su"]
-    nimet = []
-    for i, dk in enumerate(paivat):
-        # Päätä uusi sisältö: arki = ehdotus, la-su = tyhjä
-        if i < 5 and i < len(arki_valinta):
-            r = arki_valinta[i]
-            nimi = (r.get("nimi") or "").strip()
-            if nimi:
-                new_inner = f'<strong>{_html_escape(nimi)}</strong>'
-                nimet.append(nimi)
+    tulos: dict[str, list[str]] = {}
+
+    for vk_idx, viikko in enumerate(viikot):
+        nimet: list[str] = []
+        for i, dk in enumerate(paivat):
+            if i < 5:
+                slot_idx = vk_idx * 5 + i
+                if slot_idx < len(valinta):
+                    r = valinta[slot_idx]
+                    nimi = (r.get("nimi") or "").strip()
+                    if nimi:
+                        new_inner = f'<strong>{_html_escape(nimi)}</strong>'
+                        nimet.append(nimi)
+                    else:
+                        new_inner = ""
+                else:
+                    new_inner = ""
             else:
+                # la-su: tyhjä — käyttäjä lisää erikoisruoan tai ylijäämä
                 new_inner = ""
-        else:
-            new_inner = ""  # la-su: tyhjä
 
-        # Korvaa solun sisältö aina (myös tyhjäksi). Käyttäjän localStorage voittaa renderöinnissä.
-        pattern = re.compile(
-            rf'(<div\s+class="cell"\s+data-k="w3-d-{dk}"[^>]*>)([\s\S]*?)(</div>)'
-        )
-        replaced = [False]
+            pattern = re.compile(
+                rf'(<div\s+class="cell"\s+data-k="{viikko}-d-{dk}"[^>]*>)([\s\S]*?)(</div>)'
+            )
+            replaced = [False]
 
-        def repl(m):
-            replaced[0] = True
-            return m.group(1) + new_inner + m.group(3)
+            def repl(m):
+                replaced[0] = True
+                return m.group(1) + new_inner + m.group(3)
 
-        html = pattern.sub(repl, html, count=1)
-        if not replaced[0]:
-            print(f"⚠ Vk 3 päivällissolu w3-d-{dk} ei löytynyt — sisältöä ei muutettu")
-    return html, nimet
+            html = pattern.sub(repl, html, count=1)
+            if not replaced[0]:
+                print(f"⚠ Päivällissolu {viikko}-d-{dk} ei löytynyt — sisältöä ei muutettu")
+
+        tulos[viikko] = nimet
+
+    return html, tulos
+
+
+# Vanhan nimen yhteensopivuusalias — palauttaa vain vk 3 nimet listana, mutta
+# päivittää HTML:n kaikki kolme viikkoa.
+def injektoi_viikon3_paivalliset(html: str) -> tuple[str, list[str]]:
+    html, tulos = injektoi_viikkojen_paivalliset(html, ("w1", "w2", "w3"))
+    return html, tulos.get("w3", [])
 
 
 def main():
@@ -520,11 +537,15 @@ def main():
     valikko = hae_paivakodin_valikko(paivia=14)
     html_paivitetty = injektoi_paivakoti(html_paivitetty, valikko)
 
-    # Vk 3 päivällisehdotukset (default-arvot HTML:ään; käyttäjän localStorage voittaa)
+    # Päivällisehdotukset kaikille kolmelle viikolle (default-arvot HTML:ään;
+    # käyttäjän localStorage voittaa renderöinnissä).
     if not args.skip_vk3:
-        html_paivitetty, vk3_nimet = injektoi_viikon3_paivalliset(html_paivitetty)
-        if vk3_nimet:
-            print(f"✓ Vk 3 päivälliset ehdotettu: {', '.join(vk3_nimet)}")
+        html_paivitetty, vk_nimet = injektoi_viikkojen_paivalliset(
+            html_paivitetty, ("w1", "w2", "w3")
+        )
+        for vk, nimet in vk_nimet.items():
+            if nimet:
+                print(f"✓ {vk} päivälliset ehdotettu: {', '.join(nimet)}")
 
     HTML_PATH.write_text(html_paivitetty, encoding="utf-8")
     print(f"✓ Päivitetty aikaleima: {pvm} → ruokalista.html")
