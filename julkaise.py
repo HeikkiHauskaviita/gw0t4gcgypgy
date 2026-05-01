@@ -467,9 +467,28 @@ def injektoi_viikkojen_paivalliset(
     paivalliset = [r for r in reseptit if r.get("kategoria") == "päivällinen"]
     arki_pool = suodata(paivalliset, viikonloppu=False)
 
-    # Valitaan kerralla 5 × N viikkoa eri reseptiä, ei toistoja saman ikkunan sisällä.
+    # Kaksiportainen valinta:
+    # 1) Ensisijaisesti tuoreita reseptejä (last_cooked > 7 päivää sitten tai null) —
+    #    estää että tällä viikolla syödyt ruoat ehdotuvat välittömästi seuraaville
+    #    viikoille.
+    # 2) Jos pool jää alle tarpeen, täydennetään viime 7 päivän resepteillä
+    #    (vanhin ensin) — ei toistoja saman ikkunan sisällä. Parempi tarjota
+    #    kierrättävä ehdotus kuin tyhjä päivä.
+    raja = date.today() - timedelta(days=7)
+    tuoreet = [
+        r for r in arki_pool
+        if not r.get("last_cooked")
+        or datetime.fromisoformat(r["last_cooked"]).date() < raja
+    ]
     yhteensa_arki = 5 * len(viikot)
-    valinta = valitse(arki_pool, yhteensa_arki)
+    valinta = valitse(tuoreet, yhteensa_arki)
+    if len(valinta) < yhteensa_arki:
+        valitut_idt = {r["id"] for r in valinta}
+        loput = [r for r in arki_pool if r["id"] not in valitut_idt]
+        taydennys = valitse(loput, yhteensa_arki - len(valinta))
+        if taydennys:
+            print(f"  (pool täydennetty {len(taydennys)} viime-7-päivän reseptillä)")
+        valinta = valinta + taydennys
 
     paivat = ["ma", "ti", "ke", "to", "pe", "la", "su"]
     tulos: dict[str, list[str]] = {}
