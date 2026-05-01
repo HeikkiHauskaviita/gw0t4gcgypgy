@@ -418,6 +418,61 @@
     line-height: 1.45;
   }
 
+  /* Tietoa sivusta -lohko */
+  .info-box {
+    margin: 60px 0 24px;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+  .info-box summary {
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 8px 0;
+    list-style: none;
+    user-select: none;
+  }
+  .info-box summary::-webkit-details-marker { display: none; }
+  .info-box summary::before {
+    content: "▸";
+    display: inline-block;
+    margin-right: 8px;
+    transition: transform 0.2s;
+    color: var(--accent, var(--ink));
+  }
+  .info-box[open] summary::before { transform: rotate(90deg); }
+  .info-box summary:hover { color: var(--ink); }
+  .info-content {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink);
+    padding: 12px 0 0;
+    max-width: 820px;
+  }
+  .info-content h4 {
+    margin: 22px 0 8px;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent, var(--ink));
+    font-weight: normal;
+  }
+  .info-content h4:first-child { margin-top: 4px; }
+  .info-content p { margin: 6px 0 12px; }
+  .info-content ul { padding-left: 20px; margin: 6px 0 12px; }
+  .info-content ul li { margin: 4px 0; }
+  .info-content code {
+    background: var(--surface);
+    padding: 1px 6px;
+    border: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .info-content strong { color: var(--ink); }
+  .info-content a { color: var(--accent, var(--ink)); }
+  .info-content .info-pieni { font-size: 13px; color: var(--muted); }
+
   /* Vahvista viikko -nappi + status */
   .vahvista-row {
     display: flex;
@@ -2080,6 +2135,54 @@
     <!-- renderöidään JS:llä -->
   </div>
 </section>
+
+<!-- ========== Tietoa sivusta -lohko ========== -->
+<details class="info-box">
+  <summary>Tietoa sivusta — käyttöohjeet ja automaatiot</summary>
+  <div class="info-content">
+
+    <h4>Mikä tämä sivu on</h4>
+    <p>Perheen viikkoruokalista on staattinen sivu, joka kokoaa yhteen kolmen viikon päivällisehdotukset, päiväkodin lounaslistan, ostoslistan ja Tampereen perhetapahtumat. Sivu pyörii GitHub Pagesin päällä ilman palvelinta — kaikki näkyvä data tulee joko HTML:ään upotettuna (auto-update generoi sen joka aamu) tai paikallisesti selaimen muistiin tallennetuista valinnoista.</p>
+
+    <h4>Välilehdet</h4>
+    <ul>
+      <li><strong>Päivälliset</strong>: kahden seuraavan viikon koonti. Tästä näkymästä vahvistat kokkaukset (ks. alla).</li>
+      <li><strong>Viikko 18 / 19 / 20</strong>: yksi viikko kerrallaan, kaikki ateriat (lounas vkl, päivällinen, välipala, iltapala). Klikkaa solua muokataksesi — muutokset tallentuvat selaimen muistiin automaattisesti. Klikkaa reseptin nimeä avataksesi reseptikortin (ainekset, ohjeet, palaute).</li>
+      <li><strong>Ostoslista</strong>: viikon päivällisten ainekset koottuna, kategorioittain. "Päivitä reseptien mukaan" -nappi koostaa listan, säilyttäen käsin lisäämäsi rivit. Mobiilissa kassakäyntimoodi ja S-kaupat-hakulinkit per rivi.</li>
+      <li><strong>Muistiinpanot</strong>: vapaa muistio, tallentuu selaimeen.</li>
+      <li><strong>Tapahtumat</strong>: erillinen sivu Tampereen perhetapahtumille (Bubster API).</li>
+    </ul>
+
+    <h4>Päivällisehdotukset ja kierrätys</h4>
+    <p>Algoritmi (<code>julkaise.py</code>) ehdottaa joka aamu kolmen viikon päivälliset reseptipoolista. Periaate: priorisoi reseptejä joita ei ole keitetty pitkään aikaan (<code>last_cooked</code> = null tai vanhin ensin), suosii arkireseptejä joiden valmistusaika on alle 35 min, välttää saman pääraaka-aineen toistumista peräkkäin. Kaksiportainen valinta: ensin tuoreet (yli 7 päivää last_cookedista), sitten täydennys vanhemmista jos pool ei riitä.</p>
+    <p>Käyttäjän käsin asettamat valinnat (esim. kun klikkaat solua ja vaihdat reseptin) voittavat aina algoritmin ehdotuksen. Käyttäjäkohtainen tila tallentuu selaimen <code>localStorage</code>iin avaimella <code>perheen-ruokalista-v3</code>.</p>
+
+    <h4>Vahvista vk:n kokkaukset</h4>
+    <p>Kun viikon päivälliset on syöty, klikkaa <code>✓ Vahvista vk:n kokkaukset</code> Päivälliset-välilehdellä. Sivu lukee localStoragen valinnat, hakee <code>reseptit.json</code>:n GitHubista, päivittää siihen <code>last_cooked</code>-arvot ja committaa muutokset takaisin. Tämän jälkeen seuraava auto-update välttää vahvistettuja reseptejä uudelle ehdotuspohjalle (7 päivän hard-cutoff).</p>
+    <p>Toiminto vaatii <strong>GitHub Personal Access Tokenin</strong>. Asetus tehdään kerran sivun ⚙-napista:</p>
+    <ul>
+      <li>GitHub → Settings → Developer settings → Personal access tokens → <em>Fine-grained tokens</em> → Generate new token</li>
+      <li>Repository access: <em>Only select repositories</em> → <code>perheen-ruokalista</code></li>
+      <li>Permissions: <em>Contents</em> → <em>Read and write</em></li>
+      <li>Expiration: esim. 1 vuosi</li>
+      <li>Kopioi token (alkaa <code>github_pat_</code>) ja liitä sivun ⚙-napin avaamaan kenttään</li>
+    </ul>
+    <p class="info-pieni">Token tallennetaan vain tähän selaimeen (localStorage, avain <code>github_pat</code>). Suosittelen säilyttämään tokenin myös salasanahallintaohjelmassa varmuuskopiona — jos selaimen data tyhjenee tai vaihdat laitetta, tarvitset sen uudelleen tai joudut luomaan uuden GitHubista.</p>
+
+    <h4>Automaatiot</h4>
+    <ul>
+      <li><strong>Auto-update site</strong> (GitHub Actions, joka aamu klo 05:00 UTC = 08:00 Suomen aikaa): ajaa <code>update_in_place.py</code>, joka päivittää aikaleiman, päiväkodin valikon, Tampereen tapahtumat, kolmen viikon päivällisehdotukset (DEFAULT_CELLS) sekä commitaa muutokset päähaaraan.</li>
+      <li><strong>Päiväkodin valikko</strong>: voimia.fi:n Aromi-API → Takahuhdin päiväkodin lounaat seuraavalle 14 päivälle. Upotetaan HTML:ään, näkyy päivän kohdalla "🏫 Päiväkoti · …" -rivinä.</li>
+      <li><strong>Tapahtumat</strong>: tapahtumat.tampere.fi:n Bubster-API → tulevien 3 kuukauden lapsiperheille soveltuvat tapahtumat tapahtumat-sivulle.</li>
+      <li><strong>Tilaushistoria</strong> (Windows Task Scheduler kotikoneella): seuraa S-kaupat-tilausten PDF-yhteenvetoja, parsii tuotteet ja hinnat, generoi <code>historia.json</code>:n joka näkyy ostoslistan hinta-arvioissa "aiemmin ostettu" -tooltipissä.</li>
+    </ul>
+
+    <h4>Tekninen pohja</h4>
+    <p>Sivu on <strong>staattinen HTML</strong>, ei palvelinta. Kaikki dynaamisuus perustuu joko (a) HTML:ään upotettuun JSON-dataan, jonka auto-update kirjoittaa, tai (b) JavaScriptin <code>localStorage</code>iin, joka on selainkohtainen. Tämä tarkoittaa että jokaisella perheenjäsenellä on oma "tila" omassa selaimessaan — Heikin valinnat eivät synkronoidu suoraan Johannan puhelimelle eivätkä päinvastoin. <em>Vahvista vk:n kokkaukset</em> -toiminto on ainoa, joka kirjoittaa tilaa takaisin GitHubiin (ja sitä kautta kaikille).</p>
+    <p class="info-pieni">Sivun lähdekoodi: <a href="https://github.com/HeikkiHauskaviita/perheen-ruokalista" target="_blank" rel="noopener">github.com/HeikkiHauskaviita/perheen-ruokalista</a></p>
+
+  </div>
+</details>
 
 </main>
 
