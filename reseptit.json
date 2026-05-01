@@ -10,7 +10,7 @@
       4
     ],
     "erityisruokavaliot": [
-      "6v kasvissyöjä (munat ok)"
+      "6v kasvissyÃ¶jÃ¤ (munat ok)"
     ]
   },
   "yksikot_selitys": {
@@ -22,14 +22,14 @@
     "rkl": "ruokalusikka",
     "tl": "teelusikka",
     "pkt": "pakkaus",
-    "tlk": "tölkki",
+    "tlk": "tÃ¶lkki",
     "prk": "purkki"
   },
   "reseptit": [
     {
       "id": "tomaattipasta",
       "nimi": "Tomaattipasta",
-      "kategoria": "päivällinen",
+      "kategoria": "pÃ¤ivÃ¤llinen",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -64,7 +64,7 @@
           "yksikko": "kpl"
         },
         {
-          "nimi": "Oliiviöljy",
+          "nimi": "OliiviÃ¶ljy",
           "maara": 2,
           "yksikko": "rkl",
           "kaappitavara": true
@@ -102,20 +102,20 @@
         }
       ],
       "ohje": [
-        "Keitä spagetti pakkauksen ohjeen mukaan suolalla maustetussa vedessä.",
-        "Pilko sipuli ja valkosipuli. Paista oliiviöljyssä pehmeäksi.",
-        "Lisää tomaattimurska ja basilika. Anna kiehua hiljalleen 10 min, mausta suolalla.",
+        "KeitÃ¤ spagetti pakkauksen ohjeen mukaan suolalla maustetussa vedessÃ¤.",
+        "Pilko sipuli ja valkosipuli. Paista oliiviÃ¶ljyssÃ¤ pehmeÃ¤ksi.",
+        "LisÃ¤Ã¤ tomaattimurska ja basilika. Anna kiehua hiljalleen 10 min, mausta suolalla.",
         "Raasta porkkana ja kurkku salaattilautaselle.",
         "Tarjoile pasta kastikkeen ja juustoraasteen kera."
       ],
-      "huom": "Lapset tykkäävät isosta juustokasasta päälle.",
+      "huom": "Lapset tykkÃ¤Ã¤vÃ¤t isosta juustokasasta pÃ¤Ã¤lle.",
       "last_cooked": null,
       "palaute": []
     },
     {
       "id": "peruna-munakas",
       "nimi": "Peruna-munakas",
-      "kategoria": "päivällinen",
+      "kategoria": "pÃ¤ivÃ¤llinen",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -142,7 +142,7 @@
           "yksikko": "kpl"
         },
         {
-          "nimi": "Täysmaito",
+          "nimi": "TÃ¤ysmaito",
           "maara": 1,
           "yksikko": "dl"
         },
@@ -165,7 +165,7 @@
       ],
       "lisukkeet": [
         {
-          "nimi": "Ruisleipä",
+          "nimi": "RuisleipÃ¤",
           "maara": 0.5,
           "yksikko": "pkt"
         },
@@ -176,12 +176,12 @@
         }
       ],
       "ohje": [
-        "Keitä perunat kuorineen kypsiksi. Kuori ja paloittele.",
-        "Pilko sipuli, paista voissa pehmeäksi uunivuoassa tai pannulla.",
-        "Lisää perunat sekaan.",
+        "KeitÃ¤ perunat kuorineen kypsiksi. Kuori ja paloittele.",
+        "Pilko sipuli, paista voissa pehmeÃ¤ksi uunivuoassa tai pannulla.",
+        "LisÃ¤Ã¤ perunat sekaan.",
         "Riko munat kulhoon, vatkaa maidon kanssa, mausta suolalla ja pippurilla.",
-        "Kaada munaseos perunoiden päälle. Ripottele juustoraaste päälle.",
-        "Paista 200 °C uunissa 15 min tai kunnes muna on hyytynyt."
+        "Kaada munaseos perunoiden pÃ¤Ã¤lle. Ripottele juustoraaste pÃ¤Ã¤lle.",
+        "Paista 200 Â°C uunissa 15 min tai kunnes muna on hyytynyt."
       ],
       "huom": null,
       "last_cooked": null,
@@ -190,7 +190,7 @@
     {
       "id": "punalinssikeitto",
       "nimi": "Punalinssikeitto",
-      "kategoria": "päivällinen",
+      "kategoria": "pÃ¤ivÃ¤llinen",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -241,7 +241,7 @@
           "kaappitavara": true
         },
         {
-          "nimi": "Oliiviöljy",
+          "nimi": "OliiviÃ¶ljy",
           "maara": 1,
           "yksikko": "rkl",
           "kaappitavara": true
@@ -249,7 +249,7 @@
       ],
       "lisukkeet": [
         {
-          "nimi": "Ruisleipä",
+          "nimi": "RuisleipÃ¤",
           "maara": 0.5,
           "yksikko": "pkt"
         },
@@ -260,21 +260,21 @@
         }
       ],
       "ohje": [
-        "Pilko sipuli ja porkkanat, paista kattilassa öljyssä muutama minuutti.",
-        "Lisää linssit, tomaattimurska, vesi ja liemikuutio.",
-        "Keitä 15–20 min kunnes linssit hajoavat.",
+        "Pilko sipuli ja porkkanat, paista kattilassa Ã¶ljyssÃ¤ muutama minuutti.",
+        "LisÃ¤Ã¤ linssit, tomaattimurska, vesi ja liemikuutio.",
+        "KeitÃ¤ 15â20 min kunnes linssit hajoavat.",
         "Mausta juustokuminalla ja suolalla.",
-        "Soseuta osa tai kokonaan sauvasekoittimella — lapsille sileämpi rakenne.",
-        "Tarjoile juustoleivän kera."
+        "Soseuta osa tai kokonaan sauvasekoittimella â lapsille sileÃ¤mpi rakenne.",
+        "Tarjoile juustoleivÃ¤n kera."
       ],
-      "huom": "Soseutettuna pikkulapset syövät paremmin.",
+      "huom": "Soseutettuna pikkulapset syÃ¶vÃ¤t paremmin.",
       "last_cooked": null,
       "palaute": []
     },
     {
       "id": "pinaattilatyt",
-      "nimi": "Pinaattilätyt",
-      "kategoria": "päivällinen",
+      "nimi": "PinaattilÃ¤tyt",
+      "kategoria": "pÃ¤ivÃ¤llinen",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -291,12 +291,12 @@
           "yksikko": "g"
         },
         {
-          "nimi": "Vehnäjauho",
+          "nimi": "VehnÃ¤jauho",
           "maara": 3,
           "yksikko": "dl"
         },
         {
-          "nimi": "Täysmaito",
+          "nimi": "TÃ¤ysmaito",
           "maara": 5,
           "yksikko": "dl"
         },
@@ -331,20 +331,20 @@
         }
       ],
       "ohje": [
-        "Sulata pinaatti ja purista ylimääräinen neste pois.",
-        "Sekoita vehnäjauho, maito, munat ja suola sileäksi taikinaksi.",
-        "Lisää pinaatti. Anna turvota 10 min.",
-        "Paista pieniä lättyjä voissa molemmin puolin kullanruskeiksi.",
+        "Sulata pinaatti ja purista ylimÃ¤Ã¤rÃ¤inen neste pois.",
+        "Sekoita vehnÃ¤jauho, maito, munat ja suola sileÃ¤ksi taikinaksi.",
+        "LisÃ¤Ã¤ pinaatti. Anna turvota 10 min.",
+        "Paista pieniÃ¤ lÃ¤ttyjÃ¤ voissa molemmin puolin kullanruskeiksi.",
         "Tarjoile puolukkahillon ja kermaviilin kera."
       ],
-      "huom": "Lättyjä tehtäessä voi tuplata määrän ja pakastaa loput.",
+      "huom": "LÃ¤ttyjÃ¤ tehtÃ¤essÃ¤ voi tuplata mÃ¤Ã¤rÃ¤n ja pakastaa loput.",
       "last_cooked": null,
       "palaute": []
     },
     {
       "id": "kotipizza",
       "nimi": "Kotipizza",
-      "kategoria": "päivällinen",
+      "kategoria": "pÃ¤ivÃ¤llinen",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -396,9 +396,9 @@
       ],
       "lisukkeet": [],
       "ohje": [
-        "Levitä tomaattimurska pohjan päälle, mausta oreganolla.",
-        "Lisää juustoraaste, maissi, paprikasuikaleet ja oliivit.",
-        "Paista 225 °C uunissa 10–12 min kunnes juusto on kultainen."
+        "LevitÃ¤ tomaattimurska pohjan pÃ¤Ã¤lle, mausta oreganolla.",
+        "LisÃ¤Ã¤ juustoraaste, maissi, paprikasuikaleet ja oliivit.",
+        "Paista 225 Â°C uunissa 10â12 min kunnes juusto on kultainen."
       ],
       "huom": "Toinen pizza voi olla vain juusto (4-vuotiaan mielenrauhaksi).",
       "last_cooked": null,
@@ -407,7 +407,7 @@
     {
       "id": "mieto-kasviscurry",
       "nimi": "Mieto kasviscurry",
-      "kategoria": "päivällinen",
+      "kategoria": "pÃ¤ivÃ¤llinen",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -456,7 +456,7 @@
           "kaytto": "lisukkeeksi"
         },
         {
-          "nimi": "Oliiviöljy",
+          "nimi": "OliiviÃ¶ljy",
           "maara": 1,
           "yksikko": "rkl",
           "kaappitavara": true
@@ -464,21 +464,21 @@
       ],
       "lisukkeet": [],
       "ohje": [
-        "Laita riisi kiehumaan (4 dl riisi + 8 dl vettä + suola, 12 min).",
+        "Laita riisi kiehumaan (4 dl riisi + 8 dl vettÃ¤ + suola, 12 min).",
         "Pilko sipuli, porkkanat ja perunat kuutioiksi.",
-        "Paista sipuli öljyssä, lisää currytahna ja paista minuutti.",
-        "Lisää porkkana, peruna, huuhdotut kikherneet ja kookosmaito.",
-        "Hauduta 15 min kunnes perunat ovat kypsiä.",
-        "Tarjoile riisin päällä."
+        "Paista sipuli Ã¶ljyssÃ¤, lisÃ¤Ã¤ currytahna ja paista minuutti.",
+        "LisÃ¤Ã¤ porkkana, peruna, huuhdotut kikherneet ja kookosmaito.",
+        "Hauduta 15 min kunnes perunat ovat kypsiÃ¤.",
+        "Tarjoile riisin pÃ¤Ã¤llÃ¤."
       ],
-      "huom": "Mieto currytahna = ei tulista. Testaa ennen kuin lisäät.",
+      "huom": "Mieto currytahna = ei tulista. Testaa ennen kuin lisÃ¤Ã¤t.",
       "last_cooked": null,
       "palaute": []
     },
     {
       "id": "perunat-munakastike",
       "nimi": "Perunat + munakastike",
-      "kategoria": "päivällinen",
+      "kategoria": "pÃ¤ivÃ¤llinen",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -500,7 +500,7 @@
           "yksikko": "kpl"
         },
         {
-          "nimi": "Täysmaito",
+          "nimi": "TÃ¤ysmaito",
           "maara": 4,
           "yksikko": "dl"
         },
@@ -510,7 +510,7 @@
           "yksikko": "g"
         },
         {
-          "nimi": "Vehnäjauho",
+          "nimi": "VehnÃ¤jauho",
           "maara": 2,
           "yksikko": "rkl"
         },
@@ -528,10 +528,10 @@
       ],
       "lisukkeet": [],
       "ohje": [
-        "Keitä perunat kuorineen.",
-        "Keitä munat kovaksi (10 min kiehuvassa vedessä). Pilko.",
-        "Tee voisuurus: sulata voi kattilassa, sekoita jauho joukkoon, lisää maito pikkuhiljaa sekoittaen.",
-        "Keitä kastike kuplivaksi. Mausta suolalla ja valkopippurilla.",
+        "KeitÃ¤ perunat kuorineen.",
+        "KeitÃ¤ munat kovaksi (10 min kiehuvassa vedessÃ¤). Pilko.",
+        "Tee voisuurus: sulata voi kattilassa, sekoita jauho joukkoon, lisÃ¤Ã¤ maito pikkuhiljaa sekoittaen.",
+        "KeitÃ¤ kastike kuplivaksi. Mausta suolalla ja valkopippurilla.",
         "Sekoita munat kastikkeeseen.",
         "Kuumenna herneet erikseen.",
         "Tarjoile perunoiden, munakastikkeen ja herneiden kera."
@@ -543,7 +543,7 @@
     {
       "id": "halloumi-kuskus",
       "nimi": "Halloumi + kuskus",
-      "kategoria": "päivällinen",
+      "kategoria": "pÃ¤ivÃ¤llinen",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -573,7 +573,7 @@
           "yksikko": "kpl"
         },
         {
-          "nimi": "Oliiviöljy",
+          "nimi": "OliiviÃ¶ljy",
           "maara": 2,
           "yksikko": "rkl",
           "kaappitavara": true
@@ -586,9 +586,9 @@
       ],
       "lisukkeet": [],
       "ohje": [
-        "Kiehauta 4,5 dl vettä, lisää kuskus ja kansi päälle. Anna turvota 5 min.",
+        "Kiehauta 4,5 dl vettÃ¤, lisÃ¤Ã¤ kuskus ja kansi pÃ¤Ã¤lle. Anna turvota 5 min.",
         "Viipaloi halloumi ja paista pannulla molemmin puolin kultaiseksi.",
-        "Kuutio tomaatit ja kurkut, sekoita öljyn ja sitruunamehun kanssa salaatiksi.",
+        "Kuutio tomaatit ja kurkut, sekoita Ã¶ljyn ja sitruunamehun kanssa salaatiksi.",
         "Tarjoile kuskus, halloumi ja salaatti lautasilla."
       ],
       "huom": null,
@@ -598,7 +598,7 @@
     {
       "id": "pinaattikeitto",
       "nimi": "Pinaattikeitto + keitetty muna",
-      "kategoria": "päivällinen",
+      "kategoria": "pÃ¤ivÃ¤llinen",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -647,7 +647,7 @@
           "yksikko": "kpl"
         },
         {
-          "nimi": "Muskottipähkinä",
+          "nimi": "MuskottipÃ¤hkinÃ¤",
           "maara": null,
           "yksikko": null,
           "kaappitavara": true
@@ -655,18 +655,18 @@
       ],
       "lisukkeet": [
         {
-          "nimi": "Ruisleipä",
+          "nimi": "RuisleipÃ¤",
           "maara": 0.5,
           "yksikko": "pkt"
         }
       ],
       "ohje": [
         "Laita munat kovaksi keitto-kattilaan (10 min).",
-        "Pilko peruna kuutioiksi. Keitä kasvisliemessä 10 min.",
-        "Lisää pinaatti ja sipuli. Keitä 5 min.",
+        "Pilko peruna kuutioiksi. KeitÃ¤ kasvisliemessÃ¤ 10 min.",
+        "LisÃ¤Ã¤ pinaatti ja sipuli. KeitÃ¤ 5 min.",
         "Soseuta sauvasekoittimella.",
-        "Lisää kerma, kuumenna. Mausta muskottipähkinällä.",
-        "Tarjoile keitto, puolikas kova muna kulhon päällä, ruisleipää."
+        "LisÃ¤Ã¤ kerma, kuumenna. Mausta muskottipÃ¤hkinÃ¤llÃ¤.",
+        "Tarjoile keitto, puolikas kova muna kulhon pÃ¤Ã¤llÃ¤, ruisleipÃ¤Ã¤."
       ],
       "huom": null,
       "last_cooked": "2026-04-30",
@@ -675,7 +675,7 @@
     {
       "id": "kasvis-kvesadillat",
       "nimi": "Kasvis-kvesadillat",
-      "kategoria": "päivällinen",
+      "kategoria": "pÃ¤ivÃ¤llinen",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -720,7 +720,7 @@
       ],
       "lisukkeet": [],
       "ohje": [
-        "Levitä puolikkaalle tortillalle papumuhennosta, maissia ja juustoraastetta.",
+        "LevitÃ¤ puolikkaalle tortillalle papumuhennosta, maissia ja juustoraastetta.",
         "Taittele ja paista pannulla molemmin puolin kunnes juusto sulaa.",
         "Raasta porkkana ja kurkku salaatiksi.",
         "Leikkaa paistettu tortilla paloiksi ennen tarjoilua."
@@ -732,7 +732,7 @@
     {
       "id": "uunijuurekset-feta",
       "nimi": "Uunijuurekset + feta",
-      "kategoria": "päivällinen",
+      "kategoria": "pÃ¤ivÃ¤llinen",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -763,7 +763,7 @@
           "yksikko": "kpl"
         },
         {
-          "nimi": "Oliiviöljy",
+          "nimi": "OliiviÃ¶ljy",
           "maara": 3,
           "yksikko": "rkl",
           "kaappitavara": true
@@ -802,9 +802,9 @@
       "ohje": [
         "Pese ja paloittele peruna, porkkana ja bataatti tasakokoisiksi paloiksi.",
         "Lohko sipuli.",
-        "Sekoita juurekset öljyyn ja mausteisiin uunipellillä.",
-        "Paista 200 °C uunissa 30 min.",
-        "Ripottele fetakuutiot päälle viimeisten 5 min ajaksi.",
+        "Sekoita juurekset Ã¶ljyyn ja mausteisiin uunipellillÃ¤.",
+        "Paista 200 Â°C uunissa 30 min.",
+        "Ripottele fetakuutiot pÃ¤Ã¤lle viimeisten 5 min ajaksi.",
         "Tarjoile salaatin kera."
       ],
       "huom": null,
@@ -814,7 +814,7 @@
     {
       "id": "uunimakaroni",
       "nimi": "Kasvisuunimakaroni",
-      "kategoria": "päivällinen",
+      "kategoria": "pÃ¤ivÃ¤llinen",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -838,7 +838,7 @@
           "yksikko": "kpl"
         },
         {
-          "nimi": "Täysmaito",
+          "nimi": "TÃ¤ysmaito",
           "maara": 5,
           "yksikko": "dl"
         },
@@ -878,21 +878,21 @@
         }
       ],
       "ohje": [
-        "Keitä makaroni melkein kypsäksi (al dente).",
-        "Paista sipuli voissa pehmeäksi, lisää soijarouhe tai kasvijauhis. Mausta.",
+        "KeitÃ¤ makaroni melkein kypsÃ¤ksi (al dente).",
+        "Paista sipuli voissa pehmeÃ¤ksi, lisÃ¤Ã¤ soijarouhe tai kasvijauhis. Mausta.",
         "Sekoita makaroni ja jauhis uunivuokaan.",
         "Vatkaa munat, maito ja suola. Kaada seos vuokaan.",
-        "Ripottele juustoraaste päälle.",
-        "Paista 200 °C uunissa 25 min kunnes pinta on kullanruskea."
+        "Ripottele juustoraaste pÃ¤Ã¤lle.",
+        "Paista 200 Â°C uunissa 25 min kunnes pinta on kullanruskea."
       ],
-      "huom": "Klassikko — lapset syövät ilman muuta.",
+      "huom": "Klassikko â lapset syÃ¶vÃ¤t ilman muuta.",
       "last_cooked": null,
       "palaute": []
     },
     {
       "id": "kasvispyorykat",
-      "nimi": "Kasvispyörykät + perunamuusi",
-      "kategoria": "päivällinen",
+      "nimi": "KasvispyÃ¶rykÃ¤t + perunamuusi",
+      "kategoria": "pÃ¤ivÃ¤llinen",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -903,7 +903,7 @@
       "vaikeustaso": "helppo",
       "ainekset": [
         {
-          "nimi": "Kasvispyörykät (pakaste)",
+          "nimi": "KasvispyÃ¶rykÃ¤t (pakaste)",
           "maara": 1,
           "yksikko": "pkt",
           "huom": "n. 500 g"
@@ -914,7 +914,7 @@
           "yksikko": "kg"
         },
         {
-          "nimi": "Täysmaito",
+          "nimi": "TÃ¤ysmaito",
           "maara": 2,
           "yksikko": "dl"
         },
@@ -943,10 +943,10 @@
         }
       ],
       "ohje": [
-        "Keitä perunat kuorittuina suolalla maustetussa vedessä.",
-        "Paista kasvispyörykät pakkauksen ohjeen mukaan uunissa tai pannulla.",
-        "Muusaa perunat, lisää maito ja voi. Mausta.",
-        "Höyrytä pakasteherneet.",
+        "KeitÃ¤ perunat kuorittuina suolalla maustetussa vedessÃ¤.",
+        "Paista kasvispyÃ¶rykÃ¤t pakkauksen ohjeen mukaan uunissa tai pannulla.",
+        "Muusaa perunat, lisÃ¤Ã¤ maito ja voi. Mausta.",
+        "HÃ¶yrytÃ¤ pakasteherneet.",
         "Tarjoile puolukkahillon kera."
       ],
       "huom": null,
@@ -956,7 +956,7 @@
     {
       "id": "parmesanrisotto",
       "nimi": "Parmesanrisotto",
-      "kategoria": "päivällinen",
+      "kategoria": "pÃ¤ivÃ¤llinen",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -1003,7 +1003,7 @@
           "yksikko": "g"
         },
         {
-          "nimi": "Oliiviöljy",
+          "nimi": "OliiviÃ¶ljy",
           "maara": 1,
           "yksikko": "rkl",
           "kaappitavara": true
@@ -1011,21 +1011,21 @@
       ],
       "lisukkeet": [],
       "ohje": [
-        "Kiehauta 1 l vettä + liemikuutiot kattilassa ja pidä lämpimänä.",
-        "Paista silputtu sipuli ja valkosipuli öljyssä pehmeäksi.",
-        "Lisää risottoriisi, paista hetki sekoittaen.",
-        "Lisää kauhallinen kuumaa lientä kerrallaan, sekoita kunnes imeytynyt. Jatka 18–20 min.",
-        "Lisää viimeksi herneet, voi ja juustoraaste. Sekoita tasaiseksi.",
+        "Kiehauta 1 l vettÃ¤ + liemikuutiot kattilassa ja pidÃ¤ lÃ¤mpimÃ¤nÃ¤.",
+        "Paista silputtu sipuli ja valkosipuli Ã¶ljyssÃ¤ pehmeÃ¤ksi.",
+        "LisÃ¤Ã¤ risottoriisi, paista hetki sekoittaen.",
+        "LisÃ¤Ã¤ kauhallinen kuumaa lientÃ¤ kerrallaan, sekoita kunnes imeytynyt. Jatka 18â20 min.",
+        "LisÃ¤Ã¤ viimeksi herneet, voi ja juustoraaste. Sekoita tasaiseksi.",
         "Mausta suolalla. Tarjoile heti."
       ],
-      "huom": "Risotto vaatii jatkuvaa sekoittamista — älä jätä yksin.",
+      "huom": "Risotto vaatii jatkuvaa sekoittamista â Ã¤lÃ¤ jÃ¤tÃ¤ yksin.",
       "last_cooked": null,
       "palaute": []
     },
     {
       "id": "kikhernepata",
       "nimi": "Kikhernepata tomaattikastikkeessa",
-      "kategoria": "päivällinen",
+      "kategoria": "pÃ¤ivÃ¤llinen",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -1080,7 +1080,7 @@
           "kaappitavara": true
         },
         {
-          "nimi": "Oliiviöljy",
+          "nimi": "OliiviÃ¶ljy",
           "maara": 1,
           "yksikko": "rkl",
           "kaappitavara": true
@@ -1095,19 +1095,19 @@
       "lisukkeet": [],
       "ohje": [
         "Laita riisi kiehumaan.",
-        "Paista pilkottu sipuli, valkosipuli, porkkanat ja paprika öljyssä 5 min.",
-        "Lisää mausteet ja paista minuutti.",
-        "Lisää tomaattimurska ja huuhdotut kikherneet. Hauduta 10–12 min.",
+        "Paista pilkottu sipuli, valkosipuli, porkkanat ja paprika Ã¶ljyssÃ¤ 5 min.",
+        "LisÃ¤Ã¤ mausteet ja paista minuutti.",
+        "LisÃ¤Ã¤ tomaattimurska ja huuhdotut kikherneet. Hauduta 10â12 min.",
         "Tarjoile riisin kera."
       ],
-      "huom": "Mausteet laitetaan kohtalaisesti — ei tulista.",
+      "huom": "Mausteet laitetaan kohtalaisesti â ei tulista.",
       "last_cooked": null,
       "palaute": []
     },
     {
       "id": "kasvisnakkikeitto",
       "nimi": "Kasvisnakkikeitto",
-      "kategoria": "päivällinen",
+      "kategoria": "pÃ¤ivÃ¤llinen",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -1160,26 +1160,26 @@
       ],
       "lisukkeet": [
         {
-          "nimi": "Ruisleipä",
+          "nimi": "RuisleipÃ¤",
           "maara": 0.5,
           "yksikko": "pkt"
         }
       ],
       "ohje": [
         "Kuutio perunat, porkkanat ja sipuli.",
-        "Keitä vesi, liemikuutio ja laakerinlehti. Lisää juurekset.",
-        "Keitä 10–12 min kunnes perunat ovat kypsiä.",
-        "Viipaloi nakit, lisää keittoon viimeksi (kuumenna 3 min).",
-        "Tarjoile ruisleivän kera."
+        "KeitÃ¤ vesi, liemikuutio ja laakerinlehti. LisÃ¤Ã¤ juurekset.",
+        "KeitÃ¤ 10â12 min kunnes perunat ovat kypsiÃ¤.",
+        "Viipaloi nakit, lisÃ¤Ã¤ keittoon viimeksi (kuumenna 3 min).",
+        "Tarjoile ruisleivÃ¤n kera."
       ],
-      "huom": "Lasten klassikko. Nakit löytyvät kaupan kasvistuoteosastolta.",
+      "huom": "Lasten klassikko. Nakit lÃ¶ytyvÃ¤t kaupan kasvistuoteosastolta.",
       "last_cooked": null,
       "palaute": []
     },
     {
       "id": "espanjalainen-tortilla",
       "nimi": "Espanjalainen tortilla (paksu munakas)",
-      "kategoria": "päivällinen",
+      "kategoria": "pÃ¤ivÃ¤llinen",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -1205,7 +1205,7 @@
           "yksikko": "kpl"
         },
         {
-          "nimi": "Oliiviöljy",
+          "nimi": "OliiviÃ¶ljy",
           "maara": 3,
           "yksikko": "rkl",
           "kaappitavara": true
@@ -1231,20 +1231,20 @@
       ],
       "ohje": [
         "Viipaloi perunat ohueksi ja sipuli.",
-        "Paista perunat ja sipuli öljyssä pannulla hitaasti kypsiksi (15 min), sekoita välillä.",
+        "Paista perunat ja sipuli Ã¶ljyssÃ¤ pannulla hitaasti kypsiksi (15 min), sekoita vÃ¤lillÃ¤.",
         "Vatkaa munat kulhoon, mausta.",
-        "Kaada munat pannulle perunoiden päälle. Paista hiljaisella lämmöllä 7 min.",
-        "Käännä lautasen avulla ja paista toinen puoli 3 min.",
-        "Tarjoile salaatin kera — sopii kylmänä tai lämpimänä."
+        "Kaada munat pannulle perunoiden pÃ¤Ã¤lle. Paista hiljaisella lÃ¤mmÃ¶llÃ¤ 7 min.",
+        "KÃ¤Ã¤nnÃ¤ lautasen avulla ja paista toinen puoli 3 min.",
+        "Tarjoile salaatin kera â sopii kylmÃ¤nÃ¤ tai lÃ¤mpimÃ¤nÃ¤."
       ],
-      "huom": "Myös loput maistuvat seuraavana päivänä.",
+      "huom": "MyÃ¶s loput maistuvat seuraavana pÃ¤ivÃ¤nÃ¤.",
       "last_cooked": null,
       "palaute": []
     },
     {
       "id": "kasvislasagne",
       "nimi": "Kasvislasagne",
-      "kategoria": "päivällinen",
+      "kategoria": "pÃ¤ivÃ¤llinen",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -1287,12 +1287,12 @@
           "yksikko": "g"
         },
         {
-          "nimi": "Vehnäjauho",
+          "nimi": "VehnÃ¤jauho",
           "maara": 4,
           "yksikko": "rkl"
         },
         {
-          "nimi": "Täysmaito",
+          "nimi": "TÃ¤ysmaito",
           "maara": 6,
           "yksikko": "dl"
         },
@@ -1303,13 +1303,13 @@
           "merkki": "Coop mozzarella"
         },
         {
-          "nimi": "Muskottipähkinä",
+          "nimi": "MuskottipÃ¤hkinÃ¤",
           "maara": null,
           "yksikko": null,
           "kaappitavara": true
         },
         {
-          "nimi": "Oliiviöljy",
+          "nimi": "OliiviÃ¶ljy",
           "maara": 2,
           "yksikko": "rkl",
           "kaappitavara": true
@@ -1323,21 +1323,21 @@
       ],
       "lisukkeet": [],
       "ohje": [
-        "Tomaattikastike: paista silputtu sipuli ja valkosipuli öljyssä. Lisää tomaattimurska ja oregano. Anna kiehua 10 min.",
+        "Tomaattikastike: paista silputtu sipuli ja valkosipuli Ã¶ljyssÃ¤. LisÃ¤Ã¤ tomaattimurska ja oregano. Anna kiehua 10 min.",
         "Sulata pinaatti ja purista neste pois. Sekoita tomaattikastikkeeseen.",
-        "Béchamel: sulata voi kattilassa, sekoita jauho joukkoon. Lisää maito vähitellen sekoittaen. Keitä paksuksi. Mausta suolalla ja muskottipähkinällä.",
-        "Kerrosta vuokaan: tomaatti-pinaattikastike, lasagnelevyt, béchamel — toista 2–3 kerrosta.",
-        "Ripottele juustoraaste päälle.",
-        "Paista 200 °C uunissa 30 min kunnes pinta on kullanruskea."
+        "BÃ©chamel: sulata voi kattilassa, sekoita jauho joukkoon. LisÃ¤Ã¤ maito vÃ¤hitellen sekoittaen. KeitÃ¤ paksuksi. Mausta suolalla ja muskottipÃ¤hkinÃ¤llÃ¤.",
+        "Kerrosta vuokaan: tomaatti-pinaattikastike, lasagnelevyt, bÃ©chamel â toista 2â3 kerrosta.",
+        "Ripottele juustoraaste pÃ¤Ã¤lle.",
+        "Paista 200 Â°C uunissa 30 min kunnes pinta on kullanruskea."
       ],
-      "huom": "Isompi annoskoko — jää viikonloppuun tai maanantain lounaaksi.",
+      "huom": "Isompi annoskoko â jÃ¤Ã¤ viikonloppuun tai maanantain lounaaksi.",
       "last_cooked": null,
       "palaute": []
     },
     {
       "id": "popcornit",
       "nimi": "Popcornit",
-      "kategoria": "välipala",
+      "kategoria": "vÃ¤lipala",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -1353,7 +1353,7 @@
           "yksikko": "dl"
         },
         {
-          "nimi": "Rypsiöljy",
+          "nimi": "RypsiÃ¶ljy",
           "maara": 2,
           "yksikko": "rkl",
           "kaappitavara": true
@@ -1367,18 +1367,18 @@
       ],
       "lisukkeet": [],
       "ohje": [
-        "Lämmitä öljy paksupohjaisessa kattilassa keskilämmöllä.",
-        "Lisää 2–3 jyvää. Kun ne popsahtavat, lisää loput maissit ja laita kansi päälle.",
-        "Ravista kattilaa silloin tällöin. Kun popsahduksia tulee enää kerran parissa sekunnissa, ota pois liedeltä.",
-        "Ripottele suolaa päälle ja sekoita. Tarjoile heti."
+        "LÃ¤mmitÃ¤ Ã¶ljy paksupohjaisessa kattilassa keskilÃ¤mmÃ¶llÃ¤.",
+        "LisÃ¤Ã¤ 2â3 jyvÃ¤Ã¤. Kun ne popsahtavat, lisÃ¤Ã¤ loput maissit ja laita kansi pÃ¤Ã¤lle.",
+        "Ravista kattilaa silloin tÃ¤llÃ¶in. Kun popsahduksia tulee enÃ¤Ã¤ kerran parissa sekunnissa, ota pois liedeltÃ¤.",
+        "Ripottele suolaa pÃ¤Ã¤lle ja sekoita. Tarjoile heti."
       ],
-      "huom": "Mikroaaltouunin valmispopcornit käyvät myös — katso pakkauksen ohje.",
+      "huom": "Mikroaaltouunin valmispopcornit kÃ¤yvÃ¤t myÃ¶s â katso pakkauksen ohje.",
       "palaute": []
     },
     {
       "id": "vohvelit",
       "nimi": "Vohvelit",
-      "kategoria": "välipala",
+      "kategoria": "vÃ¤lipala",
       "annoskoko": 5,
       "tagit": [
         "kasvis",
@@ -1390,12 +1390,12 @@
       "vaikeustaso": "helppo",
       "ainekset": [
         {
-          "nimi": "Vehnäjauho",
+          "nimi": "VehnÃ¤jauho",
           "maara": 3,
           "yksikko": "dl"
         },
         {
-          "nimi": "Täysmaito",
+          "nimi": "TÃ¤ysmaito",
           "maara": 3,
           "yksikko": "dl"
         },
@@ -1450,11 +1450,11 @@
       "ohje": [
         "Sekoita jauho, leivinjauhe, sokeri, vaniljasokeri ja suola.",
         "Vatkaa munat ja maito erikseen. Kaada kuivien aineiden sekaan.",
-        "Lisää sulatettu voi ja sekoita sileäksi. Anna taikinan turvota 5 min.",
-        "Paista kuumassa vohvelirautakoneessa n. 2–3 min per vohveli kullanruskeiksi.",
+        "LisÃ¤Ã¤ sulatettu voi ja sekoita sileÃ¤ksi. Anna taikinan turvota 5 min.",
+        "Paista kuumassa vohvelirautakoneessa n. 2â3 min per vohveli kullanruskeiksi.",
         "Tarjoile marjojen ja hillon kera."
       ],
-      "huom": "Taikinasta riittää n. 8–10 vohvelia.",
+      "huom": "Taikinasta riittÃ¤Ã¤ n. 8â10 vohvelia.",
       "palaute": [],
       "last_cooked": "2026-05-01"
     },
@@ -1484,7 +1484,7 @@
           "kaappitavara": true
         },
         {
-          "nimi": "Täysmaito",
+          "nimi": "TÃ¤ysmaito",
           "maara": 2,
           "yksikko": "dl"
         },
@@ -1509,12 +1509,12 @@
         }
       ],
       "ohje": [
-        "Kiehauta vesi ja maito kattilassa. Lisää ripaus suolaa.",
-        "Lisää kaurahiutaleet keittyvään nesteeseen koko ajan sekoittaen.",
-        "Keitä miedolla lämmöllä 5 min sekoitellen, kunnes puuro on paksuuntunut.",
+        "Kiehauta vesi ja maito kattilassa. LisÃ¤Ã¤ ripaus suolaa.",
+        "LisÃ¤Ã¤ kaurahiutaleet keittyvÃ¤Ã¤n nesteeseen koko ajan sekoittaen.",
+        "KeitÃ¤ miedolla lÃ¤mmÃ¶llÃ¤ 5 min sekoitellen, kunnes puuro on paksuuntunut.",
         "Tarjoile marjojen ja kanelin/sokerin kera."
       ],
-      "huom": "Vaihda osa vedestä maidoksi jos haluat kermaisemman puuron. Kauran ja nesteen suhde 1:2.",
+      "huom": "Vaihda osa vedestÃ¤ maidoksi jos haluat kermaisemman puuron. Kauran ja nesteen suhde 1:2.",
       "palaute": []
     },
     {
@@ -1532,7 +1532,7 @@
       "vaikeustaso": "helppo",
       "ainekset": [
         {
-          "nimi": "Täysmaito",
+          "nimi": "TÃ¤ysmaito",
           "maara": 1,
           "yksikko": "l"
         },
@@ -1557,7 +1557,7 @@
       ],
       "lisukkeet": [
         {
-          "nimi": "Voileipä (leipä + voi + juusto)",
+          "nimi": "VoileipÃ¤ (leipÃ¤ + voi + juusto)",
           "maara": 5,
           "yksikko": "kpl",
           "kaappitavara": true
@@ -1565,11 +1565,11 @@
       ],
       "ohje": [
         "Sekoita kaakaojauhe, sokeri ja vaniljasokeri kattilassa.",
-        "Lisää tilkka maitoa ja sekoita tahnaksi, jotta kaakao ei paakkuunnu.",
-        "Lisää loput maidosta. Kuumenna keskilämmöllä vähän sekoitellen, ei kiehauteta.",
+        "LisÃ¤Ã¤ tilkka maitoa ja sekoita tahnaksi, jotta kaakao ei paakkuunnu.",
+        "LisÃ¤Ã¤ loput maidosta. Kuumenna keskilÃ¤mmÃ¶llÃ¤ vÃ¤hÃ¤n sekoitellen, ei kiehauteta.",
         "Tarjoile kun kaakao on kuumaa muttei polta. Voileipien kanssa."
       ],
-      "huom": "Vaahdotettu maito päälle tekee ravintolatason kaakaon.",
+      "huom": "Vaahdotettu maito pÃ¤Ã¤lle tekee ravintolatason kaakaon.",
       "palaute": []
     },
     {
@@ -1620,21 +1620,21 @@
           "nimi": "Rusinat",
           "maara": 50,
           "yksikko": "g",
-          "huom": "5–10 kpl per pullo"
+          "huom": "5â10 kpl per pullo"
         }
       ],
       "lisukkeet": [],
       "ohje": [
         "Kuori sitruunoista keltainen kuori ohuesti (ei valkoista osaa). Purista mehu talteen.",
-        "Kuumenna 1 l vettä. Lisää sokeri ja fariinisokeri, sekoita kunnes liuennut.",
-        "Lisää sitruunan kuoriraaste ja loput 4 l kylmää vettä isoon kattilaan tai sangoon. Lisää sitruunamehu.",
-        "Kun seos on kädenlämpöinen (n. 25–30 °C), murenna hiiva sekaan ja sekoita.",
-        "Peitä liinalla, anna käydä huoneenlämmössä 12–24 h.",
-        "Pullota puhtaisiin pulloihin. Lisää joka pulloon 1 tl sokeria ja 5–10 rusinaa.",
-        "Sulje korkit löysästi, anna jälkikäydä jääkaapissa 1–3 vrk kunnes rusinat nousevat pintaan — sima on valmista.",
-        "Säilytä jääkaapissa, kuluta viikon sisällä."
+        "Kuumenna 1 l vettÃ¤. LisÃ¤Ã¤ sokeri ja fariinisokeri, sekoita kunnes liuennut.",
+        "LisÃ¤Ã¤ sitruunan kuoriraaste ja loput 4 l kylmÃ¤Ã¤ vettÃ¤ isoon kattilaan tai sangoon. LisÃ¤Ã¤ sitruunamehu.",
+        "Kun seos on kÃ¤denlÃ¤mpÃ¶inen (n. 25â30 Â°C), murenna hiiva sekaan ja sekoita.",
+        "PeitÃ¤ liinalla, anna kÃ¤ydÃ¤ huoneenlÃ¤mmÃ¶ssÃ¤ 12â24 h.",
+        "Pullota puhtaisiin pulloihin. LisÃ¤Ã¤ joka pulloon 1 tl sokeria ja 5â10 rusinaa.",
+        "Sulje korkit lÃ¶ysÃ¤sti, anna jÃ¤lkikÃ¤ydÃ¤ jÃ¤Ã¤kaapissa 1â3 vrk kunnes rusinat nousevat pintaan â sima on valmista.",
+        "SÃ¤ilytÃ¤ jÃ¤Ã¤kaapissa, kuluta viikon sisÃ¤llÃ¤."
       ],
-      "huom": "Aloita viimeistään ti 28.4. jotta valmista vappuun pe 1.5. mennessä. Hyvin nuori sima käytännössä alkoholiton (<0,5 %), lapsille turvallinen.",
+      "huom": "Aloita viimeistÃ¤Ã¤n ti 28.4. jotta valmista vappuun pe 1.5. mennessÃ¤. Hyvin nuori sima kÃ¤ytÃ¤nnÃ¶ssÃ¤ alkoholiton (<0,5 %), lapsille turvallinen.",
       "last_cooked": "2026-04-26",
       "palaute": []
     }
