@@ -2,8 +2,10 @@ name: Auto-update site
 
 on:
   schedule:
+    # Päivittäin 05:00 UTC (= 07:00 Suomi talviaika, 08:00 kesäaika).
+    # Käynnistyy ennen aamua niin sivu on tuore kun perhe avaa.
     - cron: '0 5 * * *'
-  workflow_dispatch:
+  workflow_dispatch:  # mahdollistaa käsin ajamisen GitHubin web-UI:sta
 
 permissions:
   contents: write
@@ -24,8 +26,53 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Sanity-check reseptit.json (estä mojibake-vika ennen ajoa)
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          with open("reseptit.json", encoding="utf-8") as f:
+              d = json.load(f)
+          paivalliset = [r for r in d.get("reseptit", []) if r.get("kategoria") == "päivällinen"]
+          if len(paivalliset) < 5:
+              # Listaa todelliset kategoriat että saadaan diagnoosi heti virheviestiin
+              from collections import Counter
+              kategoriat = Counter(r.get("kategoria", "?") for r in d.get("reseptit", []))
+              sys.exit(
+                  f"FAIL: reseptit.json sisältää vain {len(paivalliset)} päivällisreseptiä. "
+                  f"Algoritmi tarvitsee vähintään 5 (mielellään 15). "
+                  f"Kategoriat: {dict(kategoriat)}. "
+                  f"Tarkista UTF-8-enkoodaus — jos kategoriat näkyvät 'pÃ¤ivÃ¤llinen' "
+                  f"'päivällinen' sijaan, tiedosto on mojibake-vikainen."
+              )
+          print(f"✓ {len(paivalliset)} päivällisreseptiä löytyi")
+          PY
+
       - name: Run update_in_place.py
         run: python3 update_in_place.py
+
+      - name: Sanity-check generoitu index.html (vähintään 5 ma-pe päivällissolua täynnä)
+        run: |
+          python3 - <<'PY'
+          import re, sys
+          html = open("index.html", encoding="utf-8").read()
+          # Etsi viikkojen 1-3 ma-pe päivällissolut joissa on <strong>...</strong>
+          paivat = ["ma", "ti", "ke", "to", "pe"]
+          tayttoja = 0
+          for vk in ("w1", "w2", "w3"):
+              for p in paivat:
+                  m = re.search(
+                      rf'data-k="{vk}-d-{p}"[^>]*>([\s\S]*?)</div>',
+                      html
+                  )
+                  if m and "<strong>" in m.group(1):
+                      tayttoja += 1
+          if tayttoja < 5:
+              sys.exit(
+                  f"FAIL: index.html sisältää vain {tayttoja}/15 täytettyä ma-pe päivällissolua. "
+                  f"Päivitys olisi tehnyt sivusta käytännössä tyhjän — ei pushata."
+              )
+          print(f"✓ {tayttoja}/15 ma-pe päivällissolua täytetty")
+          PY
 
       - name: Commit and push if changed
         run: |
