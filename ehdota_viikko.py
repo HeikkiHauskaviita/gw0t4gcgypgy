@@ -132,12 +132,32 @@ def main():
     parser.add_argument("--viikonloppu", action="store_true", help="Ehdota myös la-su")
     parser.add_argument("--vahvista", type=str, help="Tallenna last_cooked = annettu pvm")
     parser.add_argument("--arki-max-min", type=int, default=ARKI_MAX_MIN)
+    parser.add_argument(
+        "--kategoria",
+        type=str,
+        default="päivällinen",
+        help="Suodata reseptit kategorian mukaan. Oletus 'päivällinen'. "
+             "Anna 'kaikki' jos haluat huomioida kaikki kategoriat (välipala, iltapala jne.).",
+    )
     args = parser.parse_args()
 
     globals()["ARKI_MAX_MIN"] = args.arki_max_min
 
     data = lataa()
     reseptit = data["reseptit"]
+
+    # Kategoriasuodatus — estää että esim. popcornit/kaakao tarjotaan päivälliseksi
+    # vain siksi että niiden last_cooked on null (= korkein prioriteetti algoritmissa).
+    if args.kategoria != "kaikki":
+        ennen = len(reseptit)
+        reseptit = [r for r in reseptit if r.get("kategoria") == args.kategoria]
+        if not reseptit:
+            sys.exit(
+                f"Virhe: kategorialla '{args.kategoria}' ei löytynyt yhtään reseptiä "
+                f"(reseptit yhteensä {ennen}). Tarkista reseptit.json:n enkoodaus — "
+                f"jos kategoriat näkyvät muodossa 'pÃ¤ivÃ¤llinen', tiedosto on "
+                f"mojibake-vikainen ja pitää korjata UTF-8:ksi."
+            )
 
     # arki
     arki_pool = suodata(reseptit, viikonloppu=False)
@@ -153,32 +173,4 @@ def main():
     tulosta_ehdotus(arki_valinta, PAIVAT_ARKI, alkaen=alkaen)
 
     vk_valinta = []
-    if args.viikonloppu:
-        vältä = [r["id"] for r in arki_valinta]
-        vk_pool = suodata(reseptit, viikonloppu=True)
-        vk_valinta = valitse(vk_pool, 2, vältä_ideja=vältä)
-        alkaen_vk = alkaen + timedelta(days=5) if alkaen else None
-        tulosta_ehdotus(vk_valinta, PAIVAT_VIIKONLOPPU, alkaen=alkaen_vk)
-
-    if args.vahvista:
-        try:
-            pvm = date.fromisoformat(args.vahvista)
-        except ValueError:
-            sys.exit(f"Virheellinen pvm: {args.vahvista}.")
-        paivitetyt = []
-        for r in arki_valinta + vk_valinta:
-            r["last_cooked"] = pvm.isoformat()
-            paivitetyt.append(r["id"])
-        tallenna(data)
-        print()
-        print(f"Tallennettu: last_cooked = {pvm} reseptille: {', '.join(paivitetyt)}")
-
-    # oikoreitti ostoslistan tekoon
-    idt = [r["id"] for r in arki_valinta + vk_valinta]
-    print()
-    print("Ostoslistan komento:")
-    print(f"  python3 ostoslista.py {' '.join(idt)}")
-
-
-if __name__ == "__main__":
-    main()
+    if args.viikonlop

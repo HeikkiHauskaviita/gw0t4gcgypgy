@@ -465,6 +465,20 @@ def injektoi_viikkojen_paivalliset(
         return html, {}
 
     paivalliset = [r for r in reseptit if r.get("kategoria") == "päivällinen"]
+    # Sanity check: jos päivällisreseptejä on alle minimimäärän, jokin on rikki
+    # (yleisin syy: reseptit.json on mojibake-vikainen ja kategoria on muodossa
+    # 'pÃ¤ivÃ¤llinen' eikä 'päivällinen'). Älä tyhjennä HTML-soluja hiljaisesti —
+    # palauta html muuttumattomana ja anna varoitus.
+    if len(paivalliset) < 5:
+        from collections import Counter
+        kategoriat = Counter(r.get("kategoria", "?") for r in reseptit)
+        print(
+            f"⚠ KRIITTINEN: vain {len(paivalliset)} päivällisreseptiä löytyi "
+            f"({len(reseptit)} reseptiä yhteensä). Kategoriat: {dict(kategoriat)}. "
+            f"Jos kategoriat ovat 'pÃ¤ivÃ¤llinen' jne., reseptit.json on "
+            f"mojibake-vikainen. HTML-soluja EI päivitetä jotta vanhat sisällöt säilyvät."
+        )
+        return html, {}
     arki_pool = suodata(paivalliset, viikonloppu=False)
 
     # Kaksiportainen valinta:
