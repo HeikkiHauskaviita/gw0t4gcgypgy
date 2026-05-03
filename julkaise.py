@@ -240,6 +240,44 @@ def injektoi_reseptit(html: str, reseptit_path: Path) -> str:
     return re.sub(pattern, lambda m: m.group(1) + payload + m.group(3), html, count=1)
 
 
+def injektoi_tilaushistoria(html: str, historia_path: Path) -> str:
+    """Upottaa historia.json:n <script id="tilaushistoria">-lohkoon.
+
+    Sivuston ostoslistan algoritmi käyttää näitä viimeisimpiä S-kaupat-tilausten
+    todellisia hintoja oletusehdotuksena (userPriceFor JS-funktiossa). Lähetetään
+    julkaisuun vain `paivitetty`, `hinnat` ja `tilaukset_yhteenveto` — tilausten
+    täydet tuotelistat jätetään pois jotta sivu ei paisu turhaan.
+    """
+    if not historia_path.exists():
+        return html
+    raw = json.loads(historia_path.read_text(encoding="utf-8"))
+    # Rakenna kevennetty payload sivuston tarpeisiin
+    tilaukset_yhteenveto = []
+    for t in raw.get("tilaukset", []):
+        # Älä laske mukaan palvelumaksuja ("Nouto", "Pahvilaatikko")
+        n_tuotteita = sum(
+            1 for x in t.get("tuotteet", [])
+            if x.get("nimi") not in ("Nouto", "Pahvilaatikko")
+        )
+        tilaukset_yhteenveto.append({
+            "id": t.get("id"),
+            "pvm": t.get("pvm"),
+            "summa": t.get("summa_euroa"),
+            "kauppa": t.get("kauppa"),
+            "tuotteita": n_tuotteita,
+        })
+    payload_obj = {
+        "paivitetty": raw.get("paivitetty"),
+        "hinnat": raw.get("hinnat", {}),
+        "tilaukset_yhteenveto": tilaukset_yhteenveto,
+    }
+    payload = json.dumps(payload_obj, ensure_ascii=False, separators=(",", ":"))
+    pattern = r'(<script\s+type=["\']application/json["\']\s+id=["\']tilaushistoria["\']\s*>)([\s\S]*?)(</script>)'
+    if not re.search(pattern, html):
+        return html
+    return re.sub(pattern, lambda m: m.group(1) + payload + m.group(3), html, count=1)
+
+
 def _slugify_name(name: str) -> str:
     """Tampere-sivuston URL-slug: pienet kirjaimet, ääkköset, välilyönnit viivoiksi."""
     if not name:

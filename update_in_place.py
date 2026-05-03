@@ -27,6 +27,7 @@ import julkaise as J  # type: ignore
 INDEX_PATH = SCRIPT_DIR / "index.html"
 TAPAHTUMAT_PATH = SCRIPT_DIR / "tapahtumat.html"
 RESEPTIT_PATH = SCRIPT_DIR / "reseptit.json"
+HISTORIA_PATH = SCRIPT_DIR / "historia.json"
 
 
 def main():
@@ -41,6 +42,9 @@ def main():
         html = J.lisaa_robots(html)
         if RESEPTIT_PATH.exists():
             html = J.injektoi_reseptit(html, RESEPTIT_PATH)
+        if HISTORIA_PATH.exists():
+            html = J.injektoi_tilaushistoria(html, HISTORIA_PATH)
+            print(f"✓ Tilaushistoria upotettu: {HISTORIA_PATH.name}")
         valikko = J.hae_paivakodin_valikko(paivia=14)
         if valikko:
             html = J.injektoi_paivakoti(html, valikko)
