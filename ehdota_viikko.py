@@ -173,4 +173,32 @@ def main():
     tulosta_ehdotus(arki_valinta, PAIVAT_ARKI, alkaen=alkaen)
 
     vk_valinta = []
-    if args.viikonlop
+    if args.viikonloppu:
+        vältä = [r["id"] for r in arki_valinta]
+        vk_pool = suodata(reseptit, viikonloppu=True)
+        vk_valinta = valitse(vk_pool, 2, vältä_ideja=vältä)
+        alkaen_vk = alkaen + timedelta(days=5) if alkaen else None
+        tulosta_ehdotus(vk_valinta, PAIVAT_VIIKONLOPPU, alkaen=alkaen_vk)
+
+    if args.vahvista:
+        try:
+            pvm = date.fromisoformat(args.vahvista)
+        except ValueError:
+            sys.exit(f"Virheellinen pvm: {args.vahvista}.")
+        paivitetyt = []
+        for r in arki_valinta + vk_valinta:
+            r["last_cooked"] = pvm.isoformat()
+            paivitetyt.append(r["id"])
+        tallenna(data)
+        print()
+        print(f"Tallennettu: last_cooked = {pvm} reseptille: {', '.join(paivitetyt)}")
+
+    # oikoreitti ostoslistan tekoon
+    idt = [r["id"] for r in arki_valinta + vk_valinta]
+    print()
+    print("Ostoslistan komento:")
+    print(f"  python3 ostoslista.py {' '.join(idt)}")
+
+
+if __name__ == "__main__":
+    main()
