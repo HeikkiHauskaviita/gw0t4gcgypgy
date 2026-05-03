@@ -1,6 +1,14 @@
 {
   "schema_versio": "1.0",
   "oletus_annoskoko": 5,
+  "planned": {
+    "2026-05-11": "pinaatti-ricottapasta",
+    "2026-05-12": "kasvis-bolognese",
+    "2026-05-13": "linssidaal",
+    "2026-05-14": "kasvis-pyttipannu",
+    "2026-05-15": "caprese-pasta",
+    "2026-05-17": "kasvis-paella"
+  },
   "perhe": {
     "aikuiset": 2,
     "lapset": 3,
@@ -1636,6 +1644,212 @@
       ],
       "huom": "Aloita viimeistään ti 28.4. jotta valmista vappuun pe 1.5. mennessä. Hyvin nuori sima käytännössä alkoholiton (<0,5 %), lapsille turvallinen.",
       "last_cooked": "2026-04-26",
+      "palaute": []
+    },
+    {
+      "id": "pinaatti-ricottapasta",
+      "nimi": "Pinaatti-ricottapasta",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": ["kasvis", "kermainen", "lapset-ok", "nopea"],
+      "max_minuutit": 25,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {"nimi": "Pasta (penne tai fusilli)", "maara": 500, "yksikko": "g", "merkki": "Rummo"},
+        {"nimi": "Pakastepinaatti", "maara": 500, "yksikko": "g"},
+        {"nimi": "Ricotta tai raejuusto", "maara": 250, "yksikko": "g"},
+        {"nimi": "Sipuli", "maara": 1, "yksikko": "kpl"},
+        {"nimi": "Valkosipulinkynsi", "maara": 2, "yksikko": "kpl"},
+        {"nimi": "Voi", "maara": 30, "yksikko": "g"},
+        {"nimi": "Juustoraaste", "maara": 100, "yksikko": "g"},
+        {"nimi": "Muskottipähkinä", "maara": null, "yksikko": null, "kaappitavara": true},
+        {"nimi": "Suola, mustapippuri", "maara": null, "yksikko": null, "kaappitavara": true}
+      ],
+      "lisukkeet": [
+        {"nimi": "Porkkana", "maara": 2, "yksikko": "kpl", "kaytto": "raastesalaatti"},
+        {"nimi": "Kurkku", "maara": 0.5, "yksikko": "kpl", "kaytto": "raastesalaatti"}
+      ],
+      "ohje": [
+        "Keitä pasta pakkauksen ohjeen mukaan suolalla maustetussa vedessä.",
+        "Sulata pakastepinaatti ja purista neste pois. Pilko sipuli ja valkosipuli.",
+        "Kuullota sipuli ja valkosipuli voissa pannulla pehmeäksi. Lisää pinaatti, kuumenna.",
+        "Lisää ricotta tai raejuusto. Mausta suolalla, pippurilla ja muskottipähkinällä. Kuumenna.",
+        "Sekoita kastike pastan joukkoon. Tarjoile juustoraasteen ja raastesalaatin kera."
+      ],
+      "huom": "Lapsille pinaatti voi olla siedettävämpää jos soseutat sauvasekoittimella ennen ricotan lisäystä.",
+      "palaute": []
+    },
+    {
+      "id": "kasvis-bolognese",
+      "nimi": "Kasvis-bolognese + spagetti",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": ["kasvis", "vegaani", "lapset-ok", "klassikko"],
+      "max_minuutit": 30,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {"nimi": "Spagetti", "maara": 500, "yksikko": "g", "merkki": "Rummo"},
+        {"nimi": "Soijarouhe tai kasvi-jauhis", "maara": 250, "yksikko": "g"},
+        {"nimi": "Tomaattimurska", "maara": 2, "yksikko": "tlk", "merkki": "Coop Eko luomu"},
+        {"nimi": "Tomaattisose", "maara": 1, "yksikko": "rkl"},
+        {"nimi": "Sipuli", "maara": 1, "yksikko": "kpl"},
+        {"nimi": "Porkkana", "maara": 2, "yksikko": "kpl"},
+        {"nimi": "Valkosipulinkynsi", "maara": 2, "yksikko": "kpl"},
+        {"nimi": "Juustoraaste", "maara": 100, "yksikko": "g"},
+        {"nimi": "Oliiviöljy", "maara": 2, "yksikko": "rkl", "kaappitavara": true},
+        {"nimi": "Oregano, kuivattu", "maara": 1, "yksikko": "tl", "kaappitavara": true},
+        {"nimi": "Basilika, kuivattu", "maara": 1, "yksikko": "tl", "kaappitavara": true},
+        {"nimi": "Suola, mustapippuri", "maara": null, "yksikko": null, "kaappitavara": true}
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Keitä spagetti pakkauksen ohjeen mukaan suolalla maustetussa vedessä.",
+        "Pilko sipuli ja valkosipuli, raasta porkkana. Paista oliiviöljyssä pehmeäksi.",
+        "Lisää soijarouhe tai kasvi-jauhis. Ruskista 3–4 min.",
+        "Lisää tomaattimurska, tomaattisose, oregano ja basilika. Mausta suolalla ja pippurilla.",
+        "Anna kiehua hiljaa kannen alla 10–15 min, kunnes kastike on paksuuntunut.",
+        "Tarjoile spagetin ja juustoraasteen kera."
+      ],
+      "huom": "Soijarouhe kannattaa liottaa kuumassa vedessä etukäteen 10 min jos käytät kuivaa rouhetta — se imee silloin paremmin makua.",
+      "palaute": []
+    },
+    {
+      "id": "linssidaal",
+      "nimi": "Linssidaal + riisi",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": ["kasvis", "vegaani", "lapset-ok", "mieto", "soseutettava"],
+      "max_minuutit": 25,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {"nimi": "Punaiset linssit", "maara": 3, "yksikko": "dl"},
+        {"nimi": "Kookosmaito", "maara": 1, "yksikko": "tlk", "huom": "400 ml"},
+        {"nimi": "Tomaattimurska", "maara": 1, "yksikko": "tlk", "merkki": "Coop Eko luomu"},
+        {"nimi": "Sipuli", "maara": 1, "yksikko": "kpl"},
+        {"nimi": "Valkosipulinkynsi", "maara": 2, "yksikko": "kpl"},
+        {"nimi": "Tuore inkivääri", "maara": 1, "yksikko": "kpl", "huom": "n. 2 cm pala"},
+        {"nimi": "Mieto currytahna", "maara": 2, "yksikko": "rkl"},
+        {"nimi": "Riisi (basmati tai jasmiini)", "maara": 4, "yksikko": "dl"},
+        {"nimi": "Vesi", "maara": 5, "yksikko": "dl", "kaappitavara": true},
+        {"nimi": "Kasvisliemikuutio", "maara": 1, "yksikko": "kpl", "kaappitavara": true},
+        {"nimi": "Oliiviöljy", "maara": 1, "yksikko": "rkl", "kaappitavara": true},
+        {"nimi": "Suola", "maara": null, "yksikko": null, "kaappitavara": true}
+      ],
+      "lisukkeet": [
+        {"nimi": "Naan-leipä tai pita", "maara": 1, "yksikko": "pkt"}
+      ],
+      "ohje": [
+        "Laita riisi kiehumaan (4 dl riisi + 8 dl vettä + suola, 12 min).",
+        "Pilko sipuli, valkosipuli ja inkivääri. Paista öljyssä kattilassa pehmeäksi.",
+        "Lisää currytahna ja paista hetki, jotta maku heräää.",
+        "Lisää huuhdotut linssit, tomaattimurska, kookosmaito, vesi ja liemikuutio.",
+        "Hauduta hiljaa 15 min kunnes linssit hajoavat.",
+        "Soseuta osa tai kokonaan sauvasekoittimella — pikkulapsille tasaisempi rakenne maistuu paremmin.",
+        "Tarjoile riisin ja naan-leivän kera."
+      ],
+      "huom": "Mieto currytahna = ei tulista. Maista ennen kuin lisäät, jotkin merkit ovat oikeasti tulisia.",
+      "palaute": []
+    },
+    {
+      "id": "kasvis-pyttipannu",
+      "nimi": "Kasvis-pyttipannu + paistettu muna",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": ["kasvis", "munat", "lapset-ok", "klassikko"],
+      "max_minuutit": 25,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {"nimi": "Perunat", "maara": 800, "yksikko": "g", "huom": "mieluiten kylmiä keitettyjä"},
+        {"nimi": "Sipuli", "maara": 1, "yksikko": "kpl"},
+        {"nimi": "Paprika", "maara": 1, "yksikko": "kpl"},
+        {"nimi": "Kasvi-nakit", "maara": 1, "yksikko": "pkt", "huom": "n. 400 g"},
+        {"nimi": "Kananmuna", "maara": 5, "yksikko": "kpl"},
+        {"nimi": "Voi", "maara": 30, "yksikko": "g"},
+        {"nimi": "Suola, mustapippuri", "maara": null, "yksikko": null, "kaappitavara": true}
+      ],
+      "lisukkeet": [
+        {"nimi": "Punajuuri (säilyke)", "maara": 1, "yksikko": "prk"},
+        {"nimi": "Tomaattiketsuppi", "maara": 1, "yksikko": "pullo", "kaappitavara": true}
+      ],
+      "ohje": [
+        "Keitä perunat etukäteen tai aamulla — pyttipannu onnistuu vain kylmistä perunoista. Kuori ja kuutio.",
+        "Pilko sipuli ja paprika kuutioiksi, viipaloi nakit.",
+        "Sulata voi pannulla, kuullota sipulia 2 min.",
+        "Lisää perunakuutiot ja anna saada väriä — älä sekoita liikaa, jotta paistuu rapeaksi.",
+        "Lisää nakit ja paprika viimeisten 5 min ajaksi.",
+        "Mausta suolalla ja pippurilla.",
+        "Paista munat erikseen pannulla. Tarjoile pyttipannun päällä punajuuren ja ketsupin kera."
+      ],
+      "huom": "Klassikko jonka lapset usein syövät hyvin. Pyttipannu vaatii kylmiä perunoita — keitä ne aamulla tai edellisenä päivänä.",
+      "palaute": []
+    },
+    {
+      "id": "caprese-pasta",
+      "nimi": "Caprese-pasta",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": ["kasvis", "nopea", "lapset-ok", "kesäinen"],
+      "max_minuutit": 20,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {"nimi": "Pasta (esim. fusilli)", "maara": 500, "yksikko": "g", "merkki": "Rummo"},
+        {"nimi": "Kirsikkatomaatit", "maara": 500, "yksikko": "g"},
+        {"nimi": "Mozzarella tuore", "maara": 250, "yksikko": "g"},
+        {"nimi": "Tuore basilika", "maara": 1, "yksikko": "pkt", "huom": "1 ruukku"},
+        {"nimi": "Valkosipulinkynsi", "maara": 1, "yksikko": "kpl"},
+        {"nimi": "Sitruuna", "maara": 0.5, "yksikko": "kpl", "kaytto": "mehu"},
+        {"nimi": "Oliiviöljy", "maara": 3, "yksikko": "rkl", "kaappitavara": true},
+        {"nimi": "Suola, mustapippuri", "maara": null, "yksikko": null, "kaappitavara": true}
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Keitä pasta pakkauksen ohjeen mukaan.",
+        "Halkaise kirsikkatomaatit, kuutio mozzarella, repi basilikan lehdet.",
+        "Sekoita pieneen kulhoon oliiviöljy, hienonnettu valkosipuli, sitruunan mehu, suola ja pippuri.",
+        "Valuta pasta ja sekoita kuumana kulhoon: ensin tomaatit ja mozzarella, sitten kastike ja basilika.",
+        "Tarjoile heti — jos mozzarella sulaa hieman pastan lämmöstä, se on hyvä juttu."
+      ],
+      "huom": "Toimii sekä lämpimänä että viilennettynä. Kannattaa varmistaa että lapset saavat valikoida itse mozzarellaa, kirsikkatomaatteja ja pastaa erikseen jos eivät syö sekoitettuna.",
+      "palaute": []
+    },
+    {
+      "id": "kasvis-paella",
+      "nimi": "Kasvis-paella",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": ["kasvis", "vegaani", "lapset-ok", "viikonloppu"],
+      "max_minuutit": 40,
+      "vaikeustaso": "keskitaso",
+      "ainekset": [
+        {"nimi": "Paella-riisi tai puuroriisi", "maara": 4, "yksikko": "dl"},
+        {"nimi": "Sipuli", "maara": 1, "yksikko": "kpl"},
+        {"nimi": "Paprika", "maara": 2, "yksikko": "kpl", "huom": "eri värit"},
+        {"nimi": "Valkosipulinkynsi", "maara": 2, "yksikko": "kpl"},
+        {"nimi": "Pakasteherneet", "maara": 200, "yksikko": "g"},
+        {"nimi": "Kikherneet", "maara": 1, "yksikko": "tlk"},
+        {"nimi": "Tomaattimurska", "maara": 1, "yksikko": "tlk", "merkki": "Coop Eko luomu"},
+        {"nimi": "Sitruuna", "maara": 1, "yksikko": "kpl"},
+        {"nimi": "Sahrami", "maara": null, "yksikko": null, "huom": "pieni hyppysellinen", "kaappitavara": true},
+        {"nimi": "Paprikajauhe", "maara": 1, "yksikko": "tl", "kaappitavara": true},
+        {"nimi": "Vesi", "maara": 1, "yksikko": "l", "kaappitavara": true},
+        {"nimi": "Kasvisliemikuutio", "maara": 2, "yksikko": "kpl", "kaappitavara": true},
+        {"nimi": "Oliiviöljy", "maara": 3, "yksikko": "rkl", "kaappitavara": true},
+        {"nimi": "Suola", "maara": null, "yksikko": null, "kaappitavara": true}
+      ],
+      "lisukkeet": [
+        {"nimi": "Tuore persilja", "maara": 1, "yksikko": "pkt", "huom": "vapaaehtoinen"}
+      ],
+      "ohje": [
+        "Kiehauta vesi, lisää liemikuutiot ja sahrami. Pidä lämpimänä.",
+        "Pilko sipuli, valkosipuli ja paprikat kuutioiksi.",
+        "Paista paellapannulla tai isossa, matalassa pannussa öljyssä sipuli, valkosipuli ja paprikat 5 min.",
+        "Lisää riisi ja paprikajauhe. Sekoita 1 min jotta riisi imee öljyä.",
+        "Lisää tomaattimurska, huuhdotut kikherneet ja kuuma sahrami-liemi.",
+        "Anna kiehua hiljaa kannen alla 18–20 min. ÄLÄ sekoita liikaa — anna pohjalle muodostua paistunut kerros (socarrat).",
+        "Lisää viimeisten 3 min ajaksi pakasteherneet.",
+        "Tarjoile sitruunalohkoiden ja persiljan kera."
+      ],
+      "huom": "Sahrami on kallista mutta antaa paellalle sen tunnusomaisen värin. Voi korvata kurkumalla halvemmalla, mutta maku on toinen. Lapsille värikäs ja juhlavalla tavalla esitetty ruoka.",
       "palaute": []
     }
   ]
