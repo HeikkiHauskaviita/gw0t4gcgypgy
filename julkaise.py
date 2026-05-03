@@ -434,7 +434,9 @@ def _kerää_näkyvät_reseptinimet(html: str) -> set[str]:
 
 
 def injektoi_viikkojen_paivalliset(
-    html: str, viikot: tuple[str, ...] = ("w1", "w2", "w3")
+    html: str,
+    viikot: tuple[str, ...] = ("w1", "w2", "w3"),
+    viikon_alkupvmt: dict | None = None,
 ) -> tuple[str, dict[str, list[str]]]:
     """Generoi useamman viikon päivälliset ja injektoi HTML:n DEFAULT-soluihin.
 
@@ -466,9 +468,6 @@ def injektoi_viikkojen_paivalliset(
 
     paivalliset = [r for r in reseptit if r.get("kategoria") == "päivällinen"]
     # Sanity check: jos päivällisreseptejä on alle minimimäärän, jokin on rikki
-    # (yleisin syy: reseptit.json on mojibake-vikainen ja kategoria on muodossa
-    # 'pÃ¤ivÃ¤llinen' eikä 'päivällinen'). Älä tyhjennä HTML-soluja hiljaisesti —
-    # palauta html muuttumattomana ja anna varoitus.
     if len(paivalliset) < 5:
         from collections import Counter
         kategoriat = Counter(r.get("kategoria", "?") for r in reseptit)
@@ -479,52 +478,93 @@ def injektoi_viikkojen_paivalliset(
             f"mojibake-vikainen. HTML-soluja EI päivitetä jotta vanhat sisällöt säilyvät."
         )
         return html, {}
-    arki_pool = suodata(paivalliset, viikonloppu=False)
 
-    # Kaksiportainen valinta:
-    # 1) Ensisijaisesti tuoreita reseptejä (last_cooked > 7 päivää sitten tai null) —
-    #    estää että tällä viikolla syödyt ruoat ehdotuvat välittömästi seuraaville
-    #    viikoille.
-    # 2) Jos pool jää alle tarpeen, täydennetään viime 7 päivän resepteillä
-    #    (vanhin ensin) — ei toistoja saman ikkunan sisällä. Parempi tarjota
-    #    kierrättävä ehdotus kuin tyhjä päivä.
+    # PLANNED-OVERRIDE: reseptit.json voi sisältää 'planned' dictin
+    # {"YYYY-MM-DD": "recipe_id"} joka pakottaa kyseisen reseptin
+    # tiettyyn päivään (lock-suunnitelma). Estää algoritmia korvaamasta sitä.
+    # Sallitaan any-kategorian resepti planned-päiviin (esim. lasagne viikonloppuun).
+    planned = data.get("planned", {}) if isinstance(data.get("planned"), dict) else {}
+    by_id_kaikki = {r.get("id"): r for r in reseptit}
+
+    arki_pool = suodata(paivalliset, viikonloppu=False)
+    # Vk-pool: viikonloppu sallii pidempiä reseptejä (sunnuntain ehdotuksiin)
+    vk_pool = suodata(paivalliset, viikonloppu=True)
+
+    # Kerää planned-päivien id:t jotka osuvat käsiteltäviin viikkoihin —
+    # nämä jätetään pois algoritmin valinnasta jotta sama resepti ei tulisi
+    # kahdesti samaan ikkunaan.
+    paivat = ["ma", "ti", "ke", "to", "pe", "la", "su"]
+    planned_ids_in_window: set = set()
+    if viikon_alkupvmt:
+        for viikko in viikot:
+            alku = viikon_alkupvmt.get(viikko)
+            if not alku:
+                continue
+            for i in range(7):
+                target_iso = (alku + timedelta(days=i)).isoformat()
+                if target_iso in planned:
+                    planned_ids_in_window.add(planned[target_iso])
+
+    # Algoritmi: 5 arkipäivää (ma-pe) + 1 sunnuntai per viikko = 6 reseptiä/vk.
+    # La = tyhjä (viikon ylijäämät), planned-päivät korvataan myöhemmin.
     raja = date.today() - timedelta(days=7)
-    tuoreet = [
+    tuoreet_arki = [
         r for r in arki_pool
-        if not r.get("last_cooked")
-        or datetime.fromisoformat(r["last_cooked"]).date() < raja
+        if (not r.get("last_cooked")
+            or datetime.fromisoformat(r["last_cooked"]).date() < raja)
+        and r.get("id") not in planned_ids_in_window
     ]
     yhteensa_arki = 5 * len(viikot)
-    valinta = valitse(tuoreet, yhteensa_arki)
-    if len(valinta) < yhteensa_arki:
-        valitut_idt = {r["id"] for r in valinta}
+    arki_valinta = valitse(tuoreet_arki, yhteensa_arki)
+    if len(arki_valinta) < yhteensa_arki:
+        valitut_idt = {r["id"] for r in arki_valinta} | planned_ids_in_window
         loput = [r for r in arki_pool if r["id"] not in valitut_idt]
-        taydennys = valitse(loput, yhteensa_arki - len(valinta))
+        taydennys = valitse(loput, yhteensa_arki - len(arki_valinta))
         if taydennys:
-            print(f"  (pool täydennetty {len(taydennys)} viime-7-päivän reseptillä)")
-        valinta = valinta + taydennys
+            print(f"  (arki-pool täydennetty {len(taydennys)} reseptillä)")
+        arki_valinta = arki_valinta + taydennys
 
-    paivat = ["ma", "ti", "ke", "to", "pe", "la", "su"]
+    # Sunnuntain valinta erikseen — käytetään vk-pool jotta pidemmät reseptit
+    # (esim. uunijuurekset, lasagne) saavat priorisointia. Vältetään duplikaatit
+    # arki-valinnan ja planned-päivien kanssa.
+    valitut_idt_kaikki = {r["id"] for r in arki_valinta} | planned_ids_in_window
+    yhteensa_su = len(viikot)
+    su_valinta = valitse(vk_pool, yhteensa_su, vältä_ideja=list(valitut_idt_kaikki))
+
     tulos: dict[str, list[str]] = {}
 
     for vk_idx, viikko in enumerate(viikot):
         nimet: list[str] = []
+        viikon_alku = viikon_alkupvmt.get(viikko) if viikon_alkupvmt else None
+
         for i, dk in enumerate(paivat):
-            if i < 5:
+            target_iso = (viikon_alku + timedelta(days=i)).isoformat() if viikon_alku else None
+
+            new_inner = ""
+            r = None
+
+            # 1) PLANNED-override (lock) — pakotettu resepti tiettyyn päivään
+            if target_iso and target_iso in planned:
+                planned_id = planned[target_iso]
+                r = by_id_kaikki.get(planned_id)
+                if not r:
+                    print(f"⚠ planned[{target_iso}] = {planned_id!r} — reseptiä ei löydy")
+
+            # 2) Algoritmin valinta — ma-pe + su (la jää tyhjäksi)
+            elif dk in ("ma", "ti", "ke", "to", "pe"):
                 slot_idx = vk_idx * 5 + i
-                if slot_idx < len(valinta):
-                    r = valinta[slot_idx]
-                    nimi = (r.get("nimi") or "").strip()
-                    if nimi:
-                        new_inner = f'<strong>{_html_escape(nimi)}</strong>'
-                        nimet.append(nimi)
-                    else:
-                        new_inner = ""
-                else:
-                    new_inner = ""
-            else:
-                # la-su: tyhjä — käyttäjä lisää erikoisruoan tai ylijäämä
-                new_inner = ""
+                if slot_idx < len(arki_valinta):
+                    r = arki_valinta[slot_idx]
+            elif dk == "su":
+                if vk_idx < len(su_valinta):
+                    r = su_valinta[vk_idx]
+            # dk == "la" → r jää None → solu tyhjäksi (= ylijäämät)
+
+            if r:
+                nimi = (r.get("nimi") or "").strip()
+                if nimi:
+                    new_inner = f'<strong>{_html_escape(nimi)}</strong>'
+                    nimet.append(nimi)
 
             pattern = re.compile(
                 rf'(<div\s+class="cell"\s+data-k="{viikko}-d-{dk}"[^>]*>)([\s\S]*?)(</div>)'
@@ -570,20 +610,28 @@ def injektoi_viikon_toteuma(
         today = date.today()
         viikon_alkupvm = today - timedelta(days=today.weekday())
 
-    # Indeksoi reseptit last_cooked-päivän mukaan. Jos sama pvm kahdella reseptillä
-    # (harvinainen, mutta mahdollinen), pidetään ensimmäinen.
+    # Indeksoi reseptit last_cooked-päivän mukaan
     by_date: dict[str, dict] = {}
     for r in reseptit:
         lc = r.get("last_cooked")
         if lc and lc not in by_date:
             by_date[lc] = r
 
+    # PLANNED-override (lock-suunnitelma): jos last_cooked-toteumaa ei ole,
+    # tarkistetaan myös onko tälle päivälle pakotettu resepti planned-dictissä.
+    planned = data.get("planned", {}) if isinstance(data.get("planned"), dict) else {}
+    by_id = {r.get("id"): r for r in reseptit}
+
     paivat = ["ma", "ti", "ke", "to", "pe", "la", "su"]
     nimet: list[str] = []
 
     for i, dk in enumerate(paivat):
         target = (viikon_alkupvm + timedelta(days=i)).isoformat()
+        # 1) Toteuma (last_cooked) ensisijaisena
         match = by_date.get(target)
+        # 2) Planned overridena jos toteumaa ei ole
+        if not match and target in planned:
+            match = by_id.get(planned[target])
         if match:
             nimi = (match.get("nimi") or "").strip()
             if nimi:

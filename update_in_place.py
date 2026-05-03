@@ -70,8 +70,14 @@ def main():
         else:
             print("  w2 (kuluva vk) toteuma tyhjä")
 
-        # Vk 3 ja Vk 4 = EHDOTUKSET (algoritmi)
-        html, vk_nimet = J.injektoi_viikkojen_paivalliset(html, ("w3", "w4"))
+        # Vk 3 ja Vk 4 = EHDOTUKSET (algoritmi). Annetaan viikkojen ankkuripäivät
+        # jotta planned-overridet (reseptit.json:n 'planned'-kenttä) saadaan kohdistettua
+        # oikeisiin päivämääriin.
+        html, vk_nimet = J.injektoi_viikkojen_paivalliset(
+            html,
+            ("w3", "w4"),
+            viikon_alkupvmt={"w3": ensi_viikon_ma, "w4": viikon_paasta_ma},
+        )
         for vk, nimet in vk_nimet.items():
             if nimet:
                 rooli = "ensi vk" if vk == "w3" else "+2 vk"
