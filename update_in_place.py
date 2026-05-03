@@ -9,7 +9,9 @@ Päivitykset:
 - Reseptit recipes-data-lohkoon
 - Päiväkodin valikko (Aromi-API) → daycare-menu-lohko
 - Tampereen tapahtumat (Bubster-API) → events-data-lohko (tapahtumat.html:ssä)
-- Kaikkien 3 viikon päivällisten ehdotukset (ehdotusalgoritmi, ei toistoja)
+- Vk 1 -päivälliset TOTEUMASTA (last_cooked-päivämäärät) — säilyttää muistin
+  siitä mitä kuluvalla viikolla on syöty.
+- Vk 2 ja Vk 3 -päivällisten EHDOTUKSET (ehdotusalgoritmi, ei toistoja)
 """
 import sys
 from datetime import date
@@ -41,13 +43,25 @@ def main():
         if valikko:
             html = J.injektoi_paivakoti(html, valikko)
             print(f"✓ Päiväkodin valikko: {len(valikko['paivat'])} päivää")
-        # Kaikkien kolmen viikon päivällisehdotukset (rotaation korjaava päivitys)
+
         # Päivitä julkaise.py:n RESEPTIT_PATH viittaamaan tähän kansioon
         J.RESEPTIT_PATH = RESEPTIT_PATH
-        html, vk_nimet = J.injektoi_viikkojen_paivalliset(html, ("w1", "w2", "w3"))
+
+        # Vk 1 = TOTEUMA: täytetään last_cooked-päivämäärän mukaan jotta
+        # "tämä viikko" -näkymä säilyy muistina siitä mitä on kokattu, eikä
+        # uudelleengeneroidu joka päivä uusilla ehdotuksilla.
+        html, w1_nimet = J.injektoi_viikon_toteuma(html, "w1")
+        if w1_nimet:
+            print(f"✓ w1 toteuma (last_cooked): {', '.join(w1_nimet)}")
+        else:
+            print("  w1 toteuma tyhjä — ei kokattuja reseptejä tällä viikolla")
+
+        # Vk 2 ja Vk 3 = EHDOTUKSET (algoritmi)
+        html, vk_nimet = J.injektoi_viikkojen_paivalliset(html, ("w2", "w3"))
         for vk, nimet in vk_nimet.items():
             if nimet:
                 print(f"✓ {vk} ehdotukset: {', '.join(nimet)}")
+
         if html != alkuperäinen:
             INDEX_PATH.write_text(html, encoding="utf-8")
             muutoksia = True
