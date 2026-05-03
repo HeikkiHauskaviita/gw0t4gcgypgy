@@ -2,12 +2,12 @@
   "schema_versio": "1.0",
   "oletus_annoskoko": 5,
   "planned": {
-    "2026-05-11": "pinaatti-ricottapasta",
-    "2026-05-12": "kasvis-bolognese",
-    "2026-05-13": "linssidaal",
-    "2026-05-14": "kasvis-pyttipannu",
-    "2026-05-15": "caprese-pasta",
-    "2026-05-17": "kasvis-paella"
+    "2026-05-04": "pinaatti-ricottapasta",
+    "2026-05-05": "kasvis-bolognese",
+    "2026-05-06": "linssidaal",
+    "2026-05-07": "kasvis-pyttipannu",
+    "2026-05-08": "caprese-pasta",
+    "2026-05-10": "kasvis-paella"
   },
   "perhe": {
     "aikuiset": 2,
