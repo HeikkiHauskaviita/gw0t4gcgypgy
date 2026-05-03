@@ -55,25 +55,25 @@ jobs:
           python3 - <<'PY'
           import re, sys
           html = open("index.html", encoding="utf-8").read()
-          # Tarkista että w3 (ensi vk) ja w4 (+2 vk) ma-pe päivällissolut on täytetty.
-          # w1 (edellinen vk) ja w2 (kuluva vk) tulevat last_cooked-toteumasta, ne
-          # voivat olla tyhjiä jos vahvistuksia ei ole tehty — ei rikki silloin.
-          paivat = ["ma", "ti", "ke", "to", "pe"]
+          # Tarkista että w3 (ensi vk) ja w4 (+2 vk) ma-pe + su -päivällissolut on täytetty.
+          # Algoritmi täyttää 5 arkipäivää + sunnuntain per viikko (la = ylijäämät = tyhjä).
+          # w1 (edellinen) ja w2 (kuluva) tulevat last_cooked-toteumasta — saavat olla tyhjiä.
+          paivat_taytettavat = ["ma", "ti", "ke", "to", "pe", "su"]
           tayttoja = 0
           for vk in ("w3", "w4"):
-              for p in paivat:
+              for p in paivat_taytettavat:
                   m = re.search(
                       rf'data-k="{vk}-d-{p}"[^>]*>([\s\S]*?)</div>',
                       html
                   )
                   if m and "<strong>" in m.group(1):
                       tayttoja += 1
-          if tayttoja < 5:
+          if tayttoja < 8:
               sys.exit(
-                  f"FAIL: w3+w4 ma-pe päivällissolut sisältävät vain {tayttoja}/10 ehdotusta. "
+                  f"FAIL: w3+w4 (ma-pe+su) päivällissolut sisältävät vain {tayttoja}/12 ehdotusta. "
                   f"Algoritmi ei tuota riittävästi reseptejä — ei pushata."
               )
-          print(f"✓ {tayttoja}/10 w3+w4 ma-pe päivällissolua täytetty (ehdotukset)")
+          print(f"✓ {tayttoja}/12 w3+w4 ma-pe+su päivällissolua täytetty (ehdotukset)")
           PY
 
       - name: Commit and push if changed
