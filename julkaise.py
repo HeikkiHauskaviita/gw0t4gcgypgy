@@ -544,10 +544,84 @@ def injektoi_viikkojen_paivalliset(
     return html, tulos
 
 
-# Vanhan nimen yhteensopivuusalias — palauttaa vain vk 3 nimet listana, mutta
-# päivittää HTML:n kaikki kolme viikkoa.
+def injektoi_viikon_toteuma(
+    html: str, viikko_id: str = "w1", viikon_alkupvm: date | None = None
+) -> tuple[str, list[str]]:
+    """Täyttää viikon päivällissolut TOTEUMAN perusteella — eli last_cooked-päivämäärää
+    vasten. Tällä viikolla eilen syöty Halloumi näkyy eilen, ei minkään uuden ehdotuksen
+    sijaan.
+
+    Jos jollekin päivälle ei löydy reseptiä jonka last_cooked == sen päivän pvm, solu
+    jätetään tyhjäksi (käyttäjä voi lisätä omat last_cookedin ulkopuoliset merkinnät
+    klikkaamalla solua selaimessa, tai ajaa `python3 ehdota_viikko.py --vahvista YYYY-MM-DD`).
+
+    Palauttaa (uusi_html, [nimet päivien järjestyksessä, tyhjät jätetään pois]).
+    """
+    try:
+        from ehdota_viikko import lataa
+        data = lataa()
+        reseptit = data.get("reseptit", [])
+    except Exception as e:
+        print(f"⚠ Toteuman lataus epäonnistui: {e}")
+        return html, []
+
+    if viikon_alkupvm is None:
+        # Tämän viikon maanantai (Python: weekday() 0=Ma, 6=Su)
+        today = date.today()
+        viikon_alkupvm = today - timedelta(days=today.weekday())
+
+    # Indeksoi reseptit last_cooked-päivän mukaan. Jos sama pvm kahdella reseptillä
+    # (harvinainen, mutta mahdollinen), pidetään ensimmäinen.
+    by_date: dict[str, dict] = {}
+    for r in reseptit:
+        lc = r.get("last_cooked")
+        if lc and lc not in by_date:
+            by_date[lc] = r
+
+    paivat = ["ma", "ti", "ke", "to", "pe", "la", "su"]
+    nimet: list[str] = []
+
+    for i, dk in enumerate(paivat):
+        target = (viikon_alkupvm + timedelta(days=i)).isoformat()
+        match = by_date.get(target)
+        if match:
+            nimi = (match.get("nimi") or "").strip()
+            if nimi:
+                new_inner = f'<strong>{_html_escape(nimi)}</strong>'
+                nimet.append(nimi)
+            else:
+                new_inner = ""
+        else:
+            new_inner = ""
+
+        pattern = re.compile(
+            rf'(<div\s+class="cell"\s+data-k="{viikko_id}-d-{dk}"[^>]*>)([\s\S]*?)(</div>)'
+        )
+        replaced = [False]
+
+        def repl(m):
+            replaced[0] = True
+            return m.group(1) + new_inner + m.group(3)
+
+        html = pattern.sub(repl, html, count=1)
+        if not replaced[0]:
+            print(f"⚠ Toteumasolu {viikko_id}-d-{dk} ei löytynyt — sisältöä ei muutettu")
+
+    return html, nimet
+
+
+# Vanhan nimen yhteensopivuusalias — vk1 päivittyy nyt TOTEUMAN mukaan
+# (last_cooked-päivämäärillä), vk2 ja vk3 saavat ehdotukset.
+# Näin "tämä viikko" -näkymä näyttää aidot syömämme ateriat eikä uudelleengeneroituja
+# ehdotuksia, kun taas vk2/vk3 ovat suunnittelu­näkymiä.
 def injektoi_viikon3_paivalliset(html: str) -> tuple[str, list[str]]:
-    html, tulos = injektoi_viikkojen_paivalliset(html, ("w1", "w2", "w3"))
+    html, w1_nimet = injektoi_viikon_toteuma(html, "w1")
+    if w1_nimet:
+        print(f"✓ Vk 1 toteuma (last_cooked): {', '.join(w1_nimet)}")
+    else:
+        print("  Vk 1 toteuma tyhjä — ei kokattuja reseptejä tällä viikolla "
+              "(käytä `python3 ehdota_viikko.py --vahvista YYYY-MM-DD` merkitäksesi)")
+    html, tulos = injektoi_viikkojen_paivalliset(html, ("w2", "w3"))
     return html, tulos.get("w3", [])
 
 
