@@ -528,9 +528,12 @@ def injektoi_viikkojen_paivalliset(
     # Vk-pool: viikonloppu sallii pidempiä reseptejä (sunnuntain ehdotuksiin)
     vk_pool = suodata(paivalliset, viikonloppu=True)
 
-    # Kerää planned-päivien id:t jotka osuvat käsiteltäviin viikkoihin —
-    # nämä jätetään pois algoritmin valinnasta jotta sama resepti ei tulisi
-    # kahdesti samaan ikkunaan.
+    # Kerää KAIKKI planned-päivien id:t (myös niiden viikkojen joiden alkupvm
+    # ei ole annettu, esim. nykyisen viikon planned-päivät kun käsittelyssä on
+    # vain ensi vk + +2 vk). Estää että w2:n planned-resepti valitaan myös
+    # w3:lle — bug joka aiheutti vk 19 ja vk 20 saman sisällön.
+    # Ulkopuoliset planned-id:t lisätään pool-suodatukseen, eivät planned_in_window-
+    # mappaukseen (jälkimmäistä käytetään vain "tämän ikkunan" lock-suunnitelmaan).
     paivat = ["ma", "ti", "ke", "to", "pe", "la", "su"]
     planned_ids_in_window: set = set()
     if viikon_alkupvmt:
@@ -543,6 +546,12 @@ def injektoi_viikkojen_paivalliset(
                 if target_iso in planned:
                     planned_ids_in_window.add(planned[target_iso])
 
+    # Kaikki planned id:t (myös ikkunan ulkopuoliset) — suodatetaan pool:sta jotta
+    # ne eivät tule duplikaateiksi. valid-id:t = ne jotka oikeasti löytyvät.
+    planned_ids_kaikki: set = {
+        rid for rid in planned.values() if rid in by_id_kaikki
+    }
+
     # Algoritmi: 5 arkipäivää (ma-pe) + 1 sunnuntai per viikko = 6 reseptiä/vk.
     # La = tyhjä (viikon ylijäämät), planned-päivät korvataan myöhemmin.
     raja = date.today() - timedelta(days=7)
@@ -550,12 +559,12 @@ def injektoi_viikkojen_paivalliset(
         r for r in arki_pool
         if (not r.get("last_cooked")
             or datetime.fromisoformat(r["last_cooked"]).date() < raja)
-        and r.get("id") not in planned_ids_in_window
+        and r.get("id") not in planned_ids_kaikki
     ]
     yhteensa_arki = 5 * len(viikot)
     arki_valinta = valitse(tuoreet_arki, yhteensa_arki)
     if len(arki_valinta) < yhteensa_arki:
-        valitut_idt = {r["id"] for r in arki_valinta} | planned_ids_in_window
+        valitut_idt = {r["id"] for r in arki_valinta} | planned_ids_kaikki
         loput = [r for r in arki_pool if r["id"] not in valitut_idt]
         taydennys = valitse(loput, yhteensa_arki - len(arki_valinta))
         if taydennys:
@@ -564,8 +573,8 @@ def injektoi_viikkojen_paivalliset(
 
     # Sunnuntain valinta erikseen — käytetään vk-pool jotta pidemmät reseptit
     # (esim. uunijuurekset, lasagne) saavat priorisointia. Vältetään duplikaatit
-    # arki-valinnan ja planned-päivien kanssa.
-    valitut_idt_kaikki = {r["id"] for r in arki_valinta} | planned_ids_in_window
+    # arki-valinnan JA kaikkien planned-päivien kanssa.
+    valitut_idt_kaikki = {r["id"] for r in arki_valinta} | planned_ids_kaikki
     yhteensa_su = len(viikot)
     su_valinta = valitse(vk_pool, yhteensa_su, vältä_ideja=list(valitut_idt_kaikki))
 
