@@ -2,12 +2,12 @@
   "schema_versio": "1.0",
   "oletus_annoskoko": 5,
   "planned": {
-    "2026-05-04": "pinaatti-ricottapasta",
-    "2026-05-05": "kasvis-bolognese",
-    "2026-05-06": "linssidaal",
-    "2026-05-07": "kasvis-pyttipannu",
-    "2026-05-08": "caprese-pasta",
-    "2026-05-10": "kasvis-paella"
+    "2026-05-11": "kasvis-paella",
+    "2026-05-12": "bataatti-kookoskeitto",
+    "2026-05-13": "juureskalakeitto",
+    "2026-05-14": "soija-bolognese",
+    "2026-05-15": "tofu-stir-fry",
+    "2026-05-17": "kasvislasagne"
   },
   "perhe": {
     "aikuiset": 2,
@@ -1651,23 +1651,77 @@
       "nimi": "Pinaatti-ricottapasta",
       "kategoria": "päivällinen",
       "annoskoko": 5,
-      "tagit": ["kasvis", "kermainen", "lapset-ok", "nopea"],
+      "tagit": [
+        "kasvis",
+        "kermainen",
+        "lapset-ok",
+        "nopea"
+      ],
       "max_minuutit": 25,
       "vaikeustaso": "helppo",
       "ainekset": [
-        {"nimi": "Pasta (penne tai fusilli)", "maara": 500, "yksikko": "g", "merkki": "Rummo"},
-        {"nimi": "Pakastepinaatti", "maara": 500, "yksikko": "g"},
-        {"nimi": "Ricotta tai raejuusto", "maara": 250, "yksikko": "g"},
-        {"nimi": "Sipuli", "maara": 1, "yksikko": "kpl"},
-        {"nimi": "Valkosipulinkynsi", "maara": 2, "yksikko": "kpl"},
-        {"nimi": "Voi", "maara": 30, "yksikko": "g"},
-        {"nimi": "Juustoraaste", "maara": 100, "yksikko": "g"},
-        {"nimi": "Muskottipähkinä", "maara": null, "yksikko": null, "kaappitavara": true},
-        {"nimi": "Suola, mustapippuri", "maara": null, "yksikko": null, "kaappitavara": true}
+        {
+          "nimi": "Pasta (penne tai fusilli)",
+          "maara": 500,
+          "yksikko": "g",
+          "merkki": "Rummo"
+        },
+        {
+          "nimi": "Pakastepinaatti",
+          "maara": 500,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Ricotta tai raejuusto",
+          "maara": 250,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 30,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 100,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Muskottipähkinä",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola, mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
       ],
       "lisukkeet": [
-        {"nimi": "Porkkana", "maara": 2, "yksikko": "kpl", "kaytto": "raastesalaatti"},
-        {"nimi": "Kurkku", "maara": 0.5, "yksikko": "kpl", "kaytto": "raastesalaatti"}
+        {
+          "nimi": "Porkkana",
+          "maara": 2,
+          "yksikko": "kpl",
+          "kaytto": "raastesalaatti"
+        },
+        {
+          "nimi": "Kurkku",
+          "maara": 0.5,
+          "yksikko": "kpl",
+          "kaytto": "raastesalaatti"
+        }
       ],
       "ohje": [
         "Keitä pasta pakkauksen ohjeen mukaan suolalla maustetussa vedessä.",
@@ -1684,22 +1738,81 @@
       "nimi": "Kasvis-bolognese + spagetti",
       "kategoria": "päivällinen",
       "annoskoko": 5,
-      "tagit": ["kasvis", "vegaani", "lapset-ok", "klassikko"],
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "lapset-ok",
+        "klassikko"
+      ],
       "max_minuutit": 30,
       "vaikeustaso": "helppo",
       "ainekset": [
-        {"nimi": "Spagetti", "maara": 500, "yksikko": "g", "merkki": "Rummo"},
-        {"nimi": "Soijarouhe tai kasvi-jauhis", "maara": 250, "yksikko": "g"},
-        {"nimi": "Tomaattimurska", "maara": 2, "yksikko": "tlk", "merkki": "Coop Eko luomu"},
-        {"nimi": "Tomaattisose", "maara": 1, "yksikko": "rkl"},
-        {"nimi": "Sipuli", "maara": 1, "yksikko": "kpl"},
-        {"nimi": "Porkkana", "maara": 2, "yksikko": "kpl"},
-        {"nimi": "Valkosipulinkynsi", "maara": 2, "yksikko": "kpl"},
-        {"nimi": "Juustoraaste", "maara": 100, "yksikko": "g"},
-        {"nimi": "Oliiviöljy", "maara": 2, "yksikko": "rkl", "kaappitavara": true},
-        {"nimi": "Oregano, kuivattu", "maara": 1, "yksikko": "tl", "kaappitavara": true},
-        {"nimi": "Basilika, kuivattu", "maara": 1, "yksikko": "tl", "kaappitavara": true},
-        {"nimi": "Suola, mustapippuri", "maara": null, "yksikko": null, "kaappitavara": true}
+        {
+          "nimi": "Spagetti",
+          "maara": 500,
+          "yksikko": "g",
+          "merkki": "Rummo"
+        },
+        {
+          "nimi": "Soijarouhe tai kasvi-jauhis",
+          "maara": 250,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Tomaattimurska",
+          "maara": 2,
+          "yksikko": "tlk",
+          "merkki": "Coop Eko luomu"
+        },
+        {
+          "nimi": "Tomaattisose",
+          "maara": 1,
+          "yksikko": "rkl"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Porkkana",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 100,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oregano, kuivattu",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Basilika, kuivattu",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola, mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
       ],
       "lisukkeet": [],
       "ohje": [
@@ -1718,25 +1831,90 @@
       "nimi": "Linssidaal + riisi",
       "kategoria": "päivällinen",
       "annoskoko": 5,
-      "tagit": ["kasvis", "vegaani", "lapset-ok", "mieto", "soseutettava"],
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "lapset-ok",
+        "mieto",
+        "soseutettava"
+      ],
       "max_minuutit": 25,
       "vaikeustaso": "helppo",
       "ainekset": [
-        {"nimi": "Punaiset linssit", "maara": 3, "yksikko": "dl"},
-        {"nimi": "Kookosmaito", "maara": 1, "yksikko": "tlk", "huom": "400 ml"},
-        {"nimi": "Tomaattimurska", "maara": 1, "yksikko": "tlk", "merkki": "Coop Eko luomu"},
-        {"nimi": "Sipuli", "maara": 1, "yksikko": "kpl"},
-        {"nimi": "Valkosipulinkynsi", "maara": 2, "yksikko": "kpl"},
-        {"nimi": "Tuore inkivääri", "maara": 1, "yksikko": "kpl", "huom": "n. 2 cm pala"},
-        {"nimi": "Mieto currytahna", "maara": 2, "yksikko": "rkl"},
-        {"nimi": "Riisi (basmati tai jasmiini)", "maara": 4, "yksikko": "dl"},
-        {"nimi": "Vesi", "maara": 5, "yksikko": "dl", "kaappitavara": true},
-        {"nimi": "Kasvisliemikuutio", "maara": 1, "yksikko": "kpl", "kaappitavara": true},
-        {"nimi": "Oliiviöljy", "maara": 1, "yksikko": "rkl", "kaappitavara": true},
-        {"nimi": "Suola", "maara": null, "yksikko": null, "kaappitavara": true}
+        {
+          "nimi": "Punaiset linssit",
+          "maara": 3,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Kookosmaito",
+          "maara": 1,
+          "yksikko": "tlk",
+          "huom": "400 ml"
+        },
+        {
+          "nimi": "Tomaattimurska",
+          "maara": 1,
+          "yksikko": "tlk",
+          "merkki": "Coop Eko luomu"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Tuore inkivääri",
+          "maara": 1,
+          "yksikko": "kpl",
+          "huom": "n. 2 cm pala"
+        },
+        {
+          "nimi": "Mieto currytahna",
+          "maara": 2,
+          "yksikko": "rkl"
+        },
+        {
+          "nimi": "Riisi (basmati tai jasmiini)",
+          "maara": 4,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Vesi",
+          "maara": 5,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
       ],
       "lisukkeet": [
-        {"nimi": "Naan-leipä tai pita", "maara": 1, "yksikko": "pkt"}
+        {
+          "nimi": "Naan-leipä tai pita",
+          "maara": 1,
+          "yksikko": "pkt"
+        }
       ],
       "ohje": [
         "Laita riisi kiehumaan (4 dl riisi + 8 dl vettä + suola, 12 min).",
@@ -1755,21 +1933,66 @@
       "nimi": "Kasvis-pyttipannu + paistettu muna",
       "kategoria": "päivällinen",
       "annoskoko": 5,
-      "tagit": ["kasvis", "munat", "lapset-ok", "klassikko"],
+      "tagit": [
+        "kasvis",
+        "munat",
+        "lapset-ok",
+        "klassikko"
+      ],
       "max_minuutit": 25,
       "vaikeustaso": "helppo",
       "ainekset": [
-        {"nimi": "Perunat", "maara": 800, "yksikko": "g", "huom": "mieluiten kylmiä keitettyjä"},
-        {"nimi": "Sipuli", "maara": 1, "yksikko": "kpl"},
-        {"nimi": "Paprika", "maara": 1, "yksikko": "kpl"},
-        {"nimi": "Kasvi-nakit", "maara": 1, "yksikko": "pkt", "huom": "n. 400 g"},
-        {"nimi": "Kananmuna", "maara": 5, "yksikko": "kpl"},
-        {"nimi": "Voi", "maara": 30, "yksikko": "g"},
-        {"nimi": "Suola, mustapippuri", "maara": null, "yksikko": null, "kaappitavara": true}
+        {
+          "nimi": "Perunat",
+          "maara": 800,
+          "yksikko": "g",
+          "huom": "mieluiten kylmiä keitettyjä"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kasvi-nakit",
+          "maara": 1,
+          "yksikko": "pkt",
+          "huom": "n. 400 g"
+        },
+        {
+          "nimi": "Kananmuna",
+          "maara": 5,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 30,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Suola, mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
       ],
       "lisukkeet": [
-        {"nimi": "Punajuuri (säilyke)", "maara": 1, "yksikko": "prk"},
-        {"nimi": "Tomaattiketsuppi", "maara": 1, "yksikko": "pullo", "kaappitavara": true}
+        {
+          "nimi": "Punajuuri (säilyke)",
+          "maara": 1,
+          "yksikko": "prk"
+        },
+        {
+          "nimi": "Tomaattiketsuppi",
+          "maara": 1,
+          "yksikko": "pullo",
+          "kaappitavara": true
+        }
       ],
       "ohje": [
         "Keitä perunat etukäteen tai aamulla — pyttipannu onnistuu vain kylmistä perunoista. Kuori ja kuutio.",
@@ -1788,18 +2011,60 @@
       "nimi": "Caprese-pasta",
       "kategoria": "päivällinen",
       "annoskoko": 5,
-      "tagit": ["kasvis", "nopea", "lapset-ok", "kesäinen"],
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "kesäinen"
+      ],
       "max_minuutit": 20,
       "vaikeustaso": "helppo",
       "ainekset": [
-        {"nimi": "Pasta (esim. fusilli)", "maara": 500, "yksikko": "g", "merkki": "Rummo"},
-        {"nimi": "Kirsikkatomaatit", "maara": 500, "yksikko": "g"},
-        {"nimi": "Mozzarella tuore", "maara": 250, "yksikko": "g"},
-        {"nimi": "Tuore basilika", "maara": 1, "yksikko": "pkt", "huom": "1 ruukku"},
-        {"nimi": "Valkosipulinkynsi", "maara": 1, "yksikko": "kpl"},
-        {"nimi": "Sitruuna", "maara": 0.5, "yksikko": "kpl", "kaytto": "mehu"},
-        {"nimi": "Oliiviöljy", "maara": 3, "yksikko": "rkl", "kaappitavara": true},
-        {"nimi": "Suola, mustapippuri", "maara": null, "yksikko": null, "kaappitavara": true}
+        {
+          "nimi": "Pasta (esim. fusilli)",
+          "maara": 500,
+          "yksikko": "g",
+          "merkki": "Rummo"
+        },
+        {
+          "nimi": "Kirsikkatomaatit",
+          "maara": 500,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Mozzarella tuore",
+          "maara": 250,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Tuore basilika",
+          "maara": 1,
+          "yksikko": "pkt",
+          "huom": "1 ruukku"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Sitruuna",
+          "maara": 0.5,
+          "yksikko": "kpl",
+          "kaytto": "mehu"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola, mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
       ],
       "lisukkeet": [],
       "ohje": [
@@ -1810,34 +2075,115 @@
         "Tarjoile heti — jos mozzarella sulaa hieman pastan lämmöstä, se on hyvä juttu."
       ],
       "huom": "Toimii sekä lämpimänä että viilennettynä. Kannattaa varmistaa että lapset saavat valikoida itse mozzarellaa, kirsikkatomaatteja ja pastaa erikseen jos eivät syö sekoitettuna.",
-      "palaute": []
+      "palaute": [
+        {
+          "arvio": "hitti",
+          "pvm": "2026-05-08"
+        }
+      ],
+      "last_cooked": "2026-05-08"
     },
     {
       "id": "kasvis-paella",
       "nimi": "Kasvis-paella",
       "kategoria": "päivällinen",
       "annoskoko": 5,
-      "tagit": ["kasvis", "vegaani", "lapset-ok", "viikonloppu"],
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "lapset-ok",
+        "viikonloppu"
+      ],
       "max_minuutit": 40,
       "vaikeustaso": "keskitaso",
       "ainekset": [
-        {"nimi": "Paella-riisi tai puuroriisi", "maara": 4, "yksikko": "dl"},
-        {"nimi": "Sipuli", "maara": 1, "yksikko": "kpl"},
-        {"nimi": "Paprika", "maara": 2, "yksikko": "kpl", "huom": "eri värit"},
-        {"nimi": "Valkosipulinkynsi", "maara": 2, "yksikko": "kpl"},
-        {"nimi": "Pakasteherneet", "maara": 200, "yksikko": "g"},
-        {"nimi": "Kikherneet", "maara": 1, "yksikko": "tlk"},
-        {"nimi": "Tomaattimurska", "maara": 1, "yksikko": "tlk", "merkki": "Coop Eko luomu"},
-        {"nimi": "Sitruuna", "maara": 1, "yksikko": "kpl"},
-        {"nimi": "Sahrami", "maara": null, "yksikko": null, "huom": "pieni hyppysellinen", "kaappitavara": true},
-        {"nimi": "Paprikajauhe", "maara": 1, "yksikko": "tl", "kaappitavara": true},
-        {"nimi": "Vesi", "maara": 1, "yksikko": "l", "kaappitavara": true},
-        {"nimi": "Kasvisliemikuutio", "maara": 2, "yksikko": "kpl", "kaappitavara": true},
-        {"nimi": "Oliiviöljy", "maara": 3, "yksikko": "rkl", "kaappitavara": true},
-        {"nimi": "Suola", "maara": null, "yksikko": null, "kaappitavara": true}
+        {
+          "nimi": "Paella-riisi tai puuroriisi",
+          "maara": 4,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 2,
+          "yksikko": "kpl",
+          "huom": "eri värit"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Pakasteherneet",
+          "maara": 200,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Kikherneet",
+          "maara": 1,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Tomaattimurska",
+          "maara": 1,
+          "yksikko": "tlk",
+          "merkki": "Coop Eko luomu"
+        },
+        {
+          "nimi": "Sitruuna",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Sahrami",
+          "maara": null,
+          "yksikko": null,
+          "huom": "pieni hyppysellinen",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Paprikajauhe",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Vesi",
+          "maara": 1,
+          "yksikko": "l",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 2,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
       ],
       "lisukkeet": [
-        {"nimi": "Tuore persilja", "maara": 1, "yksikko": "pkt", "huom": "vapaaehtoinen"}
+        {
+          "nimi": "Tuore persilja",
+          "maara": 1,
+          "yksikko": "pkt",
+          "huom": "vapaaehtoinen"
+        }
       ],
       "ohje": [
         "Kiehauta vesi, lisää liemikuutiot ja sahrami. Pidä lämpimänä.",
@@ -1850,6 +2196,443 @@
         "Tarjoile sitruunalohkoiden ja persiljan kera."
       ],
       "huom": "Sahrami on kallista mutta antaa paellalle sen tunnusomaisen värin. Voi korvata kurkumalla halvemmalla, mutta maku on toinen. Lapsille värikäs ja juhlavalla tavalla esitetty ruoka.",
+      "palaute": []
+    },
+    {
+      "id": "bataatti-kookoskeitto",
+      "nimi": "Bataatti-kookoskeitto + leipäjuustokuutiot",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "lapset-ok",
+        "mieto",
+        "soseutettava",
+        "kermainen",
+        "proteiinia"
+      ],
+      "max_minuutit": 30,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Bataatti",
+          "maara": 500,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Inkivääri, tuore",
+          "maara": 2,
+          "yksikko": "cm"
+        },
+        {
+          "nimi": "Kookosmaito",
+          "maara": 1,
+          "yksikko": "tlk",
+          "huom": "400 ml tlk"
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Lime",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Leipäjuusto",
+          "maara": 200,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Curry-jauhe, mieto",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Voi",
+          "maara": 1,
+          "yksikko": "rkl"
+        },
+        {
+          "nimi": "Suola",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Ruisleipä",
+          "maara": null,
+          "yksikko": null,
+          "kaytto": "lisuke"
+        }
+      ],
+      "ohje": [
+        "Kuori ja pilko bataatti, sipuli, valkosipuli ja inkivääri.",
+        "Kuullota sipuli ja valkosipuli kattilassa pehmeäksi. Lisää inkivääri ja curry-jauhe, sekoita.",
+        "Lisää bataatti, kookosmaito, kasvisliemikuutio ja n. 5 dl vettä (peittäen). Hauduta 18–20 min kunnes bataatti pehmeää.",
+        "Soseuta sauvasekoittimella. Mausta suolalla, mustapippurilla ja limemehulla.",
+        "Pilko leipäjuusto kuutioiksi. Paista voissa pannulla kullanruskeaksi (n. 3–4 min).",
+        "Tarjoile keitto leipäjuustokuutioiden ja ruisleivän kera."
+      ],
+      "huom": "Leipäjuusto antaa proteiinilisän ja paistettuna mukavan rouskahtelevan tekstuurin.",
+      "last_cooked": null,
+      "palaute": []
+    },
+    {
+      "id": "juureskalakeitto",
+      "nimi": "Juureskalakeitto (kasvisversio mahdollinen)",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kala",
+        "kasvisversio",
+        "lapset-ok",
+        "klassikko",
+        "kermainen"
+      ],
+      "max_minuutit": 35,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Palsternakka",
+          "maara": 200,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Lanttu, pieni",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Peruna",
+          "maara": 500,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Purjo",
+          "maara": 0.5,
+          "yksikko": "kpl",
+          "huom": "vaalea osa"
+        },
+        {
+          "nimi": "Varsiselleri",
+          "maara": 2,
+          "yksikko": "vartta"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 2,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Tilli, tuore tai pakaste",
+          "maara": 2,
+          "yksikko": "rkl"
+        },
+        {
+          "nimi": "Lime",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Ruokakerma",
+          "maara": 200,
+          "yksikko": "ml"
+        },
+        {
+          "nimi": "Lohifileet (valinnainen)",
+          "maara": 300,
+          "yksikko": "g",
+          "huom": "kasvisversiossa jätä pois"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 1,
+          "yksikko": "rkl"
+        },
+        {
+          "nimi": "Suola",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Ruisleipä",
+          "maara": null,
+          "yksikko": null,
+          "kaytto": "lisuke"
+        }
+      ],
+      "ohje": [
+        "Kuori ja pilko juurekset (palsternakka, lanttu, peruna) pieniksi kuutioiksi.",
+        "Pilko sipuli, purjo ja varsiselleri. Kuullota voissa pehmeäksi.",
+        "Lisää juurekset, kasvisliemikuutiot ja vesi peittäen (n. 1 l). Hauduta 18–20 min kunnes juurekset pehmeitä.",
+        "Lisää tilli, ruokakerma ja limemehu. Mausta suolalla ja mustapippurilla.",
+        "KALAVERSIO: pilko lohifileet 2 cm paloiksi, lisää keittoon ja anna hautua 4–5 min kunnes kala kypsää.",
+        "KASVISVERSIO: ota oma annos ennen lohen lisäystä. Halloumipaisto tai kovaksi keitetty muna käy lisukkeena.",
+        "Tarjoile ruisleivän kera."
+      ],
+      "huom": "Helppo skaalata: keitä pohjakeitto kerralla, ja lisää lohi vain niihin annoksiin jotka haluavat. Viljamille kasvisannos otetaan ennen kalan lisäystä.",
+      "last_cooked": null,
+      "palaute": []
+    },
+    {
+      "id": "soija-bolognese",
+      "nimi": "Soija-bolognese + fusilli",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "lapset-ok",
+        "klassikko"
+      ],
+      "max_minuutit": 30,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Soijasuikaleet (kuiva)",
+          "maara": 100,
+          "yksikko": "g",
+          "huom": "noin 100 g kuivaa = 250–300 g kostutettua"
+        },
+        {
+          "nimi": "Fusilli",
+          "maara": 500,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Porkkana",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Tomaattimurska",
+          "maara": 1,
+          "yksikko": "tlk",
+          "merkki": "Coop Eko luomu",
+          "huom": "400 g tlk"
+        },
+        {
+          "nimi": "Tomaattipyree",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oregano, kuivattu",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Basilika, kuivattu",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Soijakastike",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 100,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Suola",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Porkkana",
+          "maara": 2,
+          "yksikko": "kpl",
+          "kaytto": "raastesalaatti"
+        },
+        {
+          "nimi": "Kurkku",
+          "maara": 0.5,
+          "yksikko": "kpl",
+          "kaytto": "raastesalaatti"
+        }
+      ],
+      "ohje": [
+        "Liota soijasuikaleet kuumassa vedessä 5 min kasvisliemikuution kanssa, valuta hyvin.",
+        "Pilko sipuli, valkosipuli ja porkkana hienoksi.",
+        "Kuullota sipuli ja valkosipuli oliiviöljyssä pehmeäksi. Lisää porkkana ja paista 3 min.",
+        "Lisää valutetut soijasuikaleet ja paista 3 min jotta saavat väriä.",
+        "Lisää tomaattimurska, tomaattipyree, soijakastike, oregano ja basilika. Hauduta 12–15 min, mausta suolalla.",
+        "Keitä fusilli pakkauksen ohjeen mukaan. Raasta salaattiainekset.",
+        "Tarjoile pasta kastikkeen ja juustoraasteen kera."
+      ],
+      "huom": "100 g kuivia soijasuikaleita riittää 5 hengelle.",
+      "last_cooked": null,
+      "palaute": []
+    },
+    {
+      "id": "tofu-stir-fry",
+      "nimi": "Tofu-stir-fry + nuudelit",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "lapset-ok",
+        "nopea",
+        "aasialainen"
+      ],
+      "max_minuutit": 25,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Tofu, paineltu",
+          "maara": 400,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Nuudelit (esim. udon)",
+          "maara": 300,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Porkkana",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Pakasteherne tai sokeriherne",
+          "maara": 200,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Inkivääri, tuore",
+          "maara": 2,
+          "yksikko": "cm"
+        },
+        {
+          "nimi": "Kevätsipuli",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Soijakastike",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Seesamiöljy",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Hunaja tai agave",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Öljy paistamiseen",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Seesaminsiemenet (valinnainen)",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Kuivaa tofu paperilla ja pilko 1,5 cm kuutioiksi. Suikaloi paprika ja porkkana ohuiksi tikuiksi.",
+        "Pilko valkosipuli, inkivääri ja kevätsipuli hienoksi.",
+        "Sekoita kastike: soijakastike + seesamiöljy + hunaja + 2 rkl vettä.",
+        "Kuumenna iso pannu/wokki, paista tofukuutiot kullanruskeiksi (n. 5 min). Nosta sivuun.",
+        "Keitä nuudelit pakkauksen ohjeen mukaan, valuta.",
+        "Pannulle: valkosipuli + inkivääri 30 s, sitten porkkana + paprika 2 min, herneet 1 min.",
+        "Lisää tofu takaisin, nuudelit ja kastike. Sekoita 1–2 min jotta lämpenee ja kastike imeytyy.",
+        "Tarjoile kevätsipulilla ja seesaminsiemenillä koristeltuna."
+      ],
+      "huom": "Lapsille mieto soijakastike riittää (älä laita chiliä).",
+      "last_cooked": null,
       "palaute": []
     }
   ]
