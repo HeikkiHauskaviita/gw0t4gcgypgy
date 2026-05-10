@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perheen siivousvuorot</title>
+<style>
+  :root {
+    --bg: #fafaf7;
+    --ink: #1c1c1c;
+    --muted: #6b6b6b;
+    --line: #e5e2dc;
+    --accent: #2a6d4f;
+    --accent-soft: #e7f1ec;
+    --warn: #b85c00;
+    --paper: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 24px 20px 80px;
+  }
+  header h1 {
+    margin: 0 0 4px 0;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+  }
+  header .sub {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  nav.tabs {
+    display: flex;
+    gap: 4px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  nav.tabs button {
+    background: transparent;
+    border: none;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    font-family: inherit;
+  }
+  nav.tabs button.active {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+    font-weight: 600;
+  }
+  nav.tabs button:hover { color: var(--ink); }
+
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .card h2 {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+  }
+  .card .role {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .card .who {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .card ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+  .card ul li {
+    margin: 4px 0;
+    color: #2a2a2a;
+  }
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .meta .week {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .meta .week strong {
+    color: var(--ink);
+  }
+  .check-list { list-style: none; padding: 0; margin: 0; }
+  .check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list input[type="checkbox"] {
+    margin-top: 4px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--accent);
+  }
+  .check-list label {
+    cursor: pointer;
+    flex: 1;
+  }
+  .check-list .done label {
+    text-decoration: line-through;
+    color: var(--muted);
+  }
+  .reset-btn {
+    margin-top: 12px;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: inherit;
+  }
+  .reset-btn:hover { color: var(--ink); border-color: var(--ink); }
+
+  .next-up {
+    background: var(--accent-soft);
+    border: 1px solid #cfe2d8;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+  }
+  .next-up h3 {
+    margin: 0 0 6px 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+  }
+  .next-up table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .next-up td {
+    padding: 4px 0;
+  }
+  .next-up td:first-child {
+    color: var(--muted);
+    width: 32%;
+  }
+  .next-up td:nth-child(2) {
+    width: 38%;
+  }
+
+  .quarter-list {
+    list-style: none;
+    padding: 0;
+  }
+  .quarter-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .quarter-list li:last-child { border-bottom: none; }
+  .quarter-list .when {
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .info-box {
+    background: #fffbe6;
+    border: 1px solid #f5e6a8;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin: 14px 0;
+    font-size: 14px;
+    color: #5a4a00;
+  }
+
+  footer {
+    margin-top: 40px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 22px; }
+    .card .who { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Perheen siivousvuorot</h1>
+    <div class="sub">Kolmen viikon kierto: Heikki, Johanna ja Vanhin poika.</div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="week">Tämä viikko</button>
+    <button class="tab-btn" data-tab="month">Kuukausi</button>
+    <button class="tab-btn" data-tab="quarter">Kvartaali</button>
+    <button class="tab-btn" data-tab="year">Vuosi</button>
+    <button class="tab-btn" data-tab="logic">Logiikka</button>
+  </nav>
+
+  <!-- TÄMÄ VIIKKO -->
+  <section id="panel-week" class="panel active">
+    <div class="meta">
+      <div class="week">Viikko <strong id="week-num">–</strong> · <span id="week-range">–</span></div>
+      <div class="week" id="rotation-status"></div>
+    </div>
+
+    <div class="card">
+      <div class="role">Vuoro A · noin 30–45 min</div>
+      <h2>Lattiat ja sauna</h2>
+      <div class="who" id="who-A">–</div>
+      <ul>
+        <li>Imurointi: olohuone, makuuhuoneet, lastenhuone, työhuone, eteinen, ulkoeteinen</li>
+        <li>Robotti-imurin tyhjennys ja viikko-ohjelma</li>
+        <li>Lattioiden moppaus: keittiö, eteinen, kylpyhuone</li>
+        <li>Saunan pesu (jos käytetty viime viikolla)</li>
+        <li>Parveke / piha-alueen pikapyyhintä kaudella</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="role">Vuoro B · noin 30–45 min</div>
+      <h2>Märkätilat ja roskat</h2>
+      <div class="who" id="who-B">–</div>
+      <ul>
+        <li>Kylpyhuone: suihku, lavuaari, peili, hanat</li>
+        <li>WC: pönttö, lattia, käsienpesualtaan ympäristö</li>
+        <li>Pyyhkeiden ja kylpymaton vaihto</li>
+        <li>Pintapöly korkealta (hyllyt, taulut, valaisimet)</li>
+        <li>Roskat ulos: bio, sekajäte, muovi, paperi, lasi, metalli</li>
+        <li>Roskakorien sisäpuolen pyyhintä</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="role">Vuoro C · noin 30–45 min</div>
+      <h2>Keittiö ja tekstiilit</h2>
+      <div class="who" id="who-C">–</div>
+      <ul>
+        <li>Liesi ja liesituuletin</li>
+        <li>Työtasot ja takaroiskeet</li>
+        <li>Mikro: sisältä ja ulkoa</li>
+        <li>Jääkaapin ja pakastimen ovet</li>
+        <li>Lakanat (parittomat viikot) tai pyyhkeet (parilliset viikot)</li>
+        <li>Keittiöpyyhkeiden vaihto</li>
+      </ul>
+    </div>
+
+    <div class="card" style="background: #f8f6f0;">
+      <div class="role">Päivittäiset · jaetaan tilanteen mukaan</div>
+      <h2>Arjen pyörittäminen</h2>
+      <ul>
+        <li>Tiskikone aamulla pois ja illalla päälle</li>
+        <li>Keittiön työtasojen loppupyyhintä illalla</li>
+        <li>Lasten lelut paikoilleen ennen nukkumaanmenoa</li>
+        <li>Pyykit pyykkikoreihin (tumma / vaalea)</li>
+        <li>Eteisen kengät rivissä</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- KUUKAUSI -->
+  <section id="panel-month" class="panel">
+    <div class="meta">
+      <div class="week">Kuukausi · <strong id="month-name">–</strong></div>
+    </div>
+    <div class="card">
+      <h2>Kuukausisiivous</h2>
+      <div class="role" style="margin-bottom: 12px;">Kuun ensimmäinen lauantai · yhdessä noin 1 h</div>
+      <ul class="check-list" id="month-list">
+        <li><input type="checkbox" id="m1"><label for="m1">Jääkaapin sisäosa: pyyhintä ja vanhat ulos</label></li>
+        <li><input type="checkbox" id="m2"><label for="m2">Pakastimen tarkistus ja sulatus tarvittaessa</label></li>
+        <li><input type="checkbox" id="m3"><label for="m3">Lattiakaivot: kylpyhuone, sauna, keittiö</label></li>
+        <li><input type="checkbox" id="m4"><label for="m4">Viemärin huuhtelu kuumalla vedellä + ruokasoodalla</label></li>
+        <li><input type="checkbox" id="m5"><label for="m5">Lampunsuojien ja kattolamppujen pölyt</label></li>
+        <li><input type="checkbox" id="m6"><label for="m6">Pyykinpesukoneen tyhjäpesu 60 °C etikalla</label></li>
+        <li><input type="checkbox" id="m7"><label for="m7">Astianpesukoneen suodattimen pesu</label></li>
+        <li><input type="checkbox" id="m8"><label for="m8">Parvekkeen tai pihan perussiivous</label></li>
+      </ul>
+      <button class="reset-btn" data-reset="month">Tyhjennä kuukauden rastit</button>
+    </div>
+    <div class="info-box">
+      Vinkki: tehkää kuukausisiivous porukassa, niin se valmistuu tunnissa ja kukaan ei jää yksin pitkän listan kanssa.
+    </div>
+  </section>
+
+  <!-- KVARTAALI -->
+  <section id="panel-quarter" class="panel">
+    <div class="card">
+      <h2>Kvartaalisiivous · ulkoistettu</h2>
+      <div class="role" style="margin-bottom: 12px;">4 × vuosi · siivouspalvelu noin 4 h</div>
+      <p style="margin: 0 0 12px 0; color: var(--muted); font-size: 14px;">
+        Kvartaalit otetaan pois omista listoilta. Kotitalousvähennys kattaa noin 40 %, jolloin kustannus on tyypillisesti 100–150 € käynniltä.
+      </p>
+      <p style="margin: 0 0 12px 0;"><strong>Mitä siivouspalvelu hoitaa:</strong></p>
+      <ul>
+        <li>Ikkunat sisä- ja ulkopuolelta</li>
+        <li>Uunin tarkka pesu</li>
+        <li>Kaapistojen sisäpuolet</li>
+        <li>Kodinkoneiden takaiset</li>
+        <li>Patterit ja jalkalistat</li>
+        <li>Mattojen tarkkuuspuhdistus</li>
+        <li>Sohvan ja pehmustimien tarkka</li>
+      </ul>
+
+      <h3 style="margin-top: 24px; margin-bottom: 8px; font-size: 15px;">Käyntiaikataulu</h3>
+      <ul class="quarter-list">
+        <li><span>Q1 — Kevätsiivous</span><span class="when">maaliskuu</span></li>
+        <li><span>Q2 — Kesäsiivous</span><span class="when">kesäkuu</span></li>
+        <li><span>Q3 — Syyssiivous</span><span class="when">syyskuu</span></li>
+        <li><span>Q4 — Joulusiivous</span><span class="when">joulukuu</span></li>
+      </ul>
+      <div class="info-box" style="margin-top: 16px;">
+        Varatkaa koko vuoden käynnit kerralla. Yksi 10 minuutin puhelu nyt = nelikön ratkaisu.
+      </div>
+    </div>
+  </section>
+
+  <!-- VUOSI -->
+  <section id="panel-year" class="panel">
+    <div class="card">
+      <h2>Kausitehtävät</h2>
+      <div class="role" style="margin-bottom: 12px;">Aikuisten kesken sovittavat · 1–3 h kerralla</div>
+
+      <h3 style="margin-top: 16px; margin-bottom: 6px; font-size: 15px;">Kevät · huhti–toukokuu</h3>
+      <ul>
+        <li>Talvirenkaiden vaihto kesärenkaisiin</li>
+        <li>Terassikalusteet ulos ja pesuun</li>
+        <li>Parvekkeen / pihan perussiivous talven jäljiltä</li>
+        <li>Ikkunoiden välipölyt ja sälekaihtimien pesu</li>
+      </ul>
+
+      <h3 style="margin-top: 16px; margin-bottom: 6px; font-size: 15px;">Kesä · kesä–elokuu</h3>
+      <ul>
+        <li>Pihan ylläpito: ruohonleikkuu, kukat, rikkaruohot</li>
+        <li>Grillin huolto ja puhdistus</li>
+        <li>Vaatekomeroiden vaihto kesäkertaan, talvivaatteet pesuun ja säilytykseen</li>
+      </ul>
+
+      <h3 style="margin-top: 16px; margin-bottom: 6px; font-size: 15px;">Syksy · syys–marraskuu</h3>
+      <ul>
+        <li>Lehtien haravointi</li>
+        <li>Kesärenkaiden vaihto talvirenkaisiin</li>
+        <li>Ulkokalusteet sisään tai suojiin</li>
+        <li>Vaatekomeroiden vaihto talvikertaan</li>
+        <li>Takkapuiden ja sytykkeiden tarkistus</li>
+      </ul>
+
+      <h3 style="margin-top: 16px; margin-bottom: 6px; font-size: 15px;">Talvi · joulu–maaliskuu</h3>
+      <ul>
+        <li>Lumityöt: lisätään viikkorotaatioon talvikuukausiksi</li>
+        <li>Etupihan ja portaiden hiekoitus</li>
+        <li>Auton sisäpesu ja tankin pesut tarvittaessa</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LOGIIKKA -->
+  <section id="panel-logic" class="panel">
+    <div class="card">
+      <h2>Miten rotaatio toimii</h2>
+      <p>Kolmen viikon kierto:</p>
+      <ul>
+        <li><strong>Vuoro A</strong> — Lattiat ja sauna</li>
+        <li><strong>Vuoro B</strong> — Märkätilat ja roskat</li>
+        <li><strong>Vuoro C</strong> — Keittiö ja tekstiilit</li>
+      </ul>
+      <p>Aloitusviikko on <strong>20 / 2026</strong> (alkaa 11.5.2026):</p>
+      <table style="width: 100%; border-collapse: collapse; margin: 12px 0;">
+        <thead>
+          <tr style="border-bottom: 1px solid var(--line); text-align: left;">
+            <th style="padding: 8px 4px;">Viikko</th>
+            <th style="padding: 8px 4px;">Vuoro A</th>
+            <th style="padding: 8px 4px;">Vuoro B</th>
+            <th style="padding: 8px 4px;">Vuoro C</th>
+          </tr>
+        </thead>
+        <tbody id="rotation-table"></tbody>
+      </table>
+      <p style="color: var(--muted); font-size: 14px;">
+        Kierto jatkuu samalla logiikalla loputtomiin. Jos joku ei ehdi tehdä omaa vuoroaan, vaihdetaan keskenään — tärkeintä on että vuoro tulee tehtyä, ei kuka sen tekee.
+      </p>
+      <h3 style="margin-top: 20px; font-size: 15px;">Periaatteet</h3>
+      <ul>
+        <li>Päivittäiset asiat eivät ole rotaatiossa — niitä tehdään tilanteen mukaan</li>
+        <li>Kuukausisiivous tehdään yhdessä, kerran kuukaudessa</li>
+        <li>Kvartaalisiivoukset ulkoistetaan siivouspalvelulle</li>
+        <li>Kausitehtävät sovitaan erikseen aikuisten kesken</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <a href="index.html">← Takaisin ruokalistaan</a>
+  </footer>
+</div>
+
+<script>
+(function () {
+  const NAMES = ['Heikki', 'Johanna', 'Vanhin poika'];
+  const START_DATE = new Date(Date.UTC(2026, 4, 11)); // 11.5.2026 (vko 20)
+  const MS_PER_WEEK = 7 * 24 * 3600 * 1000;
+
+  // ISO-week helpers
+  function getISOWeek(date) {
+    const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+    const dayNum = d.getUTCDay() || 7;
+    d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+    const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+    return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+  }
+  function getISOWeekYear(date) {
+    const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+    const dayNum = d.getUTCDay() || 7;
+    d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+    return d.getUTCFullYear();
+  }
+  function getMondayOfWeek(date) {
+    const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+    const day = d.getUTCDay() || 7;
+    d.setUTCDate(d.getUTCDate() - (day - 1));
+    return d;
+  }
+  function fmtDate(d) {
+    return d.getUTCDate() + '.' + (d.getUTCMonth() + 1) + '.';
+  }
+  function fmtMonth(d) {
+    const months = ['tammikuu','helmikuu','maaliskuu','huhtikuu','toukokuu','kesäkuu',
+                    'heinäkuu','elokuu','syyskuu','lokakuu','marraskuu','joulukuu'];
+    return months[d.getMonth()] + ' ' + d.getFullYear();
+  }
+  function getRotationIndex(today) {
+    const monday = getMondayOfWeek(today);
+    const diffWeeks = Math.floor((monday - START_DATE) / MS_PER_WEEK);
+    return diffWeeks;
+  }
+  function getAssignment(rotIndex) {
+    if (rotIndex < 0) return null;
+    const offset = rotIndex % 3;
+    return {
+      A: NAMES[offset % 3],
+      B: NAMES[(offset + 1) % 3],
+      C: NAMES[(offset + 2) % 3]
+    };
+  }
+
+  // Render this week
+  function renderWeek() {
+    const today = new Date();
+    const week = getISOWeek(today);
+    const year = getISOWeekYear(today);
+    document.getElementById('week-num').textContent = week + ' / ' + year;
+
+    const monday = getMondayOfWeek(today);
+    const sunday = new Date(monday);
+    sunday.setUTCDate(sunday.getUTCDate() + 6);
+    document.getElementById('week-range').textContent = fmtDate(monday) + ' – ' + fmtDate(sunday) + sunday.getUTCFullYear();
+
+    const rotIndex = getRotationIndex(today);
+    const assignment = getAssignment(rotIndex);
+    const status = document.getElementById('rotation-status');
+    if (assignment === null) {
+      document.getElementById('who-A').textContent = '–';
+      document.getElementById('who-B').textContent = '–';
+      document.getElementById('who-C').textContent = '–';
+      const weeksToStart = Math.ceil((START_DATE - getMondayOfWeek(today)) / MS_PER_WEEK);
+      status.textContent = 'Rotaatio alkaa ' + weeksToStart + ' viikon kuluttua';
+    } else {
+      document.getElementById('who-A').textContent = assignment.A;
+      document.getElementById('who-B').textContent = assignment.B;
+      document.getElementById('who-C').textContent = assignment.C;
+      status.textContent = 'Kierron viikko ' + ((rotIndex % 3) + 1) + ' / 3';
+    }
+  }
+
+  // Render month
+  function renderMonth() {
+    const today = new Date();
+    document.getElementById('month-name').textContent = fmtMonth(today);
+
+    // Restore checked state from localStorage
+    const monthKey = today.getFullYear() + '-' + (today.getMonth() + 1);
+    const stored = localStorage.getItem('siivous-month-' + monthKey);
+    const checked = stored ? JSON.parse(stored) : {};
+
+    const checkboxes = document.querySelectorAll('#month-list input[type="checkbox"]');
+    checkboxes.forEach(cb => {
+      cb.checked = !!checked[cb.id];
+      if (cb.checked) cb.closest('li').classList.add('done');
+      cb.addEventListener('change', () => {
+        checked[cb.id] = cb.checked;
+        localStorage.setItem('siivous-month-' + monthKey, JSON.stringify(checked));
+        cb.closest('li').classList.toggle('done', cb.checked);
+      });
+    });
+  }
+
+  // Reset buttons
+  function bindReset() {
+    document.querySelectorAll('.reset-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const which = btn.dataset.reset;
+        if (which === 'month') {
+          const today = new Date();
+          const monthKey = today.getFullYear() + '-' + (today.getMonth() + 1);
+          localStorage.removeItem('siivous-month-' + monthKey);
+          document.querySelectorAll('#month-list input[type="checkbox"]').forEach(cb => {
+            cb.checked = false;
+            cb.closest('li').classList.remove('done');
+          });
+        }
+      });
+    });
+  }
+
+  // Render rotation table
+  function renderRotationTable() {
+    const tbody = document.getElementById('rotation-table');
+    let html = '';
+    const today = new Date();
+    const currentRot = getRotationIndex(today);
+    for (let i = 0; i < 9; i++) {
+      const date = new Date(START_DATE);
+      date.setUTCDate(date.getUTCDate() + i * 7);
+      const week = getISOWeek(date);
+      const year = getISOWeekYear(date);
+      const a = getAssignment(i);
+      const isCurrent = i === currentRot;
+      html += '<tr style="border-bottom: 1px solid var(--line);' +
+              (isCurrent ? 'background: var(--accent-soft); font-weight: 600;' : '') + '">' +
+              '<td style="padding: 8px 4px;">' + week + '/' + year + '</td>' +
+              '<td style="padding: 8px 4px;">' + a.A + '</td>' +
+              '<td style="padding: 8px 4px;">' + a.B + '</td>' +
+              '<td style="padding: 8px 4px;">' + a.C + '</td>' +
+              '</tr>';
+    }
+    tbody.innerHTML = html;
+  }
+
+  // Tabs
+  function bindTabs() {
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+  }
+
+  // Init
+  renderWeek();
+  renderMonth();
+  renderRotationTable();
+  bindReset();
+  bindTabs();
+})();
+</script>
+</body>
+</html>
