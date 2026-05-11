@@ -1,6 +1,201 @@
 {
-  "paivitetty": "2026-04-26T20:13:16",
+  "paivitetty": "2026-05-10T14:46:22",
   "tilaukset": [
+    {
+      "id": "1250455844",
+      "pvm": "2026-05-11",
+      "kauppa": "Prisma Kaleva",
+      "klo": "10.00-11.00",
+      "summa_euroa": 112.52,
+      "tuotteet": [
+        {
+          "nimi": "Valio Hedelmätarha® appelsiinimehu 1 l hedelmälihaa",
+          "kpl": 1,
+          "hinta_kpl": 2.85,
+          "yht": 2.85
+        },
+        {
+          "nimi": "Coop paperikäsipyyhe 150 kpl",
+          "kpl": 2,
+          "hinta_kpl": 2.38,
+          "yht": 4.76
+        },
+        {
+          "nimi": "Kotimaista wc-paperi 8rl valkoinen",
+          "kpl": 1,
+          "hinta_kpl": 3.89,
+          "yht": 3.89
+        },
+        {
+          "nimi": "Coop Ohut Kalkkunaleikkele 200g",
+          "kpl": 1,
+          "hinta_kpl": 1.59,
+          "yht": 1.59
+        },
+        {
+          "nimi": "Kotimaista lettuhillo 410 g",
+          "kpl": 1,
+          "hinta_kpl": 3.29,
+          "yht": 3.29
+        },
+        {
+          "nimi": "Järvikylä min50g Persilja",
+          "kpl": 1,
+          "hinta_kpl": 1.65,
+          "yht": 1.65
+        },
+        {
+          "nimi": "SoFine tofu maustamaton luomu 400g",
+          "kpl": 1,
+          "hinta_kpl": 2.68,
+          "yht": 2.68
+        },
+        {
+          "nimi": "Järvikylä min50g Tilli",
+          "kpl": 1,
+          "hinta_kpl": 1.65,
+          "yht": 1.65
+        },
+        {
+          "nimi": "Kotimaista 2dl laktoositon ESL 35% kuohukerma",
+          "kpl": 1,
+          "hinta_kpl": 1.19,
+          "yht": 1.19
+        },
+        {
+          "nimi": "Yeo's 400g nuudeli Ezy-Cook",
+          "kpl": 1,
+          "hinta_kpl": 2.45,
+          "yht": 2.45
+        },
+        {
+          "nimi": "Kotimaista leipäjuusto laktoositon 200g",
+          "kpl": 1,
+          "hinta_kpl": 2.95,
+          "yht": 2.95
+        },
+        {
+          "nimi": "Fazer Puikula Täysjyväruis 9kpl 500g, täysjyväruisleipä",
+          "kpl": 1,
+          "hinta_kpl": 1.95,
+          "yht": 1.95
+        },
+        {
+          "nimi": "Pingviini Suklaa Laktoositon kermajäätelö kotipakkaus 1L/500g",
+          "kpl": 1,
+          "hinta_kpl": 2.75,
+          "yht": 2.75
+        },
+        {
+          "nimi": "Pingviini Vanilja kermajäätelö kotipakkaus 1L/495g",
+          "kpl": 1,
+          "hinta_kpl": 1.75,
+          "yht": 1.75
+        },
+        {
+          "nimi": "Valio Hyvä suomalainen Arki® juustoviipale e140 g",
+          "kpl": 1,
+          "hinta_kpl": 2.14,
+          "yht": 2.14
+        },
+        {
+          "nimi": "Valio Hyvä suomalainen Arki® jogurtti vanilja 1 kg",
+          "kpl": 2,
+          "hinta_kpl": 2.98,
+          "yht": 5.96
+        },
+        {
+          "nimi": "Valio voi normaalisuolainen 200 g",
+          "kpl": 1,
+          "hinta_kpl": 2.49,
+          "yht": 2.49
+        },
+        {
+          "nimi": "Kotimaista laktoositon kevytmaitojuoma 1 L",
+          "kpl": 3,
+          "hinta_kpl": 4.05,
+          "yht": 12.15
+        },
+        {
+          "nimi": "Kotimaista 1 kg Maustamaton jogurtti laktoositon",
+          "kpl": 2,
+          "hinta_kpl": 3.1,
+          "yht": 6.2
+        },
+        {
+          "nimi": "Kotimaista isot vapaan kanan munat L15",
+          "kpl": 1,
+          "hinta_kpl": 3.85,
+          "yht": 3.85
+        },
+        {
+          "nimi": "Kotimaista täysmaito 1l",
+          "kpl": 2,
+          "hinta_kpl": 2.78,
+          "yht": 5.56
+        },
+        {
+          "nimi": "Coop mozzarella juustoraaste 150 g",
+          "kpl": 1,
+          "hinta_kpl": 1.25,
+          "yht": 1.25
+        },
+        {
+          "nimi": "Preah Vihear Jasmiini riisi 10kg",
+          "kpl": 1,
+          "hinta_kpl": 17.95,
+          "yht": 17.95
+        },
+        {
+          "nimi": "Coop tomaattimurska 390 g",
+          "kpl": 2,
+          "hinta_kpl": 1.52,
+          "yht": 3.04
+        },
+        {
+          "nimi": "Coop Taste of Asia kookosmaito 400 ml",
+          "kpl": 1,
+          "hinta_kpl": 1.24,
+          "yht": 1.24
+        },
+        {
+          "nimi": "Päärynä I Conference",
+          "kpl": 4,
+          "hinta_kpl": 2.6,
+          "yht": 10.4
+        },
+        {
+          "nimi": "Pakkasmarja 250g Suomalainen Kuningas Marjasekoitus",
+          "kpl": 1,
+          "hinta_kpl": 4.49,
+          "yht": 4.49
+        },
+        {
+          "nimi": "Chiquita banaani",
+          "kpl": 7,
+          "hinta_kpl": 2.66,
+          "yht": 18.62
+        },
+        {
+          "nimi": "Kotimaista arkiperuna 1 kg",
+          "kpl": 1,
+          "hinta_kpl": 0.99,
+          "yht": 0.99
+        },
+        {
+          "nimi": "Kotimaista kurkku",
+          "kpl": 2,
+          "hinta_kpl": 1.5,
+          "yht": 3.0
+        },
+        {
+          "nimi": "Paprika punainen",
+          "kpl": 3,
+          "hinta_kpl": 2.73,
+          "yht": 8.19
+        }
+      ]
+    },
     {
       "id": "1233714256",
       "pvm": "2026-04-27",
@@ -568,16 +763,17 @@
       "keski_kpl": 1.68
     },
     "Kotimaista kurkku": {
-      "ostokerrat": 2,
-      "yht_kpl": 4,
-      "yht_eur": 9.399999999999999,
+      "ostokerrat": 3,
+      "yht_kpl": 6,
+      "yht_eur": 12.399999999999999,
       "viimeisin_kpl": 2.42,
       "viimeisin_pvm": "2026-04-27",
       "tilausIdt": [
         "1233714256",
-        "1227571612"
+        "1227571612",
+        "1250455844"
       ],
-      "keski_kpl": 2.35
+      "keski_kpl": 2.07
     },
     "Sana-sol Vitanallet monivitamiini Cola 120kpl/240g": {
       "ostokerrat": 1,
@@ -738,13 +934,14 @@
       "keski_kpl": 1.19
     },
     "Kotimaista isot vapaan kanan munat L15": {
-      "ostokerrat": 1,
-      "yht_kpl": 1,
-      "yht_eur": 3.85,
+      "ostokerrat": 2,
+      "yht_kpl": 2,
+      "yht_eur": 7.7,
       "viimeisin_kpl": 3.85,
       "viimeisin_pvm": "2026-04-27",
       "tilausIdt": [
-        "1233714256"
+        "1233714256",
+        "1250455844"
       ],
       "keski_kpl": 3.85
     },
@@ -761,16 +958,17 @@
       "keski_kpl": 1.34
     },
     "Coop mozzarella juustoraaste 150 g": {
-      "ostokerrat": 2,
-      "yht_kpl": 2,
-      "yht_eur": 2.56,
+      "ostokerrat": 3,
+      "yht_kpl": 3,
+      "yht_eur": 3.81,
       "viimeisin_kpl": 1.28,
       "viimeisin_pvm": "2026-04-27",
       "tilausIdt": [
         "1233714256",
-        "1227571612"
+        "1227571612",
+        "1250455844"
       ],
-      "keski_kpl": 1.28
+      "keski_kpl": 1.27
     },
     "Xtra pehmeät vehnätortillat 8 kpl 280 g": {
       "ostokerrat": 1,
@@ -884,15 +1082,16 @@
       "keski_kpl": 2.79
     },
     "Coop paperikäsipyyhe 150 kpl": {
-      "ostokerrat": 1,
-      "yht_kpl": 1,
-      "yht_eur": 1.25,
+      "ostokerrat": 2,
+      "yht_kpl": 3,
+      "yht_eur": 6.01,
       "viimeisin_kpl": 1.25,
       "viimeisin_pvm": "2026-04-22",
       "tilausIdt": [
-        "1227571612"
+        "1227571612",
+        "1250455844"
       ],
-      "keski_kpl": 1.25
+      "keski_kpl": 2.0
     },
     "Valio Hyvä suomalainen Arki® juustoviipale e500 g": {
       "ostokerrat": 1,
@@ -972,13 +1171,14 @@
       "keski_kpl": 1.88
     },
     "Kotimaista täysmaito 1l": {
-      "ostokerrat": 1,
-      "yht_kpl": 2,
-      "yht_eur": 5.56,
+      "ostokerrat": 2,
+      "yht_kpl": 4,
+      "yht_eur": 11.12,
       "viimeisin_kpl": 2.78,
       "viimeisin_pvm": "2026-04-22",
       "tilausIdt": [
-        "1227571612"
+        "1227571612",
+        "1250455844"
       ],
       "keski_kpl": 2.78
     },
@@ -1192,13 +1392,14 @@
       "keski_kpl": 1.2
     },
     "Kotimaista arkiperuna 1 kg": {
-      "ostokerrat": 1,
-      "yht_kpl": 1,
-      "yht_eur": 0.99,
+      "ostokerrat": 2,
+      "yht_kpl": 2,
+      "yht_eur": 1.98,
       "viimeisin_kpl": 0.99,
       "viimeisin_pvm": "2026-04-22",
       "tilausIdt": [
-        "1227571612"
+        "1227571612",
+        "1250455844"
       ],
       "keski_kpl": 0.99
     },
@@ -1245,6 +1446,281 @@
         "1227571612"
       ],
       "keski_kpl": 1.82
+    },
+    "Valio Hedelmätarha® appelsiinimehu 1 l hedelmälihaa": {
+      "ostokerrat": 1,
+      "yht_kpl": 1,
+      "yht_eur": 2.85,
+      "viimeisin_kpl": 2.85,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 2.85
+    },
+    "Kotimaista wc-paperi 8rl valkoinen": {
+      "ostokerrat": 1,
+      "yht_kpl": 1,
+      "yht_eur": 3.89,
+      "viimeisin_kpl": 3.89,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 3.89
+    },
+    "Coop Ohut Kalkkunaleikkele 200g": {
+      "ostokerrat": 1,
+      "yht_kpl": 1,
+      "yht_eur": 1.59,
+      "viimeisin_kpl": 1.59,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 1.59
+    },
+    "Kotimaista lettuhillo 410 g": {
+      "ostokerrat": 1,
+      "yht_kpl": 1,
+      "yht_eur": 3.29,
+      "viimeisin_kpl": 3.29,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 3.29
+    },
+    "Järvikylä min50g Persilja": {
+      "ostokerrat": 1,
+      "yht_kpl": 1,
+      "yht_eur": 1.65,
+      "viimeisin_kpl": 1.65,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 1.65
+    },
+    "SoFine tofu maustamaton luomu 400g": {
+      "ostokerrat": 1,
+      "yht_kpl": 1,
+      "yht_eur": 2.68,
+      "viimeisin_kpl": 2.68,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 2.68
+    },
+    "Järvikylä min50g Tilli": {
+      "ostokerrat": 1,
+      "yht_kpl": 1,
+      "yht_eur": 1.65,
+      "viimeisin_kpl": 1.65,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 1.65
+    },
+    "Kotimaista 2dl laktoositon ESL 35% kuohukerma": {
+      "ostokerrat": 1,
+      "yht_kpl": 1,
+      "yht_eur": 1.19,
+      "viimeisin_kpl": 1.19,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 1.19
+    },
+    "Yeo's 400g nuudeli Ezy-Cook": {
+      "ostokerrat": 1,
+      "yht_kpl": 1,
+      "yht_eur": 2.45,
+      "viimeisin_kpl": 2.45,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 2.45
+    },
+    "Kotimaista leipäjuusto laktoositon 200g": {
+      "ostokerrat": 1,
+      "yht_kpl": 1,
+      "yht_eur": 2.95,
+      "viimeisin_kpl": 2.95,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 2.95
+    },
+    "Fazer Puikula Täysjyväruis 9kpl 500g, täysjyväruisleipä": {
+      "ostokerrat": 1,
+      "yht_kpl": 1,
+      "yht_eur": 1.95,
+      "viimeisin_kpl": 1.95,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 1.95
+    },
+    "Pingviini Suklaa Laktoositon kermajäätelö kotipakkaus 1L/500g": {
+      "ostokerrat": 1,
+      "yht_kpl": 1,
+      "yht_eur": 2.75,
+      "viimeisin_kpl": 2.75,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 2.75
+    },
+    "Pingviini Vanilja kermajäätelö kotipakkaus 1L/495g": {
+      "ostokerrat": 1,
+      "yht_kpl": 1,
+      "yht_eur": 1.75,
+      "viimeisin_kpl": 1.75,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 1.75
+    },
+    "Valio Hyvä suomalainen Arki® juustoviipale e140 g": {
+      "ostokerrat": 1,
+      "yht_kpl": 1,
+      "yht_eur": 2.14,
+      "viimeisin_kpl": 2.14,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 2.14
+    },
+    "Valio Hyvä suomalainen Arki® jogurtti vanilja 1 kg": {
+      "ostokerrat": 1,
+      "yht_kpl": 2,
+      "yht_eur": 5.96,
+      "viimeisin_kpl": 2.98,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 2.98
+    },
+    "Valio voi normaalisuolainen 200 g": {
+      "ostokerrat": 1,
+      "yht_kpl": 1,
+      "yht_eur": 2.49,
+      "viimeisin_kpl": 2.49,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 2.49
+    },
+    "Kotimaista laktoositon kevytmaitojuoma 1 L": {
+      "ostokerrat": 1,
+      "yht_kpl": 3,
+      "yht_eur": 12.15,
+      "viimeisin_kpl": 4.05,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 4.05
+    },
+    "Kotimaista 1 kg Maustamaton jogurtti laktoositon": {
+      "ostokerrat": 1,
+      "yht_kpl": 2,
+      "yht_eur": 6.2,
+      "viimeisin_kpl": 3.1,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 3.1
+    },
+    "Preah Vihear Jasmiini riisi 10kg": {
+      "ostokerrat": 1,
+      "yht_kpl": 1,
+      "yht_eur": 17.95,
+      "viimeisin_kpl": 17.95,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 17.95
+    },
+    "Coop tomaattimurska 390 g": {
+      "ostokerrat": 1,
+      "yht_kpl": 2,
+      "yht_eur": 3.04,
+      "viimeisin_kpl": 1.52,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 1.52
+    },
+    "Coop Taste of Asia kookosmaito 400 ml": {
+      "ostokerrat": 1,
+      "yht_kpl": 1,
+      "yht_eur": 1.24,
+      "viimeisin_kpl": 1.24,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 1.24
+    },
+    "Päärynä I Conference": {
+      "ostokerrat": 1,
+      "yht_kpl": 4,
+      "yht_eur": 10.4,
+      "viimeisin_kpl": 2.6,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 2.6
+    },
+    "Pakkasmarja 250g Suomalainen Kuningas Marjasekoitus": {
+      "ostokerrat": 1,
+      "yht_kpl": 1,
+      "yht_eur": 4.49,
+      "viimeisin_kpl": 4.49,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 4.49
+    },
+    "Chiquita banaani": {
+      "ostokerrat": 1,
+      "yht_kpl": 7,
+      "yht_eur": 18.62,
+      "viimeisin_kpl": 2.66,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 2.66
+    },
+    "Paprika punainen": {
+      "ostokerrat": 1,
+      "yht_kpl": 3,
+      "yht_eur": 8.19,
+      "viimeisin_kpl": 2.73,
+      "viimeisin_pvm": "2026-05-11",
+      "tilausIdt": [
+        "1250455844"
+      ],
+      "keski_kpl": 2.73
     }
   }
 }

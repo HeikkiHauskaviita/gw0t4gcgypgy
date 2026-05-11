@@ -1171,7 +1171,12 @@
     .today-entry .dish { font-size: 17px; }
     .today-entry .detail { font-size: 12.5px; }
     .today-entry .recipe-btn-top { top: 8px; right: 8px; font-size: 8.5px; padding: 2px 7px; }
+  }
 
+  /* Mobiili-spesifiset säännöt: piilota pöytä ja näytä päiväkortit. Tämä lohko
+     SAA olla erillään 1024-lohkosta, jotta tablet-koossa (721–1024) taulukko
+     näkyy stack-näkymänä eikä piilotu. */
+  @media (max-width: 720px) {
     /* Piilota pöytä, näytä päiväkortit */
     table.schedule { display: none; }
     .day-cards { display: block; }
@@ -2820,8 +2825,9 @@ function getShoppingWeek(wk) {
   if (!k) return null;
   if (!state.shopping[k]) {
     state.shopping[k] = {};
+    const defaults = DEFAULT_SHOPPING[wk] || {};
     for (const [cat] of CATEGORIES) {
-      state.shopping[k][cat] = (DEFAULT_SHOPPING[wk][cat] || [])
+      state.shopping[k][cat] = (defaults[cat] || [])
         .map(text => ({ text, checked: false }));
     }
   } else {

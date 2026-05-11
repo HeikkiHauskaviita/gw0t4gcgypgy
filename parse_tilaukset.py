@@ -85,7 +85,12 @@ def hinta_to_float(s: str) -> float:
     return float(s.replace("€", "").replace(",", ".").strip())
 
 
-def paattele_vuosi(kk: int, ref_vuosi: int = 2026, ref_kk: int = 4) -> int:
+def paattele_vuosi(kk: int, ref_vuosi: int = None, ref_kk: int = None) -> int:
+    if ref_vuosi is None or ref_kk is None:
+        from datetime import date as _date
+        _t = _date.today()
+        if ref_vuosi is None: ref_vuosi = _t.year
+        if ref_kk is None: ref_kk = _t.month
     """Tilaushistoriassa lukee 'Maanantai 17.6.' ilman vuotta. Päätellään: jos kk on
     suurempi kuin ref_kk, tilaus on viime vuodelta; muuten tämän vuoden alkupuoli.
     Ref oletetaan PDF:n generointihetkeksi."""
