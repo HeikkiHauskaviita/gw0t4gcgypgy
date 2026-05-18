@@ -76,6 +76,32 @@ jobs:
           print(f"✓ {tayttoja}/12 w3+w4 ma-pe+su päivällissolua täytetty (ehdotukset)")
           PY
 
+      - name: Sanity-check loppumerkit (estää katkaistun index.html pushin)
+        run: |
+          python3 - <<'PY'
+          import sys
+          html = open("index.html", encoding="utf-8").read()
+          # Tarkista että tiedosto päättyy oikeisiin sulkutageihin. Jos lähtötiedosto
+          # tai update_in_place.py:n tuottama lopputulos on katkaistu jossakin
+          # vaiheessa (esim. OneDrive-sync-ongelman vuoksi), estetään push tähän.
+          tail = html.rstrip()[-40:]
+          if "</html>" not in html[-200:] or "</body>" not in html[-300:]:
+              # Näytä missä loppu on, jotta diagnoosi onnistuu virhelogista
+              sys.exit(
+                  f"FAIL: index.html ei pääty </html>/</body>-tageihin. "
+                  f"Tiedosto on todennäköisesti katkaistu. "
+                  f"Tiedoston viimeiset 200 merkkiä:\n{html[-200:]!r}"
+              )
+          print(f"✓ index.html päättyy oikein ({len(html)} tavua)")
+          tap_html = open("tapahtumat.html", encoding="utf-8").read()
+          if "</html>" not in tap_html[-200:]:
+              sys.exit(
+                  f"FAIL: tapahtumat.html ei pääty </html>-tagiin. "
+                  f"Viimeiset 200 merkkiä:\n{tap_html[-200:]!r}"
+              )
+          print(f"✓ tapahtumat.html päättyy oikein ({len(tap_html)} tavua)")
+          PY
+
       - name: Commit and push if changed
         run: |
           git config user.name 'github-actions[bot]'
