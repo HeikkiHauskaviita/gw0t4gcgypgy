@@ -15,13 +15,21 @@
     "2026-05-22": "kotipizza",
     "2026-05-23": "espanjalainen-tortilla",
     "2026-05-24": "uunimakaroni",
-    "2026-05-25": "mieto-kasviscurry",
-    "2026-05-26": "pinaattilatyt",
-    "2026-05-27": "juureskalakeitto",
-    "2026-05-28": "tomaattipasta",
-    "2026-05-29": "kasvis-pyttipannu",
-    "2026-05-30": "parmesanrisotto",
-    "2026-05-31": "kasvispyorykat"
+    "2026-05-27": "pinaattilatyt",
+    "2026-05-28": "mieto-kasviscurry",
+    "2026-05-29": "soija-bolognese",
+    "2026-05-31": "kasvispyorykat",
+    "2026-06-01": "saag-paneer",
+    "2026-06-02": "tomaattipasta",
+    "2026-06-03": "kasvis-pyttipannu",
+    "2026-06-04": "linssidaal",
+    "2026-06-05": "tofu-stir-fry",
+    "2026-06-06": "kotipizza",
+    "2026-06-07": "bataatti-kookoskeitto"
+  },
+  "kesaloma": {
+    "alku": "2026-06-01",
+    "loppu": "2026-08-02"
   },
   "perhe": {
     "aikuiset": 2,

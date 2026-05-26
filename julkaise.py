@@ -720,6 +720,112 @@ def injektoi_viikon3_paivalliset(html: str) -> tuple[str, list[str]]:
     return html, tulos.get("w3", [])
 
 
+def injektoi_kesaloma_lounaat(
+    html: str,
+    viikkojen_ankkurit: dict[str, date],
+) -> tuple[str, dict[str, list[str]]]:
+    """Kesäloman aikana päivän D lounas-soluun täytetään päivän D-1 päivällinen "tähteinä".
+
+    Lukee reseptit.json:n kesaloma-kentästä jakson (alku, loppu) ja käy kaikki annettujen
+    viikkojen päivät läpi. Jos päivä D on jaksolla, etsii sivun jo täytetyn päivällissolun
+    (data-k="wN-d-pp") päivälle D-1 ja kopioi reseptin lounas-soluun muodossa
+    "<strong>Tähteet</strong><br>RESEPTI".
+
+    Tämä funktio pitää kutsua SEN JÄLKEEN kun kaikki päivälliset on jo täytetty
+    (injektoi_viikon_toteuma + injektoi_viikkojen_paivalliset).
+
+    Toimii viikkorajojen yli: ma:n lounas = edellisen viikon su:n päivällinen.
+
+    Palauttaa (uusi_html, {viikko: [täytetyt lounaspäivät]}).
+    """
+    try:
+        with open(RESEPTIT_PATH, encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception as e:
+        print(f"⚠ Reseptien lataus kesäloma-lounaita varten epäonnistui: {e}")
+        return html, {}
+
+    kesa = data.get("kesaloma")
+    if not isinstance(kesa, dict) or "alku" not in kesa or "loppu" not in kesa:
+        return html, {}
+
+    try:
+        kesa_alku = date.fromisoformat(kesa["alku"])
+        kesa_loppu = date.fromisoformat(kesa["loppu"])
+    except Exception as e:
+        print(f"⚠ Kesaloma-kentän alku/loppu virheellinen: {e}")
+        return html, {}
+
+    paivat = ["ma", "ti", "ke", "to", "pe", "la", "su"]
+
+    # Käänteismappays: pvm → (viikko_id, dk) — jotta D-1 päivä löytyy nopeasti
+    pvm_to_solu: dict[date, tuple[str, str]] = {}
+    for vk_id, ankkuri in viikkojen_ankkurit.items():
+        for i, dk in enumerate(paivat):
+            pvm_to_solu[ankkuri + timedelta(days=i)] = (vk_id, dk)
+
+    def poimi_paivallinen(vk_id: str, dk: str) -> str | None:
+        """Poimii <strong>...</strong>-sisällön päivällissolusta. Palauttaa None
+        jos solua ei löydy tai se on tyhjä."""
+        pat = re.compile(
+            rf'<div\s+class="cell"\s+data-k="{vk_id}-d-{dk}"[^>]*>([\s\S]*?)</div>'
+        )
+        m = pat.search(html)
+        if not m:
+            return None
+        m2 = re.search(r'<strong>([^<]*)</strong>', m.group(1))
+        if not m2:
+            return None
+        return m2.group(1).strip() or None
+
+    tulos: dict[str, list[str]] = {}
+
+    for vk_id, ankkuri in viikkojen_ankkurit.items():
+        nimet: list[str] = []
+        for i, dk in enumerate(paivat):
+            pvm = ankkuri + timedelta(days=i)
+            if not (kesa_alku <= pvm <= kesa_loppu):
+                continue
+
+            edellinen_pvm = pvm - timedelta(days=1)
+            edellinen_solu = pvm_to_solu.get(edellinen_pvm)
+            if not edellinen_solu:
+                # Edellinen päivä ei näy w1-w4 ikkunassa → ei voida täyttää
+                continue
+
+            edellinen_vk, edellinen_dk = edellinen_solu
+            paivallinen_nimi = poimi_paivallinen(edellinen_vk, edellinen_dk)
+            if not paivallinen_nimi:
+                continue  # edellisen päivän päivällinen tyhjä
+
+            new_inner = (
+                f'<strong>Tähteet</strong><br>{_html_escape(paivallinen_nimi)}'
+            )
+
+            pattern = re.compile(
+                rf'(<div\s+class="cell"\s+data-k="{vk_id}-l-{dk}"[^>]*>)'
+                rf'([\s\S]*?)(</div>)'
+            )
+            replaced = [False]
+
+            def repl(m):
+                replaced[0] = True
+                return m.group(1) + new_inner + m.group(3)
+
+            html = pattern.sub(repl, html, count=1)
+            if replaced[0]:
+                nimet.append(f"{dk}={paivallinen_nimi}")
+            else:
+                print(
+                    f"⚠ Lounas-solu {vk_id}-l-{dk} ei löytynyt — "
+                    f"sisältöä ei muutettu"
+                )
+
+        tulos[vk_id] = nimet
+
+    return html, tulos
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--ei-kopiota", action="store_true",

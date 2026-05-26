@@ -87,6 +87,23 @@ def main():
                 rooli = "ensi vk" if vk == "w3" else "+2 vk"
                 print(f"✓ {vk} ({rooli}) ehdotukset: {', '.join(nimet)}")
 
+        # Kesäloma-lounaat: täytä lounas-solut "tähteinä" edellisen päivän
+        # päivällisestä kun päivä on kesaloma-jaksolla (reseptit.json:n
+        # 'kesaloma'-kentässä). Kutsutaan VIIMEISENÄ, kun kaikki päivälliset
+        # ovat jo paikoillaan (w1+w2 toteumasta, w3+w4 algoritmistä).
+        html, lounas_tulos = J.injektoi_kesaloma_lounaat(
+            html,
+            viikkojen_ankkurit={
+                "w1": edellisen_viikon_ma,
+                "w2": kuluvan_viikon_ma,
+                "w3": ensi_viikon_ma,
+                "w4": viikon_paasta_ma,
+            },
+        )
+        for vk, nimet in lounas_tulos.items():
+            if nimet:
+                print(f"✓ {vk} kesäloma-lounaat: {', '.join(nimet)}")
+
         if html != alkuperäinen:
             INDEX_PATH.write_text(html, encoding="utf-8")
             muutoksia = True
