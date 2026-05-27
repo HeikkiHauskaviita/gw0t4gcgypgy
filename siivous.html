@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 :root {
+  /* Tumma teema (oletus, Heikin alkuperäinen) */
   --bg: #0a0612;
   --bg-2: #140a22;
   --surface: #1a102a;
@@ -34,6 +35,189 @@
   --bg-glow-2: rgba(139, 30, 43, 0.28);
   --bg-glow-3: rgba(26, 16, 42, 0.4);
   --nav-bg: linear-gradient(180deg, rgba(10,6,18,0.98), rgba(20,10,34,0.95));
+  --task-hover: rgba(212,169,74,0.08);
+  --task-done-bg: rgba(106,63,160,0.18);
+  --task-done-border: rgba(152,102,214,0.45);
+  --header-grad-1: rgba(26,16,42,0.97);
+  --header-grad-2: rgba(10,6,18,0.93);
+  --rotation-th-1: rgba(106,63,160,0.45);
+  --rotation-th-2: rgba(34,20,58,0.35);
+  --rotation-current: rgba(212, 169, 74, 0.12);
+  --meta-bg: rgba(0,0,0,0.3);
+  --tabs-bg: rgba(0,0,0,0.4);
+  --tab-active-text: #1a0f00;
+  --on-button: #1a0f00;
+}
+
+/* Vaalea teema — Kaarnen toive: valko-vaaleansininen, hilpeämpi */
+:root[data-theme="light"] {
+  --bg: #eef4fa;
+  --bg-2: #dfe9f3;
+  --surface: #ffffff;
+  --surface-2: #f4f8fc;
+  --ink: #1d2a3a;
+  --ink-dim: #4a5a6e;
+  --muted: #8a9aac;
+  --gold: #2c7fb8;            /* Sininen accent vaihtaa kullan paikan */
+  --gold-bright: #4ea0d8;
+  --gold-dim: #1b5a85;
+  --blood: #b54850;
+  --blood-soft: rgba(181, 72, 80, 0.12);
+  --purple: #6f86c2;
+  --purple-bright: #93a8e0;
+  --purple-deep: #3f5395;
+  --purple-soft: rgba(111, 134, 194, 0.18);
+  --border: rgba(44, 127, 184, 0.28);
+  --border-strong: rgba(44, 127, 184, 0.55);
+  --shadow: 0 2px 10px rgba(60,90,130,0.08), 0 0 30px rgba(111, 134, 194, 0.10);
+  --bg-glow-1: rgba(147, 168, 224, 0.35);
+  --bg-glow-2: rgba(78, 160, 216, 0.20);
+  --bg-glow-3: rgba(220, 232, 245, 0.55);
+  --nav-bg: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(238,244,250,0.94));
+  --task-hover: rgba(44,127,184,0.08);
+  --task-done-bg: rgba(111,134,194,0.16);
+  --task-done-border: rgba(147,168,224,0.55);
+  --header-grad-1: rgba(255,255,255,0.94);
+  --header-grad-2: rgba(238,244,250,0.92);
+  --rotation-th-1: rgba(111,134,194,0.30);
+  --rotation-th-2: rgba(220,232,245,0.50);
+  --rotation-current: rgba(78, 160, 216, 0.18);
+  --meta-bg: rgba(255,255,255,0.65);
+  --tabs-bg: rgba(255,255,255,0.55);
+  --tab-active-text: #ffffff;
+  --on-button: #ffffff;
+}
+
+/* ========== Klikattavat viikkotehtävät (Kaarnen koodi, hieman siivottu) ========== */
+.task-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.task-list li {
+  position: relative;
+  margin: 8px 0;
+  padding: 12px 14px 12px 42px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,0.10);
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s, box-shadow 0.18s;
+  user-select: none;
+  font-size: 15px;
+  color: var(--ink);
+}
+:root[data-theme="light"] .task-list li { background: rgba(255,255,255,0.55); }
+.task-list li::before {
+  content: "☐";
+  position: absolute;
+  left: 14px;
+  top: 10px;
+  color: var(--gold-dim);
+  font-size: 16px;
+}
+.task-list li:hover {
+  border-color: var(--gold);
+  background: var(--task-hover);
+  box-shadow: 0 0 14px rgba(78, 160, 216, 0.10);
+}
+.task-list li.done {
+  background: var(--task-done-bg);
+  border-color: var(--task-done-border);
+  color: var(--muted);
+  text-decoration: line-through;
+}
+.task-list li.done::before {
+  content: "☑";
+  color: var(--gold);
+  text-shadow: 0 0 10px rgba(212,169,74,0.40);
+}
+
+/* ========== Listan muokkaustila ========== */
+.list-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 6px;
+}
+.edit-btn {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--gold-dim);
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 1px;
+  transition: color 0.18s, border-color 0.18s;
+}
+.edit-btn:hover { color: var(--gold-bright); border-color: var(--gold); }
+.edit-btn.active { color: var(--gold); border-color: var(--gold); background: var(--task-hover); }
+.task-list.editing li {
+  cursor: text;
+  padding-right: 42px;
+}
+.task-list.editing li::before { content: "✎"; }
+.task-list.editing li .text {
+  outline: none;
+  border-bottom: 1px dashed var(--border);
+  padding-bottom: 2px;
+}
+.task-list.editing li .remove {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--blood);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+}
+.task-list.editing li .remove:hover { color: var(--gold-bright); }
+.add-item-btn {
+  margin-top: 8px;
+  background: transparent;
+  border: 1px dashed var(--border);
+  color: var(--gold-dim);
+  padding: 8px 14px;
+  width: 100%;
+  cursor: pointer;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: none;
+}
+.task-list.editing + .add-item-btn { display: block; }
+.add-item-btn:hover { color: var(--gold-bright); border-color: var(--gold); }
+
+/* ========== Teema-toggle ========== */
+.theme-toggle {
+  position: fixed;
+  top: 8px;
+  right: 14px;
+  z-index: 30;
+  appearance: none;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--gold);
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 1px;
+  transition: all 0.2s;
+  box-shadow: var(--shadow);
+}
+.theme-toggle:hover {
+  color: var(--gold-bright);
+  border-color: var(--gold);
 }
 * { box-sizing: border-box; }
 html, body {
@@ -84,11 +268,11 @@ nav.site-nav a.current {
 
 /* ========== Header ========== */
 header {
-  background: linear-gradient(180deg, rgba(26,16,42,0.97), rgba(10,6,18,0.93));
+  background: linear-gradient(180deg, var(--header-grad-1), var(--header-grad-2));
   border-bottom: 1px solid var(--border-strong);
   padding: 22px 28px 18px;
   position: sticky; top: 42px; z-index: 10;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.55), inset 0 -1px 0 rgba(212,169,74,0.1);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.20), inset 0 -1px 0 rgba(212,169,74,0.1);
   text-align: center;
 }
 .dragon-wrap {
@@ -136,7 +320,7 @@ header::after {
 /* ========== Tabs (subtabs-tyyli) ========== */
 .tabs-row {
   display: flex; gap: 4px; margin: 18px auto 22px;
-  background: rgba(0,0,0,0.4);
+  background: var(--tabs-bg);
   padding: 4px;
   border: 1px solid var(--border);
   border-radius: 1px;
@@ -159,7 +343,7 @@ header::after {
 .tab:hover { color: var(--gold-bright); }
 .tab.active {
   background: linear-gradient(180deg, var(--gold-bright), var(--gold));
-  color: #1a0f00;
+  color: var(--tab-active-text);
   font-weight: 600;
   box-shadow: 0 0 14px rgba(212, 169, 74, 0.35);
 }
@@ -318,7 +502,7 @@ section h2::before, section h2::after {
   gap: 8px;
   margin: 0 0 16px;
   padding: 10px 14px;
-  background: rgba(0,0,0,0.3);
+  background: var(--meta-bg);
   border: 1px solid var(--border);
 }
 .meta .week {
@@ -421,7 +605,7 @@ table.rotation {
   font-size: 14px;
 }
 table.rotation thead th {
-  background: linear-gradient(180deg, rgba(106,63,160,0.45), rgba(34,20,58,0.35));
+  background: linear-gradient(180deg, var(--rotation-th-1), var(--rotation-th-2));
   text-align: left;
   font-family: 'Cinzel', Georgia, serif;
   font-weight: 600;
@@ -438,7 +622,7 @@ table.rotation td {
   color: var(--ink);
 }
 table.rotation tr.current td {
-  background: rgba(212, 169, 74, 0.12);
+  background: var(--rotation-current);
   font-weight: 600;
   color: var(--gold-bright);
   box-shadow: inset 3px 0 0 var(--gold);
@@ -538,6 +722,8 @@ footer::before {
 </style>
 </head>
 <body>
+
+<button class="theme-toggle" id="theme-toggle" type="button" title="Vaihda värimaailma">Vaalea</button>
 
 <nav class="site-nav">
   <a href="index.html">Ruokalista</a>
@@ -641,6 +827,7 @@ footer::before {
 <main>
   <div class="tabs-row">
     <button class="tab active" data-tab="week">Tämä viikko</button>
+    <button class="tab" data-tab="unemployed">Kaarnen viikko</button>
     <button class="tab" data-tab="kids">Lapset</button>
     <button class="tab" data-tab="month">Kuukausi</button>
     <button class="tab" data-tab="quarter">Kvartaali</button>
@@ -660,66 +847,57 @@ footer::before {
 
     <div class="card">
       <div class="role">Vuoro A · noin 30–45 min</div>
-      <h3>Lattiat ja sauna</h3>
+      <h3>Yleinen siisteys</h3>
       <div class="who" id="who-A">–</div>
-      <ul>
-        <li>Imurointi: olohuone, makuuhuoneet, lastenhuone, työhuone, eteinen, ulkoeteinen</li>
-        <li>Lattioiden moppaus: keittiö, eteinen, kylpyhuone</li>
+      <div class="list-controls"><button class="edit-btn" data-list="vuoro-a">Muokkaa</button></div>
+      <ul class="task-list" data-list-id="vuoro-a">
+        <li>Imurointi: koko talo, paitsi omat huoneet</li>
+        <li>Lattioiden moppaus: keittiö, eteinen, kylpyhuone (koko talo mahdollisuuksien mukaan, ei tarpeellinen viikoittain)</li>
+        <li>Pyyhi pölyt huonekaluista ja korkeilta tasoilta</li>
+        <li>Pese käytävän iso peili</li>
         <li>Saunan pesu — jos käytetty viime viikolla</li>
         <li>Pihan pikapyyhintä kaudella</li>
       </ul>
-      <div class="kid-help">
-        <span class="kid-label">Lapset auttavat näin</span>
-        <ul>
-          <li><strong>Pikkuapuri (3–4 v):</strong> kerää lelut ja kirjat omalta lattialtaan koreihin ennen imurointia</li>
-          <li><strong>Siivousapulainen (7–9 v):</strong> imuroi oma huone tavallisella imurilla, vie matot tuuletukseen</li>
-        </ul>
-      </div>
+      <button class="add-item-btn" data-list="vuoro-a">+ Lisää tehtävä</button>
     </div>
 
     <div class="card">
       <div class="role">Vuoro B · noin 30–45 min</div>
-      <h3>Märkätilat ja roskat</h3>
+      <h3>Vessa ja kylpyhuone</h3>
       <div class="who" id="who-B">–</div>
-      <ul>
-        <li>Kylpyhuone: suihku, peili, hanat</li>
-        <li>WC: pönttö, lattia, käsienpesuallas</li>
+      <div class="list-controls"><button class="edit-btn" data-list="vuoro-b">Muokkaa</button></div>
+      <ul class="task-list" data-list-id="vuoro-b">
+        <li>Kylpyhuone: peili, hanat, suihku — järjestele sotkut</li>
+        <li>Sauna tarvittaessa</li>
+        <li>WC: pönttö, käsienpesuallas, peili, taso, lattia</li>
+        <li>Käsipyyhkeiden vaihto</li>
         <li>Pyyhkeiden ja kylpymaton vaihto</li>
         <li>Pintapölyt korkeilta tasoilta: hyllyt, taulut, valaisimet</li>
         <li>Roskat ulos: bio, sekajäte, muovi, paperi, lasi, metalli</li>
-        <li>Roskakorien sisäpuolen pyyhintä</li>
+        <li>Pese ylimääräinen koneellinen pyykkiä</li>
       </ul>
-      <div class="kid-help">
-        <span class="kid-label">Lapset auttavat näin</span>
-        <ul>
-          <li><strong>Pikkuapuri:</strong> vie pyyhkeet pyykkikoriin ja tuo puhtaat aikuisen kanssa</li>
-          <li><strong>Siivousapulainen:</strong> tyhjentää huoneiden roskakorit, lajittelee oikeisiin pussiin</li>
-        </ul>
-      </div>
+      <button class="add-item-btn" data-list="vuoro-b">+ Lisää tehtävä</button>
     </div>
 
     <div class="card">
       <div class="role">Vuoro C · noin 30–45 min</div>
-      <h3>Keittiö ja tekstiilit</h3>
+      <h3>Keittiö lähinnä</h3>
       <div class="who" id="who-C">–</div>
-      <ul>
+      <div class="list-controls"><button class="edit-btn" data-list="vuoro-c">Muokkaa</button></div>
+      <ul class="task-list" data-list-id="vuoro-c">
         <li>Liesi ja liesituuletin</li>
-        <li>Työtasot ja työtason takaseinä (roiskepinta)</li>
+        <li>Työtasot ja työtason takaseinä — järkeily ja järkkäily</li>
         <li>Mikro: sisältä ja ulkoa</li>
-        <li>Jääkaapin ja pakastimen ovet</li>
+        <li>Jääkaapista pilaantuneet pois; jääkaapin ja pakastimen ovet</li>
+        <li>Vie kierrätysroskat</li>
+        <li>Roskisten pesu tarvittaessa</li>
         <li>Lakanat (parittomat viikot) tai pyyhkeet (parilliset viikot)</li>
         <li>Keittiöpyyhkeiden vaihto</li>
       </ul>
-      <div class="kid-help">
-        <span class="kid-label">Lapset auttavat näin</span>
-        <ul>
-          <li><strong>Pikkuapuri:</strong> pyyhkii ruokapöydän omalla rätillään ja kantaa keittiöpyyhkeet pyykille</li>
-          <li><strong>Siivousapulainen:</strong> tyhjentää tiskikoneen alaosan ja kattaa pöydän iltapalalle</li>
-        </ul>
-      </div>
+      <button class="add-item-btn" data-list="vuoro-c">+ Lisää tehtävä</button>
     </div>
 
-    <div class="card" style="background: linear-gradient(180deg, rgba(34,20,58,0.6), rgba(10,6,18,0.7));">
+    <div class="card" style="background: linear-gradient(180deg, var(--surface-2), var(--bg-2));">
       <div class="role">Päivittäiset · jaetaan tilanteen mukaan</div>
       <h3>Arjen pyörittäminen</h3>
       <ul>
@@ -732,6 +910,77 @@ footer::before {
     </div>
   </section>
 
+  <!-- KAARNEN VIIKKO -->
+  <section id="panel-unemployed">
+    <h2>Kaarnen viikko</h2>
+    <p class="epigraph">Päivittäiset tehtävät kesälomalla. Klikkaa rastiksi kun valmis — lista tyhjenee viikon vaihtuessa.</p>
+
+    <div class="card">
+      <h3>Maanantai</h3>
+      <div class="list-controls"><button class="edit-btn" data-list="kaarne-ma">Muokkaa</button></div>
+      <ul class="task-list" data-list-id="kaarne-ma">
+        <li>Tyhjää tiskikone</li>
+        <li>Vie roskat</li>
+        <li>Muu</li>
+      </ul>
+      <button class="add-item-btn" data-list="kaarne-ma">+ Lisää tehtävä</button>
+    </div>
+
+    <div class="card">
+      <h3>Tiistai</h3>
+      <div class="list-controls"><button class="edit-btn" data-list="kaarne-ti">Muokkaa</button></div>
+      <ul class="task-list" data-list-id="kaarne-ti">
+        <li>Tyhjää tiskikone</li>
+        <li>Vie roskat</li>
+        <li>Muu</li>
+      </ul>
+      <button class="add-item-btn" data-list="kaarne-ti">+ Lisää tehtävä</button>
+    </div>
+
+    <div class="card">
+      <h3>Keskiviikko</h3>
+      <div class="list-controls"><button class="edit-btn" data-list="kaarne-ke">Muokkaa</button></div>
+      <ul class="task-list" data-list-id="kaarne-ke">
+        <li>Imuroi</li>
+        <li>Muu</li>
+      </ul>
+      <button class="add-item-btn" data-list="kaarne-ke">+ Lisää tehtävä</button>
+    </div>
+
+    <div class="card">
+      <h3>Torstai</h3>
+      <div class="list-controls"><button class="edit-btn" data-list="kaarne-to">Muokkaa</button></div>
+      <ul class="task-list" data-list-id="kaarne-to">
+        <li>Tyhjää tiskikone</li>
+        <li>Vie roskat</li>
+        <li>Muu</li>
+      </ul>
+      <button class="add-item-btn" data-list="kaarne-to">+ Lisää tehtävä</button>
+    </div>
+
+    <div class="card">
+      <h3>Perjantai</h3>
+      <div class="list-controls"><button class="edit-btn" data-list="kaarne-pe">Muokkaa</button></div>
+      <ul class="task-list" data-list-id="kaarne-pe">
+        <li>Tyhjää tiskikone</li>
+        <li>TAI laita ruokaa…?</li>
+        <li>Muu</li>
+      </ul>
+      <button class="add-item-btn" data-list="kaarne-pe">+ Lisää tehtävä</button>
+    </div>
+
+    <div class="card">
+      <h3>Lauantai</h3>
+      <div class="list-controls"><button class="edit-btn" data-list="kaarne-la">Muokkaa</button></div>
+      <ul class="task-list" data-list-id="kaarne-la">
+        <li>Vie roskat</li>
+        <li>Tyhjää tiskikone</li>
+        <li>Muu</li>
+      </ul>
+      <button class="add-item-btn" data-list="kaarne-la">+ Lisää tehtävä</button>
+    </div>
+  </section>
+
   <!-- LAPSET -->
   <section id="panel-kids">
     <h2>Lapset mukaan</h2>
@@ -739,8 +988,8 @@ footer::before {
 
     <div class="kids-grid">
       <div class="kid-card">
-        <h3>Pikkuapuri</h3>
-        <span class="age">Ikä 3–4 vuotta · 5–10 min/päivä · aikuisen kanssa</span>
+        <h3>Viljami</h3>
+        <span class="age">4-vuotias · 5–10 min/päivä · aikuisen kanssa</span>
 
         <h4>Päivittäiset tehtävät</h4>
         <ul>
@@ -768,8 +1017,8 @@ footer::before {
       </div>
 
       <div class="kid-card">
-        <h3>Siivousapulainen</h3>
-        <span class="age">Ikä 7–9 vuotta · 15–20 min/päivä · pääosin itsenäisesti</span>
+        <h3>Lenni</h3>
+        <span class="age">6-vuotias · 10–15 min/päivä · aikuisen ohjauksessa</span>
 
         <h4>Päivittäiset tehtävät</h4>
         <ul>
@@ -783,7 +1032,7 @@ footer::before {
 
         <h4>Viikkohaaste rotaation mukaan</h4>
         <ul>
-          <li><strong>Vuoro A:</strong> Imuroi oma huone ja eteinen, vie matot tuuletukseen</li>
+          <li><strong>Vuoro A:</strong> Imuroi oma huone, vie matot tuuletukseen</li>
           <li><strong>Vuoro B:</strong> Pyyhi WC:n käsienpesuallas ja peili, kerää huoneiden roskat</li>
           <li><strong>Vuoro C:</strong> Tyhjennä tiskikoneen alaosa ja kata pöytä päivälliseen</li>
         </ul>
@@ -938,15 +1187,19 @@ footer::before {
   </section>
 
   <footer>
-    Kierre toistuu kuin lohikäärmeen häntä — ei alkua, ei loppua, vain rytmi.
+    Moi Heikki :&gt;
   </footer>
 </main>
 
 <script>
 (function () {
-  const NAMES = ['Heikki', 'Johanna', 'Vanhin poika'];
+  const NAMES = ['Heikki', 'Johanna', 'Kaarne'];
   const START_DATE = new Date(Date.UTC(2026, 4, 11)); // 11.5.2026 (vko 20)
   const MS_PER_WEEK = 7 * 24 * 3600 * 1000;
+  const WEEK_TASKS_KEY = 'siivous-week-tasks';
+  const WEEK_RESET_KEY = 'siivous-last-reset-week';
+  const LIST_KEY_PREFIX = 'siivous-list-';
+  const THEME_KEY = 'siivous-theme';
 
   function getISOWeek(date) {
     const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
@@ -1084,11 +1337,184 @@ footer::before {
     });
   }
 
+  // ===== Listojen tallennus + custom items =====
+  // Jokaisella .task-list:llä on data-list-id. Käyttäjän mukautukset
+  // tallennetaan localStorage-avaimeen 'siivous-list-{id}' string-arrayna.
+  // Latauksessa custom items korvaavat staattiset, jos olemassa.
+  function loadCustomItems(listId) {
+    try {
+      const raw = localStorage.getItem(LIST_KEY_PREFIX + listId);
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) { return null; }
+  }
+  function saveCustomItems(listId, items) {
+    localStorage.setItem(LIST_KEY_PREFIX + listId, JSON.stringify(items));
+  }
+  function applyCustomItems() {
+    document.querySelectorAll('.task-list[data-list-id]').forEach(ul => {
+      const id = ul.dataset.listId;
+      const custom = loadCustomItems(id);
+      if (custom && Array.isArray(custom)) {
+        ul.innerHTML = custom.map(t =>
+          '<li>' + escapeHtml(t) + '</li>'
+        ).join('');
+      }
+    });
+  }
+  function readListItems(ul) {
+    return Array.from(ul.querySelectorAll('li')).map(li => {
+      // Ottaa teksti-osan, ohittaa mahdollisen poisto-napin
+      const text = li.querySelector('.text');
+      return (text ? text.textContent : li.textContent).trim();
+    }).filter(t => t.length > 0);
+  }
+  function escapeHtml(s) {
+    return s.replace(/[&<>"']/g, c => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    })[c]);
+  }
+
+  // ===== Klikattavat tehtävät + viikon vaihtuessa nollaus =====
+  function bindWeeklyTasks() {
+    const today = new Date();
+    const currentWeekKey =
+      getISOWeekYear(today) + '-' + getISOWeek(today);
+    const lastReset = localStorage.getItem(WEEK_RESET_KEY);
+    if (lastReset !== currentWeekKey) {
+      localStorage.removeItem(WEEK_TASKS_KEY);
+      localStorage.setItem(WEEK_RESET_KEY, currentWeekKey);
+    }
+    const saved = JSON.parse(localStorage.getItem(WEEK_TASKS_KEY) || '{}');
+
+    document.querySelectorAll('.task-list').forEach(ul => {
+      const listId = ul.dataset.listId || 'misc';
+      ul.querySelectorAll('li').forEach((li, idx) => {
+        const key = listId + ':' + idx;
+        if (saved[key]) li.classList.add('done');
+        li.addEventListener('click', (e) => {
+          // Muokkaustilassa klikkaus ei togglaa rastia
+          if (ul.classList.contains('editing')) return;
+          // Älä togglaa jos klikataan poistoa
+          if (e.target.classList.contains('remove')) return;
+          li.classList.toggle('done');
+          saved[key] = li.classList.contains('done');
+          localStorage.setItem(WEEK_TASKS_KEY, JSON.stringify(saved));
+        });
+      });
+    });
+  }
+
+  // ===== Listan muokkaustila =====
+  function bindListEdit() {
+    document.querySelectorAll('.edit-btn[data-list]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const listId = btn.dataset.list;
+        const ul = document.querySelector('.task-list[data-list-id="' + listId + '"]');
+        if (!ul) return;
+        const isEditing = ul.classList.toggle('editing');
+        btn.classList.toggle('active', isEditing);
+        btn.textContent = isEditing ? 'Valmis' : 'Muokkaa';
+
+        if (isEditing) {
+          // Vaihda items contentEditable-tilaan + lisää poisto-nappi
+          ul.querySelectorAll('li').forEach(li => {
+            const text = li.textContent.trim();
+            li.innerHTML =
+              '<span class="text" contenteditable="true">' +
+              escapeHtml(text) + '</span>' +
+              '<button class="remove" type="button" title="Poista">×</button>';
+            li.classList.remove('done'); // muokkaustilassa ei rastia
+          });
+        } else {
+          // Tallenna uusi tila
+          const items = readListItems(ul);
+          saveCustomItems(listId, items);
+          // Renderöi normaalimuotoon
+          ul.innerHTML = items.map(t => '<li>' + escapeHtml(t) + '</li>').join('');
+          // Bindaa uudet items klikattaviksi
+          bindWeeklyTasksForList(ul);
+        }
+      });
+    });
+
+    // Poisto-napin klikkaus muokkaustilassa
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('remove')) {
+        e.target.closest('li').remove();
+      }
+    });
+
+    // "+ Lisää tehtävä" -nappi
+    document.querySelectorAll('.add-item-btn[data-list]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const listId = btn.dataset.list;
+        const ul = document.querySelector('.task-list[data-list-id="' + listId + '"]');
+        if (!ul || !ul.classList.contains('editing')) return;
+        const li = document.createElement('li');
+        li.innerHTML =
+          '<span class="text" contenteditable="true">Uusi tehtävä</span>' +
+          '<button class="remove" type="button" title="Poista">×</button>';
+        ul.appendChild(li);
+        // Fokusoi uuteen item:iin
+        const span = li.querySelector('.text');
+        const range = document.createRange();
+        range.selectNodeContents(span);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        span.focus();
+      });
+    });
+  }
+  function bindWeeklyTasksForList(ul) {
+    // Bindaa yksittäisen listan items (uudelleen muokkauksen jälkeen)
+    const saved = JSON.parse(localStorage.getItem(WEEK_TASKS_KEY) || '{}');
+    const listId = ul.dataset.listId || 'misc';
+    ul.querySelectorAll('li').forEach((li, idx) => {
+      const key = listId + ':' + idx;
+      if (saved[key]) li.classList.add('done');
+      li.addEventListener('click', () => {
+        if (ul.classList.contains('editing')) return;
+        li.classList.toggle('done');
+        saved[key] = li.classList.contains('done');
+        localStorage.setItem(WEEK_TASKS_KEY, JSON.stringify(saved));
+      });
+    });
+  }
+
+  // ===== Teemavalitsin =====
+  function bindThemeToggle() {
+    const btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    const saved = localStorage.getItem(THEME_KEY);
+    const apply = (theme) => {
+      if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        btn.textContent = 'Tumma';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        btn.textContent = 'Vaalea';
+      }
+    };
+    apply(saved || 'dark');
+    btn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem(THEME_KEY, next);
+      apply(next);
+    });
+  }
+
+  // ===== Käynnistys =====
+  applyCustomItems();
   renderWeek();
   renderMonth();
   renderRotationTable();
   bindReset();
   bindTabs();
+  bindWeeklyTasks();
+  bindListEdit();
+  bindThemeToggle();
 })();
 </script>
 </body>
