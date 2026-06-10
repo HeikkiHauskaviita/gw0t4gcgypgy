@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="julkaistu" content="2026-06-10">
+<meta name="robots" content="noindex, nofollow">
+<title>Perheen huoltokirja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Tumma teema (sama kuin ruokalistasivulla) */
+  --bg: #0a0612;
+  --bg-2: #140a22;
+  --surface: #1a102a;
+  --surface-2: #22143a;
+  --ink: #ede4cc;
+  --ink-dim: #c6b794;
+  --muted: #9d8a63;
+  --gold: #d4a94a;
+  --gold-bright: #f0c76a;
+  --gold-dim: #a8894a;
+  --blood: #8b1e2b;
+  --blood-soft: rgba(139, 30, 43, 0.18);
+  --green: #5a8a4a;
+  --green-soft: rgba(90, 138, 74, 0.18);
+  --purple: #4a2b6e;
+  --purple-soft: rgba(74, 43, 110, 0.22);
+  --border: rgba(212, 169, 74, 0.22);
+  --border-strong: rgba(212, 169, 74, 0.5);
+  --shadow: 0 2px 10px rgba(0,0,0,0.6), 0 0 30px rgba(74, 43, 110, 0.18);
+  --bg-glow-1: rgba(74, 43, 110, 0.4);
+  --bg-glow-2: rgba(139, 30, 43, 0.28);
+  --bg-glow-3: rgba(26, 16, 42, 0.4);
+  --nav-bg: linear-gradient(180deg, rgba(10,6,18,0.98), rgba(20,10,34,0.95));
+  --on-button: #1a0f00;
+}
+:root[data-theme="light"] {
+  --bg: #efe4c4;
+  --bg-2: #e3d6b2;
+  --surface: #f5ebd0;
+  --surface-2: #e8dcb8;
+  --ink: #2a1f10;
+  --ink-dim: #4a3a1e;
+  --muted: #6b5a38;
+  --gold: #8d6b00;
+  --gold-bright: #b8901c;
+  --gold-dim: #7d6428;
+  --blood: #6b1820;
+  --blood-soft: rgba(107, 24, 32, 0.12);
+  --green: #3f6b32;
+  --green-soft: rgba(63, 107, 50, 0.15);
+  --purple: #4a2b6e;
+  --purple-soft: rgba(74, 43, 110, 0.10);
+  --border: rgba(141, 107, 0, 0.30);
+  --border-strong: rgba(141, 107, 0, 0.55);
+  --shadow: 0 2px 10px rgba(90, 70, 20, 0.12), 0 0 30px rgba(141, 107, 0, 0.08);
+  --bg-glow-1: rgba(200, 180, 120, 0.35);
+  --bg-glow-2: rgba(180, 150, 90, 0.22);
+  --bg-glow-3: rgba(235, 222, 185, 0.5);
+  --nav-bg: linear-gradient(180deg, rgba(245,235,208,0.97), rgba(239,228,196,0.95));
+  --on-button: #fff8e8;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background:
+    radial-gradient(ellipse at 20% -10%, var(--bg-glow-1), transparent 50%),
+    radial-gradient(ellipse at 90% 15%, var(--bg-glow-2), transparent 45%),
+    radial-gradient(ellipse at 50% 110%, var(--bg-glow-3), transparent 60%),
+    var(--bg);
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+nav.site-nav {
+  display: flex; justify-content: center; gap: 26px;
+  padding: 10px 16px;
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--border);
+}
+nav.site-nav a {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-dim); text-decoration: none;
+  padding: 4px 8px; border-bottom: 1px solid transparent;
+}
+nav.site-nav a:hover { color: var(--gold-bright); }
+nav.site-nav a.current { color: var(--gold); border-bottom-color: var(--gold); }
+header {
+  text-align: center;
+  padding: 26px 16px 18px;
+  border-bottom: 1px solid var(--border);
+}
+header h1 {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 24px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold);
+  margin: 0;
+  text-shadow: 0 0 20px rgba(212, 169, 74, 0.3);
+}
+header h1 .sigil { color: var(--gold-dim); font-size: 14px; margin: 0 12px; vertical-align: middle; }
+header .subtitle {
+  font-style: italic; color: var(--muted); font-size: 15px; margin-top: 6px;
+}
+main { max-width: 1160px; margin: 0 auto; padding: 20px 16px 60px; }
+
+.toolbar {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  justify-content: center;
+  margin: 6px 0 18px;
+}
+.btn {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+  background: transparent; color: var(--gold-dim);
+  border: 1px solid var(--border);
+  padding: 7px 14px; cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.btn:hover { color: var(--gold-bright); border-color: var(--gold); box-shadow: 0 0 10px rgba(212,169,74,0.3); }
+.btn.primary { background: var(--gold); color: var(--on-button); border-color: var(--gold); }
+.btn.primary:hover { background: var(--gold-bright); color: var(--on-button); }
+.btn.ghost { border-color: transparent; }
+.status-msg {
+  font-style: italic; font-size: 14px; color: var(--muted);
+  min-width: 140px; text-align: center;
+}
+
+/* Erääntyvät-yhteenveto */
+.due-panel {
+  border: 1px solid var(--border-strong);
+  background: linear-gradient(180deg, var(--purple-soft), transparent);
+  box-shadow: var(--shadow);
+  padding: 14px 18px;
+  margin-bottom: 24px;
+}
+.due-panel h2 {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gold); margin: 0 0 8px; text-align: center;
+}
+.due-panel ul { list-style: none; margin: 0; padding: 0; }
+.due-panel li {
+  padding: 6px 0; border-bottom: 1px dashed var(--border);
+  display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap;
+}
+.due-panel li:last-child { border-bottom: none; }
+.due-panel .ok-note { color: var(--muted); font-style: italic; text-align: center; padding: 4px 0; }
+
+.badge {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 2px 8px; border: 1px solid;
+  white-space: nowrap;
+}
+.badge.late { color: #e08a8a; border-color: rgba(200,90,90,0.6); background: var(--blood-soft); }
+.badge.soon { color: var(--gold-bright); border-color: var(--border-strong); background: rgba(212,169,74,0.10); }
+.badge.ok   { color: #9dc28a; border-color: rgba(90,138,74,0.55); background: var(--green-soft); }
+.badge.none { color: var(--muted); border-color: var(--border); }
+:root[data-theme="light"] .badge.late { color: #8b1e2b; }
+:root[data-theme="light"] .badge.ok { color: #3f6b32; }
+
+/* Laitekortit */
+.device-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 20px;
+}
+@media (max-width: 920px) { .device-grid { grid-template-columns: 1fr; } }
+.device-card {
+  background: linear-gradient(180deg, var(--surface), var(--bg-2));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 18px 20px 16px;
+  position: relative;
+}
+.device-card::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.7;
+}
+.device-card h3 {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 16px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gold); margin: 0;
+}
+.device-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+.device-head .desc {
+  font-style: italic; color: var(--ink-dim); font-size: 15px;
+  border: none; background: transparent; outline: none;
+}
+.device-head .desc:empty::before { content: "lisää kuvaus…"; color: var(--muted); }
+.device-head .del-device { margin-left: auto; }
+.km-row { font-size: 15px; color: var(--ink-dim); margin: 2px 0 8px; }
+.km-row input {
+  width: 90px; font-family: inherit; font-size: 15px;
+  background: rgba(0,0,0,0.25); color: var(--ink);
+  border: 1px solid var(--border); padding: 2px 6px; text-align: right;
+}
+:root[data-theme="light"] .km-row input { background: rgba(255,250,235,0.6); }
+
+table.tasks { width: 100%; border-collapse: collapse; margin-top: 6px; }
+table.tasks th {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold-dim); text-align: left;
+  padding: 4px 6px; border-bottom: 1px solid var(--border-strong);
+  font-weight: 500;
+}
+table.tasks td {
+  padding: 7px 6px; border-bottom: 1px dashed var(--border);
+  font-size: 16px; vertical-align: top;
+}
+table.tasks tr:last-child td { border-bottom: none; }
+table.tasks .task-name { min-width: 130px; }
+table.tasks .nowrap { white-space: nowrap; }
+table.tasks .dates { color: var(--ink-dim); font-size: 15px; }
+.task-actions { display: flex; gap: 6px; justify-content: flex-end; flex-wrap: wrap; }
+.icon-btn {
+  background: transparent; border: 1px solid var(--border);
+  color: var(--gold-dim); cursor: pointer;
+  font-size: 13px; padding: 2px 9px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+.icon-btn:hover { color: var(--gold-bright); border-color: var(--gold); }
+
+/* Kuittauslomake */
+.done-form {
+  background: var(--purple-soft);
+  border: 1px solid var(--border);
+  padding: 10px 12px; margin: 6px 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px;
+  align-items: end;
+}
+.done-form label { display: block; font-size: 13px; color: var(--muted); }
+.done-form input {
+  width: 100%; font-family: inherit; font-size: 15px;
+  background: rgba(0,0,0,0.25); color: var(--ink);
+  border: 1px solid var(--border); padding: 4px 6px;
+}
+:root[data-theme="light"] .done-form input { background: rgba(255,250,235,0.7); }
+.done-form .form-buttons { display: flex; gap: 6px; }
+
+/* Korjattavat viat */
+.faults { margin: 10px 0 4px; }
+.faults h4 {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--blood); margin: 0 0 4px;
+}
+:root[data-theme="light"] .faults h4 { color: #8b1e2b; }
+.faults ul { list-style: none; margin: 0; padding: 0; }
+.faults li {
+  display: flex; gap: 8px; align-items: baseline;
+  padding: 5px 0; border-bottom: 1px dashed var(--border);
+  font-size: 16px;
+}
+.faults li:last-child { border-bottom: none; }
+.faults li .kuvaus { flex: 1; min-width: 0; }
+.faults li.fixed .kuvaus { text-decoration: line-through; color: var(--muted); }
+.faults li .pvm { font-size: 13.5px; color: var(--muted); white-space: nowrap; }
+.faults .add-fault { display: flex; gap: 8px; margin-top: 8px; }
+.faults .add-fault input {
+  flex: 1; font-family: inherit; font-size: 15px;
+  background: rgba(0,0,0,0.25); color: var(--ink);
+  border: 1px solid var(--border); padding: 4px 8px;
+}
+:root[data-theme="light"] .faults .add-fault input { background: rgba(255,250,235,0.7); }
+.show-fixed-btn { margin-top: 4px; }
+
+/* Laitteen tietolohko */
+.device-info { margin: 4px 0 8px; }
+.device-info summary {
+  cursor: pointer; color: var(--gold-dim); font-size: 14px;
+  font-family: 'Cinzel', Georgia, serif; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.device-info summary:hover { color: var(--gold-bright); }
+.device-info table { border-collapse: collapse; margin-top: 6px; width: 100%; }
+.device-info td {
+  font-size: 14.5px; padding: 3px 8px 3px 0; vertical-align: top;
+  border-bottom: 1px dotted var(--border);
+}
+.device-info td:first-child { color: var(--muted); white-space: nowrap; width: 1%; }
+.device-info td[contenteditable]:focus { outline: 1px solid var(--gold); }
+
+/* Historia */
+.history { margin: 4px 0 2px; padding: 0 0 0 10px; border-left: 2px solid var(--border); }
+.history li { font-size: 14.5px; color: var(--ink-dim); list-style: none; padding: 2px 0; }
+.history li .cost { color: var(--gold-dim); }
+
+/* Lisäysrivit */
+.add-task-row { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; align-items: center; }
+.add-task-row input {
+  font-family: inherit; font-size: 15px;
+  background: rgba(0,0,0,0.25); color: var(--ink);
+  border: 1px solid var(--border); padding: 5px 8px;
+}
+:root[data-theme="light"] .add-task-row input { background: rgba(255,250,235,0.7); }
+.add-task-row input.name { flex: 1; min-width: 150px; }
+.add-task-row input.months { width: 70px; text-align: right; }
+.add-task-row input.kms { width: 90px; text-align: right; }
+.add-task-row .unit { font-size: 13px; color: var(--muted); }
+
+.add-device-panel {
+  margin-top: 26px; text-align: center;
+}
+.add-device-panel input {
+  font-family: inherit; font-size: 16px;
+  background: rgba(0,0,0,0.25); color: var(--ink);
+  border: 1px solid var(--border); padding: 7px 10px;
+  min-width: 220px;
+}
+:root[data-theme="light"] .add-device-panel input { background: rgba(255,250,235,0.7); }
+
+footer {
+  text-align: center; color: var(--muted); font-style: italic;
+  font-size: 14px; padding: 30px 16px;
+}
+@media (max-width: 720px) {
+  header h1 { font-size: 18px; }
+  main { padding: 14px 10px 50px; }
+  table.tasks td { font-size: 15px; }
+  .device-card { padding: 14px 12px; }
+}
+@media print {
+  nav.site-nav, .toolbar, .task-actions, .add-task-row, .add-device-panel, .done-form { display: none !important; }
+  body { background: #fff; color: #000; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html">Ruokalista</a>
+  <a href="tapahtumat.html">Tapahtumat</a>
+  <a href="siivous.html">Siivous</a>
+  <a href="huolto.html" class="current">Huolto</a>
+</nav>
+
+<header>
+  <h1><span class="sigil">⚙</span>Perheen huoltokirja<span class="sigil">⚙</span></h1>
+  <p class="subtitle">Auto ja kodin laitteet — huollot, eräpäivät ja historia</p>
+</header>
+
+<main>
+  <div class="toolbar">
+    <button class="btn" id="themeToggle" type="button">◐ Vaalea</button>
+    <button class="btn" id="exportBtn" type="button">Vie tiedot</button>
+    <button class="btn" id="importBtn" type="button">Tuo tiedot</button>
+    <input type="file" id="importFile" accept="application/json" style="display:none">
+    <span class="status-msg" id="statusMsg"></span>
+  </div>
+
+  <div class="due-panel" id="duePanel">
+    <h2>Erääntyneet ja lähestyvät</h2>
+    <ul id="dueList"></ul>
+  </div>
+
+  <div class="device-grid" id="deviceGrid"></div>
+
+  <div class="add-device-panel">
+    <input type="text" id="newDeviceName" placeholder="Uusi laite (esim. Ruohonleikkuri)…">
+    <button class="btn" id="addDeviceBtn" type="button">+ Lisää laite</button>
+  </div>
+</main>
+
+<footer>Tiedot tallentuvat selaimeen automaattisesti. Vie varmuuskopio aika ajoin.</footer>
+
+<script>
+"use strict";
+
+// ---------- vakiot ja tila ----------
+const STORAGE_KEY = "perheen-huoltokirja-v1";
+const THEME_KEY = "ruokalista-theme"; // jaettu teema muiden sivujen kanssa
+const SOON_DAYS = 30;
+
+// Oletusdata ensimmäisellä käynnillä. Heikki täydentää auton tiedot ja
+// kirjaa ensimmäiset kuittaukset, jolloin eräpäivät alkavat laskea.
+const DEFAULT_DATA = {
+  laitteet: [
+    {
+      id: "auto",
+      nimi: "Auto",
+      kuvaus: "VW Sharan 2.0 TDI (2011) · STZ-413",
+      kmSeuranta: true,
+      km: 258119,
+      info: [
+        { label: "Rekisteritunnus", value: "STZ-413" },
+        { label: "Valmistenumero", value: "WVWZZZ7NZBV031016" },
+        { label: "Käyttöönotto", value: "7.4.2011 (ensirek. Suomeen 22.1.2019, tuotu Itävallasta)" },
+        { label: "Moottori", value: "2.0 diesel, 125 kW, Euro 5" },
+        { label: "Istumapaikkoja", value: "7" },
+        { label: "Vakuutus", value: "IF (24.4.2025)" },
+        { label: "Ajoneuvovero", value: "703,72 €/v (peruvero + käyttövoimavero)" },
+        { label: "Renkaat", value: "205/60R16 96H · 215/60R16 95H · 225/50R17 98H · 225/45R18 95W" },
+        { label: "Perävaunumassa", value: "jarruin 2 200 kg, jarruitta 750 kg" },
+        { label: "Katsastettu", value: "30.9.2025 hyväksytty, 258 119 km" }
+      ],
+      viat: [
+        { id: "v1", kuvaus: "Ajovalon suuntain ei toimi toisella puolella (bend lighting)", kirjattu: "2026-06-10", korjattu: null },
+        { id: "v2", kuvaus: "Turvatyyny antaa virheilmoituksen", kirjattu: "2026-06-10", korjattu: null },
+        { id: "v3", kuvaus: "Peruutus-/pysäköintiavustimen sensorit eivät toimi", kirjattu: "2026-06-10", korjattu: null },
+        { id: "v4", kuvaus: "Ajoneuvovero erääntynyt 8.6.2026 (706,72 € korkoineen) — maksettava ennen ajoa, viite 01001204598616115019", kirjattu: "2026-06-10", korjattu: null },
+        { id: "v5", kuvaus: "Jakohihnan vaihto — käyttöikänsä päässä, vaihdettava ennen katsastusta (30.9.2026 mennessä)", kirjattu: "2026-06-10", korjattu: null }
+      ],
+      tehtavat: [
+        { id: "katsastus",  nimi: "Katsastus",                  vali_kk: 12, vali_km: null,  viimeksi: "2025-09-30", viimeksi_km: 258119,
+          historia: [ { pvm: "2025-09-30", km: 258119, kustannus: null, huom: "hyväksytty" } ] },
+        { id: "vero",       nimi: "Ajoneuvoveron maksu",        vali_kk: 12, vali_km: null,  viimeksi: null, viimeksi_km: null, historia: [] },
+        { id: "huolto",     nimi: "Määräaikaishuolto",          vali_kk: 12, vali_km: 15000, viimeksi: null, viimeksi_km: null, historia: [] },
+        { id: "kesarenkaat",nimi: "Kesärenkaiden vaihto",       vali_kk: 12, vali_km: null,  viimeksi: null, viimeksi_km: null, historia: [] },
+        { id: "talvirenkaat",nimi: "Talvirenkaiden vaihto",     vali_kk: 12, vali_km: null,  viimeksi: null, viimeksi_km: null, historia: [] },
+        { id: "pyyhkijat",  nimi: "Pyyhkijänsulkien vaihto",    vali_kk: 12, vali_km: null,  viimeksi: null, viimeksi_km: null, historia: [] },
+        { id: "tuulilasineste", nimi: "Pesunesteen täyttö",     vali_kk: 3,  vali_km: null,  viimeksi: null, viimeksi_km: null, historia: [] }
+      ]
+    },
+    {
+      id: "ilmanvaihto",
+      nimi: "Ilmanvaihto",
+      kuvaus: "tulo- ja poistoilman suodattimet",
+      kmSeuranta: false,
+      tehtavat: [
+        { id: "suodattimet", nimi: "Suodattimien vaihto", vali_kk: 6, vali_km: null, viimeksi: null, viimeksi_km: null, historia: [] }
+      ]
+    },
+    {
+      id: "palovaroittimet",
+      nimi: "Palovaroittimet",
+      kuvaus: "",
+      kmSeuranta: false,
+      tehtavat: [
+        { id: "testaus",  nimi: "Testaus",          vali_kk: 3,  vali_km: null, viimeksi: null, viimeksi_km: null, historia: [] },
+        { id: "paristot", nimi: "Paristojen vaihto", vali_kk: 12, vali_km: null, viimeksi: null, viimeksi_km: null, historia: [] }
+      ]
+    },
+    {
+      id: "pyorat",
+      nimi: "Polkupyörät",
+      kuvaus: "koko perheen pyörät",
+      kmSeuranta: false,
+      tehtavat: [
+        { id: "kevathuolto", nimi: "Kevät­huolto (ketjut, jarrut, renkaat)", vali_kk: 12, vali_km: null, viimeksi: null, viimeksi_km: null, historia: [] }
+      ]
+    },
+    {
+      id: "keittio",
+      nimi: "Keittiön laitteet",
+      kuvaus: "APK, liesituuletin, pyykinpesukone",
+      kmSeuranta: false,
+      tehtavat: [
+        { id: "apk",    nimi: "Astianpesukoneen puhdistus",      vali_kk: 3, vali_km: null, viimeksi: null, viimeksi_km: null, historia: [] },
+        { id: "rasva",  nimi: "Liesituulettimen rasvasuodatin",  vali_kk: 3, vali_km: null, viimeksi: null, viimeksi_km: null, historia: [] },
+        { id: "pesukone", nimi: "Pyykinpesukoneen huoltopesu",   vali_kk: 3, vali_km: null, viimeksi: null, viimeksi_km: null, historia: [] }
+      ]
+    }
+  ]
+};
+
+function loadData() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const d = JSON.parse(raw);
+      if (d && Array.isArray(d.laitteet)) return d;
+    }
+  } catch {}
+  return JSON.parse(JSON.stringify(DEFAULT_DATA));
+}
+let data = loadData();
+
+function save() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch {}
+  showStatus("Tallennettu");
+}
+
+let statusTimer = null;
+function showStatus(msg) {
+  const el = document.getElementById("statusMsg");
+  el.textContent = msg;
+  clearTimeout(statusTimer);
+  statusTimer = setTimeout(() => { el.textContent = ""; }, 2500);
+}
+
+// ---------- päivämäärälogiikka ----------
+function todayIso() {
+  const d = new Date();
+  return d.toISOString().slice(0, 10);
+}
+function addMonths(iso, months) {
+  const [y, m, day] = iso.split("-").map(Number);
+  const d = new Date(y, m - 1 + months, day);
+  // Kuukauden ylivuoto (31.1. + 1 kk) → kuun viimeinen päivä
+  if (d.getDate() !== day) d.setDate(0);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+function daysUntil(iso) {
+  const now = new Date(); now.setHours(0, 0, 0, 0);
+  const [y, m, d] = iso.split("-").map(Number);
+  return Math.round((new Date(y, m - 1, d) - now) / 86400000);
+}
+function fmtDate(iso) {
+  if (!iso) return "—";
+  const [y, m, d] = iso.split("-").map(Number);
+  return `${d}.${m}.${y}`;
+}
+
+// Tehtävän tila: { status: "none"|"ok"|"soon"|"late", seuraava, paivia }
+function taskState(t) {
+  if (!t.viimeksi) return { status: "none", seuraava: null, paivia: null };
+  const seuraava = addMonths(t.viimeksi, t.vali_kk || 12);
+  const paivia = daysUntil(seuraava);
+  const status = paivia < 0 ? "late" : paivia <= SOON_DAYS ? "soon" : "ok";
+  return { status, seuraava, paivia };
+}
+function badgeFor(st) {
+  if (st.status === "none") return `<span class="badge none">ei kirjauksia</span>`;
+  if (st.status === "late") return `<span class="badge late">myöhässä ${Math.abs(st.paivia)} pv</span>`;
+  if (st.status === "soon") return st.paivia === 0
+    ? `<span class="badge soon">erääntyy tänään</span>`
+    : `<span class="badge soon">${st.paivia} pv jäljellä</span>`;
+  return `<span class="badge ok">ok</span>`;
+}
+
+function esc(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g,
+    c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[c]));
+}
+
+// ---------- erääntyvien yhteenveto ----------
+function renderDue() {
+  const ul = document.getElementById("dueList");
+  ul.innerHTML = "";
+  const rows = [];
+  for (const laite of data.laitteet) {
+    for (const t of laite.tehtavat) {
+      const st = taskState(t);
+      if (st.status === "late" || st.status === "soon") {
+        rows.push({ laite: laite.nimi, t, st });
+      }
+    }
+  }
+  rows.sort((a, b) => a.st.paivia - b.st.paivia);
+  // Avoimet viat listan kärkeen
+  const faults = [];
+  for (const laite of data.laitteet) {
+    for (const v of (laite.viat || [])) {
+      if (!v.korjattu) faults.push({ laite: laite.nimi, v });
+    }
+  }
+  if (!rows.length && !faults.length) {
+    ul.innerHTML = `<li class="ok-note">Ei korjattavaa eikä erääntyviä huoltoja seuraavaan ${SOON_DAYS} päivään. ✦</li>`;
+    return;
+  }
+  for (const f of faults) {
+    const li = document.createElement("li");
+    li.innerHTML = `<span class="badge late">korjattava</span> <strong>${esc(f.laite)}</strong> — ${esc(f.v.kuvaus)}
+      <span style="color:var(--muted)">(kirjattu ${fmtDate(f.v.kirjattu)})</span>`;
+    ul.appendChild(li);
+  }
+  for (const r of rows) {
+    const li = document.createElement("li");
+    li.innerHTML = `${badgeFor(r.st)} <strong>${esc(r.laite)}</strong> — ${esc(r.t.nimi)}
+      <span style="color:var(--muted)">(${fmtDate(r.st.seuraava)})</span>`;
+    ul.appendChild(li);
+  }
+}
+
+// ---------- laitekortit ----------
+function renderDevices() {
+  const grid = document.getElementById("deviceGrid");
+  grid.innerHTML = "";
+  for (const laite of data.laitteet) grid.appendChild(buildDeviceCard(laite));
+}
+
+function buildDeviceCard(laite) {
+  const card = document.createElement("div");
+  card.className = "device-card";
+
+  // Otsikko + kuvaus + poisto
+  const head = document.createElement("div");
+  head.className = "device-head";
+  const h3 = document.createElement("h3");
+  h3.textContent = laite.nimi;
+  h3.contentEditable = "true";
+  h3.addEventListener("blur", () => {
+    const v = h3.textContent.trim();
+    if (v) { laite.nimi = v; save(); renderDue(); }
+    else h3.textContent = laite.nimi;
+  });
+  const desc = document.createElement("span");
+  desc.className = "desc";
+  desc.contentEditable = "true";
+  desc.textContent = laite.kuvaus || "";
+  desc.addEventListener("blur", () => { laite.kuvaus = desc.textContent.trim(); save(); });
+  const delBtn = document.createElement("button");
+  delBtn.className = "icon-btn del-device";
+  delBtn.textContent = "Poista laite";
+  delBtn.addEventListener("click", () => {
+    if (!confirm(`Poistetaanko ${laite.nimi} ja koko sen huoltohistoria?`)) return;
+    data.laitteet = data.laitteet.filter(l => l !== laite);
+    save(); render();
+  });
+  head.append(h3, desc, delBtn);
+  card.append(head);
+
+  // Km-seuranta (autolle)
+  if (laite.kmSeuranta) {
+    const kmRow = document.createElement("div");
+    kmRow.className = "km-row";
+    const kmInput = document.createElement("input");
+    kmInput.type = "number";
+    kmInput.value = laite.km ?? "";
+    kmInput.placeholder = "—";
+    kmInput.addEventListener("change", () => {
+      const v = Number(kmInput.value);
+      laite.km = isNaN(v) || kmInput.value === "" ? null : v;
+      save(); renderDevices(); renderDue();
+    });
+    kmRow.append("Mittarilukema: ", kmInput, " km");
+    card.append(kmRow);
+  }
+
+  // Tietolohko (esim. auton rekisteri- ja rengastiedot)
+  if (Array.isArray(laite.info) && laite.info.length) {
+    const det = document.createElement("details");
+    det.className = "device-info";
+    const sum = document.createElement("summary");
+    sum.textContent = "Tiedot";
+    det.append(sum);
+    const it = document.createElement("table");
+    for (const row of laite.info) {
+      const tr = document.createElement("tr");
+      const td1 = document.createElement("td");
+      td1.textContent = row.label;
+      const td2 = document.createElement("td");
+      td2.textContent = row.value;
+      td2.contentEditable = "true";
+      td2.addEventListener("blur", () => { row.value = td2.textContent.trim(); save(); });
+      tr.append(td1, td2);
+      it.append(tr);
+    }
+    det.append(it);
+    card.append(det);
+  }
+
+  // Korjattavat viat
+  {
+    if (!Array.isArray(laite.viat)) laite.viat = [];
+    const open = laite.viat.filter(v => !v.korjattu);
+    const fixed = laite.viat.filter(v => v.korjattu);
+    const wrap = document.createElement("div");
+    wrap.className = "faults";
+    if (open.length || fixed.length) {
+      const h4 = document.createElement("h4");
+      h4.textContent = open.length ? `Korjattavat viat (${open.length})` : "Korjattavat viat";
+      wrap.append(h4);
+    }
+    const ul = document.createElement("ul");
+    const buildFaultLi = (v) => {
+      const li = document.createElement("li");
+      if (v.korjattu) li.className = "fixed";
+      const kuvaus = document.createElement("span");
+      kuvaus.className = "kuvaus";
+      kuvaus.contentEditable = "true";
+      kuvaus.textContent = v.kuvaus;
+      kuvaus.addEventListener("blur", () => {
+        const t = kuvaus.textContent.trim();
+        if (t) { v.kuvaus = t; save(); renderDue(); }
+        else kuvaus.textContent = v.kuvaus;
+      });
+      const pvm = document.createElement("span");
+      pvm.className = "pvm";
+      pvm.textContent = v.korjattu ? `korjattu ${fmtDate(v.korjattu)}` : fmtDate(v.kirjattu);
+      const fixBtn = document.createElement("button");
+      fixBtn.className = "icon-btn";
+      if (v.korjattu) {
+        fixBtn.textContent = "×";
+        fixBtn.title = "Poista merkintä";
+        fixBtn.addEventListener("click", () => {
+          laite.viat = laite.viat.filter(x => x !== v);
+          save(); render();
+        });
+      } else {
+        fixBtn.textContent = "✓ Korjattu";
+        fixBtn.addEventListener("click", () => {
+          v.korjattu = todayIso();
+          save(); render();
+          showStatus("Vika merkitty korjatuksi");
+        });
+      }
+      li.append(kuvaus, pvm, fixBtn);
+      return li;
+    };
+    for (const v of open) ul.append(buildFaultLi(v));
+    wrap.append(ul);
+    if (fixed.length) {
+      const showBtn = document.createElement("button");
+      showBtn.className = "icon-btn show-fixed-btn";
+      showBtn.textContent = `Näytä korjatut (${fixed.length})`;
+      const fixedUl = document.createElement("ul");
+      fixedUl.style.display = "none";
+      for (const v of fixed) fixedUl.append(buildFaultLi(v));
+      showBtn.addEventListener("click", () => {
+        const on = fixedUl.style.display === "none";
+        fixedUl.style.display = on ? "" : "none";
+        showBtn.textContent = on ? "Piilota korjatut" : `Näytä korjatut (${fixed.length})`;
+      });
+      wrap.append(showBtn, fixedUl);
+    }
+    // Lisäysrivi
+    const addRow = document.createElement("div");
+    addRow.className = "add-fault";
+    const input = document.createElement("input");
+    input.placeholder = "Kirjaa uusi vika…";
+    const addBtn = document.createElement("button");
+    addBtn.className = "icon-btn";
+    addBtn.textContent = "+ Vika";
+    const addFault = () => {
+      const t = input.value.trim();
+      if (!t) return;
+      laite.viat.push({ id: "v" + Date.now(), kuvaus: t, kirjattu: todayIso(), korjattu: null });
+      save(); render();
+    };
+    addBtn.addEventListener("click", addFault);
+    input.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); addFault(); } });
+    addRow.append(input, addBtn);
+    wrap.append(addRow);
+    card.append(wrap);
+  }
+
+  // Tehtävätaulukko
+  const table = document.createElement("table");
+  table.className = "tasks";
+  table.innerHTML = `<thead><tr>
+    <th>Huolto</th><th>Viimeksi</th><th>Seuraava</th><th></th>
+  </tr></thead>`;
+  const tbody = document.createElement("tbody");
+
+  for (const t of laite.tehtavat) {
+    const st = taskState(t);
+    const tr = document.createElement("tr");
+
+    const tdName = document.createElement("td");
+    tdName.className = "task-name";
+    const nameSpan = document.createElement("span");
+    nameSpan.contentEditable = "true";
+    nameSpan.textContent = t.nimi;
+    nameSpan.addEventListener("blur", () => {
+      const v = nameSpan.textContent.trim();
+      if (v) { t.nimi = v; save(); renderDue(); } else nameSpan.textContent = t.nimi;
+    });
+    tdName.append(nameSpan);
+    const meta = document.createElement("div");
+    meta.className = "dates";
+    let metaText = `${t.vali_kk} kk välein`;
+    if (t.vali_km) metaText += ` / ${t.vali_km.toLocaleString("fi-FI")} km`;
+    meta.textContent = metaText;
+    tdName.append(meta);
+
+    const tdLast = document.createElement("td");
+    tdLast.className = "nowrap dates";
+    tdLast.textContent = fmtDate(t.viimeksi);
+    if (t.viimeksi_km) tdLast.textContent += ` · ${t.viimeksi_km.toLocaleString("fi-FI")} km`;
+
+    const tdNext = document.createElement("td");
+    tdNext.className = "nowrap";
+    tdNext.innerHTML = (st.seuraava ? `<span class="dates">${fmtDate(st.seuraava)}</span><br>` : "") + badgeFor(st);
+
+    const tdAct = document.createElement("td");
+    const actions = document.createElement("div");
+    actions.className = "task-actions";
+    const doneBtn = document.createElement("button");
+    doneBtn.className = "icon-btn";
+    doneBtn.textContent = "✓ Tehty";
+    const histBtn = document.createElement("button");
+    histBtn.className = "icon-btn";
+    histBtn.textContent = `Historia (${t.historia.length})`;
+    histBtn.disabled = !t.historia.length;
+    if (!t.historia.length) histBtn.style.opacity = "0.45";
+    const delTask = document.createElement("button");
+    delTask.className = "icon-btn";
+    delTask.textContent = "×";
+    delTask.title = "Poista huoltokohde";
+    delTask.addEventListener("click", () => {
+      if (!confirm(`Poistetaanko "${t.nimi}"?`)) return;
+      laite.tehtavat = laite.tehtavat.filter(x => x !== t);
+      save(); render();
+    });
+    actions.append(doneBtn, histBtn, delTask);
+    tdAct.append(actions);
+
+    tr.append(tdName, tdLast, tdNext, tdAct);
+    tbody.append(tr);
+
+    // Kuittauslomake (piilossa kunnes Tehty-nappia painetaan)
+    const formTr = document.createElement("tr");
+    const formTd = document.createElement("td");
+    formTd.colSpan = 4;
+    formTr.style.display = "none";
+    const form = document.createElement("div");
+    form.className = "done-form";
+    form.innerHTML = `
+      <div><label>Päivämäärä</label><input type="date" class="f-pvm" value="${todayIso()}"></div>
+      ${laite.kmSeuranta ? `<div><label>Mittarilukema (km)</label><input type="number" class="f-km" value="${laite.km ?? ""}"></div>` : ""}
+      <div><label>Kustannus (€)</label><input type="number" step="0.01" class="f-eur"></div>
+      <div><label>Huomiot</label><input type="text" class="f-huom" placeholder="esim. huoltoliike, mitä tehtiin"></div>
+      <div class="form-buttons">
+        <button class="btn primary f-save" type="button">Tallenna</button>
+        <button class="btn f-cancel" type="button">Peru</button>
+      </div>`;
+    formTd.append(form);
+    formTr.append(formTd);
+    tbody.append(formTr);
+
+    doneBtn.addEventListener("click", () => {
+      formTr.style.display = formTr.style.display === "none" ? "" : "none";
+    });
+    form.querySelector(".f-cancel").addEventListener("click", () => { formTr.style.display = "none"; });
+    form.querySelector(".f-save").addEventListener("click", () => {
+      const pvm = form.querySelector(".f-pvm").value || todayIso();
+      const kmEl = form.querySelector(".f-km");
+      const km = kmEl && kmEl.value !== "" ? Number(kmEl.value) : null;
+      const eurEl = form.querySelector(".f-eur");
+      const eur = eurEl.value !== "" ? Number(eurEl.value) : null;
+      const huom = form.querySelector(".f-huom").value.trim() || null;
+      t.historia.unshift({ pvm, km, kustannus: eur, huom });
+      t.viimeksi = pvm;
+      t.viimeksi_km = km;
+      if (km != null && laite.kmSeuranta) laite.km = km;
+      save(); render();
+      showStatus(`${t.nimi} kuitattu`);
+    });
+
+    // Historia (piilossa)
+    if (t.historia.length) {
+      const histTr = document.createElement("tr");
+      const histTd = document.createElement("td");
+      histTd.colSpan = 4;
+      histTr.style.display = "none";
+      const ul = document.createElement("ul");
+      ul.className = "history";
+      for (const h of t.historia) {
+        const li = document.createElement("li");
+        let line = fmtDate(h.pvm);
+        if (h.km != null) line += ` · ${Number(h.km).toLocaleString("fi-FI")} km`;
+        li.textContent = line;
+        if (h.kustannus != null) {
+          const c = document.createElement("span");
+          c.className = "cost";
+          c.textContent = ` · ${Number(h.kustannus).toFixed(2).replace(".", ",")} €`;
+          li.append(c);
+        }
+        if (h.huom) li.append(` — ${h.huom}`);
+        ul.append(li);
+      }
+      histTd.append(ul);
+      histTr.append(histTd);
+      tbody.append(histTr);
+      histBtn.addEventListener("click", () => {
+        histTr.style.display = histTr.style.display === "none" ? "" : "none";
+      });
+    }
+  }
+  table.append(tbody);
+  card.append(table);
+
+  // Uusi huoltokohde
+  const addRow = document.createElement("div");
+  addRow.className = "add-task-row";
+  const nameIn = document.createElement("input");
+  nameIn.className = "name";
+  nameIn.placeholder = "Uusi huoltokohde…";
+  const monthsIn = document.createElement("input");
+  monthsIn.className = "months";
+  monthsIn.type = "number";
+  monthsIn.min = "1";
+  monthsIn.value = "12";
+  const unit = document.createElement("span");
+  unit.className = "unit";
+  unit.textContent = "kk välein";
+  const addBtn = document.createElement("button");
+  addBtn.className = "icon-btn";
+  addBtn.textContent = "+ Lisää";
+  const addTask = () => {
+    const v = nameIn.value.trim();
+    if (!v) return;
+    laite.tehtavat.push({
+      id: "t" + Date.now(),
+      nimi: v,
+      vali_kk: Math.max(1, Number(monthsIn.value) || 12),
+      vali_km: null, viimeksi: null, viimeksi_km: null, historia: []
+    });
+    save(); render();
+  };
+  addBtn.addEventListener("click", addTask);
+  nameIn.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); addTask(); } });
+  addRow.append(nameIn, monthsIn, unit, addBtn);
+  card.append(addRow);
+
+  return card;
+}
+
+function render() {
+  renderDue();
+  renderDevices();
+}
+
+// ---------- uusi laite ----------
+document.getElementById("addDeviceBtn").addEventListener("click", () => {
+  const input = document.getElementById("newDeviceName");
+  const v = input.value.trim();
+  if (!v) return;
+  data.laitteet.push({
+    id: "l" + Date.now(),
+    nimi: v, kuvaus: "", kmSeuranta: false, tehtavat: []
+  });
+  input.value = "";
+  save(); render();
+});
+
+// ---------- vie / tuo ----------
+document.getElementById("exportBtn").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `huoltokirja-${todayIso()}.json`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showStatus("Varmuuskopio ladattu");
+});
+document.getElementById("importBtn").addEventListener("click", () => {
+  document.getElementById("importFile").click();
+});
+document.getElementById("importFile").addEventListener("change", e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const d = JSON.parse(reader.result);
+      if (!d || !Array.isArray(d.laitteet)) throw new Error("rakenne");
+      if (!confirm("Korvataanko nykyiset huoltokirjan tiedot tuodulla varmuuskopiolla?")) return;
+      data = d;
+      save(); render();
+      showStatus("Tiedot tuotu");
+    } catch {
+      alert("Tiedoston lukeminen epäonnistui — tarkista että se on huoltokirjan vie-toiminnolla tehty JSON.");
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = "";
+});
+
+// ---------- teema (jaettu avain ruokalistasivun kanssa) ----------
+function applyTheme(theme) {
+  if (theme === "light") document.documentElement.setAttribute("data-theme", "light");
+  else document.documentElement.removeAttribute("data-theme");
+  const btn = document.getElementById("themeToggle");
+  btn.textContent = theme === "light" ? "◑ Tumma" : "◐ Vaalea";
+}
+document.getElementById("themeToggle").addEventListener("click", () => {
+  const next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+  try { localStorage.setItem(THEME_KEY, next); } catch {}
+  applyTheme(next);
+});
+try { applyTheme(localStorage.getItem(THEME_KEY) || "dark"); } catch { applyTheme("dark"); }
+
+render();
+</script>
+</body>
+</html>

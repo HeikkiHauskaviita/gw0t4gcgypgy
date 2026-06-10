@@ -1994,6 +1994,25 @@
   body.cashier-mode .shop-list input[type="checkbox"] { width: 24px; height: 24px; }
   body.cashier-mode .shop-card h3 { font-size: 15px; }
 
+  /* Huoltokirjan muistutus */
+  .maintenance-note {
+    display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap;
+    border: 1px solid var(--border);
+    background: var(--blood-soft);
+    padding: 10px 16px;
+    margin: 14px 0 0;
+    font-size: 15px;
+  }
+  .maintenance-note .gear { color: var(--gold-dim); }
+  .maintenance-note a {
+    margin-left: auto;
+    color: var(--gold);
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none;
+  }
+  .maintenance-note a:hover { color: var(--gold-bright); }
+
   /* 11) Mobiili: älä palaa pikkukokoon, riittävät kosketusalueet */
   @media (max-width: 720px) {
     nav.site-nav a { font-size: 11px; }
@@ -2024,6 +2043,7 @@
   <a href="index.html" class="current" aria-current="page">Ruokalista</a>
   <a href="tapahtumat.html">Tapahtumat</a>
   <a href="siivous.html">Siivous</a>
+  <a href="huolto.html">Huolto</a>
 </nav>
 
 <header>
@@ -2078,6 +2098,13 @@
   <div class="foot">
     <a href="siivous.html">Avaa siivoussivu →</a>
   </div>
+</aside>
+
+<!-- Huoltokirjan muistutus: näkyy vain jos huoltoja erääntyy 30 pv sisällä -->
+<aside class="maintenance-note" id="maintenanceNote" style="display:none" aria-label="Erääntyvät huollot">
+  <span class="gear">⚙</span>
+  <span id="maintenanceText"></span>
+  <a href="huolto.html">Avaa huoltokirja →</a>
 </aside>
 
 <!-- ========== PÄIVÄLLISET (mobiilinäkymä) ========== -->
@@ -5310,6 +5337,46 @@ function resetAll() {
 }
 
 // ---------- teema ----------
+// ---------- Huoltokirjan muistutus (lukee huolto.html:n tallentamat tiedot) ----------
+(function maintenanceReminder() {
+  const el = document.getElementById("maintenanceNote");
+  const textEl = document.getElementById("maintenanceText");
+  if (!el || !textEl) return;
+  let d = null;
+  try { d = JSON.parse(localStorage.getItem("perheen-huoltokirja-v1") || "null"); } catch {}
+  if (!d || !Array.isArray(d.laitteet)) return;
+  const addMonths = (iso, months) => {
+    const [y, m, day] = iso.split("-").map(Number);
+    const dt = new Date(y, m - 1 + months, day);
+    if (dt.getDate() !== day) dt.setDate(0);
+    return dt;
+  };
+  const now = new Date(); now.setHours(0, 0, 0, 0);
+  let late = 0, soon = 0, viat = 0;
+  const names = [];
+  for (const laite of d.laitteet) {
+    for (const v of (laite.viat || [])) {
+      if (!v.korjattu) { viat++; }
+    }
+    for (const t of (laite.tehtavat || [])) {
+      if (!t.viimeksi) continue;
+      const next = addMonths(t.viimeksi, t.vali_kk || 12);
+      const days = Math.round((next - now) / 86400000);
+      if (days < 0) { late++; names.push(`${laite.nimi}: ${t.nimi}`); }
+      else if (days <= 30) { soon++; names.push(`${laite.nimi}: ${t.nimi}`); }
+    }
+  }
+  if (!late && !soon && !viat) return;
+  const parts = [];
+  if (viat) parts.push(`${viat} korjattavaa vikaa`);
+  if (late) parts.push(late === 1 ? "1 huolto myöhässä" : `${late} huoltoa myöhässä`);
+  if (soon) parts.push(soon === 1 ? "1 huolto erääntymässä" : `${soon} huoltoa erääntymässä`);
+  let text = parts.join(", ");
+  if (names.length) text += `: ${names.slice(0, 2).join(" · ")}${names.length > 2 ? " …" : ""}`;
+  textEl.textContent = text;
+  el.style.display = "";
+})();
+
 const THEME_KEY = "ruokalista-theme";
 function applyTheme(theme) {
   if (theme === "light") {
