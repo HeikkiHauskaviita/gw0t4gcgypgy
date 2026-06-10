@@ -20,12 +20,21 @@
     "2026-05-29": "soija-bolognese",
     "2026-05-31": "kasvispyorykat",
     "2026-06-01": "saag-paneer",
-    "2026-06-02": "tomaattipasta",
     "2026-06-03": "kasvis-pyttipannu",
-    "2026-06-04": "linssidaal",
     "2026-06-05": "tofu-stir-fry",
     "2026-06-06": "kotipizza",
-    "2026-06-07": "bataatti-kookoskeitto"
+    "2026-06-10": "bataatti-kookoskeitto",
+    "2026-06-11": "pakastepizza",
+    "2026-06-12": "uunimakaroni",
+    "2026-06-13": "shakshuka",
+    "2026-06-14": "kasvislasagne",
+    "2026-06-15": "linssidaal",
+    "2026-06-16": "tomaattipasta",
+    "2026-06-17": "kasvis-kvesadillat",
+    "2026-06-18": "kasvistagine",
+    "2026-06-19": "juhannusgrilli",
+    "2026-06-20": "grillijatkot",
+    "2026-06-21": "uunijuurekset-feta"
   },
   "kesaloma": {
     "alku": "2026-06-01",
@@ -3619,6 +3628,270 @@
         "KASVISVERSIO 6v:lle: täsmälleen sama kulho ilman gochujang-kastiketta — kasvikset on jo maustettu soijalla/suolalla. Aikuiset lisäävät gochujangin itse."
       ],
       "huom": "Täysin vege ja sopii 6v:lle (munat ok). Gochujang on tulista — pidä se erikseen pöydällä, lapsille riittää soija + seesamiöljy. Kasvikset voi valmistaa yhdellä isolla pannulla peräkkäin.",
+      "last_cooked": null,
+      "palaute": []
+    },
+    {
+      "id": "pakastepizza",
+      "nimi": "Pakastepizza + salaatti",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "helppo",
+        "mökki",
+        "lapset-ok",
+        "nopea"
+      ],
+      "max_minuutit": 20,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Pakastepizza",
+          "maara": 3,
+          "yksikko": "kpl",
+          "huom": "vähintään 1 kasvispizza 6v:lle"
+        },
+        {
+          "nimi": "Jäävuorisalaatti",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kurkku",
+          "maara": 0.5,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Tomaatti",
+          "maara": 2,
+          "yksikko": "kpl"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Lämmitä uuni pizzapakkauksen ohjeen mukaan (yleensä 200–225 °C).",
+        "Paista pizzat ohjeen mukaan, n. 10–15 min.",
+        "Revi salaatti, viipaloi kurkku ja tomaatti lisukkeeksi."
+      ],
+      "huom": "Mökkiruoka — toimii missä tahansa uunissa tai grillissä kannen alla. Tarkista että yksi pizzoista on kasvis (6v).",
+      "last_cooked": null,
+      "palaute": []
+    },
+    {
+      "id": "juhannusgrilli",
+      "nimi": "Juhannusgrilli (lohi, vartaat, uudet perunat)",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "juhla",
+        "grilli",
+        "kala",
+        "viikonloppu"
+      ],
+      "max_minuutit": 60,
+      "vaikeustaso": "keskitaso",
+      "ainekset": [
+        {
+          "nimi": "Lohifilee",
+          "maara": 600,
+          "yksikko": "g",
+          "huom": "grilliin foliossa tai laudalla"
+        },
+        {
+          "nimi": "Halloumi",
+          "maara": 2,
+          "yksikko": "pkt",
+          "huom": "vartaisiin, 6v:n pääruoka"
+        },
+        {
+          "nimi": "Kesäkurpitsa",
+          "maara": 1,
+          "yksikko": "kpl",
+          "huom": "vartaisiin"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 2,
+          "yksikko": "kpl",
+          "huom": "vartaisiin"
+        },
+        {
+          "nimi": "Punasipuli",
+          "maara": 2,
+          "yksikko": "kpl",
+          "huom": "vartaisiin"
+        },
+        {
+          "nimi": "Herkkusieni",
+          "maara": 250,
+          "yksikko": "g",
+          "huom": "vartaisiin"
+        },
+        {
+          "nimi": "Grillimakkara",
+          "maara": 1,
+          "yksikko": "pkt"
+        },
+        {
+          "nimi": "Uudet perunat",
+          "maara": 1,
+          "yksikko": "kg"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 50,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Tilli, tuore",
+          "maara": 1,
+          "yksikko": "kpl",
+          "huom": "ruukku tai nippu"
+        },
+        {
+          "nimi": "Sitruuna",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola, mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Jäävuorisalaatti",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaytto": "kesäsalaatti"
+        },
+        {
+          "nimi": "Kurkku",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaytto": "kesäsalaatti"
+        },
+        {
+          "nimi": "Tomaatti",
+          "maara": 3,
+          "yksikko": "kpl",
+          "kaytto": "kesäsalaatti"
+        }
+      ],
+      "ohje": [
+        "Keitä uudet perunat suolavedessä, lisää lopuksi voi ja silputtu tilli.",
+        "Kuutioi halloumi ja kasvikset, pujota vartaisiin. Sivele öljyllä, mausta.",
+        "Mausta lohi suolalla, pippurilla ja sitruunalla. Grillaa foliossa tai laudalla n. 15 min.",
+        "Grillaa vartaat ja makkarat kypsiksi, käännellen.",
+        "Kokoa kesäsalaatti. Tarjoile kaikki yhdessä — sitruunalohkot lohelle.",
+        "KASVISVERSIO 6v:lle: halloumi-kasvisvartaat + perunat ovat täysi ateria."
+      ],
+      "huom": "Juhannusaaton juhlaruoka. Tee vartaita reilusti — loput käytetään seuraavan päivän grillijatkoissa.",
+      "last_cooked": null,
+      "palaute": []
+    },
+    {
+      "id": "grillijatkot",
+      "nimi": "Grillijatkot (maissit, perunasalaatti, letut)",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "juhla",
+        "grilli",
+        "helppo",
+        "viikonloppu"
+      ],
+      "max_minuutit": 45,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Maissintähkä",
+          "maara": 5,
+          "yksikko": "kpl",
+          "huom": "grilliin, voilla"
+        },
+        {
+          "nimi": "Kiinteä peruna",
+          "maara": 1,
+          "yksikko": "kg",
+          "huom": "perunasalaattiin"
+        },
+        {
+          "nimi": "Kermaviili",
+          "maara": 2,
+          "yksikko": "prk"
+        },
+        {
+          "nimi": "Majoneesi",
+          "maara": 1,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Suolakurkku",
+          "maara": 4,
+          "yksikko": "kpl",
+          "huom": "perunasalaattiin"
+        },
+        {
+          "nimi": "Ruohosipuli",
+          "maara": 1,
+          "yksikko": "kpl",
+          "huom": "ruukku"
+        },
+        {
+          "nimi": "Vehnäjauho",
+          "maara": 3,
+          "yksikko": "dl",
+          "huom": "lettuihin"
+        },
+        {
+          "nimi": "Täysmaito",
+          "maara": 6,
+          "yksikko": "dl",
+          "huom": "lettuihin"
+        },
+        {
+          "nimi": "Kananmuna",
+          "maara": 3,
+          "yksikko": "kpl",
+          "huom": "lettuihin"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 100,
+          "yksikko": "g",
+          "huom": "maisseille ja paistamiseen"
+        },
+        {
+          "nimi": "Mansikka",
+          "maara": 500,
+          "yksikko": "g",
+          "huom": "lettujen kanssa"
+        },
+        {
+          "nimi": "Suola, sokeri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Keitä perunat edellisenä iltana tai aamulla. Kuutioi, sekoita kermaviili, majoneesi, kuutioidut suolakurkut ja ruohosipuli. Anna maustua jääkaapissa.",
+        "Grillaa maissintähkät voilla sivellen, käännellen n. 10–15 min.",
+        "Lämmitä edellispäivän vartaat ja makkarat grillissä.",
+        "Sekoita lettutaikina (jauhot, maito, munat, ripaus suolaa), anna turvota 30 min.",
+        "Paista letut voissa — jälkiruoaksi mansikoiden ja sokerin kera."
+      ],
+      "huom": "Juhannuspäivän rento jatkopäivä — hyödyntää aaton grillitähteet. Letut voi paistaa myös muurikalla.",
       "last_cooked": null,
       "palaute": []
     }
