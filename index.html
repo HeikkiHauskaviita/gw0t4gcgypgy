@@ -661,24 +661,23 @@
   }
   /* Kategorian opetus -valitsin */
   .shop-list .cat-select {
-    width: 22px;
-    max-width: 22px;
+    width: 26px;
+    max-width: 26px;
     padding: 2px 0;
-    font-size: 11px;
-    color: var(--muted);
+    font-size: 13px;
+    color: transparent;            /* collapsed: vain nuoli näkyy */
     background: rgba(10, 6, 18, 0.45);
     border: 1px solid var(--border);
     border-radius: 1px;
     flex-shrink: 0;
     cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
+    appearance: auto;              /* natiivi pudotusnuoli kertoo toiminnon */
     text-align: center;
     text-align-last: center;
   }
   .shop-list .cat-select:hover, .shop-list .cat-select:focus {
     width: auto;
-    max-width: 180px;
+    max-width: 200px;
     color: var(--ink);
     border-color: var(--gold);
     outline: none;
@@ -1885,6 +1884,128 @@
     border-bottom-color: #9866d6;
   }
   body.cashier-mode .cleaning-widget { display: none !important; }
+
+  /* ============================================================
+     LUETTAVUUSPARANNUKSET (10.6.2026)
+     Tunnelma säilyy (fontit, värimaailma, ornamentit), mutta:
+     suuremmat tekstikoot, paremmat kontrastit, kevyempi harvennus,
+     vähemmän kursiivia pienissä koossa, väljempi ostoslistarivi.
+     Tämä kerros ohittaa aiemmat säännöt (sama spesifisyys, myöhempi).
+     ============================================================ */
+
+  /* 1) Kontrasti: vaimeat sävyt kirkkaammiksi tummassa teemassa */
+  :root {
+    --muted: #9d8a63;
+    --gold-dim: #a8894a;
+    --ink-dim: #c6b794;
+  }
+  /* ...ja tummemmiksi vaaleassa teemassa (pergamentti) */
+  :root[data-theme="light"] {
+    --muted: #6b5a38;
+    --gold-dim: #7d6428;
+    --ink-dim: #4a3a1e;
+  }
+
+  /* 2) Navigaatio, välilehdet ja napit: isompi teksti, maltillinen harvennus */
+  nav.site-nav a { font-size: 12px; letter-spacing: 0.14em; }
+  .tab { font-size: 13px; letter-spacing: 0.12em; }
+  .subtab { font-size: 12px; letter-spacing: 0.1em; padding: 8px 13px; }
+  .btn { font-size: 12px; letter-spacing: 0.1em; }
+  .status { font-size: 14px; }
+  section h2 { font-size: 15px; letter-spacing: 0.16em; }
+
+  /* 3) Tämän päivän kortit */
+  .today-entry .label { font-size: 11.5px; letter-spacing: 0.16em; }
+  .today-entry .dish { font-size: 21px; }
+  .today-entry .detail { font-size: 15px; font-style: normal; }
+  .today-entry .recipe-btn-top { font-size: 10.5px; padding: 3px 10px; }
+
+  /* 4) Viikkotaulukot ja päivälliskoonti */
+  .dinner-list .day { font-size: 13px; }
+  .dinner-list .dish strong { font-size: 18px; }
+  .dinner-list .dish .detail { font-size: 15px; font-style: normal; }
+  .cell strong { font-size: 16px; }
+  .cell span.detail { font-size: 14px; }
+  p.meta { font-size: 14px; }
+
+  /* Menneet päivät: himmeämmin mutta yhä luettavasti */
+  table.schedule thead th.is-past { opacity: 0.62; }
+  table.schedule tbody td.is-past { opacity: 0.68; }
+  .dinner-list li.past { opacity: 0.72; }
+  .day-card.is-past { opacity: 0.72; }
+
+  /* 5) Vihjeet ja aputekstit: isommiksi, pois kursiivista */
+  .hint, .shop-actions-hint, .staples-hint { font-size: 14px; font-style: normal; }
+
+  /* 6) Ostoslista: rivit gridiin, isompi teksti ja rastitusalue */
+  .shop-card h3 { font-size: 14px; letter-spacing: 0.14em; }
+  .shop-card h3 .cat-subtotal { font-size: 12px; }
+  .shop-list li {
+    display: grid;
+    grid-template-columns: 22px minmax(0, 1fr) 54px 10px 18px auto 22px;
+    gap: 2px 6px;
+    align-items: center;
+    font-size: 17px;
+    padding: 9px 0;
+  }
+  .shop-list li > :only-child { grid-column: 1 / -1; }
+  .shop-list li .source { grid-column: 2 / -1; font-size: 13px; font-style: normal; margin: 0; }
+  .shop-list .item { line-height: 1.4; }
+  .shop-list input[type="checkbox"] {
+    width: 19px; height: 19px;
+    accent-color: var(--gold);
+  }
+  .shop-list .price-input { width: 54px; font-size: 14px; padding: 3px 4px; }
+
+  /* Vaalea teema: poista kovakoodatut tummat taustat kentistä */
+  :root[data-theme="light"] .shop-list .price-input,
+  :root[data-theme="light"] .shop-list .cat-select,
+  :root[data-theme="light"] .skaupat-link,
+  :root[data-theme="light"] .add-row input,
+  :root[data-theme="light"] .today-entry .recipe-btn-top {
+    background: rgba(255, 250, 235, 0.55);
+  }
+  :root[data-theme="light"] .shop-list .price-input:focus {
+    background: rgba(255, 250, 235, 0.9);
+    color: var(--gold);
+  }
+  .shop-list .price-unit { font-size: 12px; margin-left: -2px; }
+  .shop-list .cat-select { font-size: 13px; }
+  .shop-list .cat-select option { background: var(--surface); color: var(--ink); }
+  .staples-card .shop-list li { grid-template-columns: minmax(0, 1fr) auto 28px; }
+  .add-row input { font-size: 15px; }
+  .add-row button { font-size: 12px; }
+  .inv-badge { font-size: 14px; }
+
+  /* 7) Budjettiyhteenveto */
+  .budget-summary .breakdown { font-size: 14px; }
+  .week-budget-grid .week-budget { font-size: 13px; }
+
+  /* 8) Epigrafit: säilytetään, mutta tiiviimmin */
+  .epigraph { margin-top: 8px; margin-bottom: 12px; }
+  .epigraph .attribution { font-size: 11px; }
+
+  /* 9) Reseptimodal */
+  .modal { font-size: 17px; }
+  .modal .meta { font-size: 11px; }
+
+  /* 10) Kassakäyntimoodi: kauppaolosuhteet — vielä isompi */
+  body.cashier-mode .shop-list li { font-size: 19px; padding: 12px 0; }
+  body.cashier-mode .shop-list input[type="checkbox"] { width: 24px; height: 24px; }
+  body.cashier-mode .shop-card h3 { font-size: 15px; }
+
+  /* 11) Mobiili: älä palaa pikkukokoon, riittävät kosketusalueet */
+  @media (max-width: 720px) {
+    nav.site-nav a { font-size: 11px; }
+    .subtab { font-size: 11.5px; padding: 8px 11px; }
+    .cell strong { font-size: 14px; }
+    .cell span.detail { font-size: 13.5px; }
+    .today-entry .dish { font-size: 19px; }
+    .today-entry .detail { font-size: 14px; }
+    .shop-list li { font-size: 16px; }
+    .shop-list input[type="checkbox"] { width: 22px; height: 22px; }
+  }
+
 </style>
 <script>
   // Aseta teema-attribuutti SYNCRONOISESTI ennen DOM-renderöintiä jotta
