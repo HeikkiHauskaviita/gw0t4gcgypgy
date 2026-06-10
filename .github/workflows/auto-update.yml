@@ -47,6 +47,9 @@ jobs:
           print(f"✓ {len(paivalliset)} päivällisreseptiä löytyi")
           PY
 
+      - name: Install dependencies (openpyxl inventaario-injektioon)
+        run: pip install openpyxl
+
       - name: Run update_in_place.py
         run: python3 update_in_place.py
 

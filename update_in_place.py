@@ -28,6 +28,7 @@ INDEX_PATH = SCRIPT_DIR / "index.html"
 TAPAHTUMAT_PATH = SCRIPT_DIR / "tapahtumat.html"
 RESEPTIT_PATH = SCRIPT_DIR / "reseptit.json"
 HISTORIA_PATH = SCRIPT_DIR / "historia.json"
+INVENTAARIO_PATH = SCRIPT_DIR / "inventaario" / "kuiva-aineiden_ja_pakasteiden_inventaario.xlsx"
 
 
 def main():
@@ -45,6 +46,9 @@ def main():
         if HISTORIA_PATH.exists():
             html = J.injektoi_tilaushistoria(html, HISTORIA_PATH)
             print(f"✓ Tilaushistoria upotettu: {HISTORIA_PATH.name}")
+        if INVENTAARIO_PATH.exists():
+            html = J.injektoi_inventaario(html, INVENTAARIO_PATH)
+            print(f"✓ Inventaario upotettu: {INVENTAARIO_PATH.name}")
         valikko = J.hae_paivakodin_valikko(paivia=14)
         if valikko:
             html = J.injektoi_paivakoti(html, valikko)

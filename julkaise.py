@@ -278,6 +278,59 @@ def injektoi_tilaushistoria(html: str, historia_path: Path) -> str:
     return re.sub(pattern, lambda m: m.group(1) + payload + m.group(3), html, count=1)
 
 
+def injektoi_inventaario(html: str, inv_path: Path) -> str:
+    """Upottaa kuiva-aine- ja pakastininventaarion <script id="inventaario">-lohkoon.
+
+    Sivuston ostoslista näyttää 🏠/❄-merkin riveille, joiden tuotetta on jo
+    kaapissa tai pakastimessa (inventoryMatchFor JS-funktiossa). Vaatii
+    openpyxl:n; jos se puuttuu, jätetään olemassa oleva lohko ennalleen.
+    """
+    if not inv_path.exists():
+        return html
+    try:
+        import openpyxl  # type: ignore
+    except ImportError:
+        return html
+    try:
+        wb = openpyxl.load_workbook(inv_path, data_only=True)
+    except Exception:
+        return html
+    items = []
+    if "Inventaario" in wb.sheetnames:
+        for row in wb["Inventaario"].iter_rows(min_row=2, values_only=True):
+            if not row or not row[1]:
+                continue
+            r = (list(row) + [None] * 9)[:9]
+            kat, tuote, merkki, _pkoko, _pkpl, _tila, jaljella, _pe, huom = r
+            items.append({
+                "varasto": "kuiva", "kategoria": kat, "tuote": str(tuote),
+                "merkki": merkki,
+                "jaljella_g": jaljella if isinstance(jaljella, (int, float)) else None,
+                "huom": huom,
+            })
+    if "Pakastin" in wb.sheetnames:
+        for row in wb["Pakastin"].iter_rows(min_row=2, values_only=True):
+            if not row or not row[1]:
+                continue
+            r = (list(row) + [None] * 8)[:8]
+            kat, tuote, merkki, maara, yks, _pvm, _pe, huom = r
+            g = maara if (isinstance(maara, (int, float)) and str(yks).lower() == "g") else None
+            items.append({
+                "varasto": "pakastin", "kategoria": kat, "tuote": str(tuote),
+                "merkki": merkki, "jaljella_g": g, "huom": huom,
+            })
+    payload_obj = {
+        "paivitetty": date.today().isoformat(),
+        "lahde": str(inv_path.name),
+        "tuotteet": items,
+    }
+    payload = json.dumps(payload_obj, ensure_ascii=False, separators=(",", ":"))
+    pattern = r'(<script\s+type=["\']application/json["\']\s+id=["\']inventaario["\']\s*>)([\s\S]*?)(</script>)'
+    if not re.search(pattern, html):
+        return html
+    return re.sub(pattern, lambda m: m.group(1) + payload + m.group(3), html, count=1)
+
+
 def _slugify_name(name: str) -> str:
     """Tampere-sivuston URL-slug: pienet kirjaimet, ääkköset, välilyönnit viivoiksi."""
     if not name:
