@@ -21,7 +21,7 @@
   "use strict";
 
   var OWNER = "HeikkiHauskaviita";
-  var REPO = "perheen-ruokalista";
+  var REPO = "gw0t4gcgypgy";
   var BRANCH = "data";
   var API = "https://api.github.com/repos/" + OWNER + "/" + REPO;
   var TOKEN_KEY = "perhe-sync-token";
