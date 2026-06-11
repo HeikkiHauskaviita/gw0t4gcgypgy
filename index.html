@@ -1599,6 +1599,41 @@
     .dinner-list .dish .detail { font-size: 14px; }
   }
 
+  /* ========== Kompakti asettelu kannettaville (1025–1520 px) ==========
+     Tyypillinen läppäri (1366/1440/1536 px, varsinkin Windowsin 125–150 %
+     skaalauksella) putoaa tähän väliin: täysi 7 päivän taulukko näytetään,
+     mutta ylätunniste ja taulukko tiivistetään, jotta sisällölle jää tilaa.
+     Tämän lohkon on oltava "Desktopin luettavuus" -lohkon JÄLKEEN,
+     jotta se yliajaa sen arvot tällä leveysvälillä. */
+  @media (min-width: 1025px) and (max-width: 1520px) {
+    nav.site-nav { padding: 6px 20px; gap: 20px; position: static; }
+    nav.site-nav a { font-size: 11px; }
+    header { padding: 10px 20px 8px; top: 0; }
+    header h1 { font-size: 17px; letter-spacing: 0.14em; margin-bottom: 8px; }
+    header h1 .sigil { font-size: 14px; margin: 0 10px; }
+    header::after { display: none; }
+    .tab, .btn { padding: 6px 12px; font-size: 10px; letter-spacing: 0.16em; }
+    .status { min-width: 0; font-size: 12px; }
+    body { font-size: 17px; }
+    main { padding: 20px 20px 70px; }
+    table.schedule th, table.schedule td { padding: 10px 11px; font-size: 14px; }
+    table.schedule thead th { font-size: 12px; padding: 12px 10px; }
+    table.schedule thead th .glyph { font-size: 18px; }
+    table.schedule tbody th { font-size: 11px; width: 120px; }
+    table.schedule tbody th .glyph { font-size: 18px; }
+    .cell { font-size: 15px; min-height: 64px; padding: 8px 10px; margin: -8px -10px; }
+    .cell strong { font-size: 12.5px; margin-bottom: 5px; }
+    .cell span.detail { font-size: 14px; }
+    .today-block { margin-bottom: 18px; padding-bottom: 16px; }
+    .today-entry .dish { font-size: 18px; }
+  }
+
+  /* Matalat näytöt: ylätunniste ei jää kiinni ruudun yläreunaan,
+     jolloin vieritettäessä koko korkeus vapautuu sisällölle. */
+  @media (max-height: 820px) and (min-width: 1025px) {
+    header { position: static; }
+  }
+
   .modal-backdrop {
     position: fixed; inset: 0;
     background: rgba(4, 2, 10, 0.82);
@@ -2045,6 +2080,7 @@
   <a href="tapahtumat.html">Tapahtumat</a>
   <a href="siivous.html">Siivous</a>
   <a href="huolto.html">Huolto</a>
+  <a href="talous.html">Talous</a>
 </nav>
 
 <header>
