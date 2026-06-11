@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="julkaistu" content="2026-06-11">
+<meta name="robots" content="noindex, nofollow">
+<title>Kodin remontit — Pirttikatu 7</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<script src="sync.js"></script>
+<style>
+:root {
+  /* Tumma teema (sama kuin ruokalistasivulla) */
+  --bg: #0a0612;
+  --bg-2: #140a22;
+  --surface: #1a102a;
+  --surface-2: #22143a;
+  --ink: #ede4cc;
+  --ink-dim: #c6b794;
+  --muted: #9d8a63;
+  --gold: #d4a94a;
+  --gold-bright: #f0c76a;
+  --gold-dim: #a8894a;
+  --blood: #8b1e2b;
+  --blood-soft: rgba(139, 30, 43, 0.18);
+  --green: #5a8a4a;
+  --green-soft: rgba(90, 138, 74, 0.18);
+  --purple: #4a2b6e;
+  --purple-soft: rgba(74, 43, 110, 0.22);
+  --border: rgba(212, 169, 74, 0.22);
+  --border-strong: rgba(212, 169, 74, 0.5);
+  --shadow: 0 2px 10px rgba(0,0,0,0.6), 0 0 30px rgba(74, 43, 110, 0.18);
+  --bg-glow-1: rgba(74, 43, 110, 0.4);
+  --bg-glow-2: rgba(139, 30, 43, 0.28);
+  --bg-glow-3: rgba(26, 16, 42, 0.4);
+  --nav-bg: linear-gradient(180deg, rgba(10,6,18,0.98), rgba(20,10,34,0.95));
+  --on-button: #1a0f00;
+}
+:root[data-theme="light"] {
+  --bg: #efe4c4;
+  --bg-2: #e3d6b2;
+  --surface: #f5ebd0;
+  --surface-2: #e8dcb8;
+  --ink: #2a1f10;
+  --ink-dim: #4a3a1e;
+  --muted: #6b5a38;
+  --gold: #8d6b00;
+  --gold-bright: #b8901c;
+  --gold-dim: #7d6428;
+  --blood: #6b1820;
+  --blood-soft: rgba(107, 24, 32, 0.12);
+  --green: #3f6b32;
+  --green-soft: rgba(63, 107, 50, 0.15);
+  --purple: #4a2b6e;
+  --purple-soft: rgba(74, 43, 110, 0.10);
+  --border: rgba(141, 107, 0, 0.30);
+  --border-strong: rgba(141, 107, 0, 0.55);
+  --shadow: 0 2px 10px rgba(90, 70, 20, 0.12), 0 0 30px rgba(141, 107, 0, 0.08);
+  --bg-glow-1: rgba(200, 180, 120, 0.35);
+  --bg-glow-2: rgba(180, 150, 90, 0.22);
+  --bg-glow-3: rgba(235, 222, 185, 0.5);
+  --nav-bg: linear-gradient(180deg, rgba(245,235,208,0.97), rgba(239,228,196,0.95));
+  --on-button: #fff8e8;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background:
+    radial-gradient(ellipse at 20% -10%, var(--bg-glow-1), transparent 50%),
+    radial-gradient(ellipse at 90% 15%, var(--bg-glow-2), transparent 45%),
+    radial-gradient(ellipse at 50% 110%, var(--bg-glow-3), transparent 60%),
+    var(--bg);
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+nav.site-nav {
+  display: flex; justify-content: center; gap: 26px; flex-wrap: wrap;
+  padding: 10px 16px;
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--border);
+}
+nav.site-nav a {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-dim); text-decoration: none;
+  padding: 4px 8px; border-bottom: 1px solid transparent;
+}
+nav.site-nav a:hover { color: var(--gold-bright); }
+nav.site-nav a.current { color: var(--gold); border-bottom-color: var(--gold); }
+header {
+  text-align: center;
+  padding: 26px 16px 18px;
+  border-bottom: 1px solid var(--border);
+}
+header h1 {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 24px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold);
+  margin: 0;
+  text-shadow: 0 0 20px rgba(212, 169, 74, 0.3);
+}
+header h1 .sigil { color: var(--gold-dim); font-size: 14px; margin: 0 12px; vertical-align: middle; }
+header .subtitle {
+  font-style: italic; color: var(--muted); font-size: 15px; margin-top: 6px;
+}
+main { max-width: 1160px; margin: 0 auto; padding: 20px 16px 60px; }
+
+.toolbar {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  justify-content: center;
+  margin: 6px 0 18px;
+}
+.btn {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+  background: transparent; color: var(--gold-dim);
+  border: 1px solid var(--border);
+  padding: 7px 14px; cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+.btn:hover { color: var(--gold-bright); border-color: var(--gold); box-shadow: 0 0 10px rgba(212,169,74,0.3); }
+.btn.primary { background: var(--gold); color: var(--on-button); border-color: var(--gold); }
+.btn.primary:hover { background: var(--gold-bright); color: var(--on-button); }
+.btn.small { font-size: 10.5px; padding: 4px 10px; }
+.btn.danger { color: #c85a5a; border-color: rgba(200,90,90,0.45); }
+.btn.danger:hover { color: #e08a8a; border-color: rgba(200,90,90,0.8); box-shadow: 0 0 10px rgba(200,90,90,0.25); }
+.status-msg {
+  font-style: italic; font-size: 14px; color: var(--muted);
+  min-width: 140px; text-align: center;
+}
+
+input, select {
+  font-family: inherit; font-size: 15px;
+  background: rgba(0,0,0,0.25); color: var(--ink);
+  border: 1px solid var(--border); padding: 3px 7px;
+}
+:root[data-theme="light"] input, :root[data-theme="light"] select { background: rgba(255,250,235,0.6); }
+input[type="date"] { color-scheme: dark; }
+:root[data-theme="light"] input[type="date"] { color-scheme: light; }
+input.num { width: 95px; text-align: right; }
+input:focus { outline: none; border-color: var(--gold); }
+
+.badge {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 2px 8px; border: 1px solid;
+  white-space: nowrap;
+}
+.badge.late { color: #e08a8a; border-color: rgba(200,90,90,0.6); background: var(--blood-soft); }
+.badge.soon { color: var(--gold-bright); border-color: var(--border-strong); background: rgba(212,169,74,0.10); }
+.badge.ok   { color: #9dc28a; border-color: rgba(90,138,74,0.55); background: var(--green-soft); }
+.badge.none { color: var(--muted); border-color: var(--border); }
+:root[data-theme="light"] .badge.late { color: #8b1e2b; }
+:root[data-theme="light"] .badge.ok { color: #3f6b32; }
+
+/* Yhteenveto */
+.summary-panel {
+  border: 1px solid var(--border-strong);
+  background: linear-gradient(180deg, var(--purple-soft), transparent);
+  box-shadow: var(--shadow);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+.summary-panel h2 {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gold); margin: 0 0 10px; text-align: center;
+}
+.summary-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px; margin-bottom: 10px;
+}
+.summary-item { text-align: center; }
+.summary-item .label {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gold-dim); margin-bottom: 4px;
+}
+.summary-item .value { font-size: 22px; color: var(--ink); }
+.summary-item .sub { font-size: 14px; color: var(--muted); font-style: italic; }
+.summary-panel ul { list-style: none; margin: 8px 0 0; padding: 0; }
+.summary-panel li {
+  padding: 6px 0; border-bottom: 1px dashed var(--border);
+  display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap;
+}
+.summary-panel li:last-child { border-bottom: none; }
+.summary-panel .ok-note { color: var(--muted); font-style: italic; text-align: center; padding: 4px 0; }
+.deadline-row {
+  display: flex; justify-content: center; align-items: baseline; gap: 12px;
+  flex-wrap: wrap; padding: 6px 0 12px; border-bottom: 1px dashed var(--border);
+  margin-bottom: 10px;
+}
+.deadline-row .label {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+/* Edistymispalkki */
+.progress {
+  height: 8px; background: rgba(0,0,0,0.35);
+  border: 1px solid var(--border); position: relative; overflow: hidden;
+}
+:root[data-theme="light"] .progress { background: rgba(120,100,50,0.15); }
+.progress .fill {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold));
+  transition: width 0.3s;
+}
+.progress.big { height: 12px; }
+
+/* Projektikortit */
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 20px;
+}
+@media (max-width: 920px) { .proj-grid { grid-template-columns: 1fr; } }
+.proj-card {
+  background: linear-gradient(180deg, var(--surface), var(--bg-2));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 18px 20px 16px;
+  position: relative;
+}
+.proj-card::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.7;
+}
+.proj-card.done { opacity: 0.75; }
+.proj-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 2px; }
+.proj-head h3 {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 16px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gold); margin: 0;
+  border: none; background: transparent; outline: none;
+}
+.proj-head .del-proj { margin-left: auto; }
+.proj-desc {
+  font-style: italic; color: var(--ink-dim); font-size: 15px;
+  border: none; background: transparent; outline: none; margin-bottom: 6px;
+}
+.proj-desc:empty::before { content: "lisää kuvaus…"; color: var(--muted); }
+.proj-meta {
+  display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+  font-size: 15px; color: var(--ink-dim); margin: 6px 0 10px;
+}
+.proj-meta .meta-label {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold-dim);
+}
+.proj-progress-row { display: flex; align-items: center; gap: 10px; margin: 4px 0 12px; }
+.proj-progress-row .progress { flex: 1; }
+.proj-progress-row .pct { font-size: 14px; color: var(--muted); white-space: nowrap; }
+
+h4.section-title {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold-dim); margin: 16px 0 4px;
+  border-bottom: 1px solid var(--border); padding-bottom: 3px;
+}
+
+table.tasks { width: 100%; border-collapse: collapse; margin-top: 4px; }
+table.tasks td {
+  padding: 6px 6px; border-bottom: 1px dashed var(--border);
+  font-size: 16px; vertical-align: middle;
+}
+table.tasks tr:last-child td { border-bottom: none; }
+table.tasks td.chk { width: 28px; }
+table.tasks input[type="checkbox"] {
+  width: 17px; height: 17px; accent-color: var(--gold); cursor: pointer;
+}
+table.tasks .task-name { border: none; background: transparent; outline: none; }
+table.tasks tr.done .task-name { text-decoration: line-through; color: var(--muted); }
+table.tasks td.date-cell { width: 140px; white-space: nowrap; }
+table.tasks td.date-cell input { font-size: 13px; width: 130px; }
+table.tasks td.act { width: 30px; text-align: right; }
+.del-x {
+  background: transparent; border: none; color: var(--muted);
+  font-size: 15px; cursor: pointer; padding: 2px 6px;
+}
+.del-x:hover { color: #e08a8a; }
+
+.add-row { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+.add-row input { flex: 1; min-width: 120px; }
+
+/* Kulut */
+table.costs { width: 100%; border-collapse: collapse; margin-top: 4px; }
+table.costs td {
+  padding: 5px 6px; border-bottom: 1px dashed var(--border);
+  font-size: 15px; vertical-align: middle;
+}
+table.costs tr:last-child td { border-bottom: none; }
+table.costs td.sum { text-align: right; white-space: nowrap; }
+table.costs td.dt { width: 95px; color: var(--muted); font-size: 14px; white-space: nowrap; }
+.budget-row {
+  display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap;
+  font-size: 15px; margin-top: 6px;
+}
+.budget-row b { color: var(--ink); font-weight: 600; }
+.over { color: #e08a8a; }
+:root[data-theme="light"] .over { color: #8b1e2b; }
+
+/* Muistiinpanot ja linkit */
+.notes {
+  min-height: 40px; font-size: 16px; color: var(--ink-dim);
+  border: 1px dashed var(--border); padding: 8px 10px; outline: none;
+  white-space: pre-wrap;
+}
+.notes:focus { border-color: var(--gold); }
+.notes:empty::before { content: "kirjoita muistiinpanoja: urakoitsijat, tarjoukset, mitat…"; color: var(--muted); font-style: italic; }
+ul.links { list-style: none; margin: 4px 0 0; padding: 0; }
+ul.links li {
+  padding: 4px 0; border-bottom: 1px dashed var(--border);
+  display: flex; gap: 8px; align-items: baseline;
+}
+ul.links li:last-child { border-bottom: none; }
+ul.links a { color: var(--gold); text-decoration: none; word-break: break-all; }
+ul.links a:hover { color: var(--gold-bright); text-decoration: underline; }
+
+.add-proj-panel {
+  display: flex; gap: 10px; justify-content: center; align-items: center;
+  flex-wrap: wrap; margin-top: 26px;
+}
+.add-proj-panel input { width: min(320px, 70vw); padding: 7px 10px; }
+
+footer {
+  text-align: center; color: var(--muted); font-style: italic;
+  font-size: 14px; padding: 18px 16px 70px;
+}
+
+@media (max-width: 600px) {
+  body { font-size: 17px; }
+  nav.site-nav { gap: 10px; }
+  .proj-card { padding: 14px 12px 12px; }
+  table.tasks td.date-cell { width: auto; }
+  table.tasks td.date-cell input { width: 120px; }
+}
+@media print {
+  nav.site-nav, .toolbar, .add-row, .add-proj-panel, .del-x, .del-proj, footer, #perheSyncChip { display: none !important; }
+  body { background: #fff; color: #000; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html">Ruokalista</a>
+  <a href="tapahtumat.html">Tapahtumat</a>
+  <a href="siivous.html">Siivous</a>
+  <a href="huolto.html">Huolto</a>
+  <a href="remontit.html" class="current">Remontit</a>
+  <a href="talous.html">Talous</a>
+</nav>
+
+<header>
+  <h1><span class="sigil">⚒</span>Kodin remontit<span class="sigil">⚒</span></h1>
+  <p class="subtitle">Pirttikatu 7 myyntikuntoon — projektit, budjetti ja aikataulu</p>
+</header>
+
+<main>
+  <div class="toolbar">
+    <button class="btn" id="themeToggle" type="button">◐ Vaalea</button>
+    <button class="btn" id="exportBtn" type="button">Vie tiedot</button>
+    <button class="btn" id="importBtn" type="button">Tuo tiedot</button>
+    <input type="file" id="importFile" accept="application/json" style="display:none">
+    <span class="status-msg" id="statusMsg"></span>
+  </div>
+
+  <div class="summary-panel">
+    <h2>Myyntikuntoon</h2>
+    <div class="deadline-row">
+      <span class="label">Takaraja</span>
+      <input type="date" id="deadlineInput">
+      <span id="deadlineBadge"></span>
+    </div>
+    <div class="summary-grid">
+      <div class="summary-item">
+        <div class="label">Edistyminen</div>
+        <div class="value" id="sumProgressPct">0 %</div>
+        <div class="progress big" style="margin-top:6px"><div class="fill" id="sumProgressFill" style="width:0%"></div></div>
+        <div class="sub" id="sumProgressSub"></div>
+      </div>
+      <div class="summary-item">
+        <div class="label">Budjetti (arvio)</div>
+        <div class="value" id="sumBudget">—</div>
+        <div class="sub">kaikki projektit yhteensä</div>
+      </div>
+      <div class="summary-item">
+        <div class="label">Toteutuneet kulut</div>
+        <div class="value" id="sumSpent">0 €</div>
+        <div class="sub" id="sumSpentSub"></div>
+      </div>
+    </div>
+    <ul id="dueList"></ul>
+  </div>
+
+  <div class="proj-grid" id="projGrid"></div>
+
+  <div class="add-proj-panel">
+    <input type="text" id="newProjName" placeholder="Uusi projekti (esim. Pihan siistiminen)…">
+    <button class="btn" id="addProjBtn" type="button">+ Lisää projekti</button>
+  </div>
+</main>
+
+<footer>Tiedot tallentuvat selaimeen automaattisesti ja synkronoituvat perheen kesken. Vie varmuuskopio aika ajoin.</footer>
+
+<script>
+"use strict";
+
+// ---------- vakiot ja tila ----------
+const STORAGE_KEY = "perheen-remontit-v1";
+const THEME_KEY = "ruokalista-theme"; // jaettu teema muiden sivujen kanssa
+const SOON_DAYS = 14;
+
+const DEFAULT_DATA = {
+  takaraja: "2026-09-30",
+  projektit: [
+    {
+      id: "terassi",
+      nimi: "Terassi",
+      kuvaus: "Uusi terassi pihan puolelle",
+      tavoite: "2026-08-31",
+      budjetti: null,
+      tehtavat: [
+        { id: "te1", nimi: "Suunnitelma ja mitoitus", tavoite: null, tehty: null },
+        { id: "te2", nimi: "Luvat: taloyhtiö / rakennusvalvonta (tarkista tarvitaanko)", tavoite: null, tehty: null },
+        { id: "te3", nimi: "Materiaalivalinnat ja tarjoukset", tavoite: null, tehty: null },
+        { id: "te4", nimi: "Perustukset", tavoite: null, tehty: null },
+        { id: "te5", nimi: "Runko", tavoite: null, tehty: null },
+        { id: "te6", nimi: "Kansilaudoitus", tavoite: null, tehty: null },
+        { id: "te7", nimi: "Kaiteet ja portaat", tavoite: null, tehty: null },
+        { id: "te8", nimi: "Pintakäsittely", tavoite: null, tehty: null }
+      ],
+      kulut: [],
+      muistiinpanot: "",
+      linkit: []
+    },
+    {
+      id: "ilp",
+      nimi: "Ilmalämpöpumppu",
+      kuvaus: "Hankinta ja asennus",
+      tavoite: "2026-08-31",
+      budjetti: null,
+      tehtavat: [
+        { id: "il1", nimi: "Tarjoukset (laite + asennus)", tavoite: null, tehty: null },
+        { id: "il2", nimi: "Lupa: taloyhtiö / rakennusvalvonta (tarkista tarvitaanko)", tavoite: null, tehty: null },
+        { id: "il3", nimi: "Sisä- ja ulkoyksikön paikkojen valinta", tavoite: null, tehty: null },
+        { id: "il4", nimi: "Asennus", tavoite: null, tehty: null },
+        { id: "il5", nimi: "Käyttöönotto ja opastus", tavoite: null, tehty: null }
+      ],
+      kulut: [],
+      muistiinpanot: "",
+      linkit: []
+    },
+    {
+      id: "pinta",
+      nimi: "Pintaremontti",
+      kuvaus: "Kevyt pintaremontti myyntiä varten",
+      tavoite: "2026-09-15",
+      budjetti: null,
+      tehtavat: [
+        { id: "pi1", nimi: "Remonttikohteiden kartoitus huoneittain", tavoite: null, tehty: null },
+        { id: "pi2", nimi: "Seinien paikkaus ja maalaus", tavoite: null, tehty: null },
+        { id: "pi3", nimi: "Listojen ja saumojen korjaus", tavoite: null, tehty: null },
+        { id: "pi4", nimi: "Märkätilojen silikonisaumojen siistiminen", tavoite: null, tehty: null },
+        { id: "pi5", nimi: "Pienet korjaukset (kahvat, saranat, valaisimet)", tavoite: null, tehty: null },
+        { id: "pi6", nimi: "Loppusiivous ja stailaus myyntikuvia varten", tavoite: null, tehty: null }
+      ],
+      kulut: [],
+      muistiinpanot: "",
+      linkit: []
+    }
+  ]
+};
+
+function loadData() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const d = JSON.parse(raw);
+      if (d && Array.isArray(d.projektit)) return d;
+    }
+  } catch {}
+  return JSON.parse(JSON.stringify(DEFAULT_DATA));
+}
+let data = loadData();
+
+function save() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch {}
+  showStatus("Tallennettu");
+}
+
+let statusTimer = null;
+function showStatus(msg) {
+  const el = document.getElementById("statusMsg");
+  el.textContent = msg;
+  clearTimeout(statusTimer);
+  statusTimer = setTimeout(() => { el.textContent = ""; }, 2500);
+}
+
+// ---------- apufunktiot ----------
+function uid() { return Math.random().toString(36).slice(2, 9); }
+function todayIso() { return new Date().toISOString().slice(0, 10); }
+function daysUntil(iso) {
+  const now = new Date(); now.setHours(0, 0, 0, 0);
+  const [y, m, d] = iso.split("-").map(Number);
+  return Math.round((new Date(y, m - 1, d) - now) / 86400000);
+}
+function fmtDate(iso) {
+  if (!iso) return "—";
+  const [y, m, d] = iso.split("-").map(Number);
+  return `${d}.${m}.${y}`;
+}
+function fmtEur(n) {
+  if (n == null || isNaN(n)) return "—";
+  return n.toLocaleString("fi-FI", { minimumFractionDigits: 0, maximumFractionDigits: 2 }) + " €";
+}
+function esc(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g,
+    c => ({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[c]));
+}
+function dateBadge(iso, doneCount, total) {
+  if (!iso) return "";
+  if (total > 0 && doneCount === total) return `<span class="badge ok">valmis</span>`;
+  const pv = daysUntil(iso);
+  if (pv < 0) return `<span class="badge late">myöhässä ${Math.abs(pv)} pv</span>`;
+  if (pv === 0) return `<span class="badge soon">tänään</span>`;
+  if (pv <= SOON_DAYS) return `<span class="badge soon">${pv} pv jäljellä</span>`;
+  return `<span class="badge ok">${pv} pv jäljellä</span>`;
+}
+
+function projTotals(p) {
+  const total = p.tehtavat.length;
+  const done = p.tehtavat.filter(t => t.tehty).length;
+  const spent = (p.kulut || []).reduce((s, k) => s + (Number(k.summa) || 0), 0);
+  return { total, done, spent };
+}
+
+// ---------- yhteenveto ----------
+function renderSummary() {
+  const dl = document.getElementById("deadlineInput");
+  dl.value = data.takaraja || "";
+  const badge = document.getElementById("deadlineBadge");
+  let allDone = 0, allTotal = 0, budget = 0, hasBudget = false, spent = 0;
+  for (const p of data.projektit) {
+    const t = projTotals(p);
+    allDone += t.done; allTotal += t.total; spent += t.spent;
+    if (p.budjetti != null && p.budjetti !== "") { budget += Number(p.budjetti) || 0; hasBudget = true; }
+  }
+  badge.innerHTML = data.takaraja ? dateBadge(data.takaraja, allDone, allTotal) : `<span class="badge none">ei asetettu</span>`;
+
+  const pct = allTotal ? Math.round(100 * allDone / allTotal) : 0;
+  document.getElementById("sumProgressPct").textContent = pct + " %";
+  document.getElementById("sumProgressFill").style.width = pct + "%";
+  document.getElementById("sumProgressSub").textContent = `${allDone} / ${allTotal} tehtävää tehty`;
+  document.getElementById("sumBudget").textContent = hasBudget ? fmtEur(budget) : "—";
+  const spentEl = document.getElementById("sumSpent");
+  spentEl.textContent = fmtEur(spent);
+  spentEl.classList.toggle("over", hasBudget && spent > budget);
+  document.getElementById("sumSpentSub").textContent =
+    hasBudget ? (spent > budget ? `budjetti ylittyy ${fmtEur(spent - budget)}` : `jäljellä ${fmtEur(budget - spent)}`) : "";
+
+  // Erääntyvät: projektien tavoitteet ja tehtävien tavoitepäivät
+  const ul = document.getElementById("dueList");
+  ul.innerHTML = "";
+  const rows = [];
+  for (const p of data.projektit) {
+    const t = projTotals(p);
+    if (p.tavoite && t.done < t.total) {
+      const pv = daysUntil(p.tavoite);
+      if (pv <= SOON_DAYS) rows.push({ pv, html: `<span class="badge ${pv < 0 ? "late" : "soon"}">${pv < 0 ? "myöhässä " + Math.abs(pv) + " pv" : pv + " pv"}</span> <b>${esc(p.nimi)}</b> — projektin tavoite ${fmtDate(p.tavoite)}` });
+    }
+    for (const te of p.tehtavat) {
+      if (te.tavoite && !te.tehty) {
+        const pv = daysUntil(te.tavoite);
+        if (pv <= SOON_DAYS) rows.push({ pv, html: `<span class="badge ${pv < 0 ? "late" : "soon"}">${pv < 0 ? "myöhässä " + Math.abs(pv) + " pv" : pv + " pv"}</span> ${esc(p.nimi)}: ${esc(te.nimi)} (${fmtDate(te.tavoite)})` });
+      }
+    }
+  }
+  rows.sort((a, b) => a.pv - b.pv);
+  if (!rows.length) {
+    ul.innerHTML = `<li class="ok-note">Ei erääntyviä tavoitteita seuraavaan ${SOON_DAYS} päivään.</li>`;
+  } else {
+    for (const r of rows) {
+      const li = document.createElement("li");
+      li.innerHTML = r.html;
+      ul.appendChild(li);
+    }
+  }
+}
+
+// ---------- projektikortit ----------
+function renderProjects() {
+  const grid = document.getElementById("projGrid");
+  grid.innerHTML = "";
+  for (const p of data.projektit) {
+    const t = projTotals(p);
+    const pct = t.total ? Math.round(100 * t.done / t.total) : 0;
+    const card = document.createElement("div");
+    card.className = "proj-card" + (t.total && t.done === t.total ? " done" : "");
+    card.dataset.p = p.id;
+
+    const taskRows = p.tehtavat.map(te => `
+      <tr class="${te.tehty ? "done" : ""}" data-t="${te.id}">
+        <td class="chk"><input type="checkbox" data-act="toggleTask" ${te.tehty ? "checked" : ""}></td>
+        <td><span class="task-name" contenteditable="true" data-act="taskName" spellcheck="false">${esc(te.nimi)}</span></td>
+        <td class="date-cell"><input type="date" data-act="taskDate" value="${esc(te.tavoite || "")}" title="Tavoitepäivä"></td>
+        <td class="act"><button class="del-x" data-act="delTask" title="Poista tehtävä">✕</button></td>
+      </tr>`).join("");
+
+    const costRows = (p.kulut || []).map(k => `
+      <tr data-k="${k.id}">
+        <td class="dt">${fmtDate(k.pvm)}</td>
+        <td>${esc(k.kuvaus)}</td>
+        <td class="sum">${fmtEur(Number(k.summa) || 0)}</td>
+        <td class="act"><button class="del-x" data-act="delCost" title="Poista kulu">✕</button></td>
+      </tr>`).join("");
+
+    const linkRows = (p.linkit || []).map(l => {
+      const url = /^https?:\/\//i.test(l.url) ? l.url : "https://" + l.url;
+      return `<li data-l="${l.id}"><a href="${esc(url)}" target="_blank" rel="noopener">${esc(l.otsikko || l.url)}</a><button class="del-x" data-act="delLink" title="Poista linkki" style="margin-left:auto">✕</button></li>`;
+    }).join("");
+
+    const overBudget = p.budjetti != null && p.budjetti !== "" && t.spent > Number(p.budjetti);
+
+    card.innerHTML = `
+      <div class="proj-head">
+        <h3 contenteditable="true" data-act="projName" spellcheck="false">${esc(p.nimi)}</h3>
+        ${dateBadge(p.tavoite, t.done, t.total)}
+        <button class="btn small danger del-proj" data-act="delProj" type="button">Poista</button>
+      </div>
+      <div class="proj-desc" contenteditable="true" data-act="projDesc" spellcheck="false">${esc(p.kuvaus || "")}</div>
+      <div class="proj-meta">
+        <span><span class="meta-label">Tavoite</span> <input type="date" data-act="projTavoite" value="${esc(p.tavoite || "")}"></span>
+        <span><span class="meta-label">Budjetti</span> <input type="number" class="num" min="0" step="50" data-act="projBudget" value="${p.budjetti == null ? "" : esc(p.budjetti)}" placeholder="€"> €</span>
+      </div>
+      <div class="proj-progress-row">
+        <div class="progress"><div class="fill" style="width:${pct}%"></div></div>
+        <span class="pct">${t.done}/${t.total} · ${pct} %</span>
+      </div>
+
+      <h4 class="section-title">Tehtävät</h4>
+      <table class="tasks"><tbody>${taskRows}</tbody></table>
+      <div class="add-row">
+        <input type="text" data-role="newTaskName" placeholder="Uusi tehtävä…">
+        <button class="btn small" data-act="addTask" type="button">+ Lisää</button>
+      </div>
+
+      <h4 class="section-title">Kulut ${t.spent ? `· <span class="${overBudget ? "over" : ""}">${fmtEur(t.spent)}</span>` : ""}</h4>
+      ${costRows ? `<table class="costs"><tbody>${costRows}</tbody></table>` : ""}
+      <div class="budget-row">${p.budjetti != null && p.budjetti !== "" ? (overBudget
+        ? `<span class="over">Budjetti ylittyy ${fmtEur(t.spent - Number(p.budjetti))}</span>`
+        : `<span>Budjetista jäljellä <b>${fmtEur(Number(p.budjetti) - t.spent)}</b></span>`) : ""}</div>
+      <div class="add-row">
+        <input type="date" data-role="newCostDate" value="${todayIso()}" style="flex:0 0 auto">
+        <input type="text" data-role="newCostDesc" placeholder="Kulu (esim. terassilaudat)…">
+        <input type="number" class="num" min="0" step="0.01" data-role="newCostSum" placeholder="€">
+        <button class="btn small" data-act="addCost" type="button">+ Kirjaa</button>
+      </div>
+
+      <h4 class="section-title">Muistiinpanot</h4>
+      <div class="notes" contenteditable="true" data-act="notes" spellcheck="false">${esc(p.muistiinpanot || "")}</div>
+
+      <h4 class="section-title">Linkit</h4>
+      ${linkRows ? `<ul class="links">${linkRows}</ul>` : ""}
+      <div class="add-row">
+        <input type="text" data-role="newLinkTitle" placeholder="Otsikko (esim. ILP-tarjous)…">
+        <input type="text" data-role="newLinkUrl" placeholder="https://…">
+        <button class="btn small" data-act="addLink" type="button">+ Lisää linkki</button>
+      </div>
+    `;
+    grid.appendChild(card);
+  }
+}
+
+function render() {
+  renderSummary();
+  renderProjects();
+}
+
+// ---------- tapahtumat ----------
+function findCtx(el) {
+  const card = el.closest(".proj-card");
+  const p = card ? data.projektit.find(x => x.id === card.dataset.p) : null;
+  const tr = el.closest("tr[data-t]");
+  const t = p && tr ? p.tehtavat.find(x => x.id === tr.dataset.t) : null;
+  return { card, p, t };
+}
+
+document.querySelector("main").addEventListener("click", e => {
+  const btn = e.target.closest("[data-act]");
+  if (!btn) return;
+  const act = btn.dataset.act;
+  const { card, p, t } = findCtx(btn);
+
+  if (act === "delTask" && p && t) {
+    if (!confirm(`Poistetaanko tehtävä "${t.nimi}"?`)) return;
+    p.tehtavat = p.tehtavat.filter(x => x !== t);
+    save(); render();
+  }
+  else if (act === "addTask" && p) {
+    const inp = card.querySelector('[data-role="newTaskName"]');
+    const nimi = inp.value.trim();
+    if (!nimi) { inp.focus(); return; }
+    p.tehtavat.push({ id: uid(), nimi, tavoite: null, tehty: null });
+    save(); render();
+  }
+  else if (act === "delCost" && p) {
+    const tr = btn.closest("tr[data-k]");
+    p.kulut = (p.kulut || []).filter(x => x.id !== tr.dataset.k);
+    save(); render();
+  }
+  else if (act === "addCost" && p) {
+    const pvm = card.querySelector('[data-role="newCostDate"]').value || todayIso();
+    const kuvaus = card.querySelector('[data-role="newCostDesc"]').value.trim();
+    const summa = parseFloat(card.querySelector('[data-role="newCostSum"]').value);
+    if (!kuvaus || isNaN(summa)) { showStatus("Anna kuvaus ja summa"); return; }
+    p.kulut = p.kulut || [];
+    p.kulut.push({ id: uid(), pvm, kuvaus, summa });
+    save(); render();
+  }
+  else if (act === "delLink" && p) {
+    const li = btn.closest("li[data-l]");
+    p.linkit = (p.linkit || []).filter(x => x.id !== li.dataset.l);
+    save(); render();
+  }
+  else if (act === "addLink" && p) {
+    const otsikko = card.querySelector('[data-role="newLinkTitle"]').value.trim();
+    const url = card.querySelector('[data-role="newLinkUrl"]').value.trim();
+    if (!url) return;
+    p.linkit = p.linkit || [];
+    p.linkit.push({ id: uid(), otsikko, url });
+    save(); render();
+  }
+  else if (act === "delProj" && p) {
+    if (!confirm(`Poistetaanko koko projekti "${p.nimi}" tehtävineen ja kuluineen?`)) return;
+    data.projektit = data.projektit.filter(x => x !== p);
+    save(); render();
+  }
+});
+
+document.querySelector("main").addEventListener("change", e => {
+  const el = e.target.closest("[data-act]");
+  if (!el) return;
+  const act = el.dataset.act;
+  const { p, t } = findCtx(el);
+
+  if (act === "toggleTask" && p && t) {
+    t.tehty = el.checked ? todayIso() : null;
+    save(); render();
+  }
+  else if (act === "taskDate" && p && t) {
+    t.tavoite = el.value || null;
+    save(); render();
+  }
+  else if (act === "projTavoite" && p) {
+    p.tavoite = el.value || null;
+    save(); render();
+  }
+  else if (act === "projBudget" && p) {
+    p.budjetti = el.value === "" ? null : parseFloat(el.value);
+    save(); render();
+  }
+});
+
+document.querySelector("main").addEventListener("focusout", e => {
+  const el = e.target.closest("[data-act]");
+  if (!el || !el.isContentEditable) return;
+  const act = el.dataset.act;
+  const { p, t } = findCtx(el);
+  const val = el.textContent.trim();
+
+  if (act === "taskName" && p && t && val && val !== t.nimi) { t.nimi = val; save(); }
+  else if (act === "projName" && p && val && val !== p.nimi) { p.nimi = val; save(); renderSummary(); }
+  else if (act === "projDesc" && p && val !== (p.kuvaus || "")) { p.kuvaus = val; save(); }
+  else if (act === "notes" && p && val !== (p.muistiinpanot || "")) { p.muistiinpanot = val; save(); }
+});
+
+// Estä rivinvaihdot yksirivisissä contenteditable-kentissä
+document.querySelector("main").addEventListener("keydown", e => {
+  if (e.key === "Enter" && e.target.isContentEditable && e.target.dataset.act !== "notes") {
+    e.preventDefault();
+    e.target.blur();
+  }
+});
+
+document.getElementById("deadlineInput").addEventListener("change", e => {
+  data.takaraja = e.target.value || null;
+  save(); renderSummary();
+});
+
+document.getElementById("addProjBtn").addEventListener("click", () => {
+  const inp = document.getElementById("newProjName");
+  const nimi = inp.value.trim();
+  if (!nimi) { inp.focus(); return; }
+  data.projektit.push({
+    id: uid(), nimi, kuvaus: "", tavoite: null, budjetti: null,
+    tehtavat: [], kulut: [], muistiinpanot: "", linkit: []
+  });
+  inp.value = "";
+  save(); render();
+});
+
+// ---------- vie / tuo ----------
+document.getElementById("exportBtn").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `remontit-varmuuskopio-${todayIso()}.json`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showStatus("Viety");
+});
+document.getElementById("importBtn").addEventListener("click", () => {
+  document.getElementById("importFile").click();
+});
+document.getElementById("importFile").addEventListener("change", e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const d = JSON.parse(reader.result);
+      if (!d || !Array.isArray(d.projektit)) throw new Error("väärä muoto");
+      if (!confirm("Korvataanko nykyiset remonttitiedot tuodulla varmuuskopiolla?")) return;
+      data = d;
+      save(); render();
+      showStatus("Tuotu");
+    } catch {
+      showStatus("Tiedoston luku epäonnistui");
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = "";
+});
+
+// ---------- teema ----------
+function applyTheme() {
+  let t = null;
+  try { t = localStorage.getItem(THEME_KEY); } catch {}
+  if (t === "light") document.documentElement.setAttribute("data-theme", "light");
+  else document.documentElement.removeAttribute("data-theme");
+  document.getElementById("themeToggle").textContent = t === "light" ? "◑ Tumma" : "◐ Vaalea";
+}
+document.getElementById("themeToggle").addEventListener("click", () => {
+  let t = null;
+  try { t = localStorage.getItem(THEME_KEY); } catch {}
+  try { localStorage.setItem(THEME_KEY, t === "light" ? "dark" : "light"); } catch {}
+  applyTheme();
+});
+
+// ---------- käynnistys ----------
+applyTheme();
+render();
+</script>
+</body>
+</html>

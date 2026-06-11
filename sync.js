@@ -33,6 +33,7 @@
   var SYNC_BUNDLES = [
     { file: "data/ruokalista.json",  keys: ["perheen-ruokalista-v3"], prefixes: [] },
     { file: "data/huoltokirja.json", keys: ["perheen-huoltokirja-v1"], prefixes: [] },
+    { file: "data/remontit.json",    keys: ["perheen-remontit-v1"], prefixes: [] },
     { file: "data/siivous.json",     keys: [], prefixes: ["siivous-"] }
   ];
   // Näitä ei koskaan synkata (laitekohtaisia)
