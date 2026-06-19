@@ -236,36 +236,10 @@ html, body {
 }
 
 /* ========== Site-nav ========== */
-nav.site-nav {
-  background: var(--nav-bg);
-  border-bottom: 1px solid var(--border);
-  padding: 10px 28px;
-  display: flex;
-  justify-content: center;
-  gap: 26px;
-  position: sticky; top: 0; z-index: 20;
-}
-nav.site-nav a {
-  font-family: 'Cinzel', Georgia, serif;
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  text-decoration: none;
-  padding: 4px 10px;
-  border-bottom: 1px solid transparent;
-  transition: color 0.2s, border-color 0.2s, text-shadow 0.2s;
-}
-nav.site-nav a:hover {
-  color: var(--gold-bright);
-  border-bottom-color: var(--gold);
-  text-shadow: 0 0 10px rgba(212, 169, 74, 0.45);
-}
-nav.site-nav a.current {
-  color: var(--gold);
-  border-bottom-color: var(--gold);
-  text-shadow: 0 0 10px rgba(212, 169, 74, 0.35);
-}
+
+
+
+
 
 /* ========== Header ========== */
 header {
@@ -712,15 +686,16 @@ footer::before {
   opacity: 0.5;
 }
 
-@media (max-width: 720px) {
-  nav.site-nav { padding: 8px 14px; gap: 14px; }
-  nav.site-nav a { font-size: 10px; padding: 3px 6px; letter-spacing: 0.18em; }
+@media (max-width: 720px){
+  
+  
   header h1 { font-size: 18px; letter-spacing: 0.14em; }
   main { padding: 22px 16px 60px; }
   .card { padding: 16px 18px; }
   .tabs-row { width: 100%; }
 }
 </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -729,7 +704,7 @@ footer::before {
 <nav class="site-nav">
   <a href="index.html">Ruokalista</a>
   <a href="tapahtumat.html">Tapahtumat</a>
-  <a href="siivous.html" class="current">Siivous</a>
+  <a href="siivous.html" class="current" aria-current="page">Siivous</a>
   <a href="huolto.html">Huolto</a>
   <a href="remontit.html">Remontit</a>
   <a href="talous.html">Talous</a>

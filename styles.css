@@ -1,0 +1,47 @@
+/* =====================================================================
+   Perheen ruokalista — JAETTU NAVIGAATIO (styles.css)
+   Muokkaa navigointipalkkia VAIN täällä. Kaikki sivut lataavat tämän.
+   Käyttää sivujen omia teemamuuttujia (:root) + turvalliset fallbackit.
+   ===================================================================== */
+nav.site-nav{
+  background: var(--nav-bg, linear-gradient(180deg, rgba(10,6,18,0.98), rgba(20,10,34,0.95)));
+  border-bottom: 1px solid var(--border, rgba(212,169,74,0.22));
+  padding: 10px 28px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;          /* estää ylivuodon kapeilla/keskikokoisilla näytöillä */
+  gap: 26px;
+  position: sticky; top: 0; z-index: 20;
+}
+nav.site-nav a{
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-dim, #a8894a);
+  text-decoration: none;
+  padding: 4px 10px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s, text-shadow 0.2s;
+}
+nav.site-nav a:hover{
+  color: var(--gold-bright, #f0c76a);
+  border-bottom-color: var(--gold, #d4a94a);
+  text-shadow: 0 0 10px rgba(212,169,74,0.45);
+}
+nav.site-nav a.current{
+  color: var(--gold, #d4a94a);
+  border-bottom-color: var(--gold, #d4a94a);
+  text-shadow: 0 0 10px rgba(212,169,74,0.35);
+}
+/* Mobiili */
+@media (max-width: 720px){
+  nav.site-nav{ padding: 8px 14px; gap: 14px; }
+  nav.site-nav a{ font-size: 10px; padding: 3px 6px; letter-spacing: 0.18em; }
+}
+/* Läppärit / keskikokoiset näytöt — kompakti, ei tartu (enemmän tilaa sisällölle) */
+@media (min-width: 1025px) and (max-width: 1520px){
+  nav.site-nav{ padding: 6px 20px; gap: 20px; position: static; }
+  nav.site-nav a{ font-size: 11px; }
+}
+@media print{ nav.site-nav{ display: none !important; } }

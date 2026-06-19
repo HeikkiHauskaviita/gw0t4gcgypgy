@@ -82,40 +82,11 @@
   }
 
   /* ========== Site-nav (sivujen välinen) ========== */
-  nav.site-nav {
-    background: var(--nav-bg);
-    border-bottom: 1px solid var(--border);
-    padding: 10px 28px;
-    display: flex;
-    justify-content: center;
-    gap: 26px;
-    position: sticky; top: 0; z-index: 20;
-  }
-  nav.site-nav a {
-    font-family: 'Cinzel', Georgia, serif;
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold-dim);
-    text-decoration: none;
-    padding: 4px 10px;
-    border-bottom: 1px solid transparent;
-    transition: color 0.2s, border-color 0.2s, text-shadow 0.2s;
-  }
-  nav.site-nav a:hover {
-    color: var(--gold-bright);
-    border-bottom-color: var(--gold);
-    text-shadow: 0 0 10px rgba(212, 169, 74, 0.45);
-  }
-  nav.site-nav a.current {
-    color: var(--gold);
-    border-bottom-color: var(--gold);
-    text-shadow: 0 0 10px rgba(212, 169, 74, 0.35);
-  }
-  @media (max-width: 720px) {
-    nav.site-nav { padding: 8px 14px; gap: 14px; }
-    nav.site-nav a { font-size: 10px; padding: 3px 6px; letter-spacing: 0.18em; }
-  }
+  
+  
+  
+  
+  
 
   header {
     background: linear-gradient(180deg, rgba(26,16,42,0.97), rgba(10,6,18,0.93));
@@ -145,7 +116,7 @@
     animation: sigilPulse 4.5s ease-in-out infinite;
   }
   header h1 .sigil:last-child { animation-delay: 2.2s; }
-  @keyframes sigilPulse {
+  @keyframes sigilPulse{
     0%, 100% { text-shadow: 0 0 6px rgba(212, 169, 74, 0.25); color: var(--gold-dim); }
     50% { text-shadow: 0 0 22px rgba(212, 169, 74, 0.75), 0 0 4px rgba(240, 199, 106, 0.5); color: var(--gold); }
   }
@@ -1130,7 +1101,7 @@
     font-style: italic;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1024px){
     header { padding: 14px 16px 12px; }
     header h1 {
       font-size: 17px;
@@ -1234,7 +1205,7 @@
   /* Mobiili-spesifiset säännöt: piilota pöytä ja näytä päiväkortit. Tämä lohko
      SAA olla erillään 1024-lohkosta, jotta tablet-koossa (721–1024) taulukko
      näkyy stack-näkymänä eikä piilotu. */
-  @media (max-width: 720px) {
+  @media (max-width: 720px){
     /* Piilota pöytä, näytä päiväkortit */
     table.schedule { display: none; }
     .day-cards { display: block; }
@@ -1570,12 +1541,12 @@
 
   /* ========== Mobiilin päiväkorttilistaus ========== */
   /* Piilotetaan desktop-näytöillä; mobiilissa @media max-width:720px näyttää ne */
-  @media (min-width: 721px) {
+  @media (min-width: 721px){
     .day-cards { display: none; }
   }
 
   /* ========== Desktopin luettavuus — kasvatettu fonttikoko ========== */
-  @media (min-width: 721px) {
+  @media (min-width: 721px){
     body { font-size: 18px; }
     main { padding: 36px 32px 96px; }
     table.schedule th, table.schedule td { padding: 16px 18px; font-size: 16px; }
@@ -1605,9 +1576,9 @@
      mutta ylätunniste ja taulukko tiivistetään, jotta sisällölle jää tilaa.
      Tämän lohkon on oltava "Desktopin luettavuus" -lohkon JÄLKEEN,
      jotta se yliajaa sen arvot tällä leveysvälillä. */
-  @media (min-width: 1025px) and (max-width: 1520px) {
-    nav.site-nav { padding: 6px 20px; gap: 20px; position: static; }
-    nav.site-nav a { font-size: 11px; }
+  @media (min-width: 1025px) and (max-width: 1520px){
+    
+    
     header { padding: 10px 20px 8px; top: 0; }
     header h1 { font-size: 17px; letter-spacing: 0.14em; margin-bottom: 8px; }
     header h1 .sigil { font-size: 14px; margin: 0 10px; }
@@ -1630,7 +1601,7 @@
 
   /* Matalat näytöt: ylätunniste ei jää kiinni ruudun yläreunaan,
      jolloin vieritettäessä koko korkeus vapautuu sisällölle. */
-  @media (max-height: 820px) and (min-width: 1025px) {
+  @media (max-height: 820px) and (min-width: 1025px){
     header { position: static; }
   }
 
@@ -1647,7 +1618,7 @@
     animation: fade 0.18s ease-out;
   }
   .modal-backdrop.open { display: flex; }
-  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fade{ from { opacity: 0; } to { opacity: 1; } }
 
   .modal {
     background: linear-gradient(180deg, var(--surface), var(--bg-2));
@@ -1666,7 +1637,7 @@
     line-height: 1.55;
     animation: rise 0.24s cubic-bezier(.2,.8,.2,1);
   }
-  @keyframes rise { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+  @keyframes rise{ from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
   .modal::before {
     content: "";
     position: absolute; top: 0; left: 0; right: 0;
@@ -1794,7 +1765,7 @@
     margin-right: 4px;
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 720px){
     .modal { padding: 22px 20px 26px; font-size: 15px; }
     .modal h2.title { font-size: 16px; letter-spacing: 0.1em; }
     .modal h2.title::before, .modal h2.title::after { margin: 0 8px; }
@@ -1803,7 +1774,7 @@
     .recipe-btn { font-size: 9px; padding: 1px 7px; }
   }
 
-  @media print {
+  @media print{
     html, body { background: #fff !important; color: #111 !important; }
     header { position: static; border-bottom: 2px solid #000; box-shadow: none; background: #fff; }
     header h1 { color: #000; text-shadow: none; }
@@ -1943,7 +1914,7 @@
   }
 
   /* 2) Navigaatio, välilehdet ja napit: isompi teksti, maltillinen harvennus */
-  nav.site-nav a { font-size: 12px; letter-spacing: 0.14em; }
+  
   .tab { font-size: 13px; letter-spacing: 0.12em; }
   .subtab { font-size: 12px; letter-spacing: 0.1em; padding: 8px 13px; }
   .btn { font-size: 12px; letter-spacing: 0.1em; }
@@ -2050,8 +2021,8 @@
   .maintenance-note a:hover { color: var(--gold-bright); }
 
   /* 11) Mobiili: älä palaa pikkukokoon, riittävät kosketusalueet */
-  @media (max-width: 720px) {
-    nav.site-nav a { font-size: 11px; }
+  @media (max-width: 720px){
+    
     .subtab { font-size: 11.5px; padding: 8px 11px; }
     .cell strong { font-size: 14px; }
     .cell span.detail { font-size: 13.5px; }
@@ -2072,6 +2043,7 @@
     } catch (e) {}
   })();
 </script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
