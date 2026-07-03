@@ -45,9 +45,12 @@
     "2026-06-30": "saag-paneer",
     "2026-07-01": "fish-tacos",
     "2026-07-02": "soija-bolognese",
-    "2026-07-03": "pinaattilatyt",
-    "2026-07-04": "bibimbap",
-    "2026-07-05": "kasvispyorykat"
+    "2026-07-03": "soija-bolognese",
+    "2026-07-06": "pinaatti-ricottapasta",
+    "2026-07-07": "peruna-munakas",
+    "2026-07-08": "gambas-pasta",
+    "2026-07-09": "pad-thai",
+    "2026-07-10": "kesagrilli"
   },
   "kesaloma": {
     "alku": "2026-06-01",
@@ -3687,6 +3690,136 @@
         "Revi salaatti, viipaloi kurkku ja tomaatti lisukkeeksi."
       ],
       "huom": "Mökkiruoka — toimii missä tahansa uunissa tai grillissä kannen alla. Tarkista että yksi pizzoista on kasvis (6v).",
+      "last_cooked": null,
+      "palaute": []
+    },
+    {
+      "id": "kesagrilli",
+      "nimi": "Kesägrilli (halloumi-kasvisvartaat, maissi, perunasalaatti)",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "grilli",
+        "kasvis",
+        "kesä",
+        "viikonloppu"
+      ],
+      "max_minuutit": 60,
+      "vaikeustaso": "keskitaso",
+      "ainekset": [
+        {
+          "nimi": "Halloumi",
+          "maara": 2,
+          "yksikko": "pkt",
+          "huom": "vartaisiin"
+        },
+        {
+          "nimi": "Kesäkurpitsa",
+          "maara": 1,
+          "yksikko": "kpl",
+          "huom": "vartaisiin"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 2,
+          "yksikko": "kpl",
+          "huom": "vartaisiin"
+        },
+        {
+          "nimi": "Punasipuli",
+          "maara": 2,
+          "yksikko": "kpl",
+          "huom": "vartaisiin"
+        },
+        {
+          "nimi": "Herkkusieni",
+          "maara": 250,
+          "yksikko": "g",
+          "huom": "vartaisiin"
+        },
+        {
+          "nimi": "Maissintähkä",
+          "maara": 5,
+          "yksikko": "kpl",
+          "huom": "grilliin, voi päälle"
+        },
+        {
+          "nimi": "Grillimakkara",
+          "maara": 1,
+          "yksikko": "pkt"
+        },
+        {
+          "nimi": "Kiinteä peruna",
+          "maara": 1,
+          "yksikko": "kg",
+          "huom": "perunasalaattiin"
+        },
+        {
+          "nimi": "Kermaviili",
+          "maara": 2,
+          "yksikko": "prk",
+          "huom": "perunasalaattiin"
+        },
+        {
+          "nimi": "Suolakurkku",
+          "maara": 4,
+          "yksikko": "kpl",
+          "huom": "perunasalaattiin"
+        },
+        {
+          "nimi": "Ruohosipuli",
+          "maara": 1,
+          "yksikko": "kpl",
+          "huom": "ruukku, perunasalaattiin"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 50,
+          "yksikko": "g",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola, mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Jäävuorisalaatti",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaytto": "kesäsalaatti"
+        },
+        {
+          "nimi": "Kurkku",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaytto": "kesäsalaatti"
+        },
+        {
+          "nimi": "Tomaatti",
+          "maara": 3,
+          "yksikko": "kpl",
+          "kaytto": "kesäsalaatti"
+        }
+      ],
+      "ohje": [
+        "Keitä perunat edellisenä päivänä tai aamulla. Sekoita perunasalaatti: kuutioidut perunat, kermaviili, silputut suolakurkut ja ruohosipuli, suola ja pippuri. Anna maustua jääkaapissa.",
+        "Kuutioi halloumi ja kasvikset, pujota vartaisiin. Sivele öljyllä, mausta.",
+        "Riivi maissintähkien lehdet, esikeitä 5 min jos haluat nopeuttaa grillausta.",
+        "Grillaa vartaat, maissit ja makkarat kypsiksi, käännellen. Voitele maissit lopuksi voilla.",
+        "Kokoa kesäsalaatti. Tarjoile kaikki yhdessä.",
+        "KASVISVERSIO 6v:lle: halloumivartaat + maissi + perunasalaatti ovat täysi ateria."
+      ],
+      "huom": "Kesäinen grilli-ilta ilman kalaa. Vartaita voi tehdä reilusti — tähteet käyvät seuraavan päivän lounaaksi.",
       "last_cooked": null,
       "palaute": []
     },
