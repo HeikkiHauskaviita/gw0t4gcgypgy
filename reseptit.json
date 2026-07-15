@@ -53,12 +53,14 @@
     "2026-07-10": "kesagrilli",
     "2026-07-16": "pad-thai",
     "2026-07-17": "uunimakaroni",
-    "2026-07-19": "uunijuurekset-feta",
+    "2026-07-18": "sekagrilli",
+    "2026-07-19": "kasvis-bolognese",
     "2026-07-20": "linssidaal",
     "2026-07-21": "kasvis-kvesadillat",
     "2026-07-22": "tofu-stir-fry",
-    "2026-07-23": "punalinssikeitto",
+    "2026-07-23": "bataatti-kookoskeitto",
     "2026-07-24": "pinaattilatyt",
+    "2026-07-25": "kotipizza",
     "2026-07-26": "kasvislasagne"
   },
   "kesaloma": {
@@ -3831,6 +3833,129 @@
       ],
       "huom": "Kesäinen grilli-ilta ilman kalaa. Vartaita voi tehdä reilusti — tähteet käyvät seuraavan päivän lounaaksi.",
       "last_cooked": "2026-07-10",
+      "palaute": []
+    },
+    {
+      "id": "sekagrilli",
+      "nimi": "Sekagrilli (makkarat, grillitofu, vartaat, maissi)",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "grilli",
+        "kesä",
+        "viikonloppu"
+      ],
+      "max_minuutit": 60,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Grillimakkara",
+          "maara": 1,
+          "yksikko": "pkt",
+          "huom": "esim. Kivikylän"
+        },
+        {
+          "nimi": "Kasvisgrillimakkara",
+          "maara": 2,
+          "yksikko": "pkt",
+          "huom": "esim. MUU"
+        },
+        {
+          "nimi": "Grillattava tofu",
+          "maara": 1,
+          "yksikko": "pkt",
+          "huom": "esim. SoFine BBQ, 6v:n pääruoka"
+        },
+        {
+          "nimi": "Kesäkurpitsa",
+          "maara": 1,
+          "yksikko": "kpl",
+          "huom": "vartaisiin"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 2,
+          "yksikko": "kpl",
+          "huom": "vartaisiin"
+        },
+        {
+          "nimi": "Punasipuli",
+          "maara": 2,
+          "yksikko": "kpl",
+          "huom": "vartaisiin"
+        },
+        {
+          "nimi": "Herkkusieni",
+          "maara": 250,
+          "yksikko": "g",
+          "huom": "vartaisiin"
+        },
+        {
+          "nimi": "Maissintähkä",
+          "maara": 5,
+          "yksikko": "kpl",
+          "huom": "grilliin, voi päälle"
+        },
+        {
+          "nimi": "Uudet perunat",
+          "maara": 1,
+          "yksikko": "kg"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 50,
+          "yksikko": "g",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Tilli, tuore",
+          "maara": 1,
+          "yksikko": "kpl",
+          "huom": "ruukku tai nippu"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola, mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Jäävuorisalaatti",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaytto": "kesäsalaatti"
+        },
+        {
+          "nimi": "Kurkku",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaytto": "kesäsalaatti"
+        },
+        {
+          "nimi": "Tomaatti",
+          "maara": 3,
+          "yksikko": "kpl",
+          "kaytto": "kesäsalaatti"
+        }
+      ],
+      "ohje": [
+        "Keitä uudet perunat suolavedessä, lisää lopuksi voi ja silputtu tilli.",
+        "Kuutioi kasvikset ja pujota vartaisiin. Sivele öljyllä, mausta.",
+        "Riivi maissintähkät, esikeitä 5 min halutessasi.",
+        "Grillaa makkarat, kasvismakkarat, tofu, vartaat ja maissit kypsiksi, käännellen. Voitele maissit voilla.",
+        "Kokoa kesäsalaatti. Tarjoile kaikki yhdessä.",
+        "KASVISVERSIO 6v:lle: kasvismakkara/tofu + vartaat + perunat ovat täysi ateria."
+      ],
+      "huom": "Liha- ja kasvisgrillattavat samasta grillistä — jokaiselle jotakin. Tähteet käyvät seuraavan päivän lounaaksi.",
+      "last_cooked": null,
       "palaute": []
     },
     {
