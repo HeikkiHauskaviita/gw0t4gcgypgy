@@ -50,7 +50,16 @@
     "2026-07-07": "peruna-munakas",
     "2026-07-08": "gambas-pasta",
     "2026-07-09": "pad-thai",
-    "2026-07-10": "kesagrilli"
+    "2026-07-10": "kesagrilli",
+    "2026-07-16": "pad-thai",
+    "2026-07-17": "uunimakaroni",
+    "2026-07-19": "uunijuurekset-feta",
+    "2026-07-20": "linssidaal",
+    "2026-07-21": "kasvis-kvesadillat",
+    "2026-07-22": "tofu-stir-fry",
+    "2026-07-23": "punalinssikeitto",
+    "2026-07-24": "pinaattilatyt",
+    "2026-07-26": "kasvislasagne"
   },
   "kesaloma": {
     "alku": "2026-06-01",
@@ -239,7 +248,7 @@
         "Paista 200 °C uunissa 15 min tai kunnes muna on hyytynyt."
       ],
       "huom": null,
-      "last_cooked": "2026-04-26",
+      "last_cooked": "2026-07-07",
       "palaute": []
     },
     {
@@ -1778,7 +1787,8 @@
         "Sekoita kastike pastan joukkoon. Tarjoile juustoraasteen ja raastesalaatin kera."
       ],
       "huom": "Lapsille pinaatti voi olla siedettävämpää jos soseutat sauvasekoittimella ennen ricotan lisäystä.",
-      "palaute": []
+      "palaute": [],
+      "last_cooked": "2026-07-06"
     },
     {
       "id": "kasvis-bolognese",
@@ -2128,7 +2138,7 @@
           "pvm": "2026-05-08"
         }
       ],
-      "last_cooked": "2026-05-08"
+      "last_cooked": "2026-06-29"
     },
     {
       "id": "kasvis-paella",
@@ -2578,7 +2588,7 @@
         "Tarjoile pasta kastikkeen ja juustoraasteen kera."
       ],
       "huom": "100 g kuivia soijasuikaleita riittää 5 hengelle.",
-      "last_cooked": null,
+      "last_cooked": "2026-07-03",
       "palaute": []
     },
     {
@@ -2878,7 +2888,7 @@
         "Tarjoile parmesaani- ja persiljaraasteen kera."
       ],
       "huom": "Chiliä vain pieni hyppysellinen lapsille — tai jätä kokonaan pois. 6v saa saman pastan ilman katkarapuja, halloumi-/parmesankuution kanssa.",
-      "last_cooked": null,
+      "last_cooked": "2026-07-08",
       "palaute": []
     },
     {
@@ -3000,7 +3010,7 @@
         "Kokoa: tortilla, kaalisuikaleet, kala (tai halloumi 6v:lle), avokado-maissisalsa, korianteri, ranskankermakastike ja limelohko."
       ],
       "huom": "6v saa halloumi-version samoilla täytteillä — taco-illan tähti. Ei chiliä — paprikajauhe on mieto maustaja.",
-      "last_cooked": null,
+      "last_cooked": "2026-07-01",
       "palaute": []
     },
     {
@@ -3241,7 +3251,7 @@
         "Tarjoile riisin ja naan-leivän kera."
       ],
       "huom": "Täysin vege — täydellinen 6v:lle. Mieto: ei chiliä, garam masala on lämmin mauste, ei tulinen. Voit soseuttaa myös tomaattikastikkeen, jos lapset eivät pidä paloista.",
-      "last_cooked": null,
+      "last_cooked": "2026-06-30",
       "palaute": []
     },
     {
@@ -3509,7 +3519,7 @@
         "Tarjoile maapähkinärouheen, limelohkojen ja korianterin kera. Sriracha pöytään aikuisille."
       ],
       "huom": "6v:n versio: tofu + munat + nuudelit + porkkana, ilman katkarapuja ja ilman srirachaa. Itse kastike on mieto-makeahko. Kasvisversiossa voi korvata kalakastikkeen extra-soijalla.",
-      "last_cooked": null,
+      "last_cooked": "2026-07-09",
       "palaute": []
     },
     {
@@ -3820,7 +3830,7 @@
         "KASVISVERSIO 6v:lle: halloumivartaat + maissi + perunasalaatti ovat täysi ateria."
       ],
       "huom": "Kesäinen grilli-ilta ilman kalaa. Vartaita voi tehdä reilusti — tähteet käyvät seuraavan päivän lounaaksi.",
-      "last_cooked": null,
+      "last_cooked": "2026-07-10",
       "palaute": []
     },
     {

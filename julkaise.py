@@ -601,8 +601,14 @@ def injektoi_viikkojen_paivalliset(
 
     # Kaikki planned id:t (myös ikkunan ulkopuoliset) — suodatetaan pool:sta jotta
     # ne eivät tule duplikaateiksi. valid-id:t = ne jotka oikeasti löytyvät.
+    # KORJAUS 15.7.2026: poissuljetaan vain tuoreet/tulevat planned-varaukset
+    # (viim. 3 vk, vastaa "ei toistoja 15 arkipäivällisen joukossa" -sääntöä).
+    # Koko planned-historian poissulkeminen kuristi ehdotuspoolin tyhjiin,
+    # jolloin w4 jäi tyhjäksi ja auto-updaten sanity-check kaatui (4.–15.7.2026).
+    raja_planned = (date.today() - timedelta(days=21)).isoformat()
     planned_ids_kaikki: set = {
-        rid for rid in planned.values() if rid in by_id_kaikki
+        rid for pvm, rid in planned.items()
+        if rid in by_id_kaikki and pvm >= raja_planned
     }
 
     # Algoritmi: 5 arkipäivää (ma-pe) + 1 sunnuntai per viikko = 6 reseptiä/vk.
