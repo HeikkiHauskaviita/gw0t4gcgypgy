@@ -843,23 +843,29 @@ def injektoi_kesaloma_lounaat(
         nimet: list[str] = []
         for i, dk in enumerate(paivat):
             pvm = ankkuri + timedelta(days=i)
-            if not (kesa_alku <= pvm <= kesa_loppu):
-                continue
+            on_kesaloma = kesa_alku <= pvm <= kesa_loppu
 
-            edellinen_pvm = pvm - timedelta(days=1)
-            edellinen_solu = pvm_to_solu.get(edellinen_pvm)
-            if not edellinen_solu:
-                # Edellinen päivä ei näy w1-w4 ikkunassa → ei voida täyttää
-                continue
+            # KORJAUS 21.7.2026: solu kirjoitetaan AINA (myös tyhjäksi), jotta
+            # vanhojen buildien jäänteet eivät jää näkyviin. Säännöt:
+            # - kesäloma tai viikonloppu (la/su): tähteet edellisen päivän
+            #   päivällisestä, jos sellainen on
+            # - kouluviikon ma–pe (kesäloman ulkopuolella): tyhjä
+            # - su ilman tähteitä: "Viikon ylijäämät" -oletus
+            paivallinen_nimi = None
+            if on_kesaloma or dk in ("la", "su"):
+                edellinen_solu = pvm_to_solu.get(pvm - timedelta(days=1))
+                if edellinen_solu:
+                    paivallinen_nimi = poimi_paivallinen(*edellinen_solu)
 
-            edellinen_vk, edellinen_dk = edellinen_solu
-            paivallinen_nimi = poimi_paivallinen(edellinen_vk, edellinen_dk)
-            if not paivallinen_nimi:
-                continue  # edellisen päivän päivällinen tyhjä
-
-            new_inner = (
-                f'<strong>Tähteet</strong><br>{_html_escape(paivallinen_nimi)}'
-            )
+            if paivallinen_nimi:
+                new_inner = (
+                    f'<strong>Tähteet</strong><br>{_html_escape(paivallinen_nimi)}'
+                )
+            elif dk == "su":
+                new_inner = '<strong>Viikon ylijäämät</strong>'
+                paivallinen_nimi = "Viikon ylijäämät"
+            else:
+                new_inner = ""
 
             pattern = re.compile(
                 rf'(<div\s+class="cell"\s+data-k="{vk_id}-l-{dk}"[^>]*>)'
@@ -872,7 +878,7 @@ def injektoi_kesaloma_lounaat(
                 return m.group(1) + new_inner + m.group(3)
 
             html = pattern.sub(repl, html, count=1)
-            if replaced[0]:
+            if replaced[0] and paivallinen_nimi:
                 nimet.append(f"{dk}={paivallinen_nimi}")
             else:
                 print(

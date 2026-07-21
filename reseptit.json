@@ -61,7 +61,19 @@
     "2026-07-23": "bataatti-kookoskeitto",
     "2026-07-24": "pinaattilatyt",
     "2026-07-25": "kotipizza",
-    "2026-07-26": "kasvislasagne"
+    "2026-07-26": "kasvislasagne",
+    "2026-07-27": "kasvis-pyttipannu",
+    "2026-07-28": "juureskalakeitto",
+    "2026-07-29": "shakshuka",
+    "2026-07-30": "pakastepizza",
+    "2026-07-31": "punalinssikeitto",
+    "2026-08-02": "hirvikaristys",
+    "2026-08-03": "tomaattipasta",
+    "2026-08-04": "mieto-kasviscurry",
+    "2026-08-05": "kasvispyorykat",
+    "2026-08-06": "perunat-munakastike",
+    "2026-08-07": "parmesanrisotto",
+    "2026-08-09": "uunilohi-tilliperunat"
   },
   "kesaloma": {
     "alku": "2026-06-01",
@@ -3833,6 +3845,97 @@
       ],
       "huom": "Kesäinen grilli-ilta ilman kalaa. Vartaita voi tehdä reilusti — tähteet käyvät seuraavan päivän lounaaksi.",
       "last_cooked": "2026-07-10",
+      "palaute": []
+    },
+    {
+      "id": "hirvikaristys",
+      "nimi": "Hirvikäristys, perunamuusi ja puolukat",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "riista",
+        "liha",
+        "juhla",
+        "viikonloppu"
+      ],
+      "max_minuutit": 90,
+      "vaikeustaso": "keskitaso",
+      "ainekset": [
+        {
+          "nimi": "Hirvikäristys (pakaste)",
+          "maara": 480,
+          "yksikko": "g",
+          "huom": "esim. Lapin Liha Saksanhirvikäristys 240 g × 2; poron- tai peurakäristys käy"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 50,
+          "yksikko": "g",
+          "huom": "käristykseen"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Perunat",
+          "maara": 1.5,
+          "yksikko": "kg",
+          "huom": "muusiin"
+        },
+        {
+          "nimi": "Täysmaito",
+          "maara": 3,
+          "yksikko": "dl",
+          "huom": "muusiin"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 40,
+          "yksikko": "g",
+          "huom": "muusiin"
+        },
+        {
+          "nimi": "Puolukat tai puolukkahillo",
+          "maara": 1,
+          "yksikko": "prk"
+        },
+        {
+          "nimi": "Suolakurkku",
+          "maara": 4,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kasvispyörykät (pakaste)",
+          "maara": 0.5,
+          "yksikko": "pkt",
+          "huom": "6v:n kasvisversio"
+        },
+        {
+          "nimi": "Suola, mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Ruskista jäinen käristysliha voissa padassa erissä. Lisää silputtu sipuli.",
+        "Lisää vettä ja liemikuutio niin että liha juuri peittyy. Hauduta kannen alla miedolla lämmöllä n. 45–60 min, kunnes liha on mureaa. Mausta suolalla ja pippurilla.",
+        "Keitä perunat ja tee muusi (maito, voi, suola).",
+        "Paista kasvispyörykät 6-vuotiaalle uunissa.",
+        "Tarjoile käristys muusin päällä puolukoiden ja suolakurkkujen kera.",
+        "KASVISVERSIO 6v:lle: kasvispyörykät + muusi + puolukat."
+      ],
+      "huom": "Kesäloman päätösateria. Riistaa saa Prismasta pakasteena (Lapin Liha, Rönkä, Metsäranta).",
+      "last_cooked": null,
       "palaute": []
     },
     {
