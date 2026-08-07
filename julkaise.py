@@ -30,6 +30,7 @@ Hostaus (valitse yksi):
    - https://pages.cloudflare.com → yhdistä GitHub-repo
 """
 import argparse
+import base64
 import json
 import re
 import shutil
@@ -131,14 +132,28 @@ def yhdista_selaimen_suunnitelma(reseptit_path: Path) -> int:
 
     Palauttaa yhdistettyjen päivien määrän.
     """
+    # HUOM: luetaan GitHubin API:sta EIKÄ raw.githubusercontent.comista.
+    # raw-osoite tarjoilee CDN-välimuistista jopa ~5 min vanhaa sisältöä
+    # (myös cache-bust-parametrilla), jolloin heti suunnittelun jälkeen ajettu
+    # workflow lukisi vanhan suunnitelman. API vastaa aina tuoreella.
+    # Julkinen repo → ei tarvita tokenia (rajana 60 pyyntöä/h/IP, riittää hyvin).
     url = (
-        "https://raw.githubusercontent.com/HeikkiHauskaviita/gw0t4gcgypgy/"
-        "data/data/suunnittelu.json"
+        "https://api.github.com/repos/HeikkiHauskaviita/gw0t4gcgypgy/"
+        "contents/data/suunnittelu.json?ref=data"
     )
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": "perheen-ruokalista"})
+        req = urllib.request.Request(
+            url,
+            headers={
+                "User-Agent": "perheen-ruokalista",
+                "Accept": "application/vnd.github+json",
+                "X-GitHub-Api-Version": "2022-11-28",
+            },
+        )
         with urllib.request.urlopen(req, timeout=20) as r:
-            paketti = json.loads(r.read().decode("utf-8"))
+            vastaus = json.loads(r.read().decode("utf-8"))
+        sisalto = base64.b64decode(vastaus.get("content", "")).decode("utf-8")
+        paketti = json.loads(sisalto)
     except Exception as e:
         print(f"  Selaimen suunnitelmaa ei saatu ({e}) — käytetään reseptit.json:n planned-kenttää")
         return 0
