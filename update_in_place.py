@@ -35,12 +35,19 @@ def main():
     pvm = date.today().isoformat()
     muutoksia = False
 
+    # --- Selaimessa tehty viikkosuunnittelu (reseptit.html → data-haara) ---
+    # Yhdistetään ENSIN, jotta injektoinnit näkevät tuoreen planned-kentän.
+    if RESEPTIT_PATH.exists():
+        if J.yhdista_selaimen_suunnitelma(RESEPTIT_PATH):
+            muutoksia = True
+
     # --- index.html ---
     if INDEX_PATH.exists():
         html = INDEX_PATH.read_text(encoding="utf-8")
         alkuperäinen = html
         html = J.paivita_aikaleima(html, pvm)
         html = J.lisaa_robots(html)
+        html = J.varmista_nav_linkki(html)
         if RESEPTIT_PATH.exists():
             html = J.injektoi_reseptit(html, RESEPTIT_PATH)
         if HISTORIA_PATH.exists():
@@ -121,6 +128,7 @@ def main():
         alkuperäinen = html
         html = J.paivita_aikaleima(html, pvm)
         html = J.lisaa_robots(html)
+        html = J.varmista_nav_linkki(html)
         tap = J.hae_tampere_tapahtumat(kuukaudet=3)
         if tap:
             html = J.injektoi_tapahtumat(html, tap)

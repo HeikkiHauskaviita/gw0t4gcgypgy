@@ -73,7 +73,19 @@
     "2026-08-05": "kasvispyorykat",
     "2026-08-06": "perunat-munakastike",
     "2026-08-07": "parmesanrisotto",
-    "2026-08-09": "uunilohi-tilliperunat"
+    "2026-08-09": "uunilohi-tilliperunat",
+    "2026-08-10": "halloumi-kuskus",
+    "2026-08-11": "kikhernepata",
+    "2026-08-12": "pinaattikeitto",
+    "2026-08-13": "kasvisnakkikeitto",
+    "2026-08-14": "kotipizza",
+    "2026-08-16": "kasvis-paella",
+    "2026-08-17": "espanjalainen-tortilla",
+    "2026-08-18": "caprese-pasta",
+    "2026-08-19": "saag-paneer",
+    "2026-08-20": "soija-bolognese",
+    "2026-08-21": "fish-tacos",
+    "2026-08-23": "bibimbap"
   },
   "kesaloma": {
     "alku": "2026-06-01",
@@ -187,7 +199,7 @@
         "Tarjoile pasta kastikkeen ja juustoraasteen kera."
       ],
       "huom": "Lapset tykkäävät isosta juustokasasta päälle.",
-      "last_cooked": "2026-04-25",
+      "last_cooked": "2026-08-03",
       "palaute": []
     },
     {
@@ -346,7 +358,7 @@
         "Tarjoile juustoleivän kera."
       ],
       "huom": "Soseutettuna pikkulapset syövät paremmin.",
-      "last_cooked": "2026-04-22",
+      "last_cooked": "2026-07-31",
       "palaute": []
     },
     {
@@ -416,7 +428,7 @@
         "Tarjoile puolukkahillon ja kermaviilin kera."
       ],
       "huom": "Lättyjä tehtäessä voi tuplata määrän ja pakastaa loput.",
-      "last_cooked": "2026-04-23",
+      "last_cooked": "2026-07-24",
       "palaute": []
     },
     {
@@ -479,7 +491,7 @@
         "Paista 225 °C uunissa 10–12 min kunnes juusto on kultainen."
       ],
       "huom": "Toinen pizza voi olla vain juusto (4-vuotiaan mielenrauhaksi).",
-      "last_cooked": "2026-04-24",
+      "last_cooked": "2026-07-25",
       "palaute": []
     },
     {
@@ -550,7 +562,7 @@
         "Tarjoile riisin päällä."
       ],
       "huom": "Mieto currytahna = ei tulista. Testaa ennen kuin lisäät.",
-      "last_cooked": "2026-04-27",
+      "last_cooked": "2026-08-04",
       "palaute": []
     },
     {
@@ -615,7 +627,7 @@
         "Tarjoile perunoiden, munakastikkeen ja herneiden kera."
       ],
       "huom": null,
-      "last_cooked": "2026-04-28",
+      "last_cooked": "2026-08-06",
       "palaute": []
     },
     {
@@ -804,7 +816,7 @@
         "Leikkaa paistettu tortilla paloiksi ennen tarjoilua."
       ],
       "huom": null,
-      "last_cooked": "2026-05-01",
+      "last_cooked": "2026-07-21",
       "palaute": []
     },
     {
@@ -964,7 +976,7 @@
         "Paista 200 °C uunissa 25 min kunnes pinta on kullanruskea."
       ],
       "huom": "Klassikko — lapset syövät ilman muuta.",
-      "last_cooked": null,
+      "last_cooked": "2026-07-17",
       "palaute": []
     },
     {
@@ -1028,7 +1040,7 @@
         "Tarjoile puolukkahillon kera."
       ],
       "huom": null,
-      "last_cooked": "2026-04-27",
+      "last_cooked": "2026-08-05",
       "palaute": []
     },
     {
@@ -1409,7 +1421,7 @@
         "Paista 200 °C uunissa 30 min kunnes pinta on kullanruskea."
       ],
       "huom": "Isompi annoskoko — jää viikonloppuun tai maanantain lounaaksi.",
-      "last_cooked": "2026-05-03",
+      "last_cooked": "2026-07-26",
       "palaute": []
     },
     {
@@ -1895,7 +1907,8 @@
         "Tarjoile spagetin ja juustoraasteen kera."
       ],
       "huom": "Soijarouhe kannattaa liottaa kuumassa vedessä etukäteen 10 min jos käytät kuivaa rouhetta — se imee silloin paremmin makua.",
-      "palaute": []
+      "palaute": [],
+      "last_cooked": "2026-07-19"
     },
     {
       "id": "linssidaal",
@@ -1997,7 +2010,8 @@
         "Tarjoile riisin ja naan-leivän kera."
       ],
       "huom": "Mieto currytahna = ei tulista. Maista ennen kuin lisäät, jotkin merkit ovat oikeasti tulisia.",
-      "palaute": []
+      "palaute": [],
+      "last_cooked": "2026-07-20"
     },
     {
       "id": "kasvis-pyttipannu",
@@ -2075,7 +2089,8 @@
         "Paista munat erikseen pannulla. Tarjoile pyttipannun päällä punajuuren ja ketsupin kera."
       ],
       "huom": "Klassikko jonka lapset usein syövät hyvin. Pyttipannu vaatii kylmiä perunoita — keitä ne aamulla tai edellisenä päivänä.",
-      "palaute": []
+      "palaute": [],
+      "last_cooked": "2026-07-27"
     },
     {
       "id": "caprese-pasta",
@@ -2368,7 +2383,7 @@
         "Tarjoile keitto leipäjuustokuutioiden ja ruisleivän kera."
       ],
       "huom": "Leipäjuusto antaa proteiinilisän ja paistettuna mukavan rouskahtelevan tekstuurin.",
-      "last_cooked": null,
+      "last_cooked": "2026-07-23",
       "palaute": []
     },
     {
@@ -2480,7 +2495,7 @@
         "Tarjoile ruisleivän kera."
       ],
       "huom": "Helppo skaalata: keitä pohjakeitto kerralla, ja lisää lohi vain niihin annoksiin jotka haluavat. Viljamille kasvisannos otetaan ennen kalan lisäystä.",
-      "last_cooked": null,
+      "last_cooked": "2026-07-28",
       "palaute": []
     },
     {
@@ -2703,7 +2718,7 @@
         "Tarjoile kevätsipulilla ja seesaminsiemenillä koristeltuna."
       ],
       "huom": "Lapsille mieto soijakastike riittää (älä laita chiliä).",
-      "last_cooked": null,
+      "last_cooked": "2026-07-22",
       "palaute": []
     },
     {
@@ -3142,7 +3157,7 @@
         "Ripottele päälle tuoreyrtit ja tarjoile pitan/patongin kera."
       ],
       "huom": "Täysin vege — sopii 6v:lle (munat ok). Ei chiliä — paprikajauhe + juustokumina antavat lämpimän maun ilman tulisuutta. Voit jättää korianterinsiemenjauheen pois, jos lapset eivät tykkää.",
-      "last_cooked": null,
+      "last_cooked": "2026-07-29",
       "palaute": []
     },
     {
@@ -3533,7 +3548,7 @@
         "Tarjoile maapähkinärouheen, limelohkojen ja korianterin kera. Sriracha pöytään aikuisille."
       ],
       "huom": "6v:n versio: tofu + munat + nuudelit + porkkana, ilman katkarapuja ja ilman srirachaa. Itse kastike on mieto-makeahko. Kasvisversiossa voi korvata kalakastikkeen extra-soijalla.",
-      "last_cooked": "2026-07-09",
+      "last_cooked": "2026-07-16",
       "palaute": []
     },
     {
@@ -3714,7 +3729,7 @@
         "Revi salaatti, viipaloi kurkku ja tomaatti lisukkeeksi."
       ],
       "huom": "Mökkiruoka — toimii missä tahansa uunissa tai grillissä kannen alla. Tarkista että yksi pizzoista on kasvis (6v).",
-      "last_cooked": null,
+      "last_cooked": "2026-07-30",
       "palaute": []
     },
     {
@@ -3935,7 +3950,7 @@
         "KASVISVERSIO 6v:lle: kasvispyörykät + muusi + puolukat."
       ],
       "huom": "Kesäloman päätösateria. Riistaa saa Prismasta pakasteena (Lapin Liha, Rönkä, Metsäranta).",
-      "last_cooked": null,
+      "last_cooked": "2026-08-02",
       "palaute": []
     },
     {
@@ -4058,7 +4073,7 @@
         "KASVISVERSIO 6v:lle: kasvismakkara/tofu + vartaat + perunat ovat täysi ateria."
       ],
       "huom": "Liha- ja kasvisgrillattavat samasta grillistä — jokaiselle jotakin. Tähteet käyvät seuraavan päivän lounaaksi.",
-      "last_cooked": null,
+      "last_cooked": "2026-07-18",
       "palaute": []
     },
     {

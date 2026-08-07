@@ -34,7 +34,11 @@
     { file: "data/ruokalista.json",  keys: ["perheen-ruokalista-v3"], prefixes: [] },
     { file: "data/huoltokirja.json", keys: ["perheen-huoltokirja-v1"], prefixes: [] },
     { file: "data/remontit.json",    keys: ["perheen-remontit-v1"], prefixes: [] },
-    { file: "data/siivous.json",     keys: [], prefixes: ["siivous-"] }
+    { file: "data/siivous.json",     keys: [], prefixes: ["siivous-"] },
+    // Viikkosuunnittelu (reseptit.html) — { "2026-08-10": "kotipizza", ... }
+    // update_in_place.py lukee tämän data-haarasta ja yhdistää reseptit.json:n
+    // planned-kenttään, jolloin selaimessa tehty suunnitelma päätyy sivulle.
+    { file: "data/suunnittelu.json", keys: ["ruokalista-suunnittelu-v1"], prefixes: [] }
   ];
   // Näitä ei koskaan synkata (laitekohtaisia)
   var IGNORE_KEYS = [TOKEN_KEY, META_KEY, "ruokalista-theme"];

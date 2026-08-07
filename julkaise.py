@@ -102,6 +102,92 @@ def lisaa_robots(html: str) -> str:
     )
 
 
+def varmista_nav_linkki(html: str) -> str:
+    """Lisää Reseptit-linkin navigaatioon jos se puuttuu (idempotentti).
+
+    index.html ja tapahtumat.html päivittyvät cronilla, joten navin linkki
+    lisätään koodista käsin — näin käsin tehty muokkaus ei häviä eikä
+    aiheuta merge-konflikteja paikallisen ja botin version välillä.
+    """
+    if 'href="reseptit.html"' in html:
+        return html
+    return re.sub(
+        r'(<nav class="site-nav">\s*\n\s*<a href="index\.html"[^\n]*\n)',
+        r'\1  <a href="reseptit.html">Reseptit</a>\n',
+        html,
+        count=1,
+    )
+
+
+def yhdista_selaimen_suunnitelma(reseptit_path: Path) -> int:
+    """Yhdistää selaimessa (reseptit.html) tehdyn viikkosuunnitelman planned-kenttään.
+
+    Suunnitelma tallentuu perhesynkalla data-haaraan tiedostoon
+    data/suunnittelu.json muodossa {"paivitetty": ..., "keys": {"ruokalista-suunnittelu-v1": "<json>"}}.
+
+    Vain TULEVAT päivät otetaan huomioon (menneisyys on jo toteumaa), ja
+    reseptit.json kirjoitetaan vain jos jotain muuttui. Verkkovirhe ei kaada
+    ajoa — palautetaan 0 ja jatketaan entisellä planned-kentällä.
+
+    Palauttaa yhdistettyjen päivien määrän.
+    """
+    url = (
+        "https://raw.githubusercontent.com/HeikkiHauskaviita/gw0t4gcgypgy/"
+        "data/data/suunnittelu.json"
+    )
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "perheen-ruokalista"})
+        with urllib.request.urlopen(req, timeout=20) as r:
+            paketti = json.loads(r.read().decode("utf-8"))
+    except Exception as e:
+        print(f"  Selaimen suunnitelmaa ei saatu ({e}) — käytetään reseptit.json:n planned-kenttää")
+        return 0
+
+    raaka = (paketti.get("keys") or {}).get("ruokalista-suunnittelu-v1")
+    if not raaka:
+        return 0
+    try:
+        suunnitelma = json.loads(raaka) if isinstance(raaka, str) else raaka
+    except Exception as e:
+        print(f"⚠ Selaimen suunnitelman jäsennys epäonnistui: {e}")
+        return 0
+    if not isinstance(suunnitelma, dict):
+        return 0
+
+    try:
+        with open(reseptit_path, encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception as e:
+        print(f"⚠ reseptit.json luku epäonnistui: {e}")
+        return 0
+
+    planned = data.get("planned") if isinstance(data.get("planned"), dict) else {}
+    tunnetut = {r.get("id") for r in data.get("reseptit", [])}
+    tanaan = date.today().isoformat()
+    lisatyt = []
+
+    for pvm, rid in sorted(suunnitelma.items()):
+        if not isinstance(pvm, str) or not isinstance(rid, str):
+            continue
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", pvm) or pvm < tanaan:
+            continue
+        if rid not in tunnetut:
+            print(f"⚠ Selaimen suunnitelma viittaa tuntemattomaan reseptiin: {rid}")
+            continue
+        if planned.get(pvm) != rid:
+            planned[pvm] = rid
+            lisatyt.append(f"{pvm}={rid}")
+
+    if not lisatyt:
+        return 0
+
+    data["planned"] = dict(sorted(planned.items()))
+    with open(reseptit_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    print(f"✓ Selaimen suunnitelma yhdistetty ({len(lisatyt)}): {', '.join(lisatyt)}")
+    return len(lisatyt)
+
+
 def hae_paivakodin_valikko(paivia: int = 14) -> dict | None:
     """Hakee Takahuhdin päiväkodin valikon Aromi-API:sta.
 

@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="julkaistu" content="2026-08-07">
+<meta name="robots" content="noindex, nofollow">
+<title>Reseptipankki ja viikkosuunnittelu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<script src="sync.js"></script>
+<style>
+:root {
+  --bg: #0a0612;
+  --bg-2: #140a22;
+  --surface: #1a102a;
+  --surface-2: #22143a;
+  --ink: #ede4cc;
+  --ink-dim: #b8a885;
+  --muted: #7a6a4a;
+  --gold: #d4a94a;
+  --gold-bright: #f0c76a;
+  --gold-dim: #8a6f30;
+  --blood: #8b1e2b;
+  --blood-soft: rgba(139, 30, 43, 0.15);
+  --purple: #6a3fa0;
+  --purple-bright: #9866d6;
+  --purple-deep: #4a2b6e;
+  --purple-soft: rgba(106, 63, 160, 0.22);
+  --border: rgba(212, 169, 74, 0.22);
+  --border-strong: rgba(212, 169, 74, 0.5);
+  --shadow: 0 2px 10px rgba(0,0,0,0.6), 0 0 30px rgba(106, 63, 160, 0.18);
+  --bg-glow-1: rgba(106, 63, 160, 0.4);
+  --bg-glow-2: rgba(139, 30, 43, 0.28);
+  --bg-glow-3: rgba(26, 16, 42, 0.4);
+  --nav-bg: linear-gradient(180deg, rgba(10,6,18,0.98), rgba(20,10,34,0.95));
+  --card-bg: rgba(0,0,0,0.18);
+  --card-hover: rgba(212,169,74,0.08);
+  --header-grad-1: rgba(26,16,42,0.97);
+  --header-grad-2: rgba(10,6,18,0.93);
+  --meta-bg: rgba(0,0,0,0.3);
+  --tabs-bg: rgba(0,0,0,0.4);
+  --tab-active-text: #1a0f00;
+  --on-button: #1a0f00;
+  --overlay: rgba(6, 3, 12, 0.82);
+}
+
+:root[data-theme="light"] {
+  --bg: #eef4fa;
+  --bg-2: #dfe9f3;
+  --surface: #ffffff;
+  --surface-2: #f4f8fc;
+  --ink: #1d2a3a;
+  --ink-dim: #4a5a6e;
+  --muted: #8a9aac;
+  --gold: #2c7fb8;
+  --gold-bright: #4ea0d8;
+  --gold-dim: #1b5a85;
+  --blood: #b54850;
+  --blood-soft: rgba(181, 72, 80, 0.12);
+  --purple: #6f86c2;
+  --purple-bright: #93a8e0;
+  --purple-deep: #3f5395;
+  --purple-soft: rgba(111, 134, 194, 0.18);
+  --border: rgba(44, 127, 184, 0.28);
+  --border-strong: rgba(44, 127, 184, 0.55);
+  --shadow: 0 2px 10px rgba(60,90,130,0.08), 0 0 30px rgba(111, 134, 194, 0.10);
+  --bg-glow-1: rgba(147, 168, 224, 0.35);
+  --bg-glow-2: rgba(78, 160, 216, 0.20);
+  --bg-glow-3: rgba(220, 232, 245, 0.55);
+  --nav-bg: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(238,244,250,0.94));
+  --card-bg: rgba(255,255,255,0.62);
+  --card-hover: rgba(44,127,184,0.08);
+  --header-grad-1: rgba(255,255,255,0.94);
+  --header-grad-2: rgba(238,244,250,0.92);
+  --meta-bg: rgba(255,255,255,0.65);
+  --tabs-bg: rgba(255,255,255,0.55);
+  --tab-active-text: #ffffff;
+  --on-button: #ffffff;
+  --overlay: rgba(30, 50, 75, 0.55);
+}
+
+html, body {
+  margin: 0; padding: 0;
+  background:
+    radial-gradient(ellipse at 18% -10%, var(--bg-glow-1), transparent 55%),
+    radial-gradient(ellipse at 82% 110%, var(--bg-glow-2), transparent 55%),
+    radial-gradient(ellipse at 50% 50%, var(--bg-glow-3), transparent 70%),
+    var(--bg);
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', 'Garamond', 'Palatino Linotype', Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ========== Header ========== */
+header {
+  background: linear-gradient(180deg, var(--header-grad-1), var(--header-grad-2));
+  border-bottom: 1px solid var(--border-strong);
+  padding: 20px 28px 16px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.20), inset 0 -1px 0 rgba(212,169,74,0.1);
+  text-align: center;
+}
+h1 {
+  margin: 0;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-shadow: 0 0 22px rgba(212,169,74,0.30);
+}
+.subtitle {
+  margin: 6px 0 0;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-dim);
+  letter-spacing: 0.04em;
+}
+.header-tools { margin-top: 12px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+
+/* ========== Napit ========== */
+.btn {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--gold-dim);
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 1px;
+  transition: color 0.18s, border-color 0.18s, background 0.18s;
+}
+.btn:hover { color: var(--gold-bright); border-color: var(--gold); background: var(--card-hover); }
+.btn.primary {
+  background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+  color: var(--tab-active-text);
+  border-color: var(--gold);
+  font-weight: 600;
+}
+.btn.primary:hover { box-shadow: 0 0 16px rgba(212,169,74,0.40); color: var(--tab-active-text); }
+.btn.danger { color: var(--blood); border-color: var(--blood); }
+.btn.danger:hover { background: var(--blood-soft); color: var(--blood); border-color: var(--blood); }
+
+/* ========== Tabit ========== */
+.tabs-row {
+  display: flex; gap: 4px; margin: 18px auto 22px;
+  background: var(--tabs-bg);
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 1px;
+  width: fit-content;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.tab {
+  appearance: none; border: none; background: transparent;
+  padding: 7px 16px;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-radius: 1px;
+  cursor: pointer;
+  color: var(--muted);
+  transition: all 0.2s;
+}
+.tab:hover { color: var(--gold-bright); }
+.tab.active {
+  background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+  color: var(--tab-active-text);
+  font-weight: 600;
+  box-shadow: 0 0 14px rgba(212, 169, 74, 0.35);
+}
+
+main { padding: 22px 28px 80px; max-width: 1080px; margin: 0 auto; }
+section { display: none; }
+section.active { display: block; }
+
+/* ========== Suodattimet ========== */
+.filters {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  background: var(--meta-bg);
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+.filters input[type="search"], .filters select, .picker-search {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 16px;
+  padding: 7px 10px;
+  border-radius: 1px;
+  outline: none;
+}
+.filters input[type="search"] { flex: 1 1 240px; min-width: 180px; }
+.filters input[type="search"]:focus, .picker-search:focus { border-color: var(--gold); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.chip {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--ink-dim);
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  cursor: pointer;
+  border-radius: 1px;
+  transition: all 0.18s;
+}
+.chip:hover { border-color: var(--gold); color: var(--gold-bright); }
+.chip.on { background: var(--purple-soft); border-color: var(--gold); color: var(--gold); }
+.result-count {
+  font-size: 13px; font-style: italic; color: var(--muted);
+  margin: 0 0 12px; letter-spacing: 0.04em;
+}
+
+/* ========== Reseptikortit ========== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+}
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 14px 15px;
+  cursor: pointer;
+  transition: border-color 0.18s, background 0.18s, box-shadow 0.18s, transform 0.18s;
+  display: flex; flex-direction: column; gap: 7px;
+}
+.card:hover {
+  border-color: var(--gold);
+  background: var(--card-hover);
+  box-shadow: 0 0 18px rgba(106,63,160,0.16);
+  transform: translateY(-1px);
+}
+.card h3 {
+  margin: 0;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+  line-height: 1.3;
+}
+.card-meta { font-size: 13px; color: var(--ink-dim); display: flex; gap: 12px; flex-wrap: wrap; }
+.card-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.tag {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 8.5px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); border: 1px solid var(--border); padding: 2px 6px;
+}
+.since { font-size: 12.5px; color: var(--muted); font-style: italic; }
+.since.kauan { color: var(--gold); font-style: normal; }
+.since.tuore { color: var(--blood); }
+
+/* ========== Modaali ========== */
+.overlay {
+  position: fixed; inset: 0; background: var(--overlay);
+  display: none; align-items: flex-start; justify-content: center;
+  z-index: 50; padding: 40px 16px; overflow-y: auto;
+  backdrop-filter: blur(2px);
+}
+.overlay.open { display: flex; }
+.modal {
+  background: linear-gradient(180deg, var(--surface), var(--bg-2));
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow);
+  max-width: 720px; width: 100%;
+  padding: 24px 26px 28px;
+  position: relative;
+}
+.modal-close {
+  position: absolute; top: 10px; right: 12px;
+  background: transparent; border: none; color: var(--gold-dim);
+  font-size: 22px; cursor: pointer; line-height: 1;
+}
+.modal-close:hover { color: var(--blood); }
+.modal h2 {
+  margin: 0 0 4px;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 19px; letter-spacing: 0.08em; color: var(--gold);
+  padding-right: 30px;
+}
+.modal h4 {
+  margin: 20px 0 8px;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold-dim); font-weight: 500;
+  border-bottom: 1px solid var(--border); padding-bottom: 5px;
+}
+.portion-row { display: flex; align-items: center; gap: 10px; margin-top: 12px; font-size: 14px; color: var(--ink-dim); }
+.portion-row input {
+  width: 58px; background: var(--surface); border: 1px solid var(--border);
+  color: var(--ink); font-family: inherit; font-size: 16px; padding: 4px 6px; text-align: center;
+}
+.ing-list { list-style: none; padding: 0; margin: 0; }
+.ing-list li {
+  display: flex; justify-content: space-between; gap: 14px;
+  padding: 5px 2px; border-bottom: 1px dotted var(--border); font-size: 16px;
+}
+.ing-list li:last-child { border-bottom: none; }
+.ing-amount { color: var(--gold); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.ing-note { color: var(--muted); font-size: 13px; font-style: italic; }
+.ing-list li.kaappi .ing-name::after { content: " 🏠"; font-size: 11px; }
+.steps { margin: 0; padding-left: 22px; }
+.steps li { margin-bottom: 8px; font-size: 16px; }
+.huom {
+  margin-top: 16px; padding: 10px 12px;
+  background: var(--purple-soft); border-left: 2px solid var(--purple-bright);
+  font-size: 15px; font-style: italic; color: var(--ink-dim);
+}
+
+/* ========== Suunnittelija ========== */
+.week-bar {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  margin-bottom: 14px; flex-wrap: wrap;
+}
+.week-label {
+  font-family: 'Cinzel', Georgia, serif; font-size: 14px; letter-spacing: 0.14em;
+  color: var(--gold); text-transform: uppercase; min-width: 240px; text-align: center;
+}
+.plan-actions { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+.plan-table { width: 100%; border-collapse: collapse; }
+.plan-table th {
+  font-family: 'Cinzel', Georgia, serif; font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold-dim); font-weight: 500;
+  text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border);
+}
+.plan-table td {
+  padding: 0; border-bottom: 1px solid var(--border); vertical-align: middle;
+}
+.plan-day {
+  width: 150px; padding: 12px 10px;
+  font-family: 'Cinzel', Georgia, serif; font-size: 11px; letter-spacing: 0.12em;
+  color: var(--ink-dim); white-space: nowrap;
+}
+.plan-day .pvm { display: block; font-family: inherit; font-size: 10px; color: var(--muted); margin-top: 2px; }
+.plan-slot {
+  padding: 10px 12px; cursor: pointer; transition: background 0.18s;
+  font-size: 17px; color: var(--ink); min-height: 26px;
+}
+.plan-slot:hover { background: var(--card-hover); }
+.plan-slot.empty { color: var(--muted); font-style: italic; }
+.plan-slot .aika { font-size: 12.5px; color: var(--muted); margin-left: 8px; white-space: nowrap; }
+.plan-slot.locked { background: var(--meta-bg); }
+tr.viikonloppu .plan-day { color: var(--gold-dim); }
+.plan-row-tools { width: 74px; text-align: right; padding-right: 8px; white-space: nowrap; }
+.mini {
+  background: transparent; border: none; color: var(--muted);
+  font-size: 15px; cursor: pointer; padding: 2px 5px;
+}
+.mini:hover { color: var(--gold-bright); }
+.mini.x:hover { color: var(--blood); }
+.plan-status {
+  margin-top: 16px; font-size: 13.5px; font-style: italic; color: var(--muted);
+  text-align: center; min-height: 20px;
+}
+.plan-status.ok { color: var(--gold); font-style: normal; }
+.plan-status.err { color: var(--blood); }
+.plan-help {
+  margin: 0 0 16px; font-size: 14px; color: var(--ink-dim); text-align: center;
+  font-style: italic; line-height: 1.55;
+}
+.picker-list { max-height: 46vh; overflow-y: auto; margin-top: 12px; }
+.picker-item {
+  display: flex; justify-content: space-between; gap: 12px; align-items: baseline;
+  padding: 8px 10px; cursor: pointer; border-bottom: 1px solid var(--border);
+}
+.picker-item:hover { background: var(--card-hover); }
+.picker-item .pn { font-size: 16px; color: var(--ink); }
+.picker-item .pm { font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+.picker-search { width: 100%; margin-top: 12px; box-sizing: border-box; }
+.json-out {
+  width: 100%; box-sizing: border-box; margin-top: 12px;
+  background: var(--surface); border: 1px solid var(--border); color: var(--ink-dim);
+  font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12.5px;
+  padding: 10px; min-height: 160px; border-radius: 1px;
+}
+.loading, .error-box {
+  text-align: center; padding: 40px 20px; color: var(--muted); font-style: italic;
+}
+.error-box { color: var(--blood); font-style: normal; }
+
+@media (max-width: 720px) {
+  main { padding: 16px 14px 60px; }
+  h1 { font-size: 20px; }
+  .grid { grid-template-columns: 1fr; }
+  .plan-day { width: 92px; font-size: 10px; }
+  .plan-slot { font-size: 15px; }
+  .modal { padding: 20px 16px 24px; }
+}
+@media print {
+  .filters, .chips, .tabs-row, .header-tools, .plan-actions, .plan-row-tools, .overlay { display: none !important; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html">Ruokalista</a>
+  <a href="reseptit.html" class="current" aria-current="page">Reseptit</a>
+  <a href="tapahtumat.html">Tapahtumat</a>
+  <a href="siivous.html">Siivous</a>
+  <a href="huolto.html">Huolto</a>
+  <a href="remontit.html">Remontit</a>
+  <a href="talous.html">Talous</a>
+</nav>
+
+<header>
+  <h1>⛧Reseptipankki⛧</h1>
+  <p class="subtitle">Perheen reseptit ja viikkojen suunnittelu</p>
+  <div class="header-tools">
+    <button class="btn" id="theme-toggle">Vaalea</button>
+    <a class="btn" href="index.html" style="text-decoration:none">← Ruokalista</a>
+  </div>
+</header>
+
+<div class="tabs-row">
+  <button class="tab active" data-tab="bank">Reseptipankki</button>
+  <button class="tab" data-tab="plan">Viikkosuunnittelu</button>
+</div>
+
+<main>
+
+<!-- ================= RESEPTIPANKKI ================= -->
+<section id="bank" class="active">
+  <div class="filters">
+    <input type="search" id="q" placeholder="Hae nimestä, aineksesta tai tagista…" autocomplete="off">
+    <select id="f-kategoria">
+      <option value="päivällinen">Päivälliset</option>
+      <option value="">Kaikki kategoriat</option>
+    </select>
+    <select id="f-aika">
+      <option value="0">Kaikki ajat</option>
+      <option value="20">≤ 20 min</option>
+      <option value="30">≤ 30 min</option>
+      <option value="45">≤ 45 min</option>
+    </select>
+    <select id="f-jarjestys">
+      <option value="kauan">Pisin tauko ensin</option>
+      <option value="nimi">Nimi A–Ö</option>
+      <option value="aika">Nopein ensin</option>
+      <option value="tuore">Viimeksi tehty ensin</option>
+    </select>
+  </div>
+  <div class="chips" id="tag-chips"></div>
+  <p class="result-count" id="result-count"></p>
+  <div class="grid" id="grid"><p class="loading">Ladataan reseptejä…</p></div>
+</section>
+
+<!-- ================= VIIKKOSUUNNITTELU ================= -->
+<section id="plan">
+  <p class="plan-help">
+    Paina <strong>Ehdota viikko</strong> — algoritmi täyttää tyhjät päivät: arki nopeilla
+    ruoilla, viikonloppu isommilla, painottaen pisimpään syömättä olleita. Klikkaa mitä tahansa
+    päivää vaihtaaksesi ruoan reseptipankista. Lauantai on oletuksena viikon ylijäämille.
+    Valinnat tallentuvat heti ja siirtyvät perhesynkalla sivulle seuraavassa päivityksessä.
+  </p>
+  <div class="week-bar">
+    <button class="btn" id="wk-prev">‹ Edellinen</button>
+    <span class="week-label" id="wk-label">—</span>
+    <button class="btn" id="wk-next">Seuraava ›</button>
+  </div>
+  <div class="plan-actions">
+    <button class="btn primary" id="wk-suggest">✦ Ehdota viikko</button>
+    <button class="btn" id="wk-fill">↻ Suunnittele uudelleen</button>
+    <button class="btn" id="wk-copy">⎘ Kopioi planned-JSON</button>
+    <button class="btn danger" id="wk-clear">✕ Tyhjennä viikko</button>
+  </div>
+  <table class="plan-table">
+    <thead>
+      <tr><th>Päivä</th><th>Päivällinen</th><th></th></tr>
+    </thead>
+    <tbody id="plan-body"></tbody>
+  </table>
+  <p class="plan-status" id="plan-status"></p>
+</section>
+
+</main>
+
+<!-- Reseptin tiedot -->
+<div class="overlay" id="recipe-overlay">
+  <div class="modal" id="recipe-modal" role="dialog" aria-modal="true"></div>
+</div>
+
+<!-- Reseptin valitsin -->
+<div class="overlay" id="picker-overlay">
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="modal-close" data-close="picker">×</button>
+    <h2 id="picker-title">Valitse ruoka</h2>
+    <input type="search" class="picker-search" id="picker-q" placeholder="Hae reseptiä…" autocomplete="off">
+    <div class="picker-list" id="picker-list"></div>
+    <div style="margin-top:14px; display:flex; gap:8px; flex-wrap:wrap">
+      <button class="btn" id="picker-leftovers">Ylijäämät / ei suunnitelmaa</button>
+    </div>
+  </div>
+</div>
+
+<!-- JSON-vienti -->
+<div class="overlay" id="json-overlay">
+  <div class="modal" role="dialog" aria-modal="true">
+    <button class="modal-close" data-close="json">×</button>
+    <h2>planned-JSON</h2>
+    <p style="font-size:14px;color:var(--ink-dim);margin:8px 0 0">
+      Nämä rivit voi liittää suoraan <code>reseptit.json</code>-tiedoston
+      <code>planned</code>-kenttään. Suunnitelma menee GitHubiin myös automaattisesti,
+      jos perhesynkka on käytössä.
+    </p>
+    <textarea class="json-out" id="json-text" readonly></textarea>
+    <div style="margin-top:12px"><button class="btn primary" id="json-copy">Kopioi leikepöydälle</button></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var THEME_KEY = "ruokalista-theme";
+  var PLAN_KEY  = "ruokalista-suunnittelu-v1";
+  var PAIVAT    = ["Maanantai","Tiistai","Keskiviikko","Torstai","Perjantai","Lauantai","Sunnuntai"];
+  var KUUKAUDET = ["tammi","helmi","maalis","huhti","touko","kesä","heinä","elo","syys","loka","marras","joulu"];
+
+  var reseptit = [];      // kaikki
+  var byId = {};
+  var plannedJson = {};   // reseptit.json:n planned (vain luku, näyttöä varten)
+  var plan = {};          // { "2026-08-10": "kotipizza" } — käyttäjän suunnitelma
+  var viikonMa = null;    // näytettävän viikon maanantai (Date)
+  var pickerPvm = null;
+
+  // ---------- apurit ----------
+  function iso(d) {
+    return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+  }
+  function parseIso(s) { var p = s.split("-"); return new Date(+p[0], +p[1]-1, +p[2]); }
+  function addDays(d, n) { var x = new Date(d.getTime()); x.setDate(x.getDate()+n); return x; }
+  function maanantai(d) {
+    var x = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    var wd = (x.getDay() + 6) % 7; // 0 = ma
+    return addDays(x, -wd);
+  }
+  function viikkonumero(d) {
+    var t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    var dn = (t.getUTCDay() + 6) % 7;
+    t.setUTCDate(t.getUTCDate() - dn + 3);
+    var eka = new Date(Date.UTC(t.getUTCFullYear(), 0, 4));
+    var ekaDn = (eka.getUTCDay() + 6) % 7;
+    eka.setUTCDate(eka.getUTCDate() - ekaDn + 3);
+    return 1 + Math.round((t - eka) / (7*24*3600*1000));
+  }
+  function lyhytPvm(d) { return d.getDate() + "." + KUUKAUDET[d.getMonth()] + "kuuta"; }
+  function paivia(isoPvm) {
+    if (!isoPvm) return 9999;
+    var ms = new Date().setHours(0,0,0,0) - parseIso(isoPvm).getTime();
+    return Math.round(ms / 86400000);
+  }
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+    });
+  }
+  function pyorista(n) {
+    if (n == null || isNaN(n)) return "";
+    if (n >= 10) return String(Math.round(n));
+    if (n >= 1)  return String(Math.round(n*10)/10).replace(".", ",");
+    return String(Math.round(n*100)/100).replace(".", ",");
+  }
+
+  // ---------- lataus ----------
+  function lataa() {
+    fetch("reseptit.json?t=" + Date.now())
+      .then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      })
+      .then(function (d) {
+        reseptit = (d.reseptit || []).slice();
+        plannedJson = (d.planned && typeof d.planned === "object") ? d.planned : {};
+        reseptit.forEach(function (r) { byId[r.id] = r; });
+        lataaSuunnitelma();
+        rakennaTagit();
+        renderGrid();
+        renderPlan();
+      })
+      .catch(function (e) {
+        document.getElementById("grid").innerHTML =
+          '<div class="error-box">Reseptien lataus epäonnistui (' + esc(e.message) + ').<br>' +
+          'Jos avasit tiedoston suoraan koneelta, avaa sivu sen sijaan osoitteesta ' +
+          'heikkihauskaviita.github.io — selain ei salli paikallista latausta.</div>';
+      });
+  }
+
+  function lataaSuunnitelma() {
+    try {
+      var raw = localStorage.getItem(PLAN_KEY);
+      plan = raw ? JSON.parse(raw) : {};
+      if (typeof plan !== "object" || plan === null) plan = {};
+    } catch (e) { plan = {}; }
+  }
+  function tallennaSuunnitelma(viesti) {
+    try {
+      localStorage.setItem(PLAN_KEY, JSON.stringify(plan));  // sync.js poimii tämän
+      status(viesti || "Tallennettu", "ok");
+    } catch (e) {
+      status("Tallennus epäonnistui: " + e.message, "err");
+    }
+  }
+  function status(txt, cls) {
+    var el = document.getElementById("plan-status");
+    el.textContent = txt;
+    el.className = "plan-status" + (cls ? " " + cls : "");
+  }
+
+  // ---------- Reseptipankki ----------
+  var valitutTagit = {};
+
+  function rakennaTagit() {
+    var laskuri = {};
+    reseptit.forEach(function (r) {
+      (r.tagit || []).forEach(function (t) { laskuri[t] = (laskuri[t]||0) + 1; });
+    });
+    var tagit = Object.keys(laskuri).sort(function (a,b) { return laskuri[b]-laskuri[a] || a.localeCompare(b,"fi"); });
+    var wrap = document.getElementById("tag-chips");
+    wrap.innerHTML = "";
+    tagit.slice(0, 18).forEach(function (t) {
+      var b = document.createElement("button");
+      b.className = "chip"; b.textContent = t + " " + laskuri[t];
+      b.addEventListener("click", function () {
+        if (valitutTagit[t]) delete valitutTagit[t]; else valitutTagit[t] = true;
+        b.classList.toggle("on");
+        renderGrid();
+      });
+      wrap.appendChild(b);
+    });
+  }
+
+  function suodata() {
+    var q = document.getElementById("q").value.trim().toLowerCase();
+    var kat = document.getElementById("f-kategoria").value;
+    var aika = +document.getElementById("f-aika").value;
+    var jarj = document.getElementById("f-jarjestys").value;
+    var tagit = Object.keys(valitutTagit);
+
+    var lista = reseptit.filter(function (r) {
+      if (kat && r.kategoria !== kat) return false;
+      if (aika && (r.max_minuutit || 999) > aika) return false;
+      for (var i = 0; i < tagit.length; i++) {
+        if ((r.tagit || []).indexOf(tagit[i]) === -1) return false;
+      }
+      if (q) {
+        var hay = r.nimi + " " + (r.tagit||[]).join(" ") + " " +
+                  (r.ainekset||[]).map(function (a) { return a.nimi; }).join(" ");
+        if (hay.toLowerCase().indexOf(q) === -1) return false;
+      }
+      return true;
+    });
+
+    lista.sort(function (a,b) {
+      if (jarj === "nimi") return a.nimi.localeCompare(b.nimi, "fi");
+      if (jarj === "aika") return (a.max_minuutit||999) - (b.max_minuutit||999);
+      if (jarj === "tuore") return paivia(a.last_cooked) - paivia(b.last_cooked);
+      return paivia(b.last_cooked) - paivia(a.last_cooked);
+    });
+    return lista;
+  }
+
+  function sinceTeksti(r) {
+    if (!r.last_cooked) return { txt: "ei kirjattu", cls: "kauan" };
+    var p = paivia(r.last_cooked);
+    if (p <= 0) return { txt: "tänään", cls: "tuore" };
+    if (p === 1) return { txt: "eilen", cls: "tuore" };
+    if (p < 14)  return { txt: p + " pv sitten", cls: "tuore" };
+    if (p < 60)  return { txt: p + " pv sitten", cls: "" };
+    return { txt: p + " pv sitten", cls: "kauan" };
+  }
+
+  function renderGrid() {
+    var lista = suodata();
+    var grid = document.getElementById("grid");
+    document.getElementById("result-count").textContent =
+      lista.length + (lista.length === 1 ? " resepti" : " reseptiä");
+    if (!lista.length) {
+      grid.innerHTML = '<p class="loading">Ei osumia — kokeile väljempiä suodattimia.</p>';
+      return;
+    }
+    grid.innerHTML = lista.map(function (r) {
+      var s = sinceTeksti(r);
+      return '<div class="card" data-id="' + esc(r.id) + '">' +
+        '<h3>' + esc(r.nimi) + '</h3>' +
+        '<div class="card-meta"><span>⏱ ' + (r.max_minuutit||"?") + ' min</span>' +
+        '<span>' + esc(r.vaikeustaso||"") + '</span></div>' +
+        '<div class="card-tags">' + (r.tagit||[]).slice(0,4).map(function (t) {
+          return '<span class="tag">' + esc(t) + '</span>'; }).join("") + '</div>' +
+        '<span class="since ' + s.cls + '">' + s.txt + '</span>' +
+      '</div>';
+    }).join("");
+    Array.prototype.forEach.call(grid.querySelectorAll(".card"), function (c) {
+      c.addEventListener("click", function () { avaaResepti(c.getAttribute("data-id")); });
+    });
+  }
+
+  // ---------- Reseptin tiedot ----------
+  var nykyResepti = null;
+
+  function avaaResepti(id) {
+    var r = byId[id];
+    if (!r) return;
+    nykyResepti = r;
+    piirraResepti(r.annoskoko || 5);
+    document.getElementById("recipe-overlay").classList.add("open");
+  }
+
+  function ainesRivi(a, kerroin) {
+    var maara = (a.maara != null) ? pyorista(a.maara * kerroin) : "";
+    var yks = a.yksikko || "";
+    var lisa = [];
+    if (a.merkki) lisa.push(a.merkki);
+    if (a.huom) lisa.push(a.huom);
+    if (a.kaytto) lisa.push(a.kaytto);
+    return '<li' + (a.kaappitavara ? ' class="kaappi"' : '') + '>' +
+      '<span class="ing-name">' + esc(a.nimi) +
+      (lisa.length ? ' <span class="ing-note">' + esc(lisa.join(" · ")) + '</span>' : '') +
+      '</span>' +
+      '<span class="ing-amount">' + esc((maara + " " + yks).trim()) + '</span></li>';
+  }
+
+  function piirraResepti(annokset) {
+    var r = nykyResepti;
+    var perus = r.annoskoko || 5;
+    var kerroin = annokset / perus;
+    var s = sinceTeksti(r);
+    var html =
+      '<button class="modal-close" data-close="recipe">×</button>' +
+      '<h2>' + esc(r.nimi) + '</h2>' +
+      '<div class="card-meta" style="margin-top:6px">' +
+        '<span>⏱ ' + (r.max_minuutit||"?") + ' min</span>' +
+        '<span>' + esc(r.vaikeustaso||"") + '</span>' +
+        '<span class="since ' + s.cls + '">' + s.txt + '</span>' +
+      '</div>' +
+      '<div class="card-tags" style="margin-top:8px">' +
+        (r.tagit||[]).map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join("") +
+      '</div>' +
+      '<div class="portion-row">' +
+        '<label for="annokset">Annoksia</label>' +
+        '<input type="number" id="annokset" min="1" max="20" step="1" value="' + annokset + '">' +
+        '<span>(resepti ' + perus + ' hengelle)</span>' +
+      '</div>' +
+      '<h4>Ainekset</h4><ul class="ing-list">' +
+        (r.ainekset||[]).map(function (a) { return ainesRivi(a, kerroin); }).join("") +
+      '</ul>';
+    if ((r.lisukkeet||[]).length) {
+      html += '<h4>Lisukkeet</h4><ul class="ing-list">' +
+        r.lisukkeet.map(function (a) { return ainesRivi(a, kerroin); }).join("") + '</ul>';
+    }
+    html += '<h4>Ohje</h4><ol class="steps">' +
+      (r.ohje||[]).map(function (v) { return '<li>' + esc(v) + '</li>'; }).join("") + '</ol>';
+    if (r.huom) html += '<div class="huom">' + esc(r.huom) + '</div>';
+
+    var m = document.getElementById("recipe-modal");
+    m.innerHTML = html;
+    m.querySelector('[data-close]').addEventListener("click", suljeModaalit);
+    var inp = document.getElementById("annokset");
+    inp.addEventListener("input", function () {
+      var n = parseInt(inp.value, 10);
+      if (n > 0 && n <= 40) {
+        var pos = inp.selectionStart;
+        piirraResepti(n);
+        var uusi = document.getElementById("annokset");
+        uusi.focus(); try { uusi.setSelectionRange(pos, pos); } catch (e) {}
+      }
+    });
+  }
+
+  function suljeModaalit() {
+    ["recipe-overlay","picker-overlay","json-overlay"].forEach(function (id) {
+      document.getElementById(id).classList.remove("open");
+    });
+  }
+
+  // ---------- Viikkosuunnittelu ----------
+  function renderPlan() {
+    if (!viikonMa) viikonMa = addDays(maanantai(new Date()), 7); // oletus: ensi viikko
+    var su = addDays(viikonMa, 6);
+    document.getElementById("wk-label").textContent =
+      "Viikko " + viikkonumero(viikonMa) + " · " + viikonMa.getDate() + "." +
+      (viikonMa.getMonth()+1) + ".–" + su.getDate() + "." + (su.getMonth()+1) + "." + su.getFullYear();
+
+    var tbody = document.getElementById("plan-body");
+    tbody.innerHTML = "";
+    for (var i = 0; i < 7; i++) {
+      var d = addDays(viikonMa, i);
+      var pvm = iso(d);
+      var rid = plan[pvm] || plannedJson[pvm] || "";
+      var r = byId[rid];
+      var lukittu = !plan[pvm] && !!plannedJson[pvm];
+      var tr = document.createElement("tr");
+      if (i >= 5) tr.className = "viikonloppu";
+
+      var teksti, slotCls = "plan-slot";
+      if (r) {
+        teksti = esc(r.nimi) + '<span class="aika">⏱ ' + (r.max_minuutit||"?") + ' min</span>';
+        if (lukittu) { teksti += '<span class="aika">· jo julkaistu</span>'; slotCls += " locked"; }
+      } else if (i === 5) {
+        teksti = "Viikon ylijäämät"; slotCls += " empty";
+      } else {
+        teksti = "— klikkaa ja valitse —"; slotCls += " empty";
+      }
+
+      tr.innerHTML =
+        '<td class="plan-day">' + PAIVAT[i] + '<span class="pvm">' + d.getDate() + "." + (d.getMonth()+1) + ".</span></td>" +
+        '<td><div class="' + slotCls + '" data-pvm="' + pvm + '">' + teksti + '</div></td>' +
+        '<td class="plan-row-tools">' +
+          (r ? '<button class="mini" title="Näytä resepti" data-nayta="' + esc(rid) + '">👁</button>' : '') +
+          (plan[pvm] ? '<button class="mini x" title="Poista" data-poista="' + pvm + '">✕</button>' : '') +
+        '</td>';
+      tbody.appendChild(tr);
+    }
+
+    Array.prototype.forEach.call(tbody.querySelectorAll(".plan-slot"), function (el) {
+      el.addEventListener("click", function () { avaaValitsin(el.getAttribute("data-pvm")); });
+    });
+    Array.prototype.forEach.call(tbody.querySelectorAll("[data-nayta]"), function (b) {
+      b.addEventListener("click", function (e) { e.stopPropagation(); avaaResepti(b.getAttribute("data-nayta")); });
+    });
+    Array.prototype.forEach.call(tbody.querySelectorAll("[data-poista]"), function (b) {
+      b.addEventListener("click", function (e) {
+        e.stopPropagation();
+        delete plan[b.getAttribute("data-poista")];
+        tallennaSuunnitelma("Päivä tyhjennetty");
+        renderPlan();
+      });
+    });
+  }
+
+  // Ehdotusalgoritmi — sama logiikka kuin julkaise.py:ssä, kevennettynä
+  function ehdota(vainTyhjat) {
+    var arkiRaja = 35;                 // ma–pe: enintään näin pitkä
+    var estaTagitArki = ["viikonloppu","juhla"];
+    var estaTagitAina = ["juhla"];     // juhannusgrilli, hirvikäristys yms. valitaan käsin
+    var kaytetyt = {};
+
+    // Muualla lukitut / äskettäin syödyt pois pelistä
+    Object.keys(plan).forEach(function (p) { kaytetyt[plan[p]] = true; });
+    Object.keys(plannedJson).forEach(function (p) {
+      var ero = Math.abs((parseIso(p) - viikonMa) / 86400000);
+      if (ero <= 21) kaytetyt[plannedJson[p]] = true;
+    });
+
+    var ehdokkaat = reseptit.filter(function (r) {
+      return r.kategoria === "päivällinen" && paivia(r.last_cooked) >= 14;
+    });
+
+    function valitse(i) {
+      var d = addDays(viikonMa, i);
+      var arki = i < 5;
+      var pool = ehdokkaat.filter(function (r) {
+        if (kaytetyt[r.id]) return false;
+        for (var j = 0; j < estaTagitAina.length; j++) {
+          if ((r.tagit||[]).indexOf(estaTagitAina[j]) !== -1) return false;
+        }
+        if (arki) {
+          if ((r.max_minuutit || 999) > arkiRaja) return false;
+          for (var k = 0; k < estaTagitArki.length; k++) {
+            if ((r.tagit||[]).indexOf(estaTagitArki[k]) !== -1) return false;
+          }
+        }
+        return true;
+      });
+      if (!pool.length) return null;
+
+      pool.forEach(function (r) {
+        var pisteet = Math.min(paivia(r.last_cooked), 400);
+        if (i === 4 && (r.tagit||[]).indexOf("pe-ruoka") !== -1) pisteet += 120;   // perjantai
+        if (i === 6 && (r.tagit||[]).indexOf("viikonloppu") !== -1) pisteet += 90; // sunnuntai
+        if (i === 6 && (r.max_minuutit||0) >= 40) pisteet += 30;
+        if ((r.tagit||[]).indexOf("lapset-ok") !== -1) pisteet += 25;
+        r._p = pisteet + Math.random() * 40;
+      });
+      pool.sort(function (a,b) { return b._p - a._p; });
+      return pool[0];
+    }
+
+    var lisatty = 0;
+    for (var i = 0; i < 7; i++) {
+      if (i === 5) continue;                       // lauantai = ylijäämät
+      var pvm = iso(addDays(viikonMa, i));
+      if (vainTyhjat && (plan[pvm] || plannedJson[pvm])) { kaytetyt[plan[pvm]||plannedJson[pvm]] = true; continue; }
+      var r = valitse(i);
+      if (r) { plan[pvm] = r.id; kaytetyt[r.id] = true; lisatty++; }
+    }
+    if (lisatty) {
+      tallennaSuunnitelma("Ehdotettu " + lisatty + " päivää — muokkaa klikkaamalla");
+    } else {
+      status(vainTyhjat ? "Viikko on jo kokonaan suunniteltu" : "Ei ehdokkaita — kaikki reseptit on tehty äskettäin", "");
+    }
+    renderPlan();
+  }
+
+  // ---------- Valitsin ----------
+  function avaaValitsin(pvm) {
+    pickerPvm = pvm;
+    var d = parseIso(pvm);
+    document.getElementById("picker-title").textContent =
+      PAIVAT[(d.getDay()+6)%7] + " " + d.getDate() + "." + (d.getMonth()+1) + ".";
+    document.getElementById("picker-q").value = "";
+    piirraValitsin("");
+    document.getElementById("picker-overlay").classList.add("open");
+    setTimeout(function () { document.getElementById("picker-q").focus(); }, 50);
+  }
+
+  function piirraValitsin(q) {
+    q = (q||"").trim().toLowerCase();
+    var lista = reseptit.filter(function (r) {
+      if (r.kategoria !== "päivällinen" && q === "") return false;
+      if (!q) return true;
+      return (r.nimi + " " + (r.tagit||[]).join(" ")).toLowerCase().indexOf(q) !== -1;
+    });
+    lista.sort(function (a,b) { return paivia(b.last_cooked) - paivia(a.last_cooked); });
+    var el = document.getElementById("picker-list");
+    el.innerHTML = lista.map(function (r) {
+      var s = sinceTeksti(r);
+      return '<div class="picker-item" data-id="' + esc(r.id) + '">' +
+        '<span class="pn">' + esc(r.nimi) + '</span>' +
+        '<span class="pm">' + (r.max_minuutit||"?") + ' min · ' + s.txt + '</span></div>';
+    }).join("") || '<p class="loading">Ei osumia.</p>';
+    Array.prototype.forEach.call(el.querySelectorAll(".picker-item"), function (it) {
+      it.addEventListener("click", function () {
+        plan[pickerPvm] = it.getAttribute("data-id");
+        tallennaSuunnitelma("Päivä päivitetty");
+        suljeModaalit();
+        renderPlan();
+      });
+    });
+  }
+
+  // ---------- JSON-vienti ----------
+  function avaaJson() {
+    var rivit = Object.keys(plan).sort().filter(function (p) { return plan[p]; });
+    var txt = rivit.map(function (p) {
+      return '  "' + p + '": "' + plan[p] + '",';
+    }).join("\n");
+    document.getElementById("json-text").value = txt || "(ei suunniteltuja päiviä)";
+    document.getElementById("json-overlay").classList.add("open");
+  }
+
+  // ---------- Teema ----------
+  function bindTheme() {
+    var btn = document.getElementById("theme-toggle");
+    var apply = function (t) {
+      if (t === "light") { document.documentElement.setAttribute("data-theme","light"); btn.textContent = "Tumma"; }
+      else { document.documentElement.removeAttribute("data-theme"); btn.textContent = "Vaalea"; }
+    };
+    apply(localStorage.getItem(THEME_KEY) || "dark");
+    btn.addEventListener("click", function () {
+      var next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+      localStorage.setItem(THEME_KEY, next);
+      apply(next);
+    });
+  }
+
+  // ---------- Sidonnat ----------
+  Array.prototype.forEach.call(document.querySelectorAll(".tab"), function (t) {
+    t.addEventListener("click", function () {
+      Array.prototype.forEach.call(document.querySelectorAll(".tab"), function (x) { x.classList.remove("active"); });
+      Array.prototype.forEach.call(document.querySelectorAll("main section"), function (s) { s.classList.remove("active"); });
+      t.classList.add("active");
+      document.getElementById(t.getAttribute("data-tab")).classList.add("active");
+    });
+  });
+
+  ["q","f-kategoria","f-aika","f-jarjestys"].forEach(function (id) {
+    document.getElementById(id).addEventListener("input", renderGrid);
+  });
+
+  document.getElementById("wk-prev").addEventListener("click", function () { viikonMa = addDays(viikonMa, -7); renderPlan(); status(""); });
+  document.getElementById("wk-next").addEventListener("click", function () { viikonMa = addDays(viikonMa,  7); renderPlan(); status(""); });
+  // Ehdota = täytä vain tyhjät päivät (ei ylikirjoita jo julkaistuja eikä käsin valittuja)
+  document.getElementById("wk-suggest").addEventListener("click", function () { ehdota(true); });
+  // Suunnittele uudelleen = korvaa koko viikko, myös jo julkaistut päivät
+  document.getElementById("wk-fill").addEventListener("click", function () {
+    if (window.confirm("Korvataanko koko viikon päivälliset uusilla ehdotuksilla?\n\nMyös jo sivulla julkaistut päivät vaihtuvat.")) {
+      ehdota(false);
+    }
+  });
+  document.getElementById("wk-copy").addEventListener("click", avaaJson);
+  document.getElementById("wk-clear").addEventListener("click", function () {
+    for (var i = 0; i < 7; i++) delete plan[iso(addDays(viikonMa, i))];
+    tallennaSuunnitelma("Viikko tyhjennetty");
+    renderPlan();
+  });
+  document.getElementById("picker-q").addEventListener("input", function (e) { piirraValitsin(e.target.value); });
+  document.getElementById("picker-leftovers").addEventListener("click", function () {
+    delete plan[pickerPvm];
+    tallennaSuunnitelma("Päivä jätetty ylijäämille");
+    suljeModaalit(); renderPlan();
+  });
+  document.getElementById("json-copy").addEventListener("click", function () {
+    var ta = document.getElementById("json-text");
+    ta.select();
+    try { document.execCommand("copy"); this.textContent = "Kopioitu ✓"; } catch (e) {}
+    var b = this;
+    setTimeout(function () { b.textContent = "Kopioi leikepöydälle"; }, 1800);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-close]"), function (b) {
+    b.addEventListener("click", suljeModaalit);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll(".overlay"), function (o) {
+    o.addEventListener("click", function (e) { if (e.target === o) suljeModaalit(); });
+  });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") suljeModaalit(); });
+
+  bindTheme();
+  lataa();
+})();
+</script>
+</body>
+</html>
