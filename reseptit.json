@@ -294,7 +294,8 @@
         "kasvis",
         "vegaani",
         "lapset-ok",
-        "soseutettava"
+        "soseutettava",
+        "nopea"
       ],
       "max_minuutit": 25,
       "vaikeustaso": "helppo",
@@ -378,7 +379,8 @@
         "kasvis",
         "munat",
         "lapset-ok",
-        "lempiruoka"
+        "lempiruoka",
+        "nopea"
       ],
       "max_minuutit": 25,
       "vaikeustaso": "helppo",
@@ -447,7 +449,8 @@
       "tagit": [
         "kasvis",
         "lapset-ok",
-        "pe-ruoka"
+        "pe-ruoka",
+        "nopea"
       ],
       "max_minuutit": 25,
       "vaikeustaso": "helppo",
@@ -702,7 +705,8 @@
         "kasvis",
         "munat",
         "klassikko",
-        "soseutettava"
+        "soseutettava",
+        "nopea"
       ],
       "max_minuutit": 25,
       "vaikeustaso": "helppo",
@@ -1129,7 +1133,8 @@
         "kasvis",
         "vegaani",
         "lapset-ok",
-        "mieto"
+        "mieto",
+        "nopea"
       ],
       "max_minuutit": 25,
       "vaikeustaso": "helppo",
@@ -1482,7 +1487,8 @@
         "kasvis",
         "munat",
         "lapset-ok",
-        "makea"
+        "makea",
+        "nopea"
       ],
       "max_minuutit": 20,
       "vaikeustaso": "helppo",
@@ -1876,11 +1882,6 @@
           "yksikko": "kpl"
         },
         {
-          "nimi": "Juustoraaste",
-          "maara": 100,
-          "yksikko": "g"
-        },
-        {
           "nimi": "Oliiviöljy",
           "maara": 2,
           "yksikko": "rkl",
@@ -1905,7 +1906,14 @@
           "kaappitavara": true
         }
       ],
-      "lisukkeet": [],
+      "lisukkeet": [
+        {
+          "nimi": "Juustoraaste",
+          "maara": 100,
+          "yksikko": "g",
+          "kaytto": "ripottelu tai lusikallinen päälle (jätä pois vegaanisena)"
+        }
+      ],
       "ohje": [
         "Keitä spagetti pakkauksen ohjeen mukaan suolalla maustetussa vedessä.",
         "Pilko sipuli ja valkosipuli, raasta porkkana. Paista oliiviöljyssä pehmeäksi.",
@@ -1928,7 +1936,8 @@
         "vegaani",
         "lapset-ok",
         "mieto",
-        "soseutettava"
+        "soseutettava",
+        "nopea"
       ],
       "max_minuutit": 25,
       "vaikeustaso": "helppo",
@@ -2030,7 +2039,8 @@
         "kasvis",
         "munat",
         "lapset-ok",
-        "klassikko"
+        "klassikko",
+        "nopea"
       ],
       "max_minuutit": 25,
       "vaikeustaso": "helppo",
@@ -2109,7 +2119,7 @@
         "kasvis",
         "nopea",
         "lapset-ok",
-        "kesäinen"
+        "kesä"
       ],
       "max_minuutit": 20,
       "vaikeustaso": "helppo",
@@ -2590,11 +2600,6 @@
           "kaappitavara": true
         },
         {
-          "nimi": "Juustoraaste",
-          "maara": 100,
-          "yksikko": "g"
-        },
-        {
           "nimi": "Suola",
           "maara": null,
           "yksikko": null,
@@ -2613,6 +2618,12 @@
           "maara": 0.5,
           "yksikko": "kpl",
           "kaytto": "raastesalaatti"
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 100,
+          "yksikko": "g",
+          "kaytto": "ripottelu tai lusikallinen päälle (jätä pois vegaanisena)"
         }
       ],
       "ohje": [
@@ -2739,7 +2750,8 @@
         "pohjoismainen",
         "uuni",
         "lapset-ok",
-        "klassikko"
+        "klassikko",
+        "kasvisversio"
       ],
       "max_minuutit": 45,
       "vaikeustaso": "helppo",
@@ -2832,7 +2844,9 @@
         "espanjalainen",
         "italialainen",
         "nopea",
-        "lapset-ok"
+        "lapset-ok",
+        "kansainvälinen",
+        "kasvisversio"
       ],
       "max_minuutit": 25,
       "vaikeustaso": "helppo",
@@ -2938,7 +2952,8 @@
         "meksikolainen",
         "kansainvälinen",
         "lapset-ok",
-        "viikonloppu"
+        "viikonloppu",
+        "kasvisversio"
       ],
       "max_minuutit": 35,
       "vaikeustaso": "keskitaso",
@@ -3061,7 +3076,8 @@
         "lapset-ok",
         "uuni",
         "mieto",
-        "kansainvälinen"
+        "kansainvälinen",
+        "munat"
       ],
       "max_minuutit": 35,
       "vaikeustaso": "helppo",
@@ -3432,9 +3448,11 @@
       "tagit": [
         "katkarapu",
         "thaimaalainen",
-        "nopea",
         "kansainvälinen",
-        "lapset-ok"
+        "lapset-ok",
+        "munat",
+        "aasialainen",
+        "kasvisversio"
       ],
       "max_minuutit": 30,
       "vaikeustaso": "keskitaso",
@@ -3569,7 +3587,9 @@
         "korealainen",
         "kansainvälinen",
         "lapset-ok",
-        "viikonloppu"
+        "viikonloppu",
+        "munat",
+        "aasialainen"
       ],
       "max_minuutit": 40,
       "vaikeustaso": "keskitaso",
@@ -3700,7 +3720,6 @@
       "kategoria": "päivällinen",
       "annoskoko": 5,
       "tagit": [
-        "helppo",
         "mökki",
         "lapset-ok",
         "nopea"
@@ -3879,7 +3898,8 @@
         "riista",
         "liha",
         "juhla",
-        "viikonloppu"
+        "viikonloppu",
+        "kasvisversio"
       ],
       "max_minuutit": 90,
       "vaikeustaso": "keskitaso",
@@ -3969,7 +3989,9 @@
       "tagit": [
         "grilli",
         "kesä",
-        "viikonloppu"
+        "viikonloppu",
+        "kasvisversio",
+        "liha"
       ],
       "max_minuutit": 60,
       "vaikeustaso": "helppo",
@@ -4213,8 +4235,8 @@
       "tagit": [
         "juhla",
         "grilli",
-        "helppo",
-        "viikonloppu"
+        "viikonloppu",
+        "munat"
       ],
       "max_minuutit": 45,
       "vaikeustaso": "helppo",
@@ -4660,7 +4682,6 @@
       "annoskoko": 5,
       "tagit": [
         "kasvis",
-        "nopea",
         "lapset-ok",
         "mieto",
         "kermainen"
@@ -4853,9 +4874,10 @@
         "kasvis",
         "klassikko",
         "lapset-ok",
-        "kesäinen",
+        "kesä",
         "mieto",
-        "kermainen"
+        "kermainen",
+        "munat"
       ],
       "max_minuutit": 30,
       "vaikeustaso": "helppo",
@@ -5023,7 +5045,7 @@
         "kasvis",
         "nopea",
         "lapset-ok",
-        "kesäinen"
+        "kesä"
       ],
       "max_minuutit": 20,
       "vaikeustaso": "helppo",
@@ -5103,7 +5125,8 @@
         "nopea",
         "lapset-ok",
         "kermainen",
-        "italialainen"
+        "italialainen",
+        "kansainvälinen"
       ],
       "max_minuutit": 25,
       "vaikeustaso": "helppo",
@@ -5268,7 +5291,8 @@
         "nopea",
         "lapset-ok",
         "italialainen",
-        "yhden-pannun"
+        "yhden-pannun",
+        "kansainvälinen"
       ],
       "max_minuutit": 20,
       "vaikeustaso": "helppo",
@@ -5436,11 +5460,11 @@
       "annoskoko": 5,
       "tagit": [
         "kasvis",
-        "nopea",
         "lapset-ok",
         "japanilainen",
         "aasialainen",
-        "kansainvälinen"
+        "kansainvälinen",
+        "munat"
       ],
       "max_minuutit": 30,
       "vaikeustaso": "helppo",
@@ -5625,7 +5649,6 @@
       "tagit": [
         "kasvis",
         "vegaani",
-        "nopea",
         "lapset-ok",
         "japanilainen",
         "aasialainen",
@@ -6004,7 +6027,6 @@
       "annoskoko": 5,
       "tagit": [
         "kasvis",
-        "vegaani",
         "nopea",
         "lapset-ok",
         "lähi-itä",
@@ -6158,22 +6180,25 @@
           "yksikko": "tlk"
         },
         {
-          "nimi": "Juustoraaste",
-          "maara": 150,
-          "yksikko": "g"
-        },
-        {
-          "nimi": "Kermaviili",
-          "maara": 1,
-          "yksikko": "prk"
-        },
-        {
           "nimi": "Avokado",
           "maara": 2,
           "yksikko": "kpl"
         }
       ],
-      "lisukkeet": [],
+      "lisukkeet": [
+        {
+          "nimi": "Juustoraaste",
+          "maara": 150,
+          "yksikko": "g",
+          "kaytto": "ripottelu tai lusikallinen päälle (jätä pois vegaanisena)"
+        },
+        {
+          "nimi": "Kermaviili",
+          "maara": 1,
+          "yksikko": "prk",
+          "kaytto": "ripottelu tai lusikallinen päälle (jätä pois vegaanisena)"
+        }
+      ],
       "ohje": [
         "Purista tofusta neste pois ja murustele se sormin karkeaksi muruksi.",
         "Paista kuumalla pannulla öljyssä 8 min, kunnes reunat rapeutuvat.",
@@ -6470,7 +6495,8 @@
         "lapset-ok",
         "uuni",
         "meksikolainen",
-        "proteiinia"
+        "proteiinia",
+        "kansainvälinen"
       ],
       "max_minuutit": 30,
       "vaikeustaso": "helppo",
@@ -7005,10 +7031,11 @@
       "tagit": [
         "kasvis",
         "nopea",
-        "kesäinen",
+        "kesä",
         "lapset-ok",
         "kreikkalainen",
-        "kansainvälinen"
+        "kansainvälinen",
+        "munat"
       ],
       "max_minuutit": 20,
       "vaikeustaso": "helppo",
@@ -7104,9 +7131,10 @@
         "kasvis",
         "vegaani",
         "nopea",
-        "kesäinen",
+        "kesä",
         "thaimaalainen",
-        "kansainvälinen"
+        "kansainvälinen",
+        "aasialainen"
       ],
       "max_minuutit": 20,
       "vaikeustaso": "helppo",
@@ -7279,7 +7307,8 @@
         "viikonloppu",
         "kreikkalainen",
         "kansainvälinen",
-        "kermainen"
+        "kermainen",
+        "munat"
       ],
       "max_minuutit": 80,
       "vaikeustaso": "helppo",
@@ -7391,11 +7420,11 @@
       "annoskoko": 5,
       "tagit": [
         "kasvis",
-        "vegaani",
         "uuni",
         "viikonloppu",
         "lapset-ok",
-        "brittiläinen"
+        "brittiläinen",
+        "kansainvälinen"
       ],
       "max_minuutit": 70,
       "vaikeustaso": "helppo",
@@ -7583,7 +7612,8 @@
         "klassikko",
         "lapset-ok",
         "joulu",
-        "viikonloppu"
+        "viikonloppu",
+        "munat"
       ],
       "max_minuutit": 80,
       "vaikeustaso": "helppo",
@@ -8274,8 +8304,7 @@
         "kasvis",
         "uuni",
         "viikonloppu",
-        "lapset-ok",
-        "helppo"
+        "lapset-ok"
       ],
       "max_minuutit": 70,
       "vaikeustaso": "helppo",
@@ -8364,7 +8393,8 @@
         "viikonloppu",
         "italialainen",
         "kansainvälinen",
-        "kermainen"
+        "kermainen",
+        "munat"
       ],
       "max_minuutit": 60,
       "vaikeustaso": "helppo",
@@ -8460,7 +8490,7 @@
         "lapset-ok",
         "kermainen",
         "italialainen",
-        "helppo"
+        "kansainvälinen"
       ],
       "max_minuutit": 45,
       "vaikeustaso": "helppo",
@@ -8548,7 +8578,7 @@
         "lapset-ok",
         "pe-ruoka",
         "meksikolainen",
-        "helppo"
+        "kansainvälinen"
       ],
       "max_minuutit": 40,
       "vaikeustaso": "helppo",
@@ -8832,7 +8862,6 @@
         "munat",
         "uuni",
         "lapset-ok",
-        "helppo",
         "proteiinia"
       ],
       "max_minuutit": 35,
@@ -8918,6 +8947,1434 @@
         "Paista 175 asteessa 25 min, kunnes munaseos on hyytynyt ja pinta kullanruskea. Anna vetäytyä 5 min."
       ],
       "huom": "Paras tapa käyttää ylijääneet keitetyt perunat. Maistuu myös kylmänä eväänä seuraavana päivänä.",
+      "palaute": []
+    },
+    {
+      "id": "yon-yli-kaurapuuro",
+      "nimi": "Yön yli -kaurapuuro",
+      "kategoria": "aamiainen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "klassikko",
+        "makea"
+      ],
+      "max_minuutit": 10,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Kaurahiutale",
+          "maara": 6,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Maito tai kaurajuoma",
+          "maara": 8,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Maustamaton jogurtti",
+          "maara": 3,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Chiansiemen",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true,
+          "huom": "valinnainen, paksuntaa"
+        },
+        {
+          "nimi": "Hunaja tai siirappi",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kaneli",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Pakastemarja",
+          "maara": 3,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Banaani",
+          "maara": 2,
+          "yksikko": "kpl"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Sekoita kaurahiutaleet, maito, jogurtti, chiansiemenet, hunaja ja kaneli isossa rasiassa.",
+        "Jaa viiteen annosrasiaan ja sulje kannet.",
+        "Anna turvota jääkaapissa yön yli, vähintään 6 tuntia.",
+        "Aamulla lisää päälle marjat ja viipaloitu banaani.",
+        "Jos puuro on liian paksua, sekoita joukkoon tilkka maitoa."
+      ],
+      "huom": "Illalla 10 minuuttia, aamulla nolla. Rasiat säilyvät jääkaapissa 3 päivää, joten yksi valmistuskerta kattaa arkiaamut.",
+      "palaute": []
+    },
+    {
+      "id": "munakokkeli-paahtoleipa",
+      "nimi": "Munakokkeli ja paahtoleipä",
+      "kategoria": "aamiainen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "munat",
+        "nopea",
+        "lapset-ok",
+        "klassikko",
+        "proteiinia"
+      ],
+      "max_minuutit": 10,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Kananmuna",
+          "maara": 8,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Maito",
+          "maara": 1,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 30,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Paahtoleipä",
+          "maara": 10,
+          "yksikko": "viipaletta"
+        },
+        {
+          "nimi": "Ruohosipuli",
+          "maara": 1,
+          "yksikko": "rkl",
+          "huom": "silputtuna"
+        },
+        {
+          "nimi": "Kurkku",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Tomaatti",
+          "maara": 2,
+          "yksikko": "kpl"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Vatkaa munat ja maito kevyesti kulhossa. Mausta suolalla.",
+        "Sulata voi pannulla miedolla lämmöllä — kokkeli ei saa paistua kovalla lämmöllä.",
+        "Kaada munaseos pannulle ja sekoita hitaasti lastalla, kunnes seos hyytyy mutta jää kosteaksi.",
+        "Ota pannu levyltä hieman ennen kuin kokkeli näyttää valmiilta; se kypsyy vielä jälkilämmöllä.",
+        "Tarjoile paahtoleivän, kurkun ja tomaatin kanssa, ripottele ruohosipuli päälle."
+      ],
+      "huom": "Mieto lämpö ja pannun ottaminen ajoissa pois levyltä ovat ainoat asiat, jotka erottavat kokkelin kuivasta munamurusta.",
+      "palaute": []
+    },
+    {
+      "id": "amerikkalaiset-pannukakut",
+      "nimi": "Amerikkalaiset pannukakut",
+      "kategoria": "aamiainen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "munat",
+        "lapset-ok",
+        "makea",
+        "viikonloppu",
+        "nopea"
+      ],
+      "max_minuutit": 25,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Vehnäjauho",
+          "maara": 6,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Sokeri",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Leivinjauhe",
+          "maara": 3,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola",
+          "maara": 0.5,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kananmuna",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Maito",
+          "maara": 6,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 60,
+          "yksikko": "g",
+          "huom": "sulatettuna taikinaan"
+        },
+        {
+          "nimi": "Vaniljasokeri",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Vaahterasiirappi tai hillo",
+          "maara": null,
+          "yksikko": null,
+          "huom": "tarjoiluun"
+        },
+        {
+          "nimi": "Tuoreet marjat",
+          "maara": 3,
+          "yksikko": "dl"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Sekoita kuivat aineet kulhossa.",
+        "Vatkaa munat ja maito toisessa kulhossa, kaada kuiviin aineisiin ja sekoita juuri ja juuri tasaiseksi — muutama kokkare saa jäädä.",
+        "Sekoita sulatettu voi joukkoon ja anna taikinan levätä 10 min.",
+        "Paista lusikallinen kerrallaan keskilämmöllä pannulla. Käännä kun pintaan nousee kuplia.",
+        "Pinoa lautaselle ja tarjoile siirapin ja marjojen kanssa."
+      ],
+      "huom": "Taikinan ylisekoittaminen tekee lätyistä sitkeitä. Lepoaika on se, mikä tekee niistä paksuja ja kuohkeita.",
+      "palaute": []
+    },
+    {
+      "id": "marjasmoothiekulho",
+      "nimi": "Marjasmoothiekulho",
+      "kategoria": "aamiainen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "makea",
+        "kesä"
+      ],
+      "max_minuutit": 10,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Pakastemarja",
+          "maara": 6,
+          "yksikko": "dl",
+          "huom": "mustikka, vadelma tai sekamarja"
+        },
+        {
+          "nimi": "Banaani",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Maustamaton jogurtti",
+          "maara": 4,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Maito tai kaurajuoma",
+          "maara": 2,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Hunaja",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Granola tai mysli",
+          "maara": 3,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Auringonkukansiemen",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Tuore hedelmä",
+          "maara": 2,
+          "yksikko": "kpl",
+          "huom": "päälle, esim. omena tai kiivi"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Anna marjojen sulaa hetki huoneenlämmössä, jotta tehosekoitin jaksaa.",
+        "Soseuta marjat, banaanit, jogurtti, maito ja hunaja paksuksi soseeksi.",
+        "Jaa kulhoihin — seoksen pitää olla lusikoitavaa, ei juotavaa.",
+        "Ripottele päälle granola, siemenet ja hedelmäviipaleet.",
+        "Tarjoile heti, ennen kuin granola pehmenee."
+      ],
+      "huom": "Lapset syövät tämän mieluummin kuin saman smoothien lasista, koska päällisten valitseminen on osa hommaa.",
+      "palaute": []
+    },
+    {
+      "id": "mannapuuro-mustikkakeitto",
+      "nimi": "Mannapuuro ja mustikkakeitto",
+      "kategoria": "aamiainen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "klassikko",
+        "makea"
+      ],
+      "max_minuutit": 20,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Mannasuurimo",
+          "maara": 3,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Maito",
+          "maara": 1.2,
+          "yksikko": "l"
+        },
+        {
+          "nimi": "Suola",
+          "maara": 0.5,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Voi",
+          "maara": 20,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Pakastemustikka",
+          "maara": 5,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Sokeri",
+          "maara": 1,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Perunajauho",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kanelisokeri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true,
+          "huom": "tarjoiluun"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Kuumenna maito kiehuvaksi. Ripottele mannasuurimot joukkoon vispaten koko ajan.",
+        "Keitä miedolla lämmöllä 5–7 min välillä sekoittaen. Lisää suola ja voi.",
+        "Keitä mustikat 6 dl:ssa vettä ja sokerissa 5 min.",
+        "Sekoita perunajauho pieneen määrään kylmää vettä ja suurusta keitto. Älä keitä suurustuksen jälkeen.",
+        "Tarjoile puuro kanelisokerin ja mustikkakeiton kanssa."
+      ],
+      "huom": "Vispaaminen suurimoiden lisäysvaiheessa estää kokkareet — se on ainoa kohta, jossa puuro voi mennä pieleen.",
+      "palaute": []
+    },
+    {
+      "id": "uunipuuro",
+      "nimi": "Uunipuuro (riisi-kaurapuuro uunissa)",
+      "kategoria": "aamiainen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "uuni",
+        "lapset-ok",
+        "klassikko",
+        "viikonloppu",
+        "makea"
+      ],
+      "max_minuutit": 60,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Puuroriisi",
+          "maara": 2,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Kaurahiutale",
+          "maara": 2,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Maito",
+          "maara": 1.2,
+          "yksikko": "l"
+        },
+        {
+          "nimi": "Vesi",
+          "maara": 3,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Suola",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Voi",
+          "maara": 30,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Kaneli",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Rusina",
+          "maara": 1,
+          "yksikko": "dl",
+          "huom": "valinnainen"
+        },
+        {
+          "nimi": "Hillo tai marjat",
+          "maara": null,
+          "yksikko": null,
+          "huom": "tarjoiluun"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Laita riisi, kaurahiutaleet, maito, vesi ja suola uunivuokaan ja sekoita.",
+        "Lisää voinokare ja kaneli pinnalle.",
+        "Paista 175 asteessa 50 min. Sekoita kerran puolivälissä.",
+        "Jos pinta ruskistuu liikaa, peitä foliolla loppuajaksi.",
+        "Tarjoile hillon tai marjojen kanssa."
+      ],
+      "huom": "Uuni hoitaa puuron ilman valvontaa, joten tämä sopii sunnuntaiaamuun. Ylijäänyt puuro lämpiää maidon kanssa arkiaamuna.",
+      "palaute": []
+    },
+    {
+      "id": "munamuffinit",
+      "nimi": "Munamuffinit (aamiaismuffinit)",
+      "kategoria": "aamiainen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "munat",
+        "uuni",
+        "lapset-ok",
+        "proteiinia"
+      ],
+      "max_minuutit": 30,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Kananmuna",
+          "maara": 10,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Ruokakerma",
+          "maara": 1,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 150,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kirsikkatomaatti",
+          "maara": 150,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Pinaatti",
+          "maara": 80,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Kevätsipuli",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Fetajuusto",
+          "maara": 100,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Voi",
+          "maara": 20,
+          "yksikko": "g",
+          "huom": "vuokien voiteluun"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Vatkaa munat, kerma, suola ja pippuri.",
+        "Kuutioi paprika ja tomaatit pieniksi, silppua pinaatti ja kevätsipuli.",
+        "Voitele muffinivuoat hyvin tai käytä paperivuokia. Jaa kasvikset vuokiin.",
+        "Kaada munaseos päälle noin kolme neljäsosaa täyteen. Ripottele juustoraaste ja fetamuruset.",
+        "Paista 180 asteessa 20 min, kunnes muffinit ovat kohonneet ja hyytyneet."
+      ],
+      "huom": "Yhdellä paistolla 12 kpl: säilyvät jääkaapissa 3 päivää ja lämpiävät mikrossa 30 sekunnissa. Ratkaisu kiireisiin kouluaamuihin.",
+      "palaute": []
+    },
+    {
+      "id": "hummus-kasvistikut",
+      "nimi": "Hummus ja kasvistikut",
+      "kategoria": "välipala",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "nopea",
+        "lapset-ok",
+        "lähi-itä",
+        "proteiinia"
+      ],
+      "max_minuutit": 10,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Kikhernesäilyke",
+          "maara": 2,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Tahini",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Sitruuna",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 0.5,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Juustokumina",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Porkkana",
+          "maara": 4,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kurkku",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 2,
+          "yksikko": "kpl"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Valuta kikherneet, mutta ota liemi talteen.",
+        "Soseuta kikherneet, tahini, sitruunamehu, valkosipuli, öljy ja juustokumina tehosekoittimessa.",
+        "Löysää kikhernelientä lisäämällä, kunnes hummus on pehmeää ja kuohkeaa. Mausta suolalla.",
+        "Leikkaa porkkana, kurkku ja paprika tikuiksi.",
+        "Tarjoile hummus kulhossa, tikut ympärillä. Valuta pinnalle oliiviöljyä."
+      ],
+      "huom": "Kikhernelieme (aquafaba) tekee hummuksesta kuohkeaa — älä kaada sitä viemäriin. Säilyy jääkaapissa 4 päivää.",
+      "palaute": []
+    },
+    {
+      "id": "mansikkasmoothie",
+      "nimi": "Mansikka-banaanismoothie",
+      "kategoria": "välipala",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "makea",
+        "juoma",
+        "kesä"
+      ],
+      "max_minuutit": 5,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Pakastemansikka",
+          "maara": 5,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Banaani",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Maustamaton jogurtti",
+          "maara": 3,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Maito tai kaurajuoma",
+          "maara": 4,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Hunaja",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kaurahiutale",
+          "maara": 1,
+          "yksikko": "dl",
+          "kaappitavara": true,
+          "huom": "valinnainen, tekee täyttävämmän"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Mittaa kaikki ainekset tehosekoittimeen.",
+        "Soseuta tasaiseksi, noin minuutin ajan.",
+        "Maista ja lisää hunajaa, jos marjat ovat happamia.",
+        "Löysää maidolla, jos smoothie on liian paksua.",
+        "Kaada laseihin ja tarjoile heti."
+      ],
+      "huom": "Nopein välipala jäähallin tai treenien jälkeen. Kaurahiutaleet muuttavat tämän välipalasta oikeaksi täydennykseksi.",
+      "palaute": []
+    },
+    {
+      "id": "rahkakulho",
+      "nimi": "Rahkakulho marjoilla ja granolalla",
+      "kategoria": "välipala",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "proteiinia",
+        "makea"
+      ],
+      "max_minuutit": 5,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Maitorahka",
+          "maara": 500,
+          "yksikko": "g",
+          "huom": "maustamaton tai vanilja"
+        },
+        {
+          "nimi": "Maustamaton jogurtti",
+          "maara": 2,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Hunaja",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Vaniljasokeri",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Tuoreet tai sulatetut marjat",
+          "maara": 4,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Granola",
+          "maara": 3,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Banaani",
+          "maara": 2,
+          "yksikko": "kpl"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Sekoita rahka, jogurtti, hunaja ja vaniljasokeri tasaiseksi.",
+        "Jaa kulhoihin.",
+        "Lisää päälle marjat ja viipaloitu banaani.",
+        "Ripottele granola vasta juuri ennen tarjoilua.",
+        "Tarjoile heti."
+      ],
+      "huom": "Rahka yksinään on lapsille liian tiivistä — jogurtti pehmentää rakenteen juuri sopivaksi.",
+      "palaute": []
+    },
+    {
+      "id": "tortillapizzat",
+      "nimi": "Tortillapizzat",
+      "kategoria": "välipala",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "uuni",
+        "italialainen",
+        "kansainvälinen"
+      ],
+      "max_minuutit": 15,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Tortillat",
+          "maara": 5,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Tomaattipyree tai pizzakastike",
+          "maara": 1,
+          "yksikko": "prk"
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 200,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Kirsikkatomaatti",
+          "maara": 150,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Maissisäilyke",
+          "maara": 0.5,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Oregano",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Kuumenna uuni 225 asteeseen.",
+        "Levitä tortillat pellille ja sivele niille ohut kerros pizzakastiketta.",
+        "Ripottele juustoraaste ja lisää täytteet.",
+        "Mausta oreganolla ja valuta hieman öljyä päälle.",
+        "Paista 8 min, kunnes reunat ovat rapeat ja juusto sulanut. Leikkaa lohkoiksi."
+      ],
+      "huom": "Kymmenen minuutin välipala, jonka lapset voivat koota itse. Ohut pohja rapeutuu nopeasti, joten pidä silmällä viimeiset minuutit.",
+      "palaute": []
+    },
+    {
+      "id": "mustikkamuffinit",
+      "nimi": "Mustikkamuffinit",
+      "kategoria": "välipala",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "munat",
+        "uuni",
+        "lapset-ok",
+        "makea",
+        "leivonta"
+      ],
+      "max_minuutit": 35,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Vehnäjauho",
+          "maara": 5,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Sokeri",
+          "maara": 2,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Leivinjauhe",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola",
+          "maara": 0.5,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kananmuna",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Maito",
+          "maara": 2,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 100,
+          "yksikko": "g",
+          "huom": "sulatettuna"
+        },
+        {
+          "nimi": "Vaniljasokeri",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Mustikka",
+          "maara": 3,
+          "yksikko": "dl",
+          "huom": "tuore tai pakaste, ei sulatettuna"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Sekoita kuivat aineet kulhossa.",
+        "Vatkaa munat, maito ja sulatettu voi toisessa kulhossa.",
+        "Yhdistä nopeasti sekoittaen — taikina saa jäädä kokkareiseksi.",
+        "Kääntele mustikat varovasti joukkoon. Pakastemustikat lisätään jäisinä, jotta taikina ei värjäänny.",
+        "Jaa muffinivuokiin ja paista 200 asteessa 20 min."
+      ],
+      "huom": "12 kpl. Pakastuvat hyvin ja sulavat eväsrasiassa aamusta välituntiin.",
+      "palaute": []
+    },
+    {
+      "id": "kaurakeksit",
+      "nimi": "Kaurakeksit",
+      "kategoria": "välipala",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "uuni",
+        "lapset-ok",
+        "makea",
+        "leivonta",
+        "klassikko",
+        "munat"
+      ],
+      "max_minuutit": 30,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Kaurahiutale",
+          "maara": 5,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Vehnäjauho",
+          "maara": 2,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Sokeri",
+          "maara": 2,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Voi",
+          "maara": 150,
+          "yksikko": "g",
+          "huom": "pehmeänä"
+        },
+        {
+          "nimi": "Kananmuna",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Leivinjauhe",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Vaniljasokeri",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola",
+          "maara": 0.5,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Tumma suklaa",
+          "maara": 100,
+          "yksikko": "g",
+          "huom": "valinnainen, rouhittuna"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Vaahdota pehmeä voi ja sokeri.",
+        "Lisää muna ja vatkaa tasaiseksi.",
+        "Sekoita kuivat aineet joukkoon ja lopuksi suklaarouhe.",
+        "Nostele lusikalla pellille reilun välimatkan päähän — keksit leviävät paistuessaan.",
+        "Paista 175 asteessa 12 min. Anna jäähtyä pellillä, sillä keksit ovat kuumana pehmeitä."
+      ],
+      "huom": "Noin 30 keksiä. Taikinan voi tehdä valmiiksi ja pitää jääkaapissa pari päivää, jolloin keksit paistuvat tuoreina.",
+      "palaute": []
+    },
+    {
+      "id": "hedelmasalaatti",
+      "nimi": "Hedelmäsalaatti jogurttikastikkeella",
+      "kategoria": "välipala",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "kesä",
+        "makea"
+      ],
+      "max_minuutit": 10,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Omena",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Banaani",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Appelsiini",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Viinirypäle",
+          "maara": 250,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Päärynä",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Maustamaton jogurtti",
+          "maara": 3,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Hunaja",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Vaniljasokeri",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Sitruuna",
+          "maara": 0.5,
+          "yksikko": "kpl",
+          "huom": "estää tummumisen"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Kuutioi omenat, päärynät ja banaanit. Pirskota päälle sitruunamehua.",
+        "Lohko appelsiinit ja halkaise viinirypäleet.",
+        "Sekoita hedelmät varovasti isossa kulhossa.",
+        "Sekoita kastike jogurtista, hunajasta ja vaniljasokerista.",
+        "Tarjoile kastike erikseen, jotta jokainen annostelee itse."
+      ],
+      "huom": "Sitruunamehu on koko jutun ydin: ilman sitä omena ja banaani ruskettuvat viidessä minuutissa.",
+      "palaute": []
+    },
+    {
+      "id": "iltapalalautanen",
+      "nimi": "Iltapalalautanen",
+      "kategoria": "iltapala",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "munat",
+        "nopea",
+        "lapset-ok",
+        "klassikko",
+        "proteiinia"
+      ],
+      "max_minuutit": 10,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Ruisleipä",
+          "maara": 10,
+          "yksikko": "viipaletta"
+        },
+        {
+          "nimi": "Näkkileipä",
+          "maara": 5,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 50,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Juustoviipale",
+          "maara": 10,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kananmuna",
+          "maara": 5,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kurkku",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Tomaatti",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Maito",
+          "maara": 1,
+          "yksikko": "l"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Keitä munat 8 min ja jäähdytä kylmässä vedessä.",
+        "Viipaloi kurkku, tomaatti ja paprika lautaselle.",
+        "Voitele leivät ja lisää juustoviipaleet.",
+        "Kuori ja halkaise munat, asettele lautaselle.",
+        "Kokoa yhteinen tarjoiluvati, josta jokainen ottaa oman annoksensa."
+      ],
+      "huom": "Ei varsinaisesti resepti vaan muistilista siitä, mistä kunnollinen iltapala koostuu: leipää, proteiinia ja jotain tuoretta.",
+      "palaute": []
+    },
+    {
+      "id": "marjakiisseli",
+      "nimi": "Marjakiisseli",
+      "kategoria": "iltapala",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "nopea",
+        "lapset-ok",
+        "klassikko",
+        "makea"
+      ],
+      "max_minuutit": 15,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Pakastemarja",
+          "maara": 6,
+          "yksikko": "dl",
+          "huom": "mustikka, vadelma tai mansikka"
+        },
+        {
+          "nimi": "Vesi",
+          "maara": 8,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Sokeri",
+          "maara": 1,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Perunajauho",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Vaniljasokeri",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Kiehauta marjat, vesi ja sokeri kattilassa. Keitä 5 min.",
+        "Sekoita perunajauho puoleen desiin kylmää vettä.",
+        "Ota kattila levyltä ja kaada suurus ohuena nauhana sekoittaen joukkoon.",
+        "Kuumenna vielä kiehahtamatta — kiehuminen tekee kiisselistä vetistä.",
+        "Ripottele pinnalle sokeria, jotta kiisseliin ei tule kalvoa. Tarjoile maidon kanssa."
+      ],
+      "huom": "Perinteinen iltapala, joka tehdään pakastimen marjoista ympäri vuoden. Toimii myös aamupuuron kanssa.",
+      "palaute": []
+    },
+    {
+      "id": "vispipuuro",
+      "nimi": "Vispipuuro",
+      "kategoria": "iltapala",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "lapset-ok",
+        "klassikko",
+        "makea",
+        "nopea"
+      ],
+      "max_minuutit": 25,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Pakastepuolukka tai mansikka",
+          "maara": 5,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Vesi",
+          "maara": 1,
+          "yksikko": "l"
+        },
+        {
+          "nimi": "Mannasuurimo",
+          "maara": 2,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Sokeri",
+          "maara": 1.5,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Maito",
+          "maara": null,
+          "yksikko": null,
+          "huom": "tarjoiluun"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Keitä marjat vedessä 10 min ja siivilöi halutessasi kuoret pois.",
+        "Kiehauta mehu uudelleen ja ripottele mannasuurimot joukkoon vispaten.",
+        "Keitä miedolla lämmöllä 7 min välillä sekoittaen. Lisää sokeri.",
+        "Kaada puuro isoon kulhoon ja vatkaa sähkövatkaimella 5–10 min, kunnes puuro vaalenee ja kaksinkertaistuu.",
+        "Tarjoile kylmänä maidon kanssa."
+      ],
+      "huom": "Vatkaaminen on koko resepti: jos lopettaa liian aikaisin, jäljelle jää tavallista mannapuuroa. Puuron pitää olla vielä lämmintä vatkattaessa.",
+      "palaute": []
+    },
+    {
+      "id": "grillattu-juustoleipa",
+      "nimi": "Grillattu juustoleipä",
+      "kategoria": "iltapala",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "makea"
+      ],
+      "max_minuutit": 10,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Paahtoleipä",
+          "maara": 10,
+          "yksikko": "viipaletta"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 50,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Juustoviipale",
+          "maara": 10,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Tomaatti",
+          "maara": 2,
+          "yksikko": "kpl",
+          "huom": "valinnainen väliin"
+        },
+        {
+          "nimi": "Oregano",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Voitele leipäviipaleiden ulkopinnat.",
+        "Kokoa voileivät: juustoviipale, halutessasi tomaattisiivu, ripaus oreganoa ja toinen leipä päälle.",
+        "Paista kuivalla pannulla keskilämmöllä 3 min per puoli, painaen lastalla kevyesti.",
+        "Käännä varovasti, jotta juusto ei valu ulos.",
+        "Leikkaa kolmioiksi ja tarjoile kurkkuviipaleiden kanssa."
+      ],
+      "huom": "Voi kuuluu leivän ulkopinnalle, ei väliin — se on ero rapean ja pehmeän välillä.",
+      "palaute": []
+    },
+    {
+      "id": "jogurtti-myslikulho",
+      "nimi": "Jogurtti-myslikulho",
+      "kategoria": "iltapala",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "proteiinia"
+      ],
+      "max_minuutit": 5,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Maustamaton jogurtti",
+          "maara": 6,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Mysli",
+          "maara": 3,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Pakastemarja",
+          "maara": 3,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Hunaja",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kaneli",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Banaani",
+          "maara": 2,
+          "yksikko": "kpl"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Jaa jogurtti kulhoihin.",
+        "Nostele päälle marjat — pakastemarjat sulavat jogurtissa muutamassa minuutissa.",
+        "Lisää viipaloitu banaani.",
+        "Ripottele mysli päälle ja valuta hunajaa.",
+        "Ripaus kanelia viimeistelee."
+      ],
+      "huom": "Viiden minuutin iltapala, joka ei vaadi liettä. Mysli lisätään viimeisenä, jotta se pysyy rapeana.",
+      "palaute": []
+    },
+    {
+      "id": "pikasampylat",
+      "nimi": "Pikasämpylät",
+      "kategoria": "iltapala",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "uuni",
+        "lapset-ok",
+        "leivonta",
+        "klassikko",
+        "munat"
+      ],
+      "max_minuutit": 40,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Vesi",
+          "maara": 5,
+          "yksikko": "dl",
+          "huom": "kädenlämpöistä"
+        },
+        {
+          "nimi": "Kuivahiiva",
+          "maara": 1,
+          "yksikko": "pkt",
+          "kaappitavara": true,
+          "huom": "11 g"
+        },
+        {
+          "nimi": "Suola",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Sokeri",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Rypsiöljy",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Vehnäjauho",
+          "maara": 11,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Ruisjauho",
+          "maara": 2,
+          "yksikko": "dl",
+          "kaappitavara": true,
+          "huom": "valinnainen, tuo makua"
+        },
+        {
+          "nimi": "Kananmuna",
+          "maara": 1,
+          "yksikko": "kpl",
+          "huom": "voiteluun"
+        },
+        {
+          "nimi": "Kaurahiutale",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true,
+          "huom": "ripottelu"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Sekoita kuivahiiva jauhoihin. Lisää kädenlämpöinen vesi, suola, sokeri ja öljy.",
+        "Alusta taikina tasaiseksi, noin 5 min. Taikina saa jäädä hieman löysäksi.",
+        "Nostele taikinasta 15 sämpylää leivinpaperoidulle pellille kahdella lusikalla.",
+        "Peitä liinalla ja anna kohota lämpimässä 20 min.",
+        "Voitele munalla, ripottele kaurahiutaleet ja paista 225 asteessa 12 min."
+      ],
+      "huom": "Nostelusämpylät eivät vaadi vaivaamista eivätkä pitkää kohotusta. Illalla paistetut ovat aamulla vielä hyviä; pakasta loput heti jäähtyneinä.",
       "palaute": []
     }
   ]
