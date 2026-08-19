@@ -113,7 +113,15 @@
     "tl": "teelusikka",
     "pkt": "pakkaus",
     "tlk": "tölkki",
-    "prk": "purkki"
+    "prk": "purkki",
+    "pss": "pussi",
+    "ruukku": "ruukku",
+    "viipaletta": "viipale",
+    "vartta": "varsi",
+    "cm": "senttimetri",
+    "pullo": "pullo",
+    "ml": "millilitra",
+    "annos": "annos"
   },
   "reseptit": [
     {
@@ -4292,6 +4300,4624 @@
       ],
       "huom": "Juhannuspäivän rento jatkopäivä — hyödyntää aaton grillitähteet. Letut voi paistaa myös muurikalla.",
       "last_cooked": null,
+      "palaute": []
+    },
+    {
+      "id": "kermainen-tomaattikeitto",
+      "nimi": "Kermainen tomaattikeitto + juustoleivät",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "mieto",
+        "soseutettava",
+        "kermainen"
+      ],
+      "max_minuutit": 20,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Tomaattimurska",
+          "maara": 2,
+          "yksikko": "tlk",
+          "huom": "400 g tlk"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Porkkana",
+          "maara": 2,
+          "yksikko": "kpl",
+          "huom": "tuo makeutta, lapset eivät huomaa"
+        },
+        {
+          "nimi": "Ruokakerma",
+          "maara": 2,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Tomaattipyree",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Sokeri",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Paahtoleipä",
+          "maara": 10,
+          "yksikko": "viipaletta"
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 150,
+          "yksikko": "g"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Pilko sipuli, valkosipuli ja porkkana pieneksi. Kuullota öljyssä 5 min.",
+        "Lisää tomaattipyree ja paista minuutti. Lisää tomaattimurska, 4 dl vettä ja liemikuutio.",
+        "Keitä 10 min, kunnes porkkana on pehmeää. Soseuta sauvasekoittimella sileäksi.",
+        "Lisää kerma, mausta suolalla, pippurilla ja sokerilla.",
+        "Paahda leivät, ripottele juustoraaste päälle ja sulata uunissa grillivastuksella pari minuuttia."
+      ],
+      "huom": "Soseutettu keitto menee myös nirsoilta läpi. Juustoleivät ovat lasten suosikkiosuus.",
+      "palaute": []
+    },
+    {
+      "id": "porkkana-inkivaarikeitto",
+      "nimi": "Porkkana-inkiväärikeitto",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "nopea",
+        "lapset-ok",
+        "mieto",
+        "soseutettava"
+      ],
+      "max_minuutit": 25,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Porkkana",
+          "maara": 1,
+          "yksikko": "kg"
+        },
+        {
+          "nimi": "Peruna",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Tuore inkivääri",
+          "maara": 2,
+          "yksikko": "cm"
+        },
+        {
+          "nimi": "Kookosmaito",
+          "maara": 1,
+          "yksikko": "tlk",
+          "huom": "400 ml"
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 2,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Rypsiöljy",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Auringonkukansiemeniä",
+          "maara": 0.5,
+          "yksikko": "dl",
+          "huom": "paahdettuna päälle"
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Ruisleipä",
+          "maara": 5,
+          "yksikko": "viipaletta",
+          "kaytto": "keiton kanssa"
+        }
+      ],
+      "ohje": [
+        "Kuori ja viipaloi porkkanat, kuutioi perunat ja sipuli.",
+        "Kuullota sipulia ja raastettua inkivääriä öljyssä pari minuuttia.",
+        "Lisää juurekset, vesi juuri peitoksi ja liemikuutiot. Keitä 15 min.",
+        "Soseuta, lisää kookosmaito ja mausta suolalla.",
+        "Paahda siemenet kuivalla pannulla ja ripottele annosten päälle."
+      ],
+      "huom": "Inkivääri kannattaa pitää maltillisena, jos pienimmät ovat tarkkoja. Sopii hyvin pakastettavaksi.",
+      "palaute": []
+    },
+    {
+      "id": "kukkakaali-juustokeitto",
+      "nimi": "Kukkakaali-juustokeitto",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "mieto",
+        "soseutettava",
+        "kermainen"
+      ],
+      "max_minuutit": 25,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Kukkakaali",
+          "maara": 1,
+          "yksikko": "kpl",
+          "huom": "tai 600 g pakastettuna"
+        },
+        {
+          "nimi": "Peruna",
+          "maara": 4,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Sulatejuusto",
+          "maara": 200,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Ruokakerma",
+          "maara": 2,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 2,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Voi",
+          "maara": 20,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Muskottipähkinä",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola ja valkopippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Ruohosipuli",
+          "maara": 1,
+          "yksikko": "rkl",
+          "huom": "silputtuna päälle"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Paloittele kukkakaali nuppuihin, kuutioi perunat ja sipuli.",
+        "Kuullota sipulia voissa. Lisää kukkakaali, perunat, 8 dl vettä ja liemikuutiot.",
+        "Keitä 15 min kannen alla, kunnes kasvikset ovat pehmeitä.",
+        "Soseuta osittain — jätä muutama kukkakaalin nuppu kokonaiseksi rakenteen vuoksi.",
+        "Sekoita joukkoon sulatejuusto ja kerma, mausta muskotilla, suolalla ja pippurilla. Ripottele ruohosipuli päälle."
+      ],
+      "huom": "Pakastekukkakaalilla tämä syntyy 20 minuutissa. Sulatejuusto tekee keitosta lapsille tutun makuisen.",
+      "palaute": []
+    },
+    {
+      "id": "kasvishernekeitto",
+      "nimi": "Kasvishernekeitto + sinappi",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "klassikko",
+        "lapset-ok",
+        "soseutettava"
+      ],
+      "max_minuutit": 30,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Kuivattuja herneitä",
+          "maara": 500,
+          "yksikko": "g",
+          "huom": "liotettu yön yli, tai 2 prk valmiiksi keitettyjä"
+        },
+        {
+          "nimi": "Porkkana",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 2,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Laakerinlehti",
+          "maara": 2,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Meirami",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Savupaprikajauhe",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true,
+          "huom": "tuo lihaisan savuisuuden"
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Sinappi",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true,
+          "huom": "tarjoiluun"
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Ruisleipä",
+          "maara": 5,
+          "yksikko": "viipaletta",
+          "kaytto": "keiton kanssa"
+        }
+      ],
+      "ohje": [
+        "Huuhtele liotetut herneet ja keitä runsaassa vedessä liemikuutioiden ja laakerinlehtien kanssa 20 min.",
+        "Lisää kuutioidut porkkanat ja sipuli, keitä vielä 10 min.",
+        "Mausta meiramilla, savupaprikalla, suolalla ja pippurilla.",
+        "Soseuta halutessasi osa keitosta paksummaksi.",
+        "Tarjoile sinapin ja ruisleivän kanssa."
+      ],
+      "huom": "Torstairuoka ilman lihaa: savupaprika korvaa kinkun tuoman maun yllättävän hyvin. Jälkiruoaksi pannukakku.",
+      "palaute": []
+    },
+    {
+      "id": "maissi-perunakeitto",
+      "nimi": "Maissi-perunakeitto (chowder)",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "mieto",
+        "kermainen"
+      ],
+      "max_minuutit": 30,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Peruna",
+          "maara": 800,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Maissisäilyke",
+          "maara": 2,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Varsiselleri",
+          "maara": 2,
+          "yksikko": "vartta"
+        },
+        {
+          "nimi": "Maito",
+          "maara": 5,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Ruokakerma",
+          "maara": 2,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 30,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Vehnäjauho",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Timjami",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Kuutioi perunat pieniksi, silppua sipuli ja selleri.",
+        "Kuullota sipulia ja selleriä voissa. Ripottele jauhot päälle ja sekoita.",
+        "Lisää maito, 3 dl vettä ja liemikuutio kokoajan sekoittaen. Lisää perunakuutiot.",
+        "Keitä 15 min, kunnes perunat ovat kypsiä. Lisää valutetut maissit ja kerma.",
+        "Mausta timjamilla, suolalla ja pippurilla. Anna hautua 5 min ennen tarjoilua."
+      ],
+      "huom": "Paksu ja täyttävä — ei tarvitse muuta kuin leipää. Maissi on lasten mieleen.",
+      "palaute": []
+    },
+    {
+      "id": "tortillakeitto",
+      "nimi": "Meksikolainen tortillakeitto",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "nopea",
+        "lapset-ok",
+        "meksikolainen",
+        "kansainvälinen"
+      ],
+      "max_minuutit": 25,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Tomaattimurska",
+          "maara": 1,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Mustapapusäilyke",
+          "maara": 2,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Maissisäilyke",
+          "maara": 1,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 2,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Juustokumina",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Savupaprikajauhe",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Tortillalastut",
+          "maara": 1,
+          "yksikko": "pss"
+        },
+        {
+          "nimi": "Lime",
+          "maara": 1,
+          "yksikko": "kpl"
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Kermaviili",
+          "maara": 1,
+          "yksikko": "prk",
+          "kaytto": "lusikallinen keiton päälle"
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 100,
+          "yksikko": "g",
+          "kaytto": "ripottelu"
+        }
+      ],
+      "ohje": [
+        "Kuullota pilkottu sipuli, paprika ja valkosipuli öljyssä 5 min.",
+        "Lisää mausteet, paista puoli minuuttia. Lisää tomaattimurska, 6 dl vettä ja liemikuutiot.",
+        "Keitä 10 min. Lisää valutetut pavut ja maissi, kuumenna läpi.",
+        "Purista joukkoon limemehua ja mausta suolalla.",
+        "Tarjoile kulhoissa, murskaa tortillalastuja päälle."
+      ],
+      "huom": "Mausteet kannattaa pitää mietoina — chili tarjoillaan erikseen pöydässä.",
+      "palaute": []
+    },
+    {
+      "id": "kesakasviskeitto",
+      "nimi": "Kesäkasviskeitto (kesäkeitto)",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "klassikko",
+        "lapset-ok",
+        "kesäinen",
+        "mieto",
+        "kermainen"
+      ],
+      "max_minuutit": 30,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Uusia perunoita",
+          "maara": 500,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Porkkana",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kukkakaali",
+          "maara": 0.5,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Herneitä",
+          "maara": 2,
+          "yksikko": "dl",
+          "huom": "pakasteherneet käyvät"
+        },
+        {
+          "nimi": "Kesäkurpitsa",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Maito",
+          "maara": 5,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Ruokakerma",
+          "maara": 2,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Vehnäjauho",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Voi",
+          "maara": 20,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Suola",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Tilli",
+          "maara": 1,
+          "yksikko": "ruukku"
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Näkkileipä",
+          "maara": 5,
+          "yksikko": "kpl",
+          "kaytto": "keiton kanssa"
+        },
+        {
+          "nimi": "Keitetty muna",
+          "maara": 5,
+          "yksikko": "kpl",
+          "kaytto": "proteiinilisä"
+        }
+      ],
+      "ohje": [
+        "Kuori ja paloittele juurekset. Keitä niukassa suolavedessä 10 min.",
+        "Lisää kukkakaali ja kesäkurpitsa, keitä 5 min.",
+        "Lisää herneet ja maito. Sekoita jauhot pieneen määrään kylmää vettä ja lisää keittoon suurustamaan.",
+        "Anna kiehahtaa, lisää kerma ja voinokare.",
+        "Mausta suolalla ja ripottele runsaasti silputtua tilliä päälle."
+      ],
+      "huom": "Klassinen kesäkeitto: käytä sitä mitä kaapissa on. Tilliä ei kannata säästellä.",
+      "palaute": []
+    },
+    {
+      "id": "sitruuna-parsakaalipasta",
+      "nimi": "Sitruuna-parsakaalipasta",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "kermainen"
+      ],
+      "max_minuutit": 20,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Penne tai fusilli",
+          "maara": 500,
+          "yksikko": "g",
+          "merkki": "Rummo"
+        },
+        {
+          "nimi": "Parsakaali",
+          "maara": 500,
+          "yksikko": "g",
+          "huom": "tuore tai pakaste"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Sitruuna",
+          "maara": 1,
+          "yksikko": "kpl",
+          "huom": "kuori ja mehu"
+        },
+        {
+          "nimi": "Ruokakerma",
+          "maara": 2,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Parmesaani",
+          "maara": 80,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Keitä pasta suolavedessä. Lisää parsakaalinuput kattilaan pastan viimeisiksi 4 minuutiksi.",
+        "Kuullota hienonnettu valkosipuli oliiviöljyssä varovasti — ei ruskistusta.",
+        "Lisää kerma, sitruunan raastettu kuori ja puolet mehusta. Anna kiehahtaa.",
+        "Valuta pasta ja parsakaali (ota talteen 1 dl keitinvettä), sekoita kastikkeeseen.",
+        "Lisää raastettu parmesaani ja keitinvettä sopivaksi. Mausta suolalla ja pippurilla."
+      ],
+      "huom": "Sitruunaa kannattaa lisätä lopuksi vähän kerrallaan maistellen — lapsille miedompi versio.",
+      "palaute": []
+    },
+    {
+      "id": "kesakurpitsa-pestopasta",
+      "nimi": "Kesäkurpitsa-pestopasta",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "kesäinen"
+      ],
+      "max_minuutit": 20,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Spagetti",
+          "maara": 500,
+          "yksikko": "g",
+          "merkki": "Rummo"
+        },
+        {
+          "nimi": "Kesäkurpitsa",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kirsikkatomaatti",
+          "maara": 250,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Vihreä pesto",
+          "maara": 1,
+          "yksikko": "prk",
+          "huom": "180 g"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 100,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Pinjansiemeniä",
+          "maara": 0.5,
+          "yksikko": "dl",
+          "huom": "tai auringonkukansiemeniä"
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Kurkku",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaytto": "tikkuina lautaselle"
+        }
+      ],
+      "ohje": [
+        "Keitä spagetti suolavedessä al denteksi.",
+        "Kuutioi kesäkurpitsa ja paista kuumalla pannulla öljyssä 5 min, kunnes reunat saavat väriä.",
+        "Halkaise kirsikkatomaatit ja lisää pannulle viimeiseksi minuutiksi.",
+        "Sekoita valutettu pasta pannulle pestin ja tilkan keitinvettä kanssa.",
+        "Paahda siemenet kuivalla pannulla ja ripottele juustoraasteen kanssa päälle."
+      ],
+      "huom": "Pesto ei kestä kiehumista — sekoita se pannulle vasta lämmöltä pois otettuna.",
+      "palaute": []
+    },
+    {
+      "id": "kasvis-carbonara",
+      "nimi": "Kasvis-carbonara",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "munat",
+        "nopea",
+        "lapset-ok",
+        "kermainen",
+        "italialainen"
+      ],
+      "max_minuutit": 25,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Spagetti",
+          "maara": 500,
+          "yksikko": "g",
+          "merkki": "Rummo"
+        },
+        {
+          "nimi": "Kananmuna",
+          "maara": 4,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Parmesaani",
+          "maara": 100,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Savustettu tofu tai kasvispekoni",
+          "maara": 200,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true,
+          "huom": "runsaasti, rouhittuna"
+        },
+        {
+          "nimi": "Suola",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Vihersalaatti",
+          "maara": 1,
+          "yksikko": "pss",
+          "kaytto": "salaatiksi"
+        }
+      ],
+      "ohje": [
+        "Keitä spagetti runsaassa suolavedessä. Ota 2 dl keitinvettä talteen ennen valuttamista.",
+        "Kuutioi savutofu ja paista rapeaksi öljyssä valkosipulin kanssa.",
+        "Vatkaa munat ja raastettu parmesaani kulhossa. Mausta runsaalla mustapippurilla.",
+        "Sekoita kuuma pasta pannulle levylle pois otettuna, kaada munaseos joukkoon ja sekoita nopeasti.",
+        "Löysää keitinvedellä kunnes kastike on kiiltävää — ei saa hyytyä munakokkeliksi."
+      ],
+      "huom": "Salaisuus on ottaa pannu pois levyltä ennen munaseoksen lisäystä. Jäähtynyt pasta ei enää kypsennä munaa turvallisesti, joten tarjoile heti.",
+      "palaute": []
+    },
+    {
+      "id": "herkkusienipasta",
+      "nimi": "Kermainen herkkusienipasta",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "kermainen",
+        "klassikko"
+      ],
+      "max_minuutit": 25,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Tagliatelle tai penne",
+          "maara": 500,
+          "yksikko": "g",
+          "merkki": "Rummo"
+        },
+        {
+          "nimi": "Herkkusieni",
+          "maara": 500,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Ruokakerma",
+          "maara": 3,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Voi",
+          "maara": 30,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Timjami",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Persilja",
+          "maara": 1,
+          "yksikko": "ruukku"
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Parmesaani",
+          "maara": 60,
+          "yksikko": "g"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Keitä pasta suolavedessä.",
+        "Viipaloi sienet ja paista voissa kuumalla pannulla, kunnes neste on haihtunut ja sienet saavat väriä.",
+        "Lisää silputtu sipuli ja valkosipuli, kuullota pari minuuttia.",
+        "Lisää kerma, murennettu liemikuutio ja timjami. Anna kiehua kasaan 5 min.",
+        "Sekoita pasta kastikkeeseen, mausta ja viimeistele persiljalla ja parmesaanilla."
+      ],
+      "huom": "Älä täytä pannua liian täyteen sieniä kerralla, muuten ne hautuvat eivätkä ruskistu.",
+      "palaute": []
+    },
+    {
+      "id": "gnocchi-tomaattipannu",
+      "nimi": "Gnocchi-tomaattipannu",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "italialainen",
+        "yhden-pannun"
+      ],
+      "max_minuutit": 20,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Gnocchi",
+          "maara": 1,
+          "yksikko": "kg",
+          "huom": "valmis, jääkaappihyllystä"
+        },
+        {
+          "nimi": "Tomaattimurska",
+          "maara": 1,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Kirsikkatomaatti",
+          "maara": 250,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Mozzarella",
+          "maara": 2,
+          "yksikko": "pkt"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oregano",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Basilika",
+          "maara": 1,
+          "yksikko": "ruukku"
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Vihersalaatti",
+          "maara": 1,
+          "yksikko": "pss",
+          "kaytto": "salaatiksi"
+        }
+      ],
+      "ohje": [
+        "Paista gnocchit kuumalla pannulla öljyssä 5 min, kunnes ne saavat kullanruskean pinnan.",
+        "Lisää hienonnettu valkosipuli ja halkaistut kirsikkatomaatit, paista 2 min.",
+        "Lisää tomaattimurska ja oregano. Anna kiehua 5 min.",
+        "Revi mozzarella paloiksi päälle, laita kansi päälle ja anna sulaa 3 min.",
+        "Mausta suolalla ja pippurilla, viimeistele tuoreella basilikalla."
+      ],
+      "huom": "Nopein arki-ilta koko pankissa: yksi pannu, ei erillistä keittovettä.",
+      "palaute": []
+    },
+    {
+      "id": "maapahkinanuudelit",
+      "nimi": "Maapähkinänuudelit",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "nopea",
+        "lapset-ok",
+        "aasialainen",
+        "kansainvälinen"
+      ],
+      "max_minuutit": 20,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Nuudelit",
+          "maara": 400,
+          "yksikko": "g",
+          "huom": "riisi- tai vehnänuudelit"
+        },
+        {
+          "nimi": "Maapähkinävoi",
+          "maara": 1,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Soijakastike",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Hunaja tai siirappi",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Limemehu",
+          "maara": 2,
+          "yksikko": "rkl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Tuore inkivääri",
+          "maara": 1,
+          "yksikko": "cm"
+        },
+        {
+          "nimi": "Porkkana",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kevätsipuli",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Seesamiöljy",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Keitä nuudelit pakkauksen ohjeen mukaan ja huuhtele kylmällä vedellä.",
+        "Sekoita kastike: maapähkinävoi, soija, hunaja, limemehu, raastettu valkosipuli ja inkivääri sekä 1 dl kuumaa vettä.",
+        "Suikaloi porkkana ja paprika ohuiksi tikuiksi. Kuullota wokkipannulla seesamiöljyssä 3 min.",
+        "Lisää nuudelit ja kastike, sekoita kunnes kaikki on kuumaa ja kastike tarttuu nuudeleihin.",
+        "Ripottele silputtu kevätsipuli päälle."
+      ],
+      "huom": "Maapähkinävoi on lasten suosikkimaku — tämä menee läpi myös kasvisten kanssa. Tarkista pähkinäallergiat vieraiden kanssa.",
+      "palaute": []
+    },
+    {
+      "id": "kasvisramen",
+      "nimi": "Kasvisramen (miso-nuudelikeitto)",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "japanilainen",
+        "aasialainen",
+        "kansainvälinen"
+      ],
+      "max_minuutit": 30,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Ramen- tai nuudelit",
+          "maara": 400,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Misotahna",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Soijakastike",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 2,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Tuore inkivääri",
+          "maara": 2,
+          "yksikko": "cm"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Herkkusieni",
+          "maara": 250,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Porkkana",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Pinaatti",
+          "maara": 100,
+          "yksikko": "g",
+          "huom": "tuore"
+        },
+        {
+          "nimi": "Kananmuna",
+          "maara": 5,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kevätsipuli",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Seesamiöljy",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Maissi",
+          "maara": 1,
+          "yksikko": "tlk"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Keitä munat 7 minuuttia, jäähdytä kylmässä vedessä ja kuori. Halkaise.",
+        "Kuumenna 2 l vettä, lisää liemikuutiot, raastettu inkivääri ja valkosipuli. Keitä 10 min.",
+        "Viipaloi sienet ja porkkanat, lisää liemeen ja keitä 5 min.",
+        "Ota kattila levyltä ja sekoita misotahna pieneen määrään lientä ennen kuin lisäät sen keittoon — miso ei saa kiehua.",
+        "Keitä nuudelit erikseen ja jaa kulhoihin. Kaada liemi päälle, lisää pinaatti, maissi, puolikas muna ja kevätsipuli."
+      ],
+      "huom": "Rakenna kulhot pöydässä: jokainen valitsee omat lisukkeensa, mikä toimii nirsojen kanssa hyvin.",
+      "palaute": []
+    },
+    {
+      "id": "kasvis-yakisoba",
+      "nimi": "Kasvis-yakisoba (paistetut nuudelit)",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "nopea",
+        "lapset-ok",
+        "japanilainen",
+        "aasialainen",
+        "kansainvälinen"
+      ],
+      "max_minuutit": 25,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Nuudelit",
+          "maara": 400,
+          "yksikko": "g",
+          "huom": "yakisoba- tai munanuudelit"
+        },
+        {
+          "nimi": "Valkokaali",
+          "maara": 300,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Porkkana",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Savustettu tofu",
+          "maara": 250,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Soijakastike",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Ostronkastike tai hoisin",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Ruokosokeri",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Rypsiöljy",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Seesaminsiemeniä",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Keitä nuudelit hieman al denteksi ja huuhtele kylmällä.",
+        "Suikaloi kaali, porkkana, paprika ja sipuli ohuiksi. Kuutioi tofu.",
+        "Paista tofu kuumassa öljyssä rapeaksi, siirrä sivuun.",
+        "Wokkaa kasvikset kovalla lämmöllä 4 min — niiden pitää jäädä napakoiksi.",
+        "Lisää nuudelit, tofu, soija, ostronkastike ja sokeri. Sekoita kuumana läpi ja ripottele seesaminsiemenet päälle."
+      ],
+      "huom": "Kovalla lämmöllä ja nopeasti — jos pannu jäähtyy, kasvikset hautuvat vetisiksi.",
+      "palaute": []
+    },
+    {
+      "id": "tofu-teriyaki-kulho",
+      "nimi": "Tofu-teriyaki-riisikulho",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "nopea",
+        "lapset-ok",
+        "japanilainen",
+        "aasialainen",
+        "kansainvälinen"
+      ],
+      "max_minuutit": 30,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Jasminriisi",
+          "maara": 5,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Tofu",
+          "maara": 400,
+          "yksikko": "g",
+          "huom": "kiinteä"
+        },
+        {
+          "nimi": "Maissitärkkelys",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Soijakastike",
+          "maara": 4,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Hunaja tai siirappi",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Riisiviinietikka",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Tuore inkivääri",
+          "maara": 1,
+          "yksikko": "cm"
+        },
+        {
+          "nimi": "Parsakaali",
+          "maara": 300,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Porkkana",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Rypsiöljy",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Seesaminsiemeniä",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Keitä riisi pakkauksen ohjeen mukaan.",
+        "Purista tofusta neste pois talouspaperin läpi, kuutioi ja pyörittele maissitärkkelyksessä.",
+        "Paista tofukuutiot öljyssä joka puolelta rapeiksi. Siirrä lautaselle.",
+        "Sekoita kastike: soija, hunaja, etikka, raastettu valkosipuli ja inkivääri sekä 1 dl vettä. Kiehauta pannulla paksuksi.",
+        "Höyrytä parsakaali ja porkkanatikut 4 min. Kokoa kulhot: riisi, kasvikset, tofu ja kastike päälle, seesami viimeiseksi."
+      ],
+      "huom": "Maissitärkkelys on koko jutun ydin: ilman sitä tofu jää pehmeäksi eivätkä lapset innostu.",
+      "palaute": []
+    },
+    {
+      "id": "nasi-goreng",
+      "nimi": "Kasvis-nasi goreng (indonesialainen paistettu riisi)",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "munat",
+        "nopea",
+        "lapset-ok",
+        "aasialainen",
+        "kansainvälinen"
+      ],
+      "max_minuutit": 25,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Riisi",
+          "maara": 5,
+          "yksikko": "dl",
+          "huom": "mielellään edellisen päivän kylmää riisiä"
+        },
+        {
+          "nimi": "Kananmuna",
+          "maara": 5,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Porkkana",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Herneitä",
+          "maara": 2,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Ketjap manis tai makea soijakastike",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Soijakastike",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Rypsiöljy",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kurkku",
+          "maara": 1,
+          "yksikko": "kpl"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Jos riisi keitetään nyt, levitä se pellille jäähtymään — kuuma riisi puuroutuu pannulla.",
+        "Kuutioi porkkana, paprika ja sipuli. Wokkaa öljyssä 4 min valkosipulin kanssa.",
+        "Lisää riisi ja herneet, paista kovalla lämmöllä 5 min välillä sekoittaen.",
+        "Mausta ketjap manisilla ja soijalla.",
+        "Paista munat erikseen paistinmunina ja nosta annosten päälle. Tarjoile kurkkuviipaleiden kanssa."
+      ],
+      "huom": "Loistava tapa käyttää eilinen ylijäämäriisi. Paistettu muna päällä tekee tästä aterian.",
+      "palaute": []
+    },
+    {
+      "id": "halloumi-kikhernepannu",
+      "nimi": "Halloumi-kikhernepannu",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "proteiinia",
+        "yhden-pannun"
+      ],
+      "max_minuutit": 25,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Halloumi",
+          "maara": 2,
+          "yksikko": "pkt"
+        },
+        {
+          "nimi": "Kikhernesäilyke",
+          "maara": 2,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Kirsikkatomaatti",
+          "maara": 300,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Punasipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Pinaatti",
+          "maara": 100,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Juustokumina",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Savupaprikajauhe",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Sitruuna",
+          "maara": 0.5,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Kuskus",
+          "maara": 3,
+          "yksikko": "dl",
+          "kaytto": "lisukkeeksi"
+        },
+        {
+          "nimi": "Jogurtti",
+          "maara": 2,
+          "yksikko": "dl",
+          "kaytto": "kastikkeeksi"
+        }
+      ],
+      "ohje": [
+        "Kuutioi halloumi ja paista kuumalla pannulla öljyssä kullanruskeaksi. Siirrä sivuun.",
+        "Paista lohkottu punasipuli ja valkosipuli samalla pannulla 3 min.",
+        "Lisää valutetut kikherneet ja mausteet, paista 5 min kunnes kikherneet saavat väriä.",
+        "Lisää halkaistut kirsikkatomaatit ja pinaatti, anna hetken kuihtua.",
+        "Yhdistä halloumi takaisin pannulle, purista päälle sitruunamehua ja mausta."
+      ],
+      "huom": "Halloumi on suolaista, joten maista ennen kuin lisäät suolaa.",
+      "palaute": []
+    },
+    {
+      "id": "papu-burritot",
+      "nimi": "Papu-burritot",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "meksikolainen",
+        "kansainvälinen"
+      ],
+      "max_minuutit": 25,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Tortillat",
+          "maara": 10,
+          "yksikko": "kpl",
+          "huom": "isot vehnätortillat"
+        },
+        {
+          "nimi": "Mustapapusäilyke",
+          "maara": 2,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Riisi",
+          "maara": 3,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Maissisäilyke",
+          "maara": 1,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 200,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Juustokumina",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Savupaprikajauhe",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kermaviili",
+          "maara": 1,
+          "yksikko": "prk"
+        },
+        {
+          "nimi": "Salsakastike",
+          "maara": 1,
+          "yksikko": "prk"
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Kurkku",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaytto": "tikkuina"
+        }
+      ],
+      "ohje": [
+        "Keitä riisi. Pilko sipuli ja paprika ja paista öljyssä pehmeäksi.",
+        "Lisää valutetut pavut, maissi ja mausteet. Paista 5 min ja murskaa osa pavuista haarukalla.",
+        "Lämmitä tortillat kuivalla pannulla.",
+        "Täytä tortillat: riisi, papuseos, juustoraaste, kermaviili ja salsa.",
+        "Kääri burritoksi taittamalla ensin sivut sisään ja rullaamalla tiiviisti."
+      ],
+      "huom": "Kokoaminen kannattaa tehdä pöydässä — jokainen saa oman täytemäärän ja lapset syövät enemmän.",
+      "palaute": []
+    },
+    {
+      "id": "falafel-pita",
+      "nimi": "Falafel-pitaleivät",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "nopea",
+        "lapset-ok",
+        "lähi-itä",
+        "kansainvälinen"
+      ],
+      "max_minuutit": 20,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Falafelpyörykät",
+          "maara": 500,
+          "yksikko": "g",
+          "huom": "pakaste"
+        },
+        {
+          "nimi": "Pitaleipä",
+          "maara": 10,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Jogurtti",
+          "maara": 3,
+          "yksikko": "dl",
+          "huom": "maustamaton"
+        },
+        {
+          "nimi": "Tahini",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Sitruuna",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Tomaatti",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kurkku",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Jäävuorisalaatti",
+          "maara": 0.5,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Punasipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Suola",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Paista falafelit uunissa pakkauksen ohjeen mukaan, 200 asteessa noin 15 min.",
+        "Sekoita kastike: jogurtti, tahini, sitruunamehu, raastettu valkosipuli ja suola.",
+        "Pilko tomaatit, kurkku ja punasipuli, suikaloi salaatti.",
+        "Lämmitä pitaleivät uunissa falafelien viimeisiksi minuuteiksi.",
+        "Avaa pitat, täytä salaatilla, falafeleilla ja kastikkeella."
+      ],
+      "huom": "Nopein kasvisproteiini pakastimesta. Pienimmille falafelit voi tarjoilla erikseen dipin kanssa ilman leipää.",
+      "palaute": []
+    },
+    {
+      "id": "tofu-tacot",
+      "nimi": "Tofu-tacot",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "nopea",
+        "lapset-ok",
+        "meksikolainen",
+        "kansainvälinen",
+        "pe-ruoka"
+      ],
+      "max_minuutit": 25,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Tofu",
+          "maara": 400,
+          "yksikko": "g",
+          "huom": "kiinteä, murusteltuna"
+        },
+        {
+          "nimi": "Tacokuoret tai tortillat",
+          "maara": 12,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Juustokumina",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Savupaprikajauhe",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Valkosipulijauhe",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Soijakastike",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Rypsiöljy",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Jäävuorisalaatti",
+          "maara": 0.5,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Tomaatti",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Maissisäilyke",
+          "maara": 1,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 150,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Kermaviili",
+          "maara": 1,
+          "yksikko": "prk"
+        },
+        {
+          "nimi": "Avokado",
+          "maara": 2,
+          "yksikko": "kpl"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Purista tofusta neste pois ja murustele se sormin karkeaksi muruksi.",
+        "Paista kuumalla pannulla öljyssä 8 min, kunnes reunat rapeutuvat.",
+        "Lisää mausteet ja soijakastike, paista vielä 2 min.",
+        "Pilko täytteet kulhoihin: salaatti, tomaatti, maissi, avokado, juustoraaste, kermaviili.",
+        "Lämmitä kuoret ja kokoa pöydässä."
+      ],
+      "huom": "Murusteltu tofu on rakenteeltaan lähellä jauhelihaa — tämä on ollut helpoin tapa saada tofu maistumaan koko perheelle.",
+      "palaute": []
+    },
+    {
+      "id": "papupihvit",
+      "nimi": "Papupihvit + lohkoperunat",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "lapset-ok",
+        "uuni"
+      ],
+      "max_minuutit": 30,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Mustapapusäilyke",
+          "maara": 2,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Kaurahiutale",
+          "maara": 1.5,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Juustokumina",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Savupaprikajauhe",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Peruna",
+          "maara": 1,
+          "yksikko": "kg"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 4,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Ketsuppi tai majoneesi",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true,
+          "huom": "tarjoiluun"
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Kurkku",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaytto": "viipaleina"
+        },
+        {
+          "nimi": "Tomaatti",
+          "maara": 3,
+          "yksikko": "kpl",
+          "kaytto": "lohkoina"
+        }
+      ],
+      "ohje": [
+        "Lohko perunat, sekoita öljyyn ja suolaan ja paista 225 asteessa 25 min.",
+        "Valuta ja huuhtele pavut, murskaa haarukalla karkeaksi massaksi.",
+        "Sekoita joukkoon kaurahiutaleet, hienonnettu sipuli ja valkosipuli sekä mausteet. Anna turvota 10 min.",
+        "Muotoile 10 pihviä ja paista pannulla öljyssä 3–4 min per puoli.",
+        "Tarjoile lohkoperunoiden, salaatin ja dipin kanssa."
+      ],
+      "huom": "Massan pitää saada turvota, muutta pihvit hajoavat pannulla. Pakastuvat hyvin raakoina.",
+      "palaute": []
+    },
+    {
+      "id": "lohkoperunat-tzatziki",
+      "nimi": "Kreikkalaiset lohkoperunat, tzatziki ja halloumi",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "lapset-ok",
+        "uuni",
+        "kreikkalainen",
+        "kansainvälinen"
+      ],
+      "max_minuutit": 30,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Peruna",
+          "maara": 1.2,
+          "yksikko": "kg"
+        },
+        {
+          "nimi": "Halloumi",
+          "maara": 2,
+          "yksikko": "pkt"
+        },
+        {
+          "nimi": "Kreikkalainen jogurtti",
+          "maara": 4,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Kurkku",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Sitruuna",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Oregano",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 4,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Tilli",
+          "maara": 0.5,
+          "yksikko": "ruukku"
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Tomaatti",
+          "maara": 4,
+          "yksikko": "kpl",
+          "kaytto": "lohkoina"
+        },
+        {
+          "nimi": "Oliivi",
+          "maara": 1,
+          "yksikko": "prk",
+          "kaytto": "tarjoiluun"
+        }
+      ],
+      "ohje": [
+        "Lohko perunat, sekoita öljyyn, oreganoon, sitruunamehuun ja suolaan. Paista 225 asteessa 25 min.",
+        "Raasta kurkku, purista neste pois ja sekoita jogurttiin raastetun valkosipulin, tillin ja suolan kanssa.",
+        "Viipaloi halloumi ja paista kuivalla pannulla molemmin puolin ruskeaksi.",
+        "Tarjoile perunat, halloumi ja tzatziki isoilla vadeilla.",
+        "Purista päälle vielä sitruunamehua."
+      ],
+      "huom": "Kurkun nesteen puristaminen on tzatzikin tärkein vaihe — muuten kastike vetistyy lautasella.",
+      "palaute": []
+    },
+    {
+      "id": "sienimuhennos-perunat",
+      "nimi": "Sienimuhennos, perunat ja puolukka",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "klassikko",
+        "lapset-ok",
+        "kermainen",
+        "pohjoismainen",
+        "syksy"
+      ],
+      "max_minuutit": 30,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Herkkusieni tai metsäsieni",
+          "maara": 600,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 40,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Vehnäjauho",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Maito",
+          "maara": 5,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Ruokakerma",
+          "maara": 1,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Peruna",
+          "maara": 1,
+          "yksikko": "kg"
+        },
+        {
+          "nimi": "Muskottipähkinä",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola ja valkopippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Puolukkahillo",
+          "maara": 1,
+          "yksikko": "prk"
+        },
+        {
+          "nimi": "Persilja",
+          "maara": 0.5,
+          "yksikko": "ruukku"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Keitä perunat kuorineen suolavedessä.",
+        "Pilko sienet ja paista voissa, kunnes neste on haihtunut. Lisää silputtu sipuli.",
+        "Ripottele jauhot päälle ja sekoita. Lisää maito vähitellen koko ajan sekoittaen.",
+        "Anna kiehua 5 min, lisää kerma ja mausta muskotilla, suolalla ja pippurilla.",
+        "Tarjoile perunoiden ja puolukkahillon kanssa, ripottele persilja päälle."
+      ],
+      "huom": "Sienestyskauden vakioruoka. Pakastesienillä toimii ympäri vuoden — sulata ja purista neste pois ensin.",
+      "palaute": []
+    },
+    {
+      "id": "bataatti-papukulho",
+      "nimi": "Bataatti-mustapapukulho",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "lapset-ok",
+        "uuni",
+        "meksikolainen",
+        "proteiinia"
+      ],
+      "max_minuutit": 30,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Bataatti",
+          "maara": 1,
+          "yksikko": "kg"
+        },
+        {
+          "nimi": "Mustapapusäilyke",
+          "maara": 2,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Riisi",
+          "maara": 4,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Maissisäilyke",
+          "maara": 1,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Punasipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Lime",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Juustokumina",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Savupaprikajauhe",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Avokado",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Suola",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Kuutioi bataatit, sekoita öljyyn ja mausteisiin ja paista 220 asteessa 25 min.",
+        "Keitä riisi samaan aikaan.",
+        "Kuumenna valutetut pavut ja maissi pannulla, mausta limemehulla ja suolalla.",
+        "Viipaloi punasipuli ohuiksi renkaiksi ja avokado lohkoiksi.",
+        "Kokoa kulhot: riisi pohjalle, päälle bataatti, papuseos, avokado ja punasipuli."
+      ],
+      "huom": "Bataatin makeus tasapainottaa mausteet, joten tämä sopii myös pienimmille sellaisenaan.",
+      "palaute": []
+    },
+    {
+      "id": "ohukaiset-hillo",
+      "nimi": "Ohukaiset, hillo ja vispipuuro",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "munat",
+        "klassikko",
+        "lapset-ok",
+        "makea",
+        "lempiruoka"
+      ],
+      "max_minuutit": 30,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Maito",
+          "maara": 1,
+          "yksikko": "l"
+        },
+        {
+          "nimi": "Kananmuna",
+          "maara": 4,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Vehnäjauho",
+          "maara": 5,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Sokeri",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Voi",
+          "maara": 50,
+          "yksikko": "g",
+          "huom": "sulatettuna taikinaan + paistamiseen"
+        },
+        {
+          "nimi": "Mansikkahillo",
+          "maara": 1,
+          "yksikko": "prk"
+        },
+        {
+          "nimi": "Vispipuuro",
+          "maara": 1,
+          "yksikko": "prk",
+          "huom": "tai itse tehtynä mannasuurimoista ja marjoista"
+        },
+        {
+          "nimi": "Kermavaahto",
+          "maara": 2,
+          "yksikko": "dl"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Vatkaa munat ja puolet maidosta. Lisää jauhot, sokeri ja suola sekoittaen tasaiseksi.",
+        "Lisää loput maidosta ja sulatettu voi. Anna taikinan turvota 15 min.",
+        "Paista ohuita lettuja voidellulla pannulla molemmin puolin.",
+        "Pinoa letut lautaselle ja pidä lämpimänä liinan alla.",
+        "Tarjoile hillon, kermavaahdon ja vispipuuron kanssa."
+      ],
+      "huom": "Perinteinen torstain jälkiruoka toimii myös koko illallisena hernekeiton jälkeen — tai perjantain kevyenä illallisena.",
+      "palaute": []
+    },
+    {
+      "id": "kasvis-stroganoff",
+      "nimi": "Kasvis-stroganoff + riisi",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "lapset-ok",
+        "kermainen",
+        "klassikko",
+        "pata"
+      ],
+      "max_minuutit": 30,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Herkkusieni",
+          "maara": 500,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Soijasuikale",
+          "maara": 200,
+          "yksikko": "g",
+          "huom": "tai nyhtökaura"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Suolakurkku",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Tomaattipyree",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kermaviili",
+          "maara": 2,
+          "yksikko": "prk"
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Paprikajauhe",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Sinappi",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Rypsiöljy",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Riisi",
+          "maara": 5,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Keitä riisi pakkauksen ohjeen mukaan.",
+        "Paista viipaloidut sienet kuumalla pannulla, kunnes neste on haihtunut. Lisää sipulit ja soijasuikaleet.",
+        "Lisää tomaattipyree ja paprikajauhe, paista minuutti.",
+        "Lisää 2 dl vettä ja liemikuutio, hauduta 10 min. Lisää kuutioitu suolakurkku.",
+        "Sekoita lopuksi kermaviili ja sinappi, mausta suolalla ja pippurilla. Älä anna kiehua kermaviilin lisäyksen jälkeen."
+      ],
+      "huom": "Suolakurkku on se mikä tekee stroganoffista stroganoffin — älä jätä pois.",
+      "palaute": []
+    },
+    {
+      "id": "kikherne-tikka-masala",
+      "nimi": "Kikherne-tikka masala + riisi",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "lapset-ok",
+        "intialainen",
+        "kansainvälinen",
+        "mieto",
+        "kermainen"
+      ],
+      "max_minuutit": 30,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Kikhernesäilyke",
+          "maara": 3,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Tomaattimurska",
+          "maara": 1,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Tuore inkivääri",
+          "maara": 2,
+          "yksikko": "cm"
+        },
+        {
+          "nimi": "Garam masala",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kurkuma",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Juustokumina",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Ruokakerma",
+          "maara": 2,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Rypsiöljy",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Basmatiriisi",
+          "maara": 5,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Korianteri",
+          "maara": 0.5,
+          "yksikko": "ruukku"
+        },
+        {
+          "nimi": "Suola",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Naan-leipä",
+          "maara": 5,
+          "yksikko": "kpl",
+          "kaytto": "lisukkeeksi"
+        },
+        {
+          "nimi": "Jogurtti",
+          "maara": 2,
+          "yksikko": "dl",
+          "kaytto": "raitaksi"
+        }
+      ],
+      "ohje": [
+        "Keitä basmatiriisi.",
+        "Kuullota hienonnettu sipuli öljyssä 5 min. Lisää raastettu valkosipuli ja inkivääri.",
+        "Lisää mausteet ja paista puoli minuuttia, jotta ne vapauttavat aromin.",
+        "Lisää tomaattimurska ja valutetut kikherneet. Hauduta 12 min.",
+        "Sekoita kerma joukkoon, mausta suolalla ja viimeistele korianterilla."
+      ],
+      "huom": "Mieto versio ilman chiliä. Naan-leipä pakastimesta täydentää aterian.",
+      "palaute": []
+    },
+    {
+      "id": "kasvisgyros",
+      "nimi": "Kasvisgyros pitaleivässä",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "lapset-ok",
+        "kreikkalainen",
+        "kansainvälinen",
+        "pe-ruoka"
+      ],
+      "max_minuutit": 25,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Soijasuikale",
+          "maara": 300,
+          "yksikko": "g",
+          "huom": "tai marinoitu kasvissuikale"
+        },
+        {
+          "nimi": "Pitaleipä",
+          "maara": 10,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Gyrosmauste",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Rypsiöljy",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Jäävuorisalaatti",
+          "maara": 0.5,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Tomaatti",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kurkku",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Punasipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Jogurtti",
+          "maara": 3,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Fetajuusto",
+          "maara": 200,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Suola",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Paista soijasuikaleet kuumalla pannulla öljyssä rapeiksi ja mausta gyrosmausteella.",
+        "Sekoita valkosipulikastike jogurtista, raastetusta valkosipulista ja suolasta.",
+        "Suikaloi salaatti, viipaloi tomaatti, kurkku ja punasipuli.",
+        "Lämmitä pitaleivät.",
+        "Kokoa: salaatti, gyros, kasvikset, murennettu feta ja kastike."
+      ],
+      "huom": "Perjantairuoka, joka kokoontuu pöydässä. Soijasuikale on paistettava kunnolla rapeaksi, muuten rakenne jää löysäksi.",
+      "palaute": []
+    },
+    {
+      "id": "pasta-alla-norma",
+      "nimi": "Pasta alla norma (munakoisopasta)",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "italialainen",
+        "kansainvälinen",
+        "lapset-ok",
+        "klassikko"
+      ],
+      "max_minuutit": 30,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Penne tai rigatoni",
+          "maara": 500,
+          "yksikko": "g",
+          "merkki": "Rummo"
+        },
+        {
+          "nimi": "Munakoiso",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Tomaattimurska",
+          "maara": 2,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 1,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Sokeri",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Basilika",
+          "maara": 1,
+          "yksikko": "ruukku"
+        },
+        {
+          "nimi": "Ricotta salata tai fetajuusto",
+          "maara": 150,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Kuutioi munakoisot, suolaa ja anna seistä 10 min. Kuivaa talouspaperilla.",
+        "Paista munakoisokuutiot runsaassa oliiviöljyssä kullanruskeiksi. Siirrä sivuun.",
+        "Kuullota valkosipuli samassa öljyssä, lisää tomaattimurska ja sokeri. Hauduta 15 min.",
+        "Keitä pasta ja sekoita kastikkeeseen munakoison kanssa.",
+        "Viimeistele murennetulla juustolla ja tuoreella basilikalla."
+      ],
+      "huom": "Munakoiso imee öljyä ahnaasti — älä säikähdä määrää, se on reseptin idea. Suolaus poistaa kitkeryyden.",
+      "palaute": []
+    },
+    {
+      "id": "kreikkalainen-salaatti-illallinen",
+      "nimi": "Kreikkalainen salaatti ja fetaleivät",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "nopea",
+        "kesäinen",
+        "lapset-ok",
+        "kreikkalainen",
+        "kansainvälinen"
+      ],
+      "max_minuutit": 20,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Tomaatti",
+          "maara": 6,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kurkku",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Punasipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Fetajuusto",
+          "maara": 400,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Mustia oliiveja",
+          "maara": 1,
+          "yksikko": "prk"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 0.5,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Punaviinietikka",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oregano",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Patonki",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 50,
+          "yksikko": "g"
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Keitetty muna",
+          "maara": 5,
+          "yksikko": "kpl",
+          "kaytto": "proteiinilisä"
+        }
+      ],
+      "ohje": [
+        "Lohko tomaatit, viipaloi kurkku ja paprika, ohuiksi renkaiksi punasipuli.",
+        "Kokoa vadille, lisää oliivit ja isot fetalohkot päälle.",
+        "Sekoita kastike oliiviöljystä, etikasta ja oreganosta ja valuta salaatin päälle.",
+        "Viipaloi patonki, voitele valkosipulivoilla ja paahda uunissa 200 asteessa 8 min.",
+        "Tarjoile leivät lämpiminä salaatin kanssa."
+      ],
+      "huom": "Kuuman kesäillan illallinen, jota ei tarvitse keittää. Lapsille kannattaa jättää oma lautasellinen kastikkeetta.",
+      "palaute": []
+    },
+    {
+      "id": "kasvisnuudelisalaatti",
+      "nimi": "Thai-tyylinen nuudelisalaatti",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "nopea",
+        "kesäinen",
+        "thaimaalainen",
+        "kansainvälinen"
+      ],
+      "max_minuutit": 20,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Riisinuudelit",
+          "maara": 300,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Porkkana",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kurkku",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kevätsipuli",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Maapähkinä",
+          "maara": 1,
+          "yksikko": "dl",
+          "huom": "paahdettu, rouhittuna"
+        },
+        {
+          "nimi": "Limemehu",
+          "maara": 3,
+          "yksikko": "rkl"
+        },
+        {
+          "nimi": "Soijakastike",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Hunaja tai siirappi",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Seesamiöljy",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Korianteri tai minttu",
+          "maara": 0.5,
+          "yksikko": "ruukku"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Keitä riisinuudelit pakkauksen ohjeen mukaan ja huuhtele kylmällä vedellä.",
+        "Suikaloi porkkana, kurkku ja paprika ohuiksi tikuiksi.",
+        "Sekoita kastike limemehusta, soijasta, hunajasta ja seesamiöljystä.",
+        "Yhdistä nuudelit, kasvikset ja kastike isossa kulhossa.",
+        "Ripottele päälle rouhitut maapähkinät, kevätsipuli ja yrtit."
+      ],
+      "huom": "Tarjoillaan viileänä, joten tämä on hyvä helteille ja mökille. Lasten annos ilman yrttejä ja pähkinöitä.",
+      "palaute": []
+    },
+    {
+      "id": "uunifetapasta",
+      "nimi": "Uunifetapasta",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "uuni",
+        "lapset-ok",
+        "kermainen",
+        "yhden-pannun"
+      ],
+      "max_minuutit": 35,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Fetajuusto",
+          "maara": 2,
+          "yksikko": "pkt",
+          "huom": "200 g pkt"
+        },
+        {
+          "nimi": "Kirsikkatomaatti",
+          "maara": 750,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Penne",
+          "maara": 500,
+          "yksikko": "g",
+          "merkki": "Rummo"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 4,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 1,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oregano",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Chilihiutale",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true,
+          "huom": "valinnainen, aikuisten annoksiin"
+        },
+        {
+          "nimi": "Basilika",
+          "maara": 1,
+          "yksikko": "ruukku"
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Vihersalaatti",
+          "maara": 1,
+          "yksikko": "pss",
+          "kaytto": "salaatiksi"
+        }
+      ],
+      "ohje": [
+        "Kaada kirsikkatomaatit ja kuoritut valkosipulinkynnet uunivuokaan. Aseta fetapalat keskelle.",
+        "Valuta öljy päälle, mausta oreganolla, suolalla ja pippurilla.",
+        "Paista 200 asteessa 25 min, kunnes tomaatit ovat puhjenneet ja feta pehmennyt.",
+        "Keitä pasta samaan aikaan ja ota 1 dl keitinvettä talteen.",
+        "Muussaa feta ja tomaatit haarukalla kastikkeeksi, sekoita pasta ja keitinvesi joukkoon. Viimeistele basilikalla."
+      ],
+      "huom": "Uuni tekee työn: 5 min valmistelua ja loppu on odottelua. Tähteet lämpiävät hyvin seuraavan päivän lounaaksi.",
+      "palaute": []
+    },
+    {
+      "id": "kasvismoussaka",
+      "nimi": "Kasvismoussaka",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "uuni",
+        "viikonloppu",
+        "kreikkalainen",
+        "kansainvälinen",
+        "kermainen"
+      ],
+      "max_minuutit": 80,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Munakoiso",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Peruna",
+          "maara": 600,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Soijarouhe",
+          "maara": 2,
+          "yksikko": "dl",
+          "huom": "liotettuna, tai 400 g härkistä"
+        },
+        {
+          "nimi": "Tomaattimurska",
+          "maara": 2,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kaneli",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oregano",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Voi",
+          "maara": 50,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Vehnäjauho",
+          "maara": 4,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Maito",
+          "maara": 6,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Kananmuna",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 200,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 1,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Kreikkalainen salaatti",
+          "maara": 1,
+          "yksikko": "annos",
+          "kaytto": "lisukkeeksi"
+        }
+      ],
+      "ohje": [
+        "Viipaloi munakoisot ja perunat noin puolen sentin siivuiksi. Voitele öljyllä ja paista pellillä 220 asteessa 20 min.",
+        "Kuullota sipuli ja valkosipuli, lisää liotettu soijarouhe, tomaattimurska, kaneli ja oregano. Hauduta 15 min.",
+        "Tee bechamel: sulata voi, sekoita jauhot, lisää maito vähitellen ja keitä paksuksi. Jäähdytä hetki ja sekoita joukkoon munat ja puolet juustosta.",
+        "Kerrosta vuokaan: perunat, kastike, munakoiso, kastike. Kaada bechamel päälle ja ripottele loput juustosta.",
+        "Paista 180 asteessa 40 min. Anna vetäytyä 15 min ennen leikkaamista."
+      ],
+      "huom": "Iso viikonlopun projekti, joka tuottaa tähteitä kahdeksi lounaaksi. Kaneli on se yllättävä mauste, joka tekee moussakasta oikean.",
+      "palaute": []
+    },
+    {
+      "id": "linssi-perunapaistos",
+      "nimi": "Linssi-perunapaistos (kasvis-shepherd's pie)",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "uuni",
+        "viikonloppu",
+        "lapset-ok",
+        "brittiläinen"
+      ],
+      "max_minuutit": 70,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Vihreitä tai ruskeita linssejä",
+          "maara": 4,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Peruna",
+          "maara": 1.5,
+          "yksikko": "kg"
+        },
+        {
+          "nimi": "Porkkana",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Varsiselleri",
+          "maara": 2,
+          "yksikko": "vartta"
+        },
+        {
+          "nimi": "Tomaattipyree",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 2,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Timjami",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kaurakerma tai maito",
+          "maara": 2,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 50,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 150,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Keitä linssit 20 min. Keitä perunat samaan aikaan ja muussaa ne voin ja kerman kanssa.",
+        "Kuullota kuutioidut sipulit, porkkanat ja selleri öljyssä 8 min.",
+        "Lisää tomaattipyree, valutetut linssit, 3 dl vettä, liemikuutiot ja timjami. Hauduta 10 min paksuksi.",
+        "Kaada täyte uunivuokaan, levitä perunamuusi päälle ja vedä haarukalla uria pintaan.",
+        "Ripottele juustoraaste päälle ja paista 200 asteessa 25 min, kunnes pinta on kullanruskea."
+      ],
+      "huom": "Perunamuusin urat ruskistuvat rapeiksi — se on lasten lempiosa. Toimii myös vegaanina ilman juustoa ja voita.",
+      "palaute": []
+    },
+    {
+      "id": "perunagratiini",
+      "nimi": "Perunagratiini (juustoinen perunavuoka)",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "uuni",
+        "viikonloppu",
+        "lapset-ok",
+        "kermainen",
+        "klassikko"
+      ],
+      "max_minuutit": 70,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Peruna",
+          "maara": 1.5,
+          "yksikko": "kg"
+        },
+        {
+          "nimi": "Ruokakerma",
+          "maara": 5,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Maito",
+          "maara": 3,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 250,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 20,
+          "yksikko": "g",
+          "huom": "vuoan voiteluun"
+        },
+        {
+          "nimi": "Muskottipähkinä",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Timjami",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Uunijuurekset",
+          "maara": 500,
+          "yksikko": "g",
+          "kaytto": "lisukkeeksi"
+        },
+        {
+          "nimi": "Vihersalaatti",
+          "maara": 1,
+          "yksikko": "pss",
+          "kaytto": "salaatiksi"
+        }
+      ],
+      "ohje": [
+        "Kuori ja viipaloi perunat ohuiksi siivuiksi (mandoliini tai terävä veitsi).",
+        "Kuumenna kerma, maito, murskatut valkosipulinkynnet ja mausteet kattilassa kiehuvaksi.",
+        "Voitele vuoka. Lado perunasiivut limittäin kerroksiin ja kaada kermaseos päälle.",
+        "Ripottele juustoraaste pinnalle ja peitä foliolla.",
+        "Paista 175 asteessa 45 min foliossa, poista folio ja paista vielä 15 min, kunnes pinta on ruskea ja perunat pehmeitä."
+      ],
+      "huom": "Kermaseoksen kuumentaminen etukäteen lyhentää paistoaikaa reilusti. Tarjoile salaatin ja uunikasvisten kanssa.",
+      "palaute": []
+    },
+    {
+      "id": "porkkanalaatikko",
+      "nimi": "Porkkanalaatikko",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "uuni",
+        "klassikko",
+        "lapset-ok",
+        "joulu",
+        "viikonloppu"
+      ],
+      "max_minuutit": 80,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Porkkana",
+          "maara": 1,
+          "yksikko": "kg"
+        },
+        {
+          "nimi": "Puuroriisi",
+          "maara": 2,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Maito",
+          "maara": 8,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Kananmuna",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Siirappi",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Voi",
+          "maara": 50,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Korppujauho",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Muskottipähkinä",
+          "maara": 0.5,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Puolukkahillo",
+          "maara": 1,
+          "yksikko": "prk",
+          "kaytto": "lisukkeeksi"
+        },
+        {
+          "nimi": "Keitetty muna",
+          "maara": 5,
+          "yksikko": "kpl",
+          "kaytto": "proteiinilisä"
+        }
+      ],
+      "ohje": [
+        "Keitä riisi maidossa hitaasti puuroksi noin 30 min välillä sekoittaen.",
+        "Keitä kuoritut ja paloitellut porkkanat pehmeiksi ja soseuta.",
+        "Sekoita puuro, porkkanasose, munat, siirappi, muskotti ja suola.",
+        "Kaada voideltuun vuokaan, ripottele korppujauhot päälle ja nokare voita.",
+        "Paista 175 asteessa 45 min, kunnes pinta on kullanruskea."
+      ],
+      "huom": "Joulupöydän klassikko, mutta hyvä myös tavallisena sunnuntairuokana munakastikkeen kanssa. Tähteet lämpiävät hyvin.",
+      "palaute": []
+    },
+    {
+      "id": "kaalilaatikko",
+      "nimi": "Kasvis-kaalilaatikko",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "uuni",
+        "klassikko",
+        "lapset-ok",
+        "viikonloppu"
+      ],
+      "max_minuutit": 80,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Valkokaali",
+          "maara": 1.2,
+          "yksikko": "kg"
+        },
+        {
+          "nimi": "Puuroriisi",
+          "maara": 2,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Soijarouhe",
+          "maara": 2,
+          "yksikko": "dl",
+          "huom": "liotettuna"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Siirappi",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Meirami",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 2,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Rypsiöljy",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Puolukkahillo",
+          "maara": 1,
+          "yksikko": "prk",
+          "huom": "tarjoiluun"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Keitä riisi puoliksi kypsäksi suolavedessä.",
+        "Suikaloi kaali ja kuullota se öljyssä isossa pannussa 15 min, kunnes se pehmenee ja saa hieman väriä. Lisää siirappi loppuvaiheessa karamellisoitumaan.",
+        "Lisää silputtu sipuli ja liotettu soijarouhe, paista 5 min.",
+        "Sekoita kaaliseos, riisi, meirami, murennetut liemikuutiot ja 3 dl vettä. Mausta.",
+        "Kaada vuokaan ja paista 175 asteessa 45 min. Tarjoile puolukan kanssa."
+      ],
+      "huom": "Kaalin kunnollinen kuullottaminen siirapin kanssa on koko ruoan maku — älä oikaise siinä.",
+      "palaute": []
+    },
+    {
+      "id": "kasvispiiras",
+      "nimi": "Juustoinen kasvispiiras",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "munat",
+        "uuni",
+        "viikonloppu",
+        "lapset-ok"
+      ],
+      "max_minuutit": 55,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Vehnäjauho",
+          "maara": 4,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Voi",
+          "maara": 150,
+          "yksikko": "g",
+          "huom": "kylmänä pohjaan"
+        },
+        {
+          "nimi": "Vesi",
+          "maara": 3,
+          "yksikko": "rkl"
+        },
+        {
+          "nimi": "Kananmuna",
+          "maara": 4,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Ruokakerma",
+          "maara": 3,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 200,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Kesäkurpitsa",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Punasipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Pinaatti",
+          "maara": 100,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Fetajuusto",
+          "maara": 150,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Vihersalaatti",
+          "maara": 1,
+          "yksikko": "pss",
+          "kaytto": "salaatiksi"
+        }
+      ],
+      "ohje": [
+        "Nypi jauhoista, kylmästä voista, ripauksesta suolaa ja vedestä muropohja. Painele piirakkavuokaan ja nosta reunat ylös.",
+        "Esipaista pohjaa 200 asteessa 10 min.",
+        "Kuutioi kasvikset ja kuullota pannulla 5 min, jotta kosteus haihtuu.",
+        "Sekoita täyte: munat, kerma, juustoraaste, suola ja pippuri. Lisää kasvikset ja pinaatti.",
+        "Kaada täyte pohjalle, murustele feta päälle ja paista 175 asteessa 35 min."
+      ],
+      "huom": "Kasvisten kuullottaminen ennen täytettä estää piiraan vetistymisen. Maistuu myös kylmänä eväänä.",
+      "palaute": []
+    },
+    {
+      "id": "uunikasvis-halloumivuoka",
+      "nimi": "Uunikasvikset ja halloumi",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "uuni",
+        "lapset-ok",
+        "viikonloppu",
+        "yhden-pannun"
+      ],
+      "max_minuutit": 45,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Bataatti",
+          "maara": 500,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Punajuuri",
+          "maara": 300,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Porkkana",
+          "maara": 4,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Punasipuli",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kesäkurpitsa",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Halloumi",
+          "maara": 2,
+          "yksikko": "pkt"
+        },
+        {
+          "nimi": "Kikhernesäilyke",
+          "maara": 1,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 0.5,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Hunaja",
+          "maara": 1,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Rosmariini",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kuskus",
+          "maara": 4,
+          "yksikko": "dl"
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Jogurtti",
+          "maara": 2,
+          "yksikko": "dl",
+          "kaytto": "kastikkeeksi"
+        }
+      ],
+      "ohje": [
+        "Kuori ja lohko juurekset tasakokoisiksi paloiksi.",
+        "Sekoita ne pellillä öljyyn, hunajaan, rosmariiniin ja suolaan. Paista 220 asteessa 25 min.",
+        "Lisää pellille kuutioitu halloumi ja valutetut kikherneet, paista vielä 10 min.",
+        "Valmista kuskus: kaada päälle kiehuvaa vettä ja anna turvota 5 min kannen alla.",
+        "Tarjoile kasvikset kuskuksen päällä, valuta pellin paistoliemi mukaan."
+      ],
+      "huom": "Yhden pellin ruoka, jonka voi koota mistä tahansa kaapista löytyvistä juureksista.",
+      "palaute": []
+    },
+    {
+      "id": "taytetyt-paprikat",
+      "nimi": "Täytetyt paprikat",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "uuni",
+        "viikonloppu",
+        "lapset-ok",
+        "kansainvälinen"
+      ],
+      "max_minuutit": 55,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Paprika",
+          "maara": 6,
+          "yksikko": "kpl",
+          "huom": "isoja, tasapohjaisia"
+        },
+        {
+          "nimi": "Riisi",
+          "maara": 3,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Punalinssi",
+          "maara": 2,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Tomaattimurska",
+          "maara": 1,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Juustokumina",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Paprikajauhe",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 200,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Keitä riisi ja linssit yhdessä liemikuutioveden kanssa noin 15 min.",
+        "Halkaise paprikat pituussuunnassa ja poista siemenet. Aseta vuokaan.",
+        "Kuullota sipuli ja valkosipuli, lisää tomaattimurska ja mausteet, hauduta 5 min. Sekoita riisi-linssiseokseen.",
+        "Täytä paprikat, ripottele juustoraaste päälle ja valuta hieman öljyä.",
+        "Paista 200 asteessa 30 min, kunnes paprikat ovat pehmeitä ja juusto ruskistunut."
+      ],
+      "huom": "Puolikkaat paprikat kypsyvät nopeammin ja ovat lapsille helpompi annoskoko kuin kokonaiset.",
+      "palaute": []
+    },
+    {
+      "id": "kasvis-enchiladat",
+      "nimi": "Kasvis-enchiladat",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "uuni",
+        "viikonloppu",
+        "lapset-ok",
+        "meksikolainen",
+        "kansainvälinen"
+      ],
+      "max_minuutit": 50,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Tortillat",
+          "maara": 10,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Mustapapusäilyke",
+          "maara": 2,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Maissisäilyke",
+          "maara": 1,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Tomaattimurska",
+          "maara": 2,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Juustokumina",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Savupaprikajauhe",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oregano",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 300,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Kermaviili",
+          "maara": 1,
+          "yksikko": "prk"
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Vihersalaatti",
+          "maara": 1,
+          "yksikko": "pss",
+          "kaytto": "salaatiksi"
+        }
+      ],
+      "ohje": [
+        "Tee kastike: kuumenna tomaattimurska, puolet mausteista ja 1 dl vettä. Hauduta 10 min ja mausta.",
+        "Paista kuutioitu paprika ja sipuli öljyssä. Lisää valutetut pavut, maissi ja loput mausteista.",
+        "Levitä ohut kerros kastiketta vuoan pohjalle.",
+        "Täytä tortillat papuseoksella ja hieman juustoa, rullaa ja lado vuokaan sauma alaspäin.",
+        "Kaada loput kastikkeesta päälle, ripottele juusto ja paista 200 asteessa 25 min. Tarjoile kermaviilin kanssa."
+      ],
+      "huom": "Voi koota valmiiksi aamulla ja työntää uuniin illalla. Tähteet ovat seuraavana päivänä vielä parempia.",
+      "palaute": []
+    },
+    {
+      "id": "chili-sin-carne",
+      "nimi": "Chili sin carne",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "pata",
+        "lapset-ok",
+        "mieto",
+        "meksikolainen",
+        "kansainvälinen"
+      ],
+      "max_minuutit": 45,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Kidneypapusäilyke",
+          "maara": 2,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Mustapapusäilyke",
+          "maara": 1,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Soijarouhe",
+          "maara": 2,
+          "yksikko": "dl",
+          "huom": "liotettuna, tai härkis"
+        },
+        {
+          "nimi": "Tomaattimurska",
+          "maara": 2,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Maissisäilyke",
+          "maara": 1,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Juustokumina",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Savupaprikajauhe",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kaakaojauhe",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true,
+          "huom": "syventää makua"
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Riisi",
+          "maara": 5,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Kermaviili",
+          "maara": 1,
+          "yksikko": "prk",
+          "kaytto": "lusikallinen päälle"
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 150,
+          "yksikko": "g",
+          "kaytto": "ripottelu"
+        }
+      ],
+      "ohje": [
+        "Kuullota sipuli, paprika ja valkosipuli öljyssä 8 min.",
+        "Lisää liotettu soijarouhe ja mausteet, paista 3 min.",
+        "Lisää tomaattimurska, valutetut pavut, maissi, liemikuutio ja 2 dl vettä.",
+        "Hauduta kannen alla 25 min välillä sekoittaen. Mausta suolalla ja pippurilla.",
+        "Keitä riisi ja tarjoile chilin kanssa."
+      ],
+      "huom": "Ilman chiliä mietona koko perheelle; aikuiset lisäävät tulisuuden lautasella. Ripaus kaakaota tekee mausta pyöreän.",
+      "palaute": []
+    },
+    {
+      "id": "uuniperunat-tayte",
+      "nimi": "Uuniperunat täytteineen",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "uuni",
+        "viikonloppu",
+        "lapset-ok",
+        "helppo"
+      ],
+      "max_minuutit": 70,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Iso jauhoinen peruna",
+          "maara": 10,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Karkea suola",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Rahka",
+          "maara": 400,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Ruohosipuli",
+          "maara": 1,
+          "yksikko": "ruukku"
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 200,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Kikhernesäilyke",
+          "maara": 1,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Mais- ja papusalaatti",
+          "maara": null,
+          "yksikko": null,
+          "huom": "säilykkeistä"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 50,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Vihersalaatti",
+          "maara": 1,
+          "yksikko": "pss",
+          "kaytto": "salaatiksi"
+        }
+      ],
+      "ohje": [
+        "Pese perunat, pistele haarukalla, hiero pintaan öljyä ja karkeaa suolaa.",
+        "Paista 200 asteessa 60 min, kunnes perunat ovat pehmeitä sisältä.",
+        "Sekoita rahkatäyte: rahka, silputtu ruohosipuli, suola ja pippuri.",
+        "Valmista lisätäytteet: valutetut kikherneet, maissi, juustoraaste.",
+        "Halkaise kuumat perunat ristiin, painele auki, lisää voinokare ja anna jokaisen täyttää omansa."
+      ],
+      "huom": "Käytännössä nollavaivainen sunnuntairuoka. Uunin voi laittaa päälle jo ennen ulkoilua.",
+      "palaute": []
+    },
+    {
+      "id": "cannelloni",
+      "nimi": "Ricotta-pinaattitäytteiset cannellonit",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "uuni",
+        "viikonloppu",
+        "italialainen",
+        "kansainvälinen",
+        "kermainen"
+      ],
+      "max_minuutit": 60,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Cannelloni-putket",
+          "maara": 250,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Ricotta",
+          "maara": 500,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Pakastepinaatti",
+          "maara": 400,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Kananmuna",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Parmesaani",
+          "maara": 100,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Tomaattimurska",
+          "maara": 2,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Ruokakerma",
+          "maara": 2,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Mozzarella",
+          "maara": 2,
+          "yksikko": "pkt"
+        },
+        {
+          "nimi": "Muskottipähkinä",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Basilika",
+          "maara": 1,
+          "yksikko": "ruukku"
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Sulata pinaatti ja purista neste tarkasti pois. Sekoita ricottaan, munaan, puoleen parmesaanista, muskottiin ja suolaan.",
+        "Tee tomaattikastike: kuullota valkosipuli öljyssä, lisää tomaattimurska ja hauduta 10 min. Sekoita joukkoon kerma.",
+        "Pursota tai lusikoi täyte cannelloni-putkiin.",
+        "Levitä osa kastikkeesta vuoan pohjalle, lado putket päälle ja kaada loput kastikkeesta päälle niin että putket peittyvät.",
+        "Ripottele mozzarella ja loput parmesaanista päälle. Paista 180 asteessa 35 min foliolla peitettynä, poista folio viimeiseksi 10 minuutiksi."
+      ],
+      "huom": "Kastiketta pitää olla reilusti, koska putket imevät nesteen kypsyessään. Täyttäminen sujuu nopeimmin pursotinpussilla.",
+      "palaute": []
+    },
+    {
+      "id": "uunirisotto",
+      "nimi": "Uunirisotto (herkkusieni-parmesaani)",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "uuni",
+        "lapset-ok",
+        "kermainen",
+        "italialainen",
+        "helppo"
+      ],
+      "max_minuutit": 45,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Risottoriisi",
+          "maara": 5,
+          "yksikko": "dl",
+          "huom": "arborio tai carnaroli"
+        },
+        {
+          "nimi": "Herkkusieni",
+          "maara": 400,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Valkosipulinkynsi",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kasvisliemi",
+          "maara": 1.2,
+          "yksikko": "l",
+          "huom": "liemikuutioista"
+        },
+        {
+          "nimi": "Parmesaani",
+          "maara": 100,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 50,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Ruokakerma",
+          "maara": 1,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Timjami",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Paista viipaloidut sienet ja silputtu sipuli pannulla öljyssä, kunnes neste on haihtunut.",
+        "Lisää riisi ja valkosipuli, sekoita minuutti.",
+        "Siirrä uunivuokaan, kaada kuuma liemi päälle ja sekoita. Peitä foliolla.",
+        "Paista 200 asteessa 30 min. Sekoita kerran puolivälissä.",
+        "Ota uunista, sekoita joukkoon voi, kerma ja raastettu parmesaani. Anna vetäytyä 5 min ja mausta."
+      ],
+      "huom": "Ei jatkuvaa sekoittamista kuten perinteisessä risotossa — uuni hoitaa työn ja lopputulos on yhtä kermainen.",
+      "palaute": []
+    },
+    {
+      "id": "nachovuoka",
+      "nimi": "Nachovuoka uunissa",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "uuni",
+        "lapset-ok",
+        "pe-ruoka",
+        "meksikolainen",
+        "helppo"
+      ],
+      "max_minuutit": 40,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Tortillalastut",
+          "maara": 2,
+          "yksikko": "pss"
+        },
+        {
+          "nimi": "Mustapapusäilyke",
+          "maara": 2,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Maissisäilyke",
+          "maara": 1,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Salsakastike",
+          "maara": 1,
+          "yksikko": "prk"
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 300,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Punasipuli",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Juustokumina",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kermaviili",
+          "maara": 1,
+          "yksikko": "prk"
+        },
+        {
+          "nimi": "Avokado",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Lime",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kevätsipuli",
+          "maara": 3,
+          "yksikko": "kpl"
+        }
+      ],
+      "lisukkeet": [],
+      "ohje": [
+        "Sekoita valutetut pavut, maissi, kuutioitu paprika, salsa ja juustokumina.",
+        "Levitä puolet tortillalastuista uunivuokaan, päälle puolet papuseoksesta ja juustosta.",
+        "Toista kerrokset ja päätä juustoraasteeseen.",
+        "Paista 200 asteessa 15 min, kunnes juusto on sulanut ja kuplii.",
+        "Viimeistele kermaviilillä, avokadolla, punasipulilla, kevätsipulilla ja limemehulla."
+      ],
+      "huom": "Perjantai-illan leffaruoka, jonka voi syödä myös sohvalta. Tarjoile heti, muuten lastut pehmenevät.",
+      "palaute": []
+    },
+    {
+      "id": "riisipuuro-luumukeitto",
+      "nimi": "Riisipuuro ja luumukeitto",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "klassikko",
+        "lapset-ok",
+        "makea",
+        "joulu",
+        "viikonloppu"
+      ],
+      "max_minuutit": 60,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Puuroriisi",
+          "maara": 3,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Maito",
+          "maara": 1.5,
+          "yksikko": "l"
+        },
+        {
+          "nimi": "Vesi",
+          "maara": 5,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 30,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Suola",
+          "maara": 1,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kanelisokeri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true,
+          "huom": "tarjoiluun"
+        },
+        {
+          "nimi": "Kuivattuja luumuja",
+          "maara": 300,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Sokeri",
+          "maara": 1,
+          "yksikko": "dl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Kanelitanko",
+          "maara": 1,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Perunajauho",
+          "maara": 2,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Voisilmä",
+          "maara": null,
+          "yksikko": null,
+          "kaytto": "puuron päälle"
+        }
+      ],
+      "ohje": [
+        "Kiehauta vesi kattilassa, lisää riisi ja keitä 10 min kannen alla.",
+        "Lisää maito ja anna hautua miedolla lämmöllä 40 min välillä sekoittaen. Lisää suola ja voi lopuksi.",
+        "Keitä luumut 6 dl:ssa vettä kanelitangon kanssa 15 min.",
+        "Lisää sokeri, ja suurusta keitto veteen sekoitetulla perunajauholla. Älä keitä suurustuksen jälkeen.",
+        "Tarjoile puuro kanelisokerin ja luumukeiton kanssa."
+      ],
+      "huom": "Sunnuntain hidas ruoka: puuro hautuu itsekseen samalla kun muu askartelu jatkuu. Ylijäänyt puuro käy seuraavan päivän aamiaiseksi.",
+      "palaute": []
+    },
+    {
+      "id": "kasvis-uunipata",
+      "nimi": "Juures-kasvispata uunissa",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "vegaani",
+        "uuni",
+        "pata",
+        "viikonloppu",
+        "syksy"
+      ],
+      "max_minuutit": 70,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Peruna",
+          "maara": 800,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Porkkana",
+          "maara": 4,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Palsternakka",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Lanttu",
+          "maara": 0.5,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Sipuli",
+          "maara": 2,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kikhernesäilyke",
+          "maara": 2,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Tomaattimurska",
+          "maara": 1,
+          "yksikko": "tlk"
+        },
+        {
+          "nimi": "Kasvisliemikuutio",
+          "maara": 2,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Timjami",
+          "maara": 2,
+          "yksikko": "tl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Laakerinlehti",
+          "maara": 2,
+          "yksikko": "kpl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Oliiviöljy",
+          "maara": 3,
+          "yksikko": "rkl",
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        },
+        {
+          "nimi": "Persilja",
+          "maara": 0.5,
+          "yksikko": "ruukku"
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Ruisleipä",
+          "maara": 5,
+          "yksikko": "viipaletta",
+          "kaytto": "padan kanssa"
+        }
+      ],
+      "ohje": [
+        "Kuori ja kuutioi juurekset tasakokoisiksi paloiksi.",
+        "Ruskista sipulit ja juurekset padassa öljyssä 10 min.",
+        "Lisää tomaattimurska, valutetut kikherneet, liemikuutiot, mausteet ja vettä niin että kasvikset lähes peittyvät.",
+        "Kansi päälle ja uuniin 175 asteeseen 50 minuutiksi.",
+        "Tarkista suola ja ripottele persilja päälle. Tarjoile leivän kanssa."
+      ],
+      "huom": "Hidas syyspata, joka paranee seuraavana päivänä. Uunissa se ei pala pohjaan eikä vaadi valvontaa.",
+      "palaute": []
+    },
+    {
+      "id": "uunimunakas",
+      "nimi": "Uunimunakas (frittata) kasviksilla",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "kasvis",
+        "munat",
+        "uuni",
+        "lapset-ok",
+        "helppo",
+        "proteiinia"
+      ],
+      "max_minuutit": 35,
+      "vaikeustaso": "helppo",
+      "ainekset": [
+        {
+          "nimi": "Kananmuna",
+          "maara": 10,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Ruokakerma",
+          "maara": 2,
+          "yksikko": "dl"
+        },
+        {
+          "nimi": "Peruna",
+          "maara": 400,
+          "yksikko": "g",
+          "huom": "keitettyjä, mielellään edellisen päivän"
+        },
+        {
+          "nimi": "Paprika",
+          "maara": 1,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Kirsikkatomaatti",
+          "maara": 200,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Pinaatti",
+          "maara": 100,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Kevätsipuli",
+          "maara": 3,
+          "yksikko": "kpl"
+        },
+        {
+          "nimi": "Juustoraaste",
+          "maara": 200,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Fetajuusto",
+          "maara": 150,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Voi",
+          "maara": 20,
+          "yksikko": "g"
+        },
+        {
+          "nimi": "Suola ja mustapippuri",
+          "maara": null,
+          "yksikko": null,
+          "kaappitavara": true
+        }
+      ],
+      "lisukkeet": [
+        {
+          "nimi": "Vihersalaatti",
+          "maara": 1,
+          "yksikko": "pss",
+          "kaytto": "salaatiksi"
+        },
+        {
+          "nimi": "Ruisleipä",
+          "maara": 5,
+          "yksikko": "viipaletta",
+          "kaytto": "lisukkeeksi"
+        }
+      ],
+      "ohje": [
+        "Vatkaa munat, kerma, suola ja pippuri.",
+        "Viipaloi keitetyt perunat ja lado voideltuun uunivuokaan.",
+        "Levitä päälle kuutioitu paprika, halkaistut tomaatit, pinaatti ja kevätsipuli.",
+        "Kaada munaseos päälle ja ripottele juustoraaste sekä murennettu feta.",
+        "Paista 175 asteessa 25 min, kunnes munaseos on hyytynyt ja pinta kullanruskea. Anna vetäytyä 5 min."
+      ],
+      "huom": "Paras tapa käyttää ylijääneet keitetyt perunat. Maistuu myös kylmänä eväänä seuraavana päivänä.",
       "palaute": []
     }
   ]
