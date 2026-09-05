@@ -750,12 +750,19 @@ def injektoi_viikkojen_paivalliset(
             new_inner = ""
             r = None
 
-            # 1) PLANNED-override (lock) — pakotettu resepti tiettyyn päivään
+            # 1) PLANNED-override (lock) — pakotettu resepti tiettyyn päivään.
+            #    planned[pvm] = null (tai "") = TIETOISESTI TYHJÄ päivä: algoritmi
+            #    ei saa täyttää sitä. Käytetään kun viikko menee suunnitelman ohi
+            #    (esim. ruoat on jo tilattu muun listan mukaan) eikä sivulle haluta
+            #    ehdotuksia joita kukaan ei aio tehdä.
             if target_iso and target_iso in planned:
                 planned_id = planned[target_iso]
-                r = by_id_kaikki.get(planned_id)
-                if not r:
-                    print(f"⚠ planned[{target_iso}] = {planned_id!r} — reseptiä ei löydy")
+                if planned_id in (None, ""):
+                    r = None  # tyhjä solu, ei varoitusta
+                else:
+                    r = by_id_kaikki.get(planned_id)
+                    if not r:
+                        print(f"⚠ planned[{target_iso}] = {planned_id!r} — reseptiä ei löydy")
 
             # 2) Algoritmin valinta — ma-pe + su (la jää tyhjäksi)
             elif dk in ("ma", "ti", "ke", "to", "pe"):
@@ -979,13 +986,17 @@ def injektoi_kesaloma_lounaat(
                 return m.group(1) + new_inner + m.group(3)
 
             html = pattern.sub(repl, html, count=1)
-            if replaced[0] and paivallinen_nimi:
-                nimet.append(f"{dk}={paivallinen_nimi}")
-            else:
+            if not replaced[0]:
+                # Solua ei löytynyt HTML:stä — oikea virhe.
                 print(
                     f"⚠ Lounas-solu {vk_id}-l-{dk} ei löytynyt — "
                     f"sisältöä ei muutettu"
                 )
+            elif paivallinen_nimi:
+                nimet.append(f"{dk}={paivallinen_nimi}")
+            # KORJAUS 5.9.2026: solu löytyi mutta jää tarkoituksella tyhjäksi
+            # (kouluviikon ma–pe lounas) — ei ole virhe eikä siitä varoiteta.
+            # Aiemmin tämä tulosti joka ajolla ~20 harhaanjohtavaa varoitusta.
 
         tulos[vk_id] = nimet
 

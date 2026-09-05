@@ -761,9 +761,12 @@ tr.viikonloppu .plan-day { color: var(--gold-dim); }
         '<input type="number" id="annokset" min="1" max="20" step="1" value="' + annokset + '">' +
         '<span>(resepti ' + perus + ' hengelle)</span>' +
       '</div>' +
-      '<h4>Ainekset</h4><ul class="ing-list">' +
-        (r.ainekset||[]).map(function (a) { return ainesRivi(a, kerroin); }).join("") +
-      '</ul>';
+      // Ainekset-otsikko vain jos aineksia on (esim. Tähteet-päivä on tyhjä)
+      ((r.ainekset||[]).length
+        ? '<h4>Ainekset</h4><ul class="ing-list">' +
+            r.ainekset.map(function (a) { return ainesRivi(a, kerroin); }).join("") +
+          '</ul>'
+        : '');
     if ((r.lisukkeet||[]).length) {
       html += '<h4>Lisukkeet</h4><ul class="ing-list">' +
         r.lisukkeet.map(function (a) { return ainesRivi(a, kerroin); }).join("") + '</ul>';
@@ -809,6 +812,8 @@ tr.viikonloppu .plan-day { color: var(--gold-dim); }
       var rid = plan[pvm] || plannedJson[pvm] || "";
       var r = byId[rid];
       var lukittu = !plan[pvm] && !!plannedJson[pvm];
+      // planned[pvm] = null = viikko menee suunnitelman ohi, päivä on tarkoituksella tyhjä
+      var tyhjaksiMerkitty = !plan[pvm] && (pvm in plannedJson) && !plannedJson[pvm];
       var tr = document.createElement("tr");
       if (i >= 5) tr.className = "viikonloppu";
 
@@ -816,6 +821,8 @@ tr.viikonloppu .plan-day { color: var(--gold-dim); }
       if (r) {
         teksti = esc(r.nimi) + '<span class="aika">⏱ ' + (r.max_minuutit||"?") + ' min</span>';
         if (lukittu) { teksti += '<span class="aika">· jo julkaistu</span>'; slotCls += " locked"; }
+      } else if (tyhjaksiMerkitty) {
+        teksti = "Ei suunnitelmaa — viikko jätetty tyhjäksi"; slotCls += " empty locked";
       } else if (i === 5) {
         teksti = "Viikon ylijäämät"; slotCls += " empty";
       } else {
