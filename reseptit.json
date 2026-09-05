@@ -85,7 +85,32 @@
     "2026-08-19": "saag-paneer",
     "2026-08-20": "soija-bolognese",
     "2026-08-21": "fish-tacos",
-    "2026-08-23": "bibimbap"
+    "2026-08-23": "bibimbap",
+    "2026-09-14": "chili-sin-carne",
+    "2026-09-15": "tahteet",
+    "2026-09-16": "linssidaal",
+    "2026-09-17": "maissi-perunakeitto",
+    "2026-09-18": "nachovuoka",
+    "2026-09-19": "soija-bolognese",
+    "2026-09-20": "kasvis-uunipata",
+    "2026-09-21": "kasvis-paella",
+    "2026-09-22": "tahteet",
+    "2026-09-23": "porkkana-inkivaarikeitto",
+    "2026-09-24": "nasi-goreng",
+    "2026-09-25": "kasvisnakkikeitto",
+    "2026-09-27": "uuniperunat-tayte",
+    "2026-09-28": "linssi-perunapaistos",
+    "2026-09-29": "tahteet",
+    "2026-09-30": "kikherne-tikka-masala",
+    "2026-10-01": "kukkakaali-juustokeitto",
+    "2026-10-02": "papu-burritot",
+    "2026-10-04": "uunimakaroni",
+    "2026-10-05": "kasvislasagne",
+    "2026-10-06": "tahteet",
+    "2026-10-07": "kikhernepata",
+    "2026-10-08": "papupihvit",
+    "2026-10-09": "kotipizza",
+    "2026-10-11": "taytetyt-paprikat"
   },
   "kesaloma": {
     "alku": "2026-06-01",
@@ -10375,6 +10400,30 @@
         "Voitele munalla, ripottele kaurahiutaleet ja paista 225 asteessa 12 min."
       ],
       "huom": "Nostelusämpylät eivät vaadi vaivaamista eivätkä pitkää kohotusta. Illalla paistetut ovat aamulla vielä hyviä; pakasta loput heti jäähtyneinä.",
+      "palaute": []
+    },
+    {
+      "id": "tahteet",
+      "nimi": "Tähteet edellisestä päivästä",
+      "kategoria": "päivällinen",
+      "annoskoko": 5,
+      "tagit": [
+        "tahteet",
+        "edullinen",
+        "helppo",
+        "nopea",
+        "lapset-ok"
+      ],
+      "max_minuutit": 10,
+      "vaikeustaso": "helppo",
+      "ainekset": [],
+      "lisukkeet": [],
+      "ohje": [
+        "Lämmitä edellisen päivän ruoka uunissa, liedellä tai mikrossa.",
+        "Täydennä tuoreella salaatilla, raasteella tai leivällä.",
+        "Jos tähteitä on niukasti, keitä lisäksi pastaa, riisiä tai perunaa."
+      ],
+      "huom": "Säästöpäivä — edellisenä päivänä keitetään tuplasatsi. Ei ostoksia: ostoslista jättää tämän päivän väliin.",
       "palaute": []
     }
   ]

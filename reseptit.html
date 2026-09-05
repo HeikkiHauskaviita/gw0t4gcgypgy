@@ -852,7 +852,8 @@ tr.viikonloppu .plan-day { color: var(--gold-dim); }
   function ehdota(vainTyhjat) {
     var arkiRaja = 35;                 // ma–pe: enintään näin pitkä
     var estaTagitArki = ["viikonloppu","juhla"];
-    var estaTagitAina = ["juhla"];     // juhannusgrilli, hirvikäristys yms. valitaan käsin
+    // juhannusgrilli, hirvikäristys yms. valitaan käsin; tähdepäivä on aina tietoinen valinta
+    var estaTagitAina = ["juhla", "tahteet"];
     var kaytetyt = {};
 
     // Muualla lukitut / äskettäin syödyt pois pelistä
