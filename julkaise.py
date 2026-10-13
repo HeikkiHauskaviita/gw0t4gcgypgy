@@ -738,6 +738,14 @@ def injektoi_viikkojen_paivalliset(
     yhteensa_su = len(viikot)
     su_valinta = valitse(vk_pool, yhteensa_su, vältä_ideja=list(valitut_idt_kaikki))
 
+    # MANUAALITILA (13.10.2026): reseptit.json:n "automaattiehdotukset": false
+    # sammuttaa algoritmin. Vain planned-merkinnät täytetään; muut päivät jäävät
+    # tyhjiksi perheen käsin täytettäviksi (etusivun solut tai reseptit.html:n
+    # suunnittelija). Takaisin päälle: poista avain tai aseta true.
+    if data.get("automaattiehdotukset", True) is False:
+        arki_valinta, su_valinta = [], []
+        print("  Automaattiehdotukset pois päältä (manuaalitila) — vain planned-päivät täytetään")
+
     tulos: dict[str, list[str]] = {}
 
     for vk_idx, viikko in enumerate(viikot):

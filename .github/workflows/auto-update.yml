@@ -68,7 +68,13 @@ jobs:
           # lasketa odotettuihin — muuten yhden tyhjäksi merkityn viikon jälkeen
           # tämä tarkistus kaataisi ajon joka aamu, vaikka mikään ei ole rikki.
           with open("reseptit.json", encoding="utf-8") as f:
-              planned = json.load(f).get("planned", {}) or {}
+              reseptidata = json.load(f)
+          planned = reseptidata.get("planned", {}) or {}
+          # MANUAALITILA (13.10.2026): "automaattiehdotukset": false → algoritmi
+          # ei täytä soluja, joten tyhjät viikot ovat odotettuja eikä niitä tarkisteta.
+          if reseptidata.get("automaattiehdotukset", True) is False:
+              print("✓ Manuaalitila (automaattiehdotukset pois) — täyttötarkistus ohitetaan")
+              sys.exit(0)
           kuluva_ma = date.today() - timedelta(days=date.today().weekday())
           ankkurit = {"w3": kuluva_ma + timedelta(days=7),
                       "w4": kuluva_ma + timedelta(days=14)}

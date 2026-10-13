@@ -1,6 +1,7 @@
 {
   "schema_versio": "1.0",
   "oletus_annoskoko": 5,
+  "automaattiehdotukset": false,
   "planned": {
     "2026-05-11": "kasvis-paella",
     "2026-05-12": "bataatti-kookoskeitto",
